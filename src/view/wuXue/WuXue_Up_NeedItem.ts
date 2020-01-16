@@ -18,7 +18,7 @@ module view.wuXue {
 			} else {
 				this.lab_num.color = '#bf4747';
 			}
-			this.lab_num.text = needNum + '/' + hasNum;
+			this.lab_num.text = needNum + '/' + LangConfig.getBigNumberDes(hasNum);
 
 		}
 	}

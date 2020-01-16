@@ -32,7 +32,7 @@ module view.wuXue {
 			let curLv = skillBaes.subLevel
 
 			let num = 80 * (curLv-1) + ((curLv - 2) * (curLv-1)) / 2 * 135
-			this.lab_getNum.text = num + '';
+			this.lab_getNum.text = LangConfig.getBigNumberDes(num);
 			let itemID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLS_QUALITY_UP_ITEM(configID);
 			let reGetNum = SheetConfig.mydb_magic_tbl.getInstance(null).RETURN_DEBRIS(configID);
 			this.ui_1.setData(itemID, reGetNum);

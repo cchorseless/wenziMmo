@@ -14,7 +14,8 @@ module view.wuXue {
 			this.itemTypeId = 7;
 			let stage = id + 1
 			for (let i in GameApp.GameEngine.bagItemDB) {
-				let o = GameApp.GameEngine.bagItemDB[i];
+				let o= new ProtoCmd.ItemBase();
+				o.clone(GameApp.GameEngine.bagItemDB[i].data)
 				let type = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE(o.dwBaseID);
 				let taolu = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJIESHU(o.dwBaseID);
 				if (type == this.itemTypeId) {
@@ -34,16 +35,18 @@ module view.wuXue {
 			let map = {};
 			let dest = [];
 			for (let i = 0; i < this.tempData.length; i++) {
-				let array = [this.tempData[i].dwBaseID,this.tempData[i].dwCount]
+				let array = [this.tempData[i].dwBaseID, this.tempData[i].dwCount]
 				let ai = this.tempData[i];
+				let aiArr = [ai.dwBaseID, ai.dwCount]
 				if (!map[ai.dwBaseID]) {
 					dest.push(ai);
 					map[ai.dwBaseID] = ai;
 				} else {
 					for (let j = 0; j < dest.length; j++) {
 						let dj = dest[j];
+						let djArr = [dj.dwBaseID, dj.dwCount]
 						if (dj.dwBaseID == ai.dwBaseID) {
-							dj.dwCount = (parseFloat(dj.dwCount) + parseFloat(ai.dwCount)).toString();
+							dj.dwCount += ai.dwCount;
 							break;
 						}
 					}

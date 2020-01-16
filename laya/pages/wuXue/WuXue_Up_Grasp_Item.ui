@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":96,
+    "selectedBox":4,
+    "selecteID":79,
     "props":{"width":510,"sceneColor":"#ffffff","height":520},
     "nodeParent":-1,
     "label":"View",
@@ -467,16 +467,15 @@
                             "props":{"y":45,"x":-12},
                             "nodeParent":79,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":84,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":1,"x":282,"var":"btn_grasp","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"fzxk","labelColors":"#63491a,#63491a,","labelBold":false,"label":"领悟"},
+                                    "props":{"y":1,"x":282,"var":"btn_grasp","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":28,"labelFont":"fzxk","labelColors":"#63491a,#63491a,","labelBold":false,"label":"领悟"},
                                     "nodeParent":84,
                                     "label":"Button(btn_grasp)",
                                     "isDirectory":false,
@@ -488,7 +487,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-5,"x":16,"width":77,"var":"img_bg","height":77},
                                     "nodeParent":84,
@@ -500,7 +498,6 @@
                                     "compId":90,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":5,"x":4,"width":68,"var":"img_icon","height":68},
                                             "nodeParent":90,
@@ -526,7 +523,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"HTMLDivElement",
                                     "props":{"y":44,"x":102,"width":130,"var":"html_cookie_Num","innerHTML":"htmlText","height":20},
                                     "nodeParent":84,
@@ -539,7 +535,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":4,"x":100,"wordWrap":true,"width":156,"var":"lab_cookieName","text":"罗浮刀法碎片","strokeColor":"#63491a","stroke":0.2,"height":20,"fontSize":20,"font":"fzxk","color":"#63491a","alpha":1},
                                     "nodeParent":84,
@@ -551,7 +546,8 @@
                                     "child":[
                                         ],
                                     "$LOCKED":false
-                                }]
+                                }],
+                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 }]

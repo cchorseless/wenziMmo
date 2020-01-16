@@ -69,11 +69,11 @@ module view.wuXue {
 				if (hasNum >= costItemNum) {
 					this.html_cookie_Num.innerHTML = "<span style='color:#63491a;'>(</span>"
 						+ "<span style='color:#38ad32;'>" + costItemNum + "</span>"
-					+"<span style='color:#63491a;'>/" + hasNum + ")</span>"
+					+"<span style='color:#63491a;'>/" + LangConfig.getBigNumberDes(hasNum) + ")</span>"
 				} else {
 					this.html_cookie_Num.innerHTML = "<span style='color:#63491a;'>(</span>"
 						+ "<span style='color:#bf4747;'>" + costItemNum + "</span>"
-					+"<span style='color:#63491a;'>/" + hasNum + ")</span>"
+					+"<span style='color:#63491a;'>/" + LangConfig.getBigNumberDes(hasNum) + ")</span>"
 				}
 
 

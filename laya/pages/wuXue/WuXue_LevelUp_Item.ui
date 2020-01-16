@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":3,
+    "selectedBox":66,
+    "selecteID":88,
     "props":{"width":510,"sceneColor":"#ffffff","height":600},
     "nodeParent":-1,
     "label":"View",
@@ -119,24 +119,26 @@
             "props":{"y":99,"x":0,"var":"box_else"},
             "nodeParent":1,
             "label":"Box(box_else)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":78,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":254,"x":25,"var":"box_lvUp"},
                     "nodeParent":78,
                     "label":"Box(box_lvUp)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":76,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":131,"x":87},
                             "nodeParent":76,
@@ -148,6 +150,7 @@
                             "compId":62,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":6,"x":120,"skin":"image/juQingMode/frame_shuzi.png"},
                                     "nodeParent":62,
@@ -159,6 +162,7 @@
                                     "compId":59,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-6,"x":1,"skin":"image/common/wuxue/icon_zizhi.png"},
                                             "nodeParent":59,
@@ -171,6 +175,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":1,"x":46,"wordWrap":true,"width":110,"var":"lab_haveNum","text":"12333265","strokeColor":"#63491a","stroke":0.2,"height":26,"fontSize":24,"font":"fzxk","color":"#ffffff"},
                                             "nodeParent":59,
@@ -185,6 +190,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":6,"wordWrap":true,"width":132,"text":"当前持有：","strokeColor":"#63491a","stroke":0.2,"height":26,"fontSize":26,"font":"fzxk","color":"#000000"},
                                     "nodeParent":62,
@@ -199,6 +205,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{},
                             "nodeParent":76,
@@ -210,6 +217,7 @@
                             "compId":75,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{},
                                     "nodeParent":75,
@@ -221,6 +229,7 @@
                                     "compId":67,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{},
                                             "nodeParent":67,
@@ -232,6 +241,7 @@
                                             "compId":66,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":5,"x":0,"wordWrap":true,"width":62,"text":"需求:","strokeColor":"#63491a","stroke":0.2,"height":24,"fontSize":24,"font":"fzxk","color":"#000000"},
                                                     "nodeParent":66,
@@ -245,6 +255,7 @@
                                                     "$LOCKED":false
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"y":6,"x":58,"width":142,"skin":"image/juQingMode/frame_shuzi.png"},
                                                     "nodeParent":66,
@@ -256,6 +267,7 @@
                                                     "compId":63,
                                                     "child":[
                                                         {
+                                                            "x":105,
                                                             "type":"Image",
                                                             "props":{"y":-6,"x":1,"skin":"image/common/wuxue/icon_zizhi.png"},
                                                             "nodeParent":63,
@@ -268,6 +280,7 @@
                                                                 ]
                                                         },
                                                         {
+                                                            "x":105,
                                                             "type":"Label",
                                                             "props":{"y":2,"x":46,"wordWrap":true,"width":84,"var":"lab_lvup_five_times","text":"123332","strokeColor":"#63491a","stroke":0.2,"height":22,"fontSize":22,"font":"fzxk","color":"#ffffff","align":"left"},
                                                             "nodeParent":63,
@@ -282,8 +295,9 @@
                                                         }]
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Button",
-                                                    "props":{"y":46,"x":14,"var":"btn_five","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"fzxk","labelColors":"#63491a,#63491a,","labelBold":true,"label":"升级5次"},
+                                                    "props":{"y":46,"x":14,"var":"btn_five","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":28,"labelFont":"fzxk","labelColors":"#63491a,#63491a,","labelBold":true,"label":"升级5次"},
                                                     "nodeParent":66,
                                                     "label":"Button(btn_five)",
                                                     "isDirectory":false,
@@ -297,6 +311,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"x":248},
                                     "nodeParent":75,
@@ -308,6 +323,7 @@
                                     "compId":68,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":0,"x":9},
                                             "nodeParent":68,
@@ -319,6 +335,7 @@
                                             "compId":70,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":5,"x":0,"wordWrap":true,"width":60,"text":"需求:","strokeColor":"#63491a","stroke":0.2,"height":24,"fontSize":24,"font":"fzxk","color":"#000000"},
                                                     "nodeParent":70,
@@ -332,6 +349,7 @@
                                                     "$LOCKED":false
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"y":6,"x":58,"width":142,"skin":"image/juQingMode/frame_shuzi.png"},
                                                     "nodeParent":70,
@@ -343,6 +361,7 @@
                                                     "compId":72,
                                                     "child":[
                                                         {
+                                                            "x":105,
                                                             "type":"Image",
                                                             "props":{"y":-6,"x":1,"skin":"image/common/wuxue/icon_zizhi.png"},
                                                             "nodeParent":72,
@@ -355,6 +374,7 @@
                                                                 ]
                                                         },
                                                         {
+                                                            "x":105,
                                                             "type":"Label",
                                                             "props":{"y":3,"x":46,"wordWrap":true,"width":84,"var":"lab_lvup_cost","text":"123332","strokeColor":"#63491a","stroke":0.2,"height":22,"fontSize":22,"font":"fzxk","color":"#ffffff","align":"left"},
                                                             "nodeParent":72,
@@ -369,8 +389,9 @@
                                                         }]
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Button",
-                                                    "props":{"y":46,"x":16,"var":"btn_one","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","labelBold":true,"label":"升级1次"},
+                                                    "props":{"y":46,"x":16,"var":"btn_one","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":28,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","labelBold":true,"label":"升级1次"},
                                                     "nodeParent":70,
                                                     "label":"Button(btn_one)",
                                                     "isDirectory":false,
@@ -387,6 +408,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"var":"box_content"},
                     "nodeParent":78,
@@ -398,6 +420,7 @@
                     "compId":77,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":47,"width":510,"var":"img_content","skin":"image/fuben/shadow_fanye.png","sizeGrid":"11,8,11,15","height":190},
                             "nodeParent":77,
@@ -409,6 +432,7 @@
                             "compId":42,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"HTMLDivElement",
                                     "props":{"y":4,"x":50,"width":407,"var":"html_powe","innerHTML":"htmlText","height":30},
                                     "nodeParent":42,
@@ -421,6 +445,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":115,"x":38,"skin":"image/common/wuxue/line_01.png"},
                                     "nodeParent":42,
@@ -433,6 +458,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":76,"x":38,"skin":"image/common/wuxue/line_01.png"},
                                     "nodeParent":42,
@@ -445,6 +471,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":154,"x":38,"skin":"image/common/wuxue/line_01.png"},
                                     "nodeParent":42,
@@ -457,6 +484,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":37,"x":38,"skin":"image/common/wuxue/line_01.png"},
                                     "nodeParent":42,
@@ -469,6 +497,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":37,"x":34,"var":"box_NotmaxLv"},
                                     "nodeParent":42,
@@ -480,6 +509,7 @@
                                     "compId":82,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":7,"x":267,"width":71,"var":"lab_nextLv","text":"LV.10","height":26,"fontSize":26,"font":"fzxk","color":"#38ad32"},
                                             "nodeParent":82,
@@ -492,6 +522,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":41,"x":191,"skin":"image/juese/arrow02_common.png"},
                                             "nodeParent":82,
@@ -504,6 +535,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":81,"x":191,"skin":"image/juese/arrow02_common.png"},
                                             "nodeParent":82,
@@ -516,6 +548,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"x":191,"skin":"image/juese/arrow02_common.png"},
                                             "nodeParent":82,
@@ -528,6 +561,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"HBox",
                                             "props":{"y":44,"x":-21,"width":200,"height":30},
                                             "nodeParent":82,
@@ -539,6 +573,7 @@
                                             "compId":89,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"UIView",
                                                     "source":"wuXue/WuXue_Skill_Effect_item.ui",
                                                     "props":{"y":0,"var":"ui_eff0","runtime":"view.wuXue.WuXue_Skill_Effect_item","right":0},
@@ -553,6 +588,7 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"UIView",
                                             "source":"wuXue/WuXue_Skill_Effect_item.ui",
                                             "props":{"y":47,"x":261,"var":"ui_nexteff0","runtime":"view.wuXue.WuXue_Skill_Effect_item"},
@@ -566,6 +602,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"UIView",
                                             "source":"wuXue/WuXue_Skill_Effect_item.ui",
                                             "props":{"y":81,"x":261,"var":"ui_nexteff1","runtime":"view.wuXue.WuXue_Skill_Effect_item"},
@@ -579,6 +616,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"HBox",
                                             "props":{"y":84,"x":-21,"width":200,"height":30},
                                             "nodeParent":82,
@@ -590,6 +628,7 @@
                                             "compId":90,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"UIView",
                                                     "source":"wuXue/WuXue_Skill_Effect_item.ui",
                                                     "props":{"y":0,"var":"ui_eff1","runtime":"view.wuXue.WuXue_Skill_Effect_item","right":0},
@@ -606,6 +645,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":162,"x":34,"width":453,"var":"lab_tips","text":"基本刀剑需要等级达到40级","height":20,"fontSize":20,"font":"fzxk","color":"#903f14","align":"center"},
                                     "nodeParent":42,
@@ -619,6 +659,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":44,"x":137,"var":"box_max"},
                                     "nodeParent":42,
@@ -630,6 +671,7 @@
                                     "compId":86,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"x":128,"width":142,"text":"技能已满级","height":26,"fontSize":26,"font":"fzxk","color":"#bf8247","align":"center"},
                                             "nodeParent":86,
@@ -642,6 +684,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"UIView",
                                             "source":"wuXue/WuXue_Skill_Effect_item.ui",
                                             "props":{"y":36,"x":16,"var":"ui_max0","runtime":"view.wuXue.WuXue_Skill_Effect_item"},
@@ -655,6 +698,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"UIView",
                                             "source":"wuXue/WuXue_Skill_Effect_item.ui",
                                             "props":{"y":76,"x":16,"var":"ui_max1","runtime":"view.wuXue.WuXue_Skill_Effect_item"},
@@ -670,6 +714,7 @@
                                     "$HIDDEN":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":44,"x":137,"width":71,"var":"lab_curLv","text":"LV.10","height":26,"fontSize":26,"font":"fzxk","color":"#63491a","align":"center"},
                                     "nodeParent":42,
@@ -684,6 +729,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"x":43,"var":"img_title","skin":"image/common/img_title_02.png"},
                             "nodeParent":77,
@@ -709,6 +755,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":292,"x":164,"var":"btn_max","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","labelBold":true,"label":"前往升阶"},
                     "nodeParent":78,

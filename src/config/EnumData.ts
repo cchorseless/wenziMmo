@@ -211,6 +211,8 @@ module EnumData {
         ITEMCELLTYPE_PACKAGE = 3,			// 包裹
         ITEMCELLTYPE_SOLDITEM = 4,			// 已出售物品
         ITEMCELLTYPE_LINGSHBAOGUO = 5,		// 临时包裹
+        ITEMCELLTYPE_SKILLITEM = 7,		// 技能包裹
+        
         //-----
         ITEMCELLTYPE_PLAYER_EQUIP = 50,		    //人物战装(类型区分,不是实际包裹)
         ITEMCELLTYPE_PLAYER_LEGENDEQUIP = 51,	//人物神装(类型区分,不是实际包裹)
