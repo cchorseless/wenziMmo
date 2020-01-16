@@ -21,7 +21,7 @@ module view.scene {
 			// 龙骨
 			let configID = '' + this.item.feature.dwCretTypeId;
 			let skePath
-			this.lab_LV.text = 'LV.' + this.item.level;
+			// this.lab_LV.text = 'LV.' + this.item.level;
 			// this.addMonster(monsterObj);
 			// this.img_bg.skin = 'image/main/frame_boss_03.png'
 			let wuxing = SheetConfig.mydb_monster_tbl.getInstance(null).WUXINGPROPS(configID)

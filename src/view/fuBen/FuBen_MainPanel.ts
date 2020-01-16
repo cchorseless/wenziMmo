@@ -256,6 +256,15 @@ module view.fuBen {
 				})
 				lcp.send(pkt);
 			}
+			this.btn_last.gray = false;
+			this.btn_next.gray = false;
+			let cha = charpterID - 10001;
+			if (cha == 0) {
+				this.btn_last.gray = true;
+			}
+			if (charpterID == GameApp.MainPlayer.charpterID) {
+				this.btn_next.gray = true;
+			}
 			if (this.isFirst) {
 				this.box_info.x = -num * this.panel_fubenInfo.width;
 				this.isFirst = false;

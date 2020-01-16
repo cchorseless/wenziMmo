@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":43,
-    "selecteID":45,
+    "selectedBox":82,
+    "selecteID":83,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -29,20 +29,47 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":105,"x":0,"width":640,"var":"box_view","height":1031},
+            "props":{"y":25,"x":0,"var":"box_view"},
             "nodeParent":1,
             "label":"Box(box_view)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":78,
+            "compId":82,
             "child":[
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"skin":"image/fuben/img_common_zhuangshi02.png"},
-                    "nodeParent":78,
+                    "props":{"skin":"image/main/main_tansuo/img_title.png"},
+                    "nodeParent":82,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":80,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":53,"x":71,"width":129,"text":"缉拿","stroke":4,"height":33,"fontSize":30,"font":"HWXK","color":"#ffffff"},
+                            "nodeParent":80,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":81,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":80,"skin":"image/fuben/img_common_zhuangshi02.png"},
+                    "nodeParent":82,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -54,23 +81,22 @@
                 },
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":33,"x":237,"skin":"image/fuben/zi_jinaxuanshang.png"},
-                    "nodeParent":78,
-                    "label":"Image",
+                    "type":"Label",
+                    "props":{"y":115,"x":240,"width":160,"var":"lbl_bossName","text":"桃根仙啊","height":40,"fontSize":40,"font":"HWXK","color":"#ffe996","align":"center"},
+                    "nodeParent":82,
+                    "label":"Label(lbl_bossName)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":5,
+                    "compId":83,
                     "child":[
-                        ],
-                    "$HIDDEN":false
+                        ]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":92,"width":640,"skin":"image/fuben/box_common_03.png","sizeGrid":"0,22,0,22","height":916},
-                    "nodeParent":78,
+                    "props":{"y":172,"width":640,"skin":"image/fuben/box_common_03.png","sizeGrid":"0,22,0,22","height":916},
+                    "nodeParent":82,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -83,8 +109,8 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":103,"x":17,"width":603,"skin":"image/fuben/box_common_02.png","sizeGrid":"50,49,57,46","height":342},
-                    "nodeParent":78,
+                    "props":{"y":183,"x":17,"width":603,"skin":"image/fuben/box_common_02.png","sizeGrid":"50,49,57,46","height":342},
+                    "nodeParent":82,
                     "label":"Image",
                     "isOpen":true,
                     "isDirectory":false,
@@ -98,8 +124,8 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":119,"x":25,"skin":"image/fuben/img_jn_BOSSbanshenxiangdi.png"},
-                    "nodeParent":78,
+                    "props":{"y":199,"x":25,"skin":"image/fuben/img_jn_BOSSbanshenxiangdi.png"},
+                    "nodeParent":82,
                     "label":"Image",
                     "isOpen":false,
                     "isDirectory":true,
@@ -150,8 +176,8 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":118,"x":219,"width":389,"skin":"image/juQingMode/shadow_tanchuang.png","height":69},
-                    "nodeParent":78,
+                    "props":{"y":198,"x":219,"width":389,"skin":"image/juQingMode/shadow_tanchuang.png","height":69},
+                    "nodeParent":82,
                     "label":"Image",
                     "isOpen":true,
                     "isDirectory":false,
@@ -164,8 +190,8 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":118,"x":225,"wordWrap":true,"width":377,"var":"lbl_des","leading":5,"height":65,"fontSize":22,"font":"fzxk","color":"#4e3429"},
-                    "nodeParent":78,
+                    "props":{"y":198,"x":225,"wordWrap":true,"width":377,"var":"lbl_des","leading":5,"height":65,"fontSize":22,"font":"fzxk","color":"#4e3429"},
+                    "nodeParent":82,
                     "label":"Label(lbl_des)",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -178,8 +204,8 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":199,"x":220,"width":111,"skin":"image/common/login/img_zhuangshi_03.png","height":17},
-                    "nodeParent":78,
+                    "props":{"y":279,"x":220,"width":111,"skin":"image/common/login/img_zhuangshi_03.png","height":17},
+                    "nodeParent":82,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -191,8 +217,8 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":193,"x":354,"text":"概率掉落","height":26,"fontSize":30,"font":"HWXK","color":"#000000"},
-                    "nodeParent":78,
+                    "props":{"y":273,"x":354,"text":"概率掉落","height":26,"fontSize":30,"font":"HWXK","color":"#000000"},
+                    "nodeParent":82,
                     "label":"Label",
                     "isOpen":true,
                     "isDirectory":false,
@@ -206,8 +232,8 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":199,"x":605,"width":111,"skin":"image/common/login/img_zhuangshi_03.png","scaleX":-1,"height":17},
-                    "nodeParent":78,
+                    "props":{"y":279,"x":605,"width":111,"skin":"image/common/login/img_zhuangshi_03.png","scaleX":-1,"height":17},
+                    "nodeParent":82,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -219,8 +245,8 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"y":230,"x":232,"width":367,"var":"panel_item","height":155},
-                    "nodeParent":78,
+                    "props":{"y":310,"x":232,"width":367,"var":"panel_item","height":155},
+                    "nodeParent":82,
                     "label":"Panel(panel_item)",
                     "isOpen":true,
                     "isDirectory":false,
@@ -233,8 +259,8 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":395,"x":36,"width":142,"skin":"image/juQingMode/frame_zhanli.png","height":33},
-                    "nodeParent":78,
+                    "props":{"y":475,"x":36,"width":142,"skin":"image/juQingMode/frame_zhanli.png","height":33},
+                    "nodeParent":82,
                     "label":"Image",
                     "isOpen":false,
                     "isDirectory":true,
@@ -271,8 +297,8 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":401,"x":230,"width":80,"text":"倒计时：","height":22,"fontSize":20,"font":"FZXK","color":"#63491a"},
-                    "nodeParent":78,
+                    "props":{"y":481,"x":230,"width":80,"text":"倒计时：","height":22,"fontSize":20,"font":"FZXK","color":"#63491a"},
+                    "nodeParent":82,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -284,8 +310,8 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":401,"x":301,"width":53,"var":"lbl_time","text":"29:30","height":18,"fontSize":20,"font":"FZXK","color":"#c43939"},
-                    "nodeParent":78,
+                    "props":{"y":481,"x":301,"width":53,"var":"lbl_time","text":"29:30","height":18,"fontSize":20,"font":"FZXK","color":"#c43939"},
+                    "nodeParent":82,
                     "label":"Label(lbl_time)",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -298,8 +324,8 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":401,"x":414,"width":100,"text":"挑战等级：","height":20,"fontSize":20,"font":"FZXK","color":"#63491a"},
-                    "nodeParent":78,
+                    "props":{"y":481,"x":414,"width":100,"text":"挑战等级：","height":20,"fontSize":20,"font":"FZXK","color":"#63491a"},
+                    "nodeParent":82,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -311,8 +337,8 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":401,"x":499,"width":70,"var":"lbl_lvl","text":"1转100","height":20,"fontSize":20,"font":"FZXK","color":"#63491a","align":"center"},
-                    "nodeParent":78,
+                    "props":{"y":481,"x":499,"width":70,"var":"lbl_lvl","text":"1转100","height":20,"fontSize":20,"font":"FZXK","color":"#63491a","align":"center"},
+                    "nodeParent":82,
                     "label":"Label(lbl_lvl)",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -325,8 +351,8 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":482,"x":320,"width":178,"var":"btn_go","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#a9643b","labelSize":28,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a,#761a1a","label":"前 往","height":62,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":78,
+                    "props":{"y":562,"x":320,"width":178,"var":"btn_go","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#a9643b","labelSize":28,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a,#761a1a","label":"前 往","height":62,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":82,
                     "label":"Button(btn_go)",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -339,8 +365,8 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":531,"x":71,"skin":"image/juQingMode/img_title.png"},
-                    "nodeParent":78,
+                    "props":{"y":611,"x":71,"skin":"image/juQingMode/img_title.png"},
+                    "nodeParent":82,
                     "label":"Image",
                     "isOpen":false,
                     "isDirectory":true,
@@ -365,8 +391,8 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":585,"x":19,"width":600,"skin":"image/juQingMode/shadow_tanchuang.png","height":335},
-                    "nodeParent":78,
+                    "props":{"y":665,"x":19,"width":600,"skin":"image/juQingMode/shadow_tanchuang.png","height":335},
+                    "nodeParent":82,
                     "label":"Image",
                     "isOpen":true,
                     "isDirectory":false,
@@ -380,8 +406,8 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":734,"x":598,"var":"img_right","skin":"image/common/icon_001.png"},
-                    "nodeParent":78,
+                    "props":{"y":814,"x":598,"var":"img_right","skin":"image/common/icon_001.png"},
+                    "nodeParent":82,
                     "label":"Image(img_right)",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -393,8 +419,8 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":734,"x":41,"var":"img_left","skin":"image/common/icon_001.png","scaleX":-1},
-                    "nodeParent":78,
+                    "props":{"y":814,"x":41,"var":"img_left","skin":"image/common/icon_001.png","scaleX":-1},
+                    "nodeParent":82,
                     "label":"Image(img_left)",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -406,8 +432,8 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"y":595,"x":41,"width":554,"var":"panel_boss","height":314},
-                    "nodeParent":78,
+                    "props":{"y":675,"x":41,"width":554,"var":"panel_boss","height":314},
+                    "nodeParent":82,
                     "label":"Panel(panel_boss)",
                     "isOpen":true,
                     "isDirectory":true,
@@ -432,17 +458,16 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":967,"width":640,"height":64,"bottom":0},
-                    "nodeParent":78,
+                    "props":{"y":1047,"width":640,"height":64,"bottom":0},
+                    "nodeParent":82,
                     "label":"Box",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":43,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"skin":"image/main/main_zonglan/bottom_mainicon.png"},
                             "nodeParent":43,
@@ -455,7 +480,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":590,"width":113,"var":"btn_back","stateNum":2,"skin":"image/main/icon_fanhui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":43,
@@ -470,7 +494,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":78,"width":111,"var":"btn_juqing","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"剧情","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":43,
@@ -485,7 +508,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":203,"width":111,"var":"btn_res","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"资源","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":43,
@@ -500,7 +522,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":326,"width":111,"var":"btn_xinmo","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"心魔","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":43,
@@ -515,7 +536,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":453,"width":111,"var":"btn_jina","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"缉拿","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":43,
