@@ -10,6 +10,7 @@ module view.wuXue {
 			this.addEvent();
 		}
 		public setData(id) {
+			this.tempData = [];
 			this.itemTypeId = 7;
 			let stage = id + 1
 			for (let i in GameApp.GameEngine.bagItemDB) {
@@ -20,18 +21,39 @@ module view.wuXue {
 					if (taolu == stage) {
 						this.tempData.push(o)
 					}
-
 				}
 			}
+
 			this.setPanelShow()
 		}
 		public setPanelShow() {
 			if (this.tempData.length < 1) {
+				this.box_empty.visible = true;
 				return;
 			}
+			let map = {};
+			let dest = [];
 			for (let i = 0; i < this.tempData.length; i++) {
+				let array = [this.tempData[i].dwBaseID,this.tempData[i].dwCount]
+				let ai = this.tempData[i];
+				if (!map[ai.dwBaseID]) {
+					dest.push(ai);
+					map[ai.dwBaseID] = ai;
+				} else {
+					for (let j = 0; j < dest.length; j++) {
+						let dj = dest[j];
+						if (dj.dwBaseID == ai.dwBaseID) {
+							dj.dwCount = (parseFloat(dj.dwCount) + parseFloat(ai.dwCount)).toString();
+							break;
+						}
+					}
+				}
+			};
+			console.log('????????', dest)
+			this.box_empty.visible = false;
+			for (let i = 0; i < dest.length; i++) {
 				let o = new WuXue_MiJi_VS_Info_Item();
-				o.setData(this.tempData[i]);
+				o.setData(dest[i]);
 				this.vbox_show.addChild(o);
 			}
 		}

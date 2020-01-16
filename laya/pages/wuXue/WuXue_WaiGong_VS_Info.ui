@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":49,
+    "selecteID":39,
     "props":{"width":585,"sceneColor":"#ffffff","height":814},
     "nodeParent":-1,
     "label":"View",
@@ -178,14 +178,13 @@
                     "props":{"y":379,"x":31,"width":521,"var":"panel_skill","height":418},
                     "nodeParent":2,
                     "label":"Panel(panel_skill)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":10,
                     "child":[
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"wuXue/WuXue_logoWithNameItem.ui",
                             "props":{"y":64,"x":48,"var":"ui_0","runtime":"view.wuXue.WuXue_logoWithNameItem"},
@@ -199,7 +198,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"wuXue/WuXue_logoWithNameItem.ui",
                             "props":{"y":64,"x":190,"var":"ui_1","runtime":"view.wuXue.WuXue_logoWithNameItem"},
@@ -213,7 +211,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"wuXue/WuXue_logoWithNameItem.ui",
                             "props":{"y":64,"x":333,"var":"ui_2","runtime":"view.wuXue.WuXue_logoWithNameItem"},
@@ -227,7 +224,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"wuXue/WuXue_logoWithNameItem.ui",
                             "props":{"y":64,"x":475,"var":"ui_3","runtime":"view.wuXue.WuXue_logoWithNameItem"},
@@ -241,7 +237,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"wuXue/WuXue_logoWithNameItem.ui",
                             "props":{"y":196,"x":48,"var":"ui_4","runtime":"view.wuXue.WuXue_logoWithNameItem"},
@@ -255,7 +250,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"wuXue/WuXue_logoWithNameItem.ui",
                             "props":{"y":196,"x":190,"var":"ui_5","runtime":"view.wuXue.WuXue_logoWithNameItem"},
@@ -269,7 +263,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"wuXue/WuXue_logoWithNameItem.ui",
                             "props":{"y":196,"x":333,"var":"ui_6","runtime":"view.wuXue.WuXue_logoWithNameItem"},
@@ -283,7 +276,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"wuXue/WuXue_logoWithNameItem.ui",
                             "props":{"y":196,"x":475,"var":"ui_7","runtime":"view.wuXue.WuXue_logoWithNameItem"},
@@ -297,7 +289,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"wuXue/WuXue_logoWithNameItem.ui",
                             "props":{"y":327,"x":48,"var":"ui_8","runtime":"view.wuXue.WuXue_logoWithNameItem"},
@@ -311,7 +302,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"wuXue/WuXue_logoWithNameItem.ui",
                             "props":{"y":327,"x":190,"var":"ui_9","runtime":"view.wuXue.WuXue_logoWithNameItem"},
@@ -325,7 +315,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"wuXue/WuXue_logoWithNameItem.ui",
                             "props":{"y":327,"x":333,"var":"ui_10","runtime":"view.wuXue.WuXue_logoWithNameItem"},
@@ -339,7 +328,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"wuXue/WuXue_logoWithNameItem.ui",
                             "props":{"y":327,"x":475,"var":"ui_11","runtime":"view.wuXue.WuXue_logoWithNameItem"},
@@ -357,7 +345,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":296,"x":166,"width":140,"var":"btn_develop","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","pivotY":29.5,"pivotX":73,"labelStrokeColor":"#a9643b","labelSize":20,"labelFont":"fzxk","labelColors":"#764a1a,#55310b","label":"套路等级培养","height":55},
+                    "props":{"y":296,"x":166,"width":140,"var":"btn_develop","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","pivotY":29.5,"pivotX":73,"labelStrokeColor":"#a9643b","labelSize":20,"labelFont":"FZXK","labelColors":"#764a1a,#55310b","label":"套路等级培养","height":55},
                     "nodeParent":2,
                     "label":"Button(btn_develop)",
                     "isDirectory":false,
@@ -482,6 +470,45 @@
                     "compId":48,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":375,"x":36,"var":"box_empty"},
+                    "nodeParent":2,
+                    "label":"Box(box_empty)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":50,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":0,"x":255,"skin":"image/common/nv02_half.png"},
+                            "nodeParent":50,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":51,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":105,"x":94,"width":182,"text":"暂无技能","height":58,"fontSize":35,"font":"hwxk","color":"#c43939","align":"right"},
+                            "nodeParent":50,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":52,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$LOCKED":true
         }],
