@@ -240,4 +240,16 @@ public static getInstance(data): mydb_effect_base_tbl { let Class:any=this;if(!C
  *  生命万分比
  */
  public NONPAREIL_TYPE_MAXCOUNT(configID):number { return this.data[configID][59]}
+/**
+ *  攻击万分比
+ */
+ public ATK_PROPS(configID):number { return this.data[configID][60]}
+/**
+ *  物理防御万分比
+ */
+ public PHYDEF_PROS(configID):number { return this.data[configID][61]}
+/**
+ *  魔法防御万分比
+ */
+ public MAGDEF_PROS(configID):number { return this.data[configID][62]}
 }}
