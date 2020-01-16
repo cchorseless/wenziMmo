@@ -14,12 +14,15 @@ module view.scene {
 			this.item = item;
 			item.ui_item = this;
 			this.lbl_name.text = this.item.objName;
-			// this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 			// 龙骨
 			let configID = '' + this.item.feature.dwCretTypeId;
 			let skePath
 			// this.addMonster(monsterObj);
 			skePath = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + configID);
+			if (skePath==EnumData.emMonsterType._MON_TYPE_COLLECT_){
+				this.img_type.visible = true;
+				this.img_type.skin='image/common/daoju/itemicon_0.png';
+			}
 			this.img_icon.skin = 'image/common/npc/npc_half_' + skePath + '.png'
 			this.addEvent();
 		}
@@ -68,6 +71,7 @@ module view.scene {
 		}
 		public init_npc(data: GameObject.Npc): void {
 			this.img_type.visible = true;
+			this.img_type.skin='image/common/icon_common_shezhi.png';
 			this.img_icon.skin = 'image/common/img_danLu.png';
 			this.lbl_name.text = data.objName;
 			this.type = 1;

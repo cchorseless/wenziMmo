@@ -6,7 +6,8 @@ module view.fuBen {
 		public curTimes;
 		public maxTimes;
 		public isOpen = false;
-
+		//是否是初始化
+		public isFirst = true;
 		public showPZID;//当前篇章的ID；
 		public showZJID;//当前章节的ID；
 		public minzjID; //当前篇章中最小章节ID
@@ -255,7 +256,12 @@ module view.fuBen {
 				})
 				lcp.send(pkt);
 			}
-			Laya.Tween.to(this.box_info, { x: -num * this.panel_fubenInfo.width }, 350);
+			if (this.isFirst) {
+				this.box_info.x = -num * this.panel_fubenInfo.width;
+				this.isFirst = false;
+			} else {
+				Laya.Tween.to(this.box_info, { x: -num * this.panel_fubenInfo.width }, 350);
+			}
 		}
 
 		public selectedCeng: number;

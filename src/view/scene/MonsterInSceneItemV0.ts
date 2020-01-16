@@ -18,7 +18,6 @@ module view.scene {
 				this.lbl_name.fontSize = 20
 			}
 			this.lbl_name.text = name;
-			// this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 			// 龙骨
 			let configID = '' + this.item.feature.dwCretTypeId;
 			let skePath

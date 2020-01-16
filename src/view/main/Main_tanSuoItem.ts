@@ -175,12 +175,12 @@ module view.main {
 			for (let i in allPlayer) {
 				num += 1;
 			}
-			// if (num <= 50) {
-			// 	this.vbox_sceneDes.addChild(label);
-			// } else {
-			this.intoInfo.push(label);
-			Laya.timer.loop(500, this, this.upDataIntoInfo);
-			// }
+			if (num <= 50) {
+				this.vbox_sceneDes.addChild(label);
+			} else {
+				this.intoInfo.push(label);
+				Laya.timer.loop(500, this, this.upDataIntoInfo);
+			}
 			this.panel_sceneDes.scrollTo(0, this.panel_sceneDes.contentHeight);
 		}
 		/**
@@ -217,7 +217,7 @@ module view.main {
 								for (let inx in taskInfo) {
 									//目标怪物
 									let id = GameUtil.taskTargetByString(taskInfo[inx].targetdes);
-									if (id != 0&&box_mon.item) {
+									if (id != 0 && box_mon.item) {
 										if (box_mon.item.feature.dwCretTypeId == id) {
 											istarget = true;
 										}
