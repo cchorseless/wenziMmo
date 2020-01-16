@@ -42,7 +42,6 @@ module view.npc {
 
 		public initUI(): void {
 			this.lbl_npcName.text = '' + this.item.objName;
-			this.img_tips.visible = false;
 			// 任务状态
 			switch (this.item.taskState) {
 				//无任务
@@ -76,8 +75,6 @@ module view.npc {
 			} else {
 				this.img_bg.skin = "image/main/frame_npc_02.png"
 			}
-
-			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 		}
 		/**
 		 * 新服活动-全民BOSS
@@ -88,8 +85,6 @@ module view.npc {
 			this.img_avatarPic.skin = 'image/common/npc/npc_icon_' + img_allBoss + '.png';
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + id);
 			this.lbl_npcName.text = '' + name;
-			this.img_tips.visible = false;
-			this.lbl_zuoBiao.visible = false;
 			return this;
 		}
 	}

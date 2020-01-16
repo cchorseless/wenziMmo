@@ -14,7 +14,6 @@ module view.scene {
 			this.item = item;
 			item.ui_item = this;
 			this.lbl_name.text = this.item.objName;
-			// this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 			// 龙骨
 			let configID = '' + this.item.feature.dwCretTypeId;
 			let skePath
