@@ -4,6 +4,8 @@ module view.wuXue{
 		constructor(){
 			super();
 		}
-		public 
+		public setData(str){
+			
+		}
 	}
 }

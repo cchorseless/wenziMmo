@@ -10,7 +10,7 @@ module view.wuXue {
 			let icon = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(id);
 			this.img_icon.skin = 'image/common/daoju/itemicon_' + icon + '.png';
 			this.lab_name.text = itemname;
-			this.lab_num.text = num + '';
+			this.lab_num.text = LangConfig.getBigNumberDes(num);
 		}
 	}
 }

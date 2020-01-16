@@ -6,6 +6,8 @@ module view.wuXue {
 		public itemID;
 		public canStudy = false;
 		public dialogSkillID;
+
+		public configID;
 		constructor() {
 			super();
 			this.addEvent();
@@ -17,6 +19,7 @@ module view.wuXue {
 		public setData(item: ProtoCmd.ItemBase) {
 			this.item = item;
 			let configID = item.dwBaseID;
+			this.configID = configID;
 			let hasNum = item.dwCount;
 			this.itemID = configID;
 			let skillID = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVUPID(configID);
@@ -56,13 +59,13 @@ module view.wuXue {
 					this.canStudy = true;
 					this.img_progress.width = this.img_progress_bg.width;
 					this.html_hasNum.innerHTML = "<span style='color:#38ad32'>" + hasNum + "</span>"
-						+ "<span style='color:#000000'>" + '/ ' + needNum + "</span>";
+						+ "<span style='color:#000000'>" + '/ ' + LangConfig.getBigNumberDes(needNum) + "</span>";
 					this.btn_study.label = '学习';
 					this.btn_study.skin = 'image/common/button_qianwang_red.png'
 				} else {
 					this.canStudy = false;
 					this.html_hasNum.innerHTML = "<span style='color:#c43939'>" + hasNum + "</span>"
-						+ "<span style='color:#000000'>" + '/ ' + needNum + "</span>";
+						+ "<span style='color:#000000'>" + '/ ' + LangConfig.getBigNumberDes(needNum) + "</span>";
 					let k = hasNum / needNum;
 					this.img_progress.width = this.img_progress_bg.width * k;
 					this.btn_study.label = '获取';
@@ -75,9 +78,9 @@ module view.wuXue {
 		public addEvent() {
 			this.btn_study.on(Laya.UIEvent.CLICK, this, function () {
 				if (this.hasStudy) {
-					// let o = new WuXue_InfoDialog();
-					// o.setData(this.skillID, 3)
-					// o.popup();
+					let o = new WuXue_Get_Cookie_Dialog();
+					o.setData(this.configID)
+					o.popup();
 				} else {
 					if (this.canStudy) {
 						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.useSkillItem, [this.itemID], 0, this,
@@ -85,6 +88,10 @@ module view.wuXue {
 								console.log(res);
 							})
 						lcp.send(pkt);
+					} else {
+						let o = new WuXue_Get_Cookie_Dialog();
+						o.setData(this.configID)
+						o.popup();
 					}
 
 				}

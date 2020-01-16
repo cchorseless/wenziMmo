@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":24,
-    "selecteID":25,
-    "props":{"width":560,"sceneColor":"#000000","right":0,"left":0,"height":623},
+    "selectedBox":1,
+    "selecteID":30,
+    "props":{"width":560,"sceneColor":"#000000","height":623},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"top":0,"skin":"image/main/main_zonglan/Popup_small.png","right":0,"left":0,"bottom":0},
+            "props":{"y":0,"x":0,"width":560,"skin":"image/common/Popup_small.png","height":623},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -188,14 +188,13 @@
             "props":{"y":232,"x":36,"width":0,"height":0,"alpha":1},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":24,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":5,"x":37,"wordWrap":true,"width":123,"text":"获得途径","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
                     "nodeParent":24,
@@ -208,7 +207,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":12,"x":10,"skin":"image/common/wuxue/point_01.png"},
                     "nodeParent":24,
@@ -221,7 +219,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":35,"x":8,"width":465,"skin":"image/common/wuxue/line_02.png"},
                     "nodeParent":24,
@@ -233,6 +230,47 @@
                     "child":[
                         ]
                 }],
+            "$LOCKED":false,
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Panel",
+            "props":{"y":282,"x":46,"width":465,"var":"panel_show","height":303},
+            "nodeParent":1,
+            "label":"Panel(panel_show)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":28,
+            "child":[
+                {
+                    "x":30,
+                    "type":"VBox",
+                    "props":{"var":"vbox_show","top":0,"space":8,"right":0,"left":0},
+                    "nodeParent":28,
+                    "label":"VBox(vbox_show)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":29,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":6,"x":506,"var":"btn_close","stateNum":"2","skin":"image/juQingMode/icon_close.png"},
+            "nodeParent":1,
+            "label":"Button(btn_close)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":30,
+            "child":[
+                ],
             "$LOCKED":false,
             "$HIDDEN":false
         }],

@@ -67,7 +67,7 @@ module view.wuXue {
 			switch (quality) {
 				case 1:
 					if ((stage - 1) == 0) {
-						this.html_skillName.innerHTML = "<span style='color:#4f5575;'>" + name + "</span>"
+						this.html_skillName.innerHTML = "<span style='color:#4b674b;'>" + name + "</span>"
 					} else {
 						this.html_skillName.innerHTML = "<span style='color:#4b674b;'>" + name + "</span>"
 							+ "<span style='color:#ffffff;stroke:2.5;strokeColor:#4b674b'>+" + (stage - 1) + "</span>"
@@ -117,6 +117,7 @@ module view.wuXue {
 				+ "<span style='color:#bf4747;'>+" + curPower + "</span>"
 
 			this.ui_skill.setData(configID);
+			this.ui_skill.img_lv.visible = false;
 			this.tab_info.selectedIndex = tabid;
 			this.showVS_Show(tabid, !isRefrash)
 			this.addEvent();
@@ -217,6 +218,12 @@ module view.wuXue {
 				// this.VS_show.selectedIndex = this.tab_wuxue.selectedIndex;
 				this.VS_view.selectedIndex = this.tab_info.selectedIndex;
 				this.showVS_Show(this.tab_info.selectedIndex, false);
+			})
+			this.btn_getFrom.on(Laya.UIEvent.CLICK, this, function () {
+				let o = new WuXue_Get_Cookie_Dialog();
+				let cookieID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLS_QUALITY_UP_ITEM(this.configID)
+				o.setData(cookieID)
+				o.show();
 			})
 			// 升级
 			// this.btn_lvUp.on(Laya.UIEvent.CLICK, this, () => {

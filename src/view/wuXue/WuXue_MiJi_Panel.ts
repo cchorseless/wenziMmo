@@ -56,6 +56,7 @@ module view.wuXue {
 
 			})
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(this)
 				PanelManage.openMainPanel();
 			});
 		}

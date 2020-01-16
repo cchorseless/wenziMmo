@@ -9,10 +9,10 @@ module view.wuXue {
 		public wuXueTaolu2 = [];
 		public wuXueTaolu3 = [];
 
-		public unlockNeed = 10;
+		public unlockNeed = 30;
 
 		public pageID = 1;
-		public maxPage = 0;
+		public maxPage = 1;
 		public isTouch = false;
 		public beginX = 0;
 		public endX = 0;
@@ -146,6 +146,9 @@ module view.wuXue {
 			this.lab_num.text = '武学数量:' + this.tempData.length;
 
 			this.maxPage = Math.ceil(this.tempData.length / 12)
+			if(this.maxPage == 0){
+				this.maxPage = 1;
+			}
 			// this.lab_num.text = this.pageID+ '/' + this.maxPage;
 			if (this.tempData.length < 1) {
 				this.box_empty.visible = true;
@@ -246,7 +249,7 @@ module view.wuXue {
 				this['ui_SkillCircle' + i].ui_show.on(Laya.Event.MOUSE_DOWN, this, function (e) {
 					self.isTouchSkillCircle = true
 					self.touchTaoLuID = i;
-					Laya.timer.once(1000, this, function () {
+					Laya.timer.once(700, this, function () {
 						if (!self.isTouchSkillCircle) {
 							return;
 						}
@@ -294,7 +297,7 @@ module view.wuXue {
 					self.isTouchSkillShow = true
 					self.touchSkillShowID = i;
 
-					Laya.timer.once(1000, this, function () {
+					Laya.timer.once(700, this, function () {
 						if (!self.isTouchSkillShow) {
 							return;
 						}

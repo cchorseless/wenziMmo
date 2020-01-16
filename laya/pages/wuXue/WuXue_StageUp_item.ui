@@ -212,7 +212,7 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"y":1,"x":282,"var":"btn_up","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"fzxk","labelColors":"#63491a,#63491a,","labelBold":false,"label":"突破"},
+                                    "props":{"y":1,"x":282,"var":"btn_up","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":28,"labelFont":"fzxk","labelColors":"#63491a,#63491a,","labelBold":false,"label":"突破"},
                                     "nodeParent":124,
                                     "label":"Button(btn_up)",
                                     "isDirectory":false,
@@ -286,15 +286,16 @@
                     "props":{"y":262,"x":24,"var":"box_max"},
                     "nodeParent":59,
                     "label":"Box(box_max)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":128,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":82,"x":140,"var":"btn_goto","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"fzxk","labelColors":"#63491a,#63491a,","labelBold":true,"label":"前往领悟"},
+                            "props":{"y":82,"x":140,"var":"btn_goto","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":28,"labelFont":"fzxk","labelColors":"#63491a,#63491a,","labelBold":false,"label":"前往领悟"},
                             "nodeParent":128,
                             "label":"Button(btn_goto)",
                             "isDirectory":false,
@@ -306,6 +307,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"width":462,"text":"武学已满级","height":26,"fontSize":22,"font":"fzxk","color":"#bf8247","align":"center"},
                             "nodeParent":128,
@@ -318,6 +320,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":41,"width":462,"text":"武学品质决定了武学的突破等级上限","height":26,"fontSize":20,"font":"fzxk","color":"#903f14","align":"center"},
                             "nodeParent":128,

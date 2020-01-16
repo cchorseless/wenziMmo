@@ -141,6 +141,7 @@ module view.wuXue {
 			// }
 			// 返回
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(this)
 				PanelManage.openMainPanel();
 			});
 			// 排序

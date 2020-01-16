@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":4,
-    "selecteID":34,
+    "selectedBox":12,
+    "selecteID":38,
     "props":{"width":510,"sceneColor":"#ffffff","height":520},
     "nodeParent":-1,
     "label":"View",
@@ -166,7 +166,7 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"y":228,"x":168,"var":"btn_foreget","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"重置武学"},
+                                    "props":{"y":242,"x":168,"var":"btn_foreget","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"重置武学"},
                                     "nodeParent":12,
                                     "label":"Button(btn_foreget)",
                                     "isDirectory":false,
@@ -212,13 +212,14 @@
                     "props":{"y":119,"x":54,"width":142,"skin":"image/juQingMode/frame_shuzi.png"},
                     "nodeParent":4,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":35,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":-6,"x":1,"skin":"image/common/wuxue/icon_zizhi.png"},
                             "nodeParent":35,
@@ -231,6 +232,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":2,"x":46,"wordWrap":true,"width":84,"var":"lab_getNum","text":"123332","strokeColor":"#63491a","stroke":0.2,"height":22,"fontSize":22,"font":"fzxk","color":"#ffffff","align":"left"},
                             "nodeParent":35,
