@@ -56,12 +56,12 @@ module view.wuXue {
 			// console.log(this.skillCircleArr)
 		}
 		public setData(id) {
-			let textArr = ['拳脚','刀剑','长兵','奇门']
+			let textArr = ['拳脚', '刀剑', '长兵', '奇门']
 			let str = '';
-			if(id == 0){
-				str = '拳脚类武学可装配此套路';
-			}else{
-				str = '拳脚类和'+textArr[id]+'类武学可装配此套路'
+			if (id == 0) {
+				str = '全部武学';
+			} else {
+				str = '拳脚类和' + textArr[id] + '类武学可装配此套路'
 			}
 			this.lab_taoluText.text = str
 			this.taoLuID = id;
@@ -77,7 +77,7 @@ module view.wuXue {
 					} else {
 						this['ui_SkillCircle' + i].setData(true, i)
 					}
-				}else{
+				} else {
 					this['ui_SkillCircle' + i].setData(false, i)
 				}
 			}
@@ -92,6 +92,9 @@ module view.wuXue {
 
 			for (let key in GameApp.MainPlayer.skillInfo) {
 				let _skillBase = GameApp.MainPlayer.skillInfo[key];
+				if (key == "999" || key == '1000') {
+					continue;
+				}
 				// _skillBase.getValue('sublevel')
 				let configID = _skillBase.configID;
 				let deleteID = SheetConfig.mydb_magic_tbl.getInstance(null).DELETED(configID);
@@ -124,6 +127,9 @@ module view.wuXue {
 			switch (this.taoLuID) {
 				case 0:
 					this.tempData = this.wuXueTaolu0;
+					this.tempData = this.tempData.concat(this.wuXueTaolu1);
+					this.tempData = this.tempData.concat(this.wuXueTaolu2);
+					this.tempData = this.tempData.concat(this.wuXueTaolu3);
 					break;
 				case 1:
 					this.tempData = this.wuXueTaolu1.concat(this.wuXueTaolu0);
@@ -141,6 +147,11 @@ module view.wuXue {
 
 			this.maxPage = Math.ceil(this.tempData.length / 12)
 			// this.lab_num.text = this.pageID+ '/' + this.maxPage;
+			if (this.tempData.length < 1) {
+				this.box_empty.visible = true;
+			}else{
+				this.box_empty.visible = false;
+			}
 			this.showPage();
 		}
 		public getSkillComBo() {
@@ -148,7 +159,7 @@ module view.wuXue {
 			for (let i = 0; i < this.tempData.length; i++) {
 				let baseID = this.tempData[i].configID;
 				let comboID = SheetConfig.mydb_magic_tbl.getInstance(null).COMBINATION_SKILLSID(baseID);
-				if(!comboID){
+				if (!comboID) {
 					return;
 				}
 				let comboIdArr = comboID.split('`')
