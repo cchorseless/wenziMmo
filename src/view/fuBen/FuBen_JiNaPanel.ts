@@ -157,7 +157,7 @@ module view.fuBen {
 			this.img_boss.skin = 'image/common/npc/npc_half_' + bossicon + '.png';
 			//boss名称
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + bossInfo.data.monid).split("_");
-			this.lbl_name.text = '' + name[0];
+			this.lbl_bossName.text=this.lbl_name.text = '' + name[0];
 			//战力
 			this.lbl_battle.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT('' + bossInfo.data.monid)
 			//推荐等级

@@ -33,19 +33,7 @@ module view.scene {
 			} else {
 				this.img_chenghao.skin = '';
 			}
-
-
-			let sex = GameApp.MainPlayer.sex;
-			let curJob = GameApp.MainPlayer.job;
-			let path;
-
-			if (sex == EnumData.SEX_TYPE.SEX_MAN) {
-				path = 'image/main/player_nan';
-			}
-			else {
-				path = 'image/main/player_nv';
-			}
-			this.img_playerAva.skin = path + '0' + curJob + '.png';
+			this.img_playerAva.skin = LangConfig.getPlayerIconSkin();
 			// 刷新UI
 			this.updateUI();
 			this.img_job.skin = LangConfig.getPlayerJobIcon();
@@ -89,7 +77,7 @@ module view.scene {
 		 * 更新内功条
 		 */
 		public updateNeiGong(): void {
-			this.img_mp.width = this.img_mpBg.width * this.item.ability.nowInnerValue / this.item.ability.nInnerValue;
+			// this.img_mp.width = this.img_mpBg.width * this.item.ability.nowInnerValue / this.item.ability.nInnerValue;
 		}
 
 

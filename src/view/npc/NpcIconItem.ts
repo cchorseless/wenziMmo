@@ -71,9 +71,9 @@ module view.npc {
 			let pathID = SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER('' + configId)
 			if (pathID > 0) {
 				this.img_avatarPic.skin = 'image/common/npc/npc_icon_' + pathID + '.png';
-				this.img_bg.skin = "image/main/frame_npc_01.png"
+				this.img_bg.skin = "image/common/frame_npc.png"
 			} else {
-				this.img_bg.skin = "image/main/frame_npc_02.png"
+				this.img_bg.skin = "image/common/frame_npc.png"
 			}
 		}
 		/**

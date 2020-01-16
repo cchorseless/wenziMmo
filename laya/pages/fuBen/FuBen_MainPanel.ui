@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":426,
-    "selecteID":389,
+    "selecteID":428,
     "props":{"width":640,"sceneColor":"#e8d0d0","name":"FuBen","height":1136},
     "nodeParent":-1,
     "label":"View(FuBen)",
@@ -41,6 +41,33 @@
                 {
                     "x":30,
                     "type":"Image",
+                    "props":{"y":1,"x":0,"skin":"image/main/main_tansuo/img_title.png"},
+                    "nodeParent":426,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":428,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":53,"x":71,"width":129,"text":"剧情","stroke":4,"height":33,"fontSize":30,"font":"HWXK","color":"#ffffff"},
+                            "nodeParent":428,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":429,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
                     "props":{"y":77,"width":640,"skin":"image/fuben/bottom_zhuxianfuben.png"},
                     "nodeParent":426,
                     "label":"Image",
@@ -69,7 +96,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":86,"x":47,"var":"btn_last","stateNum":"1","skin":"image/fuben/img_jiantou_bianzhang.png"},
+                    "props":{"y":86,"x":47,"var":"btn_last","stateNum":"1","skin":"image/common/img_jiantou_bianzhang.png"},
                     "nodeParent":426,
                     "label":"Button(btn_last)",
                     "isDirectory":false,
@@ -82,7 +109,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":143,"x":597,"var":"btn_next","stateNum":"1","skin":"image/fuben/img_jiantou_bianzhang.png","skewY":180,"skewX":180},
+                    "props":{"y":143,"x":597,"var":"btn_next","stateNum":"1","skin":"image/common/img_jiantou_bianzhang.png","skewY":180,"skewX":180},
                     "nodeParent":426,
                     "label":"Button(btn_next)",
                     "isDirectory":false,

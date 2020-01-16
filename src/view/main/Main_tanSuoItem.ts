@@ -161,12 +161,16 @@ module view.main {
 		}
 		public init_shenSuo(v: boolean): void {
 			if (v) {
-				Laya.Tween.to(this.img_sceneTxt, { height: 620 }, 200)
+				this.btn_xiangXia.skin='image/common/img_jiantou_bianzhang0.png';
 				this.panel_sceneDes.scrollTo(0, this.panel_sceneDes.contentHeight);
+				this.img_sceneTxt.skin='image/main/main_tansuo/img_zhandou-juanzhou_03.png'
+				this.img_sceneTxt.height=680;
 			}
 			else {
-				Laya.Tween.to(this.img_sceneTxt, { height: 210 }, 200)
+				this.btn_xiangXia.skin='image/common/img_jiantou_bianzhang.png';
+				this.img_sceneTxt.skin='image/main/main_tansuo/img_zhandou_juanzhou.png'
 				this.panel_sceneDes.scrollTo(0, this.panel_sceneDes.contentHeight);
+				this.img_sceneTxt.height=210;
 			}
 		}
 		public init_updataHieght(label: Laya.Label): void {
