@@ -50,10 +50,10 @@ module view.scene {
 			let path;
 
 			if (sex == EnumData.SEX_TYPE.SEX_MAN) {
-				path = 'image/main/player_nan';
+				path = 'image/common/icon_nv';
 			}
 			else {
-				path = 'image/main/player_nv';
+				path = 'image/main/icon_nan';
 			}
 			this.img_playerAva.skin = path + '0' + curJob + '.png';
 			// skin
@@ -94,7 +94,7 @@ module view.scene {
 		 * 更新内功条
 		 */
 		public updateNeiGong(): void {
-			this.img_mp.width = this.img_mpBg.width * this.masterItem.ability.nowInnerValue / this.masterItem.ability.nInnerValue;
+			// this.img_mp.width = this.img_mpBg.width * this.masterItem.ability.nowInnerValue / this.masterItem.ability.nInnerValue;
 		}
 
 		public updateZuoBiao(): void {

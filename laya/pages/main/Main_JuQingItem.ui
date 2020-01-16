@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":57,
-    "selecteID":76,
+    "selectedBox":101,
+    "selecteID":103,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -810,7 +810,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":1008,"x":396,"width":27,"skin":"image/main/main_zonglan/icon_dingwei.png","height":30},
+            "props":{"y":1008,"x":281,"width":27,"skin":"image/main/main_zonglan/icon_dingwei.png","height":30},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -825,7 +825,22 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":1011,"x":430,"width":192,"var":"lbl_nowPlace","text":"福州城中央广场","height":22,"fontSize":22,"font":"FZXK","color":"#c43939","align":"left"},
+            "props":{"y":1011,"x":151,"width":88,"text":"当前地点","height":22,"fontSize":22,"font":"FZXK","color":"#63491a","align":"left"},
+            "nodeParent":1,
+            "label":"Label",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":100,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":1011,"x":315,"width":192,"var":"lbl_nowPlace","text":"福州城中央广场","height":22,"fontSize":22,"font":"FZXK","color":"#c43939","align":"left"},
             "nodeParent":1,
             "label":"Label(lbl_nowPlace)",
             "isOpen":true,
@@ -835,6 +850,61 @@
             "compId":55,
             "child":[
                 ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":1009,"x":497,"width":131,"skin":"image/juQingMode/frame_shuzi.png","height":27},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":101,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":4,"x":32,"width":33,"var":"lbl_now","text":"100","height":22,"fontSize":22,"font":"fzxk","color":"#e78782","align":"right"},
+                    "nodeParent":101,
+                    "label":"Label(lbl_now)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":104,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":4,"x":69,"width":42,"var":"lbl_max","text":"/100","height":22,"fontSize":22,"font":"fzxk","color":"#ffffff","align":"left"},
+                    "nodeParent":101,
+                    "label":"Label(lbl_max)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":103,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":-5,"x":-5,"skin":"image/juQingMode/img_shsr_1.png"},
+                    "nodeParent":101,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":105,
+                    "child":[
+                        ]
+                }],
             "$HIDDEN":false
         }],
     "animations":[
