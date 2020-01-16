@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":341,
-    "selecteID":161,
+    "selectedBox":257,
+    "selecteID":341,
     "referenceLines":[
         {
             "value":1127,
@@ -14,7 +14,7 @@
             "type":1,
             "id":2
         }],
-    "props":{"width":640,"top":0,"skin":"image/main/main_zonglan/img_juanzhou_lock.png","sceneColor":"#f4b6b5","right":0,"name":"Main","left":0,"height":1136,"bottom":0},
+    "props":{"y":0,"x":0,"width":640,"skin":"image/main/main_zonglan/img_juanzhou_lock.png","sceneColor":"#f4b6b5","name":"Main","height":1136},
     "nodeParent":-1,
     "label":"View(Main)",
     "isOpen":true,
@@ -827,7 +827,7 @@
                                     "compId":334,
                                     "child":[
                                         ],
-                                    "$HIDDEN":false
+                                    "$HIDDEN":true
                                 },
                                 {
                                     "x":60,
@@ -842,14 +842,14 @@
                                     "compId":335,
                                     "child":[
                                         ],
-                                    "$HIDDEN":true
+                                    "$HIDDEN":false
                                 }],
                             "$HIDDEN":false
                         },
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"y":120,"x":582,"width":58,"var":"box_right","height":195},
+                            "props":{"y":131,"x":582,"width":58,"var":"box_right","height":195},
                             "nodeParent":341,
                             "label":"Box(box_right)",
                             "isOpen":false,
