@@ -20,8 +20,8 @@ module view.main {
 		 * 适配处理
 		 */
 		public initUI(): void {
-			let getScaleY = PanelManage.getScaleY();
-			this.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
+			// let getScaleY = PanelManage.getScaleY();
+			// this.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
 		}
 
 		/**
