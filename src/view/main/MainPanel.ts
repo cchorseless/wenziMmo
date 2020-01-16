@@ -405,13 +405,13 @@ module view.main {
 
 		// 界面切换时控制那些部分不变
 		public showGroupBottom(panel: Laya.View): void {
-			this.box_mainBottom.visible = true;
-			if (panel == this) {
-				this.addChildAt(this.box_mainBottom, 5);
-			}
-			else {
-				panel.addChild(this.box_mainBottom);
-			}
+			// this.box_mainBottom.visible = true;
+			// if (panel == this) {
+			// 	this.addChildAt(this.box_mainBottom, 5);
+			// }
+			// else {
+			// 	panel.addChild(this.box_mainBottom);
+			// }
 		}
 
 

@@ -46,10 +46,10 @@ module view.juQingMode {
 			}
 			// PanelManage.Main.box_mainBottom.visible = false;
 			// this.panel_0.vScrollBarSkin = '';
-			this.vbox_zhangJieLeft['sortItem'] = (items) => { };
+			// this.vbox_zhangJieLeft['sortItem'] = (items) => { };
 			// this.vbox_zhangJieRight['sortItem'] = (items) => { };
-			this.panel_zhangJie.scaleY = 0;
-			this.panel_zhangJie.vScrollBarSkin = '';
+			// this.panel_zhangJie.scaleY = 0;
+			// this.panel_zhangJie.vScrollBarSkin = '';
 			// this.lbl_pianZhangName.text = '' + GameApp.MainPlayer.pianZhangName;
 			this.box_selectQuestion.scaleY = 0;
 			this.box_jiangLi.visible = false;
@@ -144,27 +144,27 @@ module view.juQingMode {
 				}
 			});
 
-			// 章节信息
-			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
-				this.btn_charpter.selected = !this.btn_charpter.selected;
-				let temp = this.btn_charpter.selected ? 1 : 0;
-				if (temp == 1) {
-					this.img_panel.visible = true
-				} else {
-					this.img_panel.visible = false
-				}
-				Laya.Tween.to(this.panel_zhangJie, { scaleY: temp }, 200, );
+			// // 章节信息
+			// EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
+			// 	this.btn_charpter.selected = !this.btn_charpter.selected;
+			// 	let temp = this.btn_charpter.selected ? 1 : 0;
+			// 	if (temp == 1) {
+			// 		this.img_panel.visible = true
+			// 	} else {
+			// 		this.img_panel.visible = false
+			// 	}
+			// 	Laya.Tween.to(this.panel_zhangJie, { scaleY: temp }, 200, );
 
-				// 刷新item
-				if (this.btn_charpter.selected) {
-					for (let _item of this.vbox_zhangJieLeft._childs) {
-						_item.updateUI();
-					}
-					// for (let _item of this.vbox_zhangJieRight._childs) {
-					// 	_item.updateUI();
-					// }
-				}
-			});
+			// 	// 刷新item
+			// 	if (this.btn_charpter.selected) {
+			// 		for (let _item of this.vbox_zhangJieLeft._childs) {
+			// 			_item.updateUI();
+			// 		}
+			// 		// for (let _item of this.vbox_zhangJieRight._childs) {
+			// 		// 	_item.updateUI();
+			// 		// }
+			// 	}
+			// });
 
 			// 选项AB
 			EventManage.onWithEffect(this.btn_selectA, Laya.UIEvent.CLICK, this, () => {
@@ -359,10 +359,10 @@ module view.juQingMode {
 							GameApp.MainPlayer.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
 
 							// 章节ui
-							this.lastTalkID = GameApp.MainPlayer.talkID;
-							let charpterInfo_ui = new view.juQingMode.JuQingCharpterItem();
-							charpterInfo_ui.setData(charpterInfo);
-							this.vbox_zhangJieLeft.addChild(charpterInfo_ui);
+							// this.lastTalkID = GameApp.MainPlayer.talkID;
+							// let charpterInfo_ui = new view.juQingMode.JuQingCharpterItem();
+							// charpterInfo_ui.setData(charpterInfo);
+							// this.vbox_zhangJieLeft.addChild(charpterInfo_ui);
 
 							if (charpterInfo.zjid < charpterID) {
 								this.updateTalkInfo(charpterID);
@@ -562,7 +562,7 @@ module view.juQingMode {
 		 */
 		public changeCharpter(item: view.juQingMode.JuQingCharpterItem): void {
 			// 关闭界面
-			this.box_pianZhang.event(Laya.UIEvent.MOUSE_UP, [true]);
+			// this.box_pianZhang.event(Laya.UIEvent.MOUSE_UP, [true]);
 			// 拉取剧情
 			this.updateTalkInfo(item.charpterInfo.zjid);
 		}
