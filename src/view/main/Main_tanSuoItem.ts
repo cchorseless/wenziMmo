@@ -167,12 +167,14 @@ module view.main {
 				this.panel_sceneDes.scrollTo(0, this.panel_sceneDes.contentHeight);
 				this.img_sceneTxt.skin = 'image/main/main_tansuo/img_zhandou-juanzhou_03.png'
 				this.img_sceneTxt.height = 690;
+				this.box_shijian.visible = false;
 			}
 			else {
 				this.btn_xiangXia.skin = 'image/common/img_jiantou_bianzhang_01.png';
 				this.img_sceneTxt.skin = 'image/main/main_tansuo/img_zhandou_juanzhou.png'
 				this.panel_sceneDes.scrollTo(0, this.panel_sceneDes.contentHeight);
 				this.img_sceneTxt.height = 210;
+				this.box_shijian.visible = true;
 			}
 		}
 		public init_updataHieght(label: Laya.Label): void {
