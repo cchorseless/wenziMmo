@@ -66,7 +66,7 @@ module view.compart {
 					ceil.setData(ceil.dataSource);
 				}, null, false);
 			}
-			// 特殊属性
+			// 极品属性
 			if (obj.stNpPropertyString.length > 0) {
 				this.tab_props.labels += ',极品属性';
 				this.list_propsDes2.itemRender = view.compart.SinglePropsItem;

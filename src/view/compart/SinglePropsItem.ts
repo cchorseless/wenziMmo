@@ -11,10 +11,10 @@ module view.compart {
 			this.lbl_label.text = effectIDStruct.label;
 			this.lbl_dataDes.x = this.lbl_label.width + 5;
 			if (effectIDStruct.onlyValue) {
-				this.lbl_dataDes.text = '' + effectIDStruct.value;
+				this.lbl_dataDes.text = '+' + effectIDStruct.value;
 			}
 			else {
-				this.lbl_dataDes.text = '' + effectIDStruct.min + '-' + effectIDStruct.max;
+				this.lbl_dataDes.text = '+' + effectIDStruct.min + '-' + effectIDStruct.max;
 			}
 			
 			if (nexteffectIDStruct != null) {
