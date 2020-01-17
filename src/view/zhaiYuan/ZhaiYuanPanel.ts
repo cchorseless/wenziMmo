@@ -21,10 +21,10 @@ module view.zhaiYuan {
 
 
 		public initUI(): void {
-			let getScaleY = PanelManage.getScaleY();
-			this.box_heHuaChi.scaleY = getScaleY;
-			this.box_back.scaleY = getScaleY;
-			this.box_back.y = this.box_back.y * getScaleY;
+			// let getScaleY = PanelManage.getScaleY();
+			// this.box_heHuaChi.scaleY = getScaleY;
+			// this.box_back.scaleY = getScaleY;
+			// this.box_back.y = this.box_back.y * getScaleY;
 		}
 		public initSkeBone(): void {
 			let birdSke = new SkeletonUtil.SkeletonGroup();

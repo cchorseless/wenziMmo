@@ -191,6 +191,8 @@ module view.map {
 			}
 		}
 		public init_task(): void {
+			this.lbl_now.text = '' + GameApp.MainPlayer.nTili;
+			this.lbl_max.text = '/100';
 			let zhuxianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
 			if (zhuxianTask) {
 				for (let i in zhuxianTask) {

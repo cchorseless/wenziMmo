@@ -273,6 +273,8 @@ module view.main {
 		 * 刷新任務信息
 		 */
 		public init_noChange(): void {
+			this.lbl_now.text = '' + GameApp.MainPlayer.nTili;
+			this.lbl_max.text = '/100';
 			//剧情任务
 			this.img_juqing.visible = true;
 			this.box_juqing.visible = false;

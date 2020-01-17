@@ -304,7 +304,17 @@ module LangConfig {
             }
         }
     }
-
+    //物品类型
+    export const emItemTypeDes = {
+        ITEM_TYPE_GOLD: '游戏币',		//游戏币
+        ITEM_TYPE_NORMAL: '普通物品',		//普通物品
+        ITEM_TYPE_EQUIP: '装备',		//点使用后装备到人物身上 装备
+        ITEM_TYPE_DRUG: '药品',			//药品，会响应“使用”按钮，点使用后吃掉并增加药效 消耗品
+        ITEM_TYPE_SKILL: '心法书',		//心法书，会响应“使用”按钮，点使用后吃掉并学会心法 消耗品
+        ITEM_TYPE_MAZE: '阵法书',			//阵法书，会响应“使用”按钮，点使用后吃掉并学会队伍阵法 消耗品
+        ITEM_TYPE_SCROLL: '卷轴',		//卷轴，会响应“使用”按钮，点使用后触发脚本ID 消耗品 
+        ITEM_TYPE_TASK: '任务品',         //多为任务品
+    }
     /**
      * 装备部位描述
      */
