@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":74,
-    "selecteID":76,
+    "selectedBox":19,
+    "selecteID":80,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -236,9 +236,9 @@
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"x":1,"bottom":-143},
+                            "props":{"x":1,"var":"box_shijian","bottom":-143},
                             "nodeParent":19,
-                            "label":"Box",
+                            "label":"Box(box_shijian)",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -298,22 +298,35 @@
                                         ],
                                     "$HIDDEN":true
                                 }]
-                        },
+                        }],
+                    "$LOCKED":true,
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"x":275,"width":98,"var":"box_button","height":53,"bottom":3},
+                    "nodeParent":77,
+                    "label":"Box(box_button)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":85,
+                    "child":[
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"x":289,"var":"btn_xiangXia","stateNum":"1","skin":"image/common/img_jiantou_bianzhang.png","rotation":-90,"bottom":-65},
-                            "nodeParent":19,
+                            "props":{"y":12,"x":20,"var":"btn_xiangXia","stateNum":"2","skin":"image/common/img_jiantou_bianzhang_01.png"},
+                            "nodeParent":85,
                             "label":"Button(btn_xiangXia)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":82,
+                            "compId":86,
                             "child":[
                                 ]
-                        }],
-                    "$LOCKED":true,
-                    "$HIDDEN":false
+                        }]
                 }]
         },
         {
@@ -322,14 +335,13 @@
             "props":{"x":0,"width":640,"var":"viw_bottom","height":330,"bottom":0},
             "nodeParent":1,
             "label":"ViewStack(viw_bottom)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":74,
             "child":[
                 {
-                    "x":30,
                     "type":"UIView",
                     "source":"map/SmallMapItem.ui",
                     "props":{"x":0,"var":"ui_smallMap","runtime":"view.map.SmallMapItem","name":"item0","bottom":0},
@@ -344,7 +356,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"UIView",
                     "source":"scene/BattleFuBenInfoV3Item.ui",
                     "props":{"var":"ui_skill","runtime":"view.scene.BattleFuBenInfoV3Item","name":"item1","bottom":0},
