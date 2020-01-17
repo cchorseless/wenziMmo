@@ -14,23 +14,7 @@ module view.wuXue {
 			let lv = SheetConfig.mydb_magic_tbl.getInstance(null).LEVEL(configID);
 			this.lab_lv.text = lv + '';
 			let quality = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLQUALITY(configID);
-			switch (quality) {
-				case 1:
-					this.img_skill_bg.skin = 'image/common/daoju/quality_1.png'
-					break;
-				case 2:
-					this.img_skill_bg.skin = 'image/common/daoju/quality_2.png'
-					break;
-				case 3:
-					this.img_skill_bg.skin = 'image/common/daoju/quality_3.png'
-					break;
-				case 4:
-					this.img_skill_bg.skin = 'image/common/daoju/quality_4.png'
-					break;
-				case 5:
-					this.img_skill_bg.skin = 'image/common/daoju/quality_6.png'
-					break;
-			}
+			this.img_skill_bg.skin = 'image/common/fight/frane_jineng_' + quality+'.png'
 			
 
 			// this.img_skill_Icon.skin = "image/common/skill/skill_icon_" + icon + ".png"

@@ -44,9 +44,9 @@ class SceneManager extends SingletonClass {
     /**
      * 判断是否在副本内
      */
-    public chenkPlayerInFuBen():boolean{
-         let bigMapType = SheetConfig.mydb_mapinfo_tbl.getInstance(null).MAPTYPE('' + GameApp.MainPlayer.location.mapid);
-         return bigMapType > 0
+    public chenkPlayerInFuBen(): boolean {
+        let bigMapType = SheetConfig.mydb_mapinfo_tbl.getInstance(null).MAPTYPE('' + GameApp.MainPlayer.location.mapid);
+        return bigMapType > 0
     }
 
 
@@ -108,12 +108,22 @@ class SceneManager extends SingletonClass {
             // ---------------副本------------------
             // 心魔副本
             case EnumData.emRoomType.singleFuBen:
+                GameApp.MainPlayer.curFuBenID = 100
+                this.ui_scene.changeMode(1);
+                break;
             // 除魔副本
             case EnumData.emRoomType.chuMoFuBen:
+                GameApp.MainPlayer.curFuBenID = 101
+                this.ui_scene.changeMode(1);
+                break;
             // 资源副本
             case EnumData.emRoomType.resourceFuBen:
+                GameApp.MainPlayer.curFuBenID = 102
+                this.ui_scene.changeMode(1);
+                break;
             // 多人副本   只有boss的野外地图
             case EnumData.emRoomType.publicFuBen:
+                GameApp.MainPlayer.curFuBenID = 200
                 this.ui_scene.changeMode(1);
                 break;
             // ---------------野外------------------

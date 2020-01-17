@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":6,
+    "selectedBox":58,
+    "selecteID":23,
     "props":{"width":510,"sceneColor":"#ffffff","height":840},
     "nodeParent":-1,
     "label":"View",
@@ -52,30 +52,41 @@
                     "child":[
                         {
                             "x":45,
-                            "type":"Label",
-                            "props":{"x":29,"wordWrap":true,"width":123,"text":"出招效果","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
-                            "nodeParent":42,
-                            "label":"Label",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":4,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
                             "type":"Image",
-                            "props":{"y":6,"x":2,"skin":"image/common/wuxue/point_01.png"},
+                            "props":{"y":1,"x":-1,"width":160,"skin":"image/common/wuxue/shadow_title.png","height":28},
                             "nodeParent":42,
                             "label":"Image",
-                            "isDirectory":false,
+                            "isOpen":null,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":33,
+                            "hasChild":true,
+                            "compId":47,
                             "child":[
-                                ]
+                                {
+                                    "type":"Label",
+                                    "props":{"y":1,"x":33,"wordWrap":true,"width":123,"text":"出招效果","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
+                                    "nodeParent":47,
+                                    "label":"Label",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":4,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":7,"x":6,"skin":"image/common/wuxue/point_01.png"},
+                                    "nodeParent":47,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":33,
+                                    "child":[
+                                        ]
+                                }]
                         },
                         {
                             "x":45,
@@ -145,29 +156,42 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":4,"x":37,"wordWrap":true,"width":123,"text":"组合效果","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
-                    "nodeParent":8,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":9,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Image",
-                    "props":{"y":10,"x":10,"skin":"image/common/wuxue/point_01.png"},
+                    "props":{"y":7,"x":5,"width":160,"skin":"image/common/wuxue/shadow_title.png","height":28},
                     "nodeParent":8,
                     "label":"Image",
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":34,
+                    "hasChild":true,
+                    "compId":48,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":3,"x":32,"wordWrap":true,"width":123,"text":"组合效果","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
+                            "nodeParent":48,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":9,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":9,"x":5,"skin":"image/common/wuxue/point_01.png"},
+                            "nodeParent":48,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":34,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
                     "x":30,
@@ -214,19 +238,6 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":4,"x":37,"wordWrap":true,"width":123,"text":"武学天赋","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
-                    "nodeParent":12,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":13,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":31,"x":8,"width":485,"skin":"image/common/wuxue/line_02.png"},
                     "nodeParent":12,
@@ -241,15 +252,39 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":10,"x":10,"skin":"image/common/wuxue/point_01.png"},
+                    "props":{"y":9,"x":5,"skin":"image/common/wuxue/shadow_title.png"},
                     "nodeParent":12,
                     "label":"Image",
-                    "isDirectory":false,
+                    "isOpen":null,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":36,
+                    "hasChild":true,
+                    "compId":51,
                     "child":[
-                        ]
+                        {
+                            "type":"Label",
+                            "props":{"y":0,"x":35,"wordWrap":true,"width":123,"text":"武学天赋","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
+                            "nodeParent":51,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":13,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":6,"x":8,"skin":"image/common/wuxue/point_01.png"},
+                            "nodeParent":51,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":36,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$LOCKED":false
         },
@@ -282,19 +317,6 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":4,"x":37,"wordWrap":true,"width":125,"text":"招式说明","strokeColor":"#4e2a2a","height":24,"fontSize":24,"font":"hwxk","color":"#903f14"},
-                    "nodeParent":22,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":23,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":31,"x":8,"width":485,"skin":"image/common/wuxue/line_02.png"},
                     "nodeParent":22,
@@ -309,15 +331,41 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":10,"x":10,"width":19,"skin":"image/common/wuxue/point_01.png","height":13},
+                    "props":{"y":9,"x":5,"skin":"image/common/wuxue/shadow_title.png"},
                     "nodeParent":22,
                     "label":"Image",
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":39,
+                    "hasChild":true,
+                    "compId":58,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":7,"x":5,"width":19,"skin":"image/common/wuxue/point_01.png","height":13},
+                            "nodeParent":58,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":39,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":1,"x":32,"wordWrap":true,"width":125,"text":"招式说明","strokeColor":"#4e2a2a","height":24,"fontSize":24,"font":"hwxk","color":"#903f14"},
+                            "nodeParent":58,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":23,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$LOCKED":true
         },
@@ -342,14 +390,13 @@
             "props":{"y":550,"x":10,"width":485,"var":"box_buff","height":151},
             "nodeParent":1,
             "label":"Box(box_buff)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":31,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"var":"img_KeyPoint","height":36},
                     "nodeParent":31,
@@ -361,20 +408,6 @@
                     "compId":15,
                     "child":[
                         {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":4,"x":37,"wordWrap":true,"width":123,"text":"武学精要","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
-                            "nodeParent":15,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":17,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":31,"x":10,"width":485,"skin":"image/common/wuxue/line_02.png"},
                             "nodeParent":15,
@@ -387,76 +420,116 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
-                            "props":{"y":10,"x":12,"width":19,"skin":"image/common/wuxue/point_01.png","height":13},
+                            "props":{"y":9,"x":6,"skin":"image/common/wuxue/shadow_title.png"},
                             "nodeParent":15,
                             "label":"Image",
-                            "isDirectory":false,
+                            "isOpen":false,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":41,
+                            "hasChild":true,
+                            "compId":52,
                             "child":[
-                                ]
+                                {
+                                    "type":"Label",
+                                    "props":{"y":1,"x":32,"wordWrap":true,"width":123,"text":"武学精要","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
+                                    "nodeParent":52,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":17,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":7,"x":7,"width":19,"skin":"image/common/wuxue/point_01.png","height":13},
+                                    "nodeParent":52,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":41,
+                                    "child":[
+                                        ]
+                                }]
                         }],
                     "$LOCKED":false
                 },
                 {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"wuXue/WuXue_Buff_Item.ui",
-                    "props":{"y":48,"x":23,"var":"buff_0","runtime":"view.wuXue.WuXue_Buff_Item"},
+                    "type":"Image",
+                    "props":{"y":42,"x":-10,"width":510,"skin":"image/common/wuxue/shadou_liebiao.png","height":105},
                     "nodeParent":31,
-                    "label":"UIView(buff_0)",
-                    "isDirectory":false,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":26,
+                    "hasChild":true,
+                    "compId":53,
                     "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"wuXue/WuXue_Buff_Item.ui",
-                    "props":{"y":48,"x":147,"var":"buff_1","runtime":"view.wuXue.WuXue_Buff_Item"},
-                    "nodeParent":31,
-                    "label":"UIView(buff_1)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":27,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"wuXue/WuXue_Buff_Item.ui",
-                    "props":{"y":48,"x":272,"var":"buff_2","runtime":"view.wuXue.WuXue_Buff_Item"},
-                    "nodeParent":31,
-                    "label":"UIView(buff_2)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":29,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"wuXue/WuXue_Buff_Item.ui",
-                    "props":{"y":48,"x":396,"var":"buff_3","runtime":"view.wuXue.WuXue_Buff_Item"},
-                    "nodeParent":31,
-                    "label":"UIView(buff_3)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":30,
-                    "child":[
-                        ]
+                        {
+                            "type":"UIView",
+                            "source":"wuXue/WuXue_Buff_Item.ui",
+                            "props":{"y":9,"x":41,"var":"buff_0","runtime":"view.wuXue.WuXue_Buff_Item"},
+                            "nodeParent":53,
+                            "label":"UIView(buff_0)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":26,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":5,"x":131,"width":145,"var":"lab_Name","text":"十大可能","height":24,"fontSize":24,"font":"fzxk","color":"#000000"},
+                            "nodeParent":53,
+                            "label":"Label(lab_Name)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":54,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":7,"x":347,"width":94,"text":"出发几率：","height":20,"fontSize":20,"font":"fzxk","color":"#63491a"},
+                            "nodeParent":53,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":55,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":7,"x":439,"width":59,"var":"lab_probability","text":"100%","height":20,"fontSize":20,"font":"fzxk","color":"#38ad32"},
+                            "nodeParent":53,
+                            "label":"Label(lab_probability)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":56,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":40,"x":134,"wordWrap":true,"width":342,"var":"lab_des","text":"出发几率：","height":54,"fontSize":20,"font":"fzxk","color":"#63491a"},
+                            "nodeParent":53,
+                            "label":"Label(lab_des)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":57,
+                            "child":[
+                                ]
+                        }]
                 }]
         }],
     "animations":[

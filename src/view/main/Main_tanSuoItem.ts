@@ -23,6 +23,9 @@ module view.main {
 		 * @param mode 
 		 */
 		public changeMode(mode): void {
+			if(mode==1){
+				this.ui_skill.setData();
+			}
 			this.viw_bottom.selectedIndex = mode;
 		}
 
@@ -40,6 +43,7 @@ module view.main {
 			label1.fontSize = 22;
 			label1.wordWrap = true;
 			label1.text = SheetConfig.mapRoomSheet.getInstance(null).ROOMDES('' + GameApp.MainPlayer.roomId);
+			// label1.text = SheetConfig.mapRoomSheet.getInstance(null).ROOMDES('14018');
 			this.init_updataHieght(label1);
 			// 更新主界面的UI信息
 			GameApp.LListener.event(LcpEvent.UPDATE_UI_PLACE_DES)

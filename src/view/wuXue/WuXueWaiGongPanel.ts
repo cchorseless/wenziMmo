@@ -18,6 +18,7 @@ module view.wuXue {
 			} else {
 				tab = 0;
 			}
+			GameApp.MainPlayer.defaultTaoLuID = tab;
 			this.initTab();
 			// this.initUI();
 			this.addEvent();

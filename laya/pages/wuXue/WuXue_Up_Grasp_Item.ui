@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":4,
-    "selecteID":79,
+    "selectedBox":80,
+    "selecteID":97,
     "props":{"width":510,"sceneColor":"#ffffff","height":520},
     "nodeParent":-1,
     "label":"View",
@@ -18,39 +18,16 @@
             "props":{"y":4,"x":10,"width":0,"height":0},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
-                    "type":"Label",
-                    "props":{"y":5,"x":37,"wordWrap":true,"width":123,"text":"出招效果","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
-                    "nodeParent":2,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":5,
-                    "child":[
-                        ]
-                },
-                {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":12,"x":10,"skin":"image/common/wuxue/point_01.png"},
-                    "nodeParent":2,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":6,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":35,"x":8,"width":485,"skin":"image/common/wuxue/line_02.png"},
+                    "props":{"y":31,"x":8,"width":485,"skin":"image/common/wuxue/line_02.png"},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
@@ -61,8 +38,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":408,"width":67,"var":"lab_cost","text":"618","height":25,"fontSize":24,"font":"fzxk","color":"#63491a"},
+                    "props":{"y":7,"x":408,"width":67,"var":"lab_cost","text":"618","height":25,"fontSize":24,"font":"fzxk","color":"#63491a"},
                     "nodeParent":2,
                     "label":"Label(lab_cost)",
                     "isDirectory":false,
@@ -73,8 +51,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":-1,"x":383,"skin":"image/common/fight/icon_jingli_big.png"},
+                    "props":{"y":2,"x":383,"skin":"image/common/fight/icon_jingli_big.png"},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
@@ -85,8 +64,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":322,"width":67,"text":"消耗：","height":25,"fontSize":24,"font":"fzxk","color":"#000000"},
+                    "props":{"y":7,"x":322,"width":67,"text":"消耗：","height":25,"fontSize":24,"font":"fzxk","color":"#000000"},
                     "nodeParent":2,
                     "label":"Label",
                     "isDirectory":false,
@@ -95,6 +75,43 @@
                     "compId":10,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":8,"x":9,"skin":"image/common/wuxue/shadow_title.png"},
+                    "nodeParent":2,
+                    "label":"Image",
+                    "isOpen":null,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":98,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "props":{"y":0,"x":28,"wordWrap":true,"width":123,"text":"出招效果","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
+                            "nodeParent":98,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":5,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":7,"x":1,"skin":"image/common/wuxue/point_01.png"},
+                            "nodeParent":98,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":6,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$LOCKED":false,
             "$HIDDEN":false
@@ -421,32 +438,6 @@
                             "child":[
                                 {
                                     "x":60,
-                                    "type":"Label",
-                                    "props":{"y":5,"x":37,"wordWrap":true,"width":123,"text":"领悟消耗","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
-                                    "nodeParent":80,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":81,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":12,"x":10,"skin":"image/common/wuxue/point_01.png"},
-                                    "nodeParent":80,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":82,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":31,"x":8,"width":485,"skin":"image/common/wuxue/line_02.png"},
                                     "nodeParent":80,
@@ -457,6 +448,43 @@
                                     "compId":83,
                                     "child":[
                                         ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":8,"x":7,"skin":"image/common/wuxue/shadow_title.png"},
+                                    "nodeParent":80,
+                                    "label":"Image",
+                                    "isOpen":null,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":97,
+                                    "child":[
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":1,"x":30,"wordWrap":true,"width":123,"text":"领悟消耗","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
+                                            "nodeParent":97,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":81,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Image",
+                                            "props":{"y":8,"x":3,"skin":"image/common/wuxue/point_01.png"},
+                                            "nodeParent":97,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":82,
+                                            "child":[
+                                                ]
+                                        }]
                                 }],
                             "$LOCKED":false,
                             "$HIDDEN":false

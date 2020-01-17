@@ -1043,8 +1043,8 @@ module EnumData {
         MAGICSTATE_MP,					// 蓝相关
         MAGICSTATE_RELIVE,				// 复活
         MAGICSTATE_SPEEDSLOW,			// 减速
-        MAGICSTATE_DIZZY,				// 晕眩
-        MAGICSTATE_PETRIFACTION,		// 石化
+        MAGICSTATE_DIZZY,				// 晕眩  不能放技能
+        MAGICSTATE_PETRIFACTION,		// 石化  不能放技能
         MAGICSTATE_ABI,					// 属性相关
         MAGICSTATE_LIEHUO,				// 烈火
         MAGICSTATE_XINYUE,				// 新月剑法

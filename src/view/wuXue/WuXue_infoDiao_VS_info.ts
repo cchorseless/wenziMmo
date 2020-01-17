@@ -34,13 +34,23 @@ module view.wuXue {
 		public showBuff(configID) {
 			let BuffID = SheetConfig.mydb_magic_tbl.getInstance(null).BUFFID(configID);
 			let BuffIDArr = BuffID.split('|');
+			this.buff_0.visible = true;
+			this.buff_0.setData(BuffIDArr[0])
 			for (let i = 0; i < 4; i++) {
-				this['buff_' + i].visible = false;
+
 			}
-			for (let i = 0; i < BuffIDArr.length; i++) {
-				this['buff_' + i].visible = true;
-				this['buff_' + i].setData(BuffIDArr[i])
-			}
+			let name = SheetConfig.mydb_magicbuff_tbl.getInstance(null).NAME(BuffIDArr[0]);
+			this.lab_Name.text = name;
+			let des = SheetConfig.mydb_magicbuff_tbl.getInstance(null).BUFFTIPS(BuffIDArr[0]);
+			this.lab_des.text = des;
+			let probability = SheetConfig.mydb_magicbuff_tbl.getInstance(null).BUFF_GAILV(BuffIDArr[0])
+			this.lab_probability.text = (probability / 100) + '%';
+
+			// this.lab_BuffName.text = name;
+			// for (let i = 0; i < BuffIDArr.length; i++) {
+			// 	this['buff_' + i].visible = true;
+			// 	this['buff_' + i].setData(BuffIDArr[i])
+			// }
 		}
 		public showTalent(configID) {
 			let Lv = SheetConfig.mydb_magic_tbl.getInstance(null).LEVEL(configID)
@@ -76,7 +86,7 @@ module view.wuXue {
 							+ "<span style='color:#777777'>+" + (i + 1) + '</span>'
 							+ "<span style='color:#777777'>激活</span>";
 					}
-					
+
 					p.y = i * (p.contextHeight + 5);
 					this.panel_inborn.addChild(p);
 				}

@@ -83,6 +83,9 @@ class ServerListener extends SingletonClass {
         /*************************************同步玩家属性************************************ */
         // 血条/蓝条变化 0x0234
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretHealthChange), this, this.cretHealthChange);
+         // 蓝条变化 0x02a4
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretMPChange), this, this.cretMPChange);
+        
         // 内功变化
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretChuanNeigongUpdate), this, this.cretNeiGongChange);
         // 金币 236
@@ -450,7 +453,7 @@ class ServerListener extends SingletonClass {
         let cbpkt = new ProtoCmd.NpcStatsQuestRet(data);
         let npcid = cbpkt.getValue('npcid');
         let npcState = cbpkt.getValue('npcState');
-        PanelManage.Main.view_scene._childs[1].upDataNPCStateByTask(npcid,npcState);
+        PanelManage.Main.view_scene._childs[1].upDataNPCStateByTask(npcid, npcState);
         // gamea.updateNpcState(npcid, npcState);
     }
 
@@ -588,7 +591,9 @@ class ServerListener extends SingletonClass {
                     GameApp.GameEngine.mainPlayer.tempId
                     if (GameApp.GameEngine.mainPlayer.tempId == dwTempId) {
                         // PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
+                        view.scene.BattleFuBenInfoV3Item.self.allSkillCD()
                     }
+
 
                     // if(){
 
@@ -688,7 +693,6 @@ class ServerListener extends SingletonClass {
     }
     public cretMonsterBuff(data: any) {
         let msg = new ProtoCmd.stCretBuffState(data);
-
         msg.clear();
         msg = null;
     }
@@ -830,6 +834,9 @@ class ServerListener extends SingletonClass {
                 case "biguan":
                     break;
             }
+            if (view.main.Main_tanSuoItem.self.viw_bottom.selectedIndex == 1) {
+                GameApp.LListener.event(view.scene.BattleFuBenInfoV3Item.CHANGETAOLU)
+            }
             // PanelManage.Main.ui_battleSkill.init_skillView();
         }
         else {
@@ -904,9 +911,32 @@ class ServerListener extends SingletonClass {
             obj.changeHp(nowhp, maxhp);
             obj.changeMp(nowmp, maxmp);
         }
+        if (view.main.Main_tanSuoItem.self.viw_bottom.selectedIndex == 1) {
+            view.scene.BattleFuBenInfoV3Item.self.changeMP(nowmp, maxmp);
+        }
+
         msgData.clear();
         msgData = null;
     }
+    public cretMPChange(data: any): void {
+        let msgData = new ProtoCmd.CretMPChange(data);
+        let tempId = msgData.getValue('dwTempId');
+        let changeMp = msgData.getValue('nChangeMp');
+        let nowmp = msgData.getValue('nMp');
+        let maxmp = msgData.getValue('nMaxMp');
+        let obj = GameApp.MainPlayer.findViewObj(tempId);
+        if (obj) {
+            obj.changeMp(nowmp, maxmp);
+        }
+        if (view.main.Main_tanSuoItem.self.viw_bottom.selectedIndex == 1) {
+            view.scene.BattleFuBenInfoV3Item.self.changeMP(nowmp, maxmp);
+        }
+
+        msgData.clear();
+        msgData = null;
+    }
+
+
 
     /**
      * 场景内内功改变

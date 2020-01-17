@@ -1,21 +1,30 @@
 /**Created by the LayaAirIDE*/
 module view.fuBen {
 	export class FuBen_ZhuXIan_Panel_info extends ui.fuBen.FuBen_ZhuXIan_Panel_infoUI {
-		public isLock = false;
+		public isUnLock = false;
 		public dbid;
+		public curStage;
+		public myStage;
 		public jsonData;
 		public hasGet = false;
+		public needLv;
 		constructor() {
 			super();
 			this.addEvent();
 		}
 		public addEvent() {
 			this.on(Laya.UIEvent.CLICK, this, function () {
-				if (!this.isLock) {
-					if (GameApp.MainPlayer.talkID < this.dbid) {
-						TipsManage.showTips('对应章节小说未阅读完成')
+				if (!this.isUnLock) {
+					if (GameApp.MainPlayer.level < this.needLv) {
+						TipsManage.showTips('未达到关卡等级')
 					} else {
-						TipsManage.showTips('未通关该关卡前置')
+						if (this.myStage < this.curStage) {
+							TipsManage.showTips('未通关该关卡前置')
+						} else {
+							if (GameApp.MainPlayer.talkID < this.dbid) {
+								TipsManage.showTips('未解锁对应章节')
+							}
+						}
 					}
 				}
 				else {
@@ -30,23 +39,29 @@ module view.fuBen {
 			pkt.setString(ProtoCmd.FB_ChuMoCengOpen, [this.jsonData.ceng], null, this, (jsonData: { type?: number, need?: number, lv?: number, item: any, times: number }) => {
 				console.log(jsonData)
 				let o = new FuBen_ZhuXianContent_Dialog();
-				o.setData(this.jsonData,jsonData,this.hasGet);
+				o.setData(this.jsonData, jsonData, this.hasGet);
 				o.popup();
 			});
 			lcp.send(pkt);
 		}
 		public setData(curCeng, jsonData, stageID) {
 			this.dbid = jsonData.dbid;
+			this.needLv = jsonData.lv;
 			this.jsonData = jsonData;
-			if (GameApp.MainPlayer.talkID >= jsonData.dbid) {
+			this.myStage = curCeng;
+			this.curStage = jsonData.ceng
+			if (GameApp.MainPlayer.level >= jsonData.lv) {
 				if (curCeng >= jsonData.ceng) {
-					this.isLock = true
+					if (GameApp.MainPlayer.talkID >= jsonData.dbid) {
+						this.isUnLock = true
+					}
 				}
 			}
-			if(curCeng> jsonData.ceng){
+
+			if (curCeng > jsonData.ceng) {
 				this.hasGet = true
 			}
-			if (this.isLock) {
+			if (this.isUnLock) {
 				this.img_bg.visible = true;
 				this.img_bg1.visible = false;
 			} else {

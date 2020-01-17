@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":12,
-    "selecteID":38,
+    "selectedBox":2,
+    "selecteID":7,
     "props":{"width":510,"sceneColor":"#ffffff","height":520},
     "nodeParent":-1,
     "label":"View",
@@ -15,42 +15,19 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":4,"x":10,"width":0,"height":0},
+            "props":{"y":0,"x":10,"width":0,"height":0},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
-                    "type":"Label",
-                    "props":{"y":5,"x":37,"wordWrap":true,"width":123,"text":"出招效果","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
-                    "nodeParent":2,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":5,
-                    "child":[
-                        ]
-                },
-                {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":12,"x":10,"skin":"image/common/wuxue/point_01.png"},
-                    "nodeParent":2,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":6,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":35,"x":8,"width":485,"skin":"image/common/wuxue/line_02.png"},
+                    "props":{"y":34,"x":8,"width":485,"skin":"image/common/wuxue/line_02.png"},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
@@ -61,8 +38,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":408,"width":67,"var":"lab_cost","text":"618","height":25,"fontSize":24,"font":"fzxk","color":"#63491a"},
+                    "props":{"y":11,"x":408,"width":67,"var":"lab_cost","text":"618","height":25,"fontSize":24,"font":"fzxk","color":"#63491a"},
                     "nodeParent":2,
                     "label":"Label(lab_cost)",
                     "isDirectory":false,
@@ -73,8 +51,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":-1,"x":383,"skin":"image/common/fight/icon_jingli_big.png"},
+                    "props":{"y":6,"x":383,"skin":"image/common/fight/icon_jingli_big.png"},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
@@ -85,8 +64,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":322,"width":67,"text":"消耗：","height":25,"fontSize":24,"font":"fzxk","color":"#000000"},
+                    "props":{"y":11,"x":322,"width":67,"text":"消耗：","height":25,"fontSize":24,"font":"fzxk","color":"#000000"},
                     "nodeParent":2,
                     "label":"Label",
                     "isDirectory":false,
@@ -95,6 +75,45 @@
                     "compId":10,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":12,"x":6,"skin":"image/common/wuxue/shadow_title.png"},
+                    "nodeParent":2,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":39,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":1,"x":31,"wordWrap":true,"width":123,"text":"出招效果","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
+                            "nodeParent":39,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":5,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":8,"x":4,"skin":"image/common/wuxue/point_01.png"},
+                            "nodeParent":39,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":6,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$LOCKED":false,
             "$HIDDEN":false
@@ -212,14 +231,13 @@
                     "props":{"y":119,"x":54,"width":142,"skin":"image/juQingMode/frame_shuzi.png"},
                     "nodeParent":4,
                     "label":"Image",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":35,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":-6,"x":1,"skin":"image/common/wuxue/icon_zizhi.png"},
                             "nodeParent":35,
@@ -232,7 +250,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":2,"x":46,"wordWrap":true,"width":84,"var":"lab_getNum","text":"123332","strokeColor":"#63491a","stroke":0.2,"height":22,"fontSize":22,"font":"fzxk","color":"#ffffff","align":"left"},
                             "nodeParent":35,

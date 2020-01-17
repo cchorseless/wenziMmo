@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":45,
-    "selecteID":48,
+    "selectedBox":53,
+    "selecteID":30,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -268,13 +268,13 @@
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":23,
+            "compId":53,
             "child":[
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"skin":"image/main/main_tansuo/frame_ditu_zhandou.png"},
-                    "nodeParent":23,
+                    "props":{"width":640,"skin":"image/common/fight/frame_ditu_zhandou_02.png","height":378},
+                    "nodeParent":53,
                     "label":"Image",
                     "isOpen":true,
                     "isDirectory":false,
@@ -288,8 +288,8 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":66,"x":30,"stateNum":"2","skin":"image/main/main_tansuo/icon_zhandou.png"},
-                    "nodeParent":23,
+                    "props":{"y":61,"x":105,"stateNum":"2","skin":"image/main/main_tansuo/icon_zhandou.png"},
+                    "nodeParent":53,
                     "label":"Button",
                     "isOpen":null,
                     "isDirectory":true,
@@ -310,14 +310,14 @@
                                 ]
                         }],
                     "$LOCKED":true,
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":240,"x":256,"stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
-                    "nodeParent":23,
-                    "label":"Button",
+                    "props":{"y":120,"x":549,"visible":true,"var":"btn_auto","stateNum":"2","skin":"image/common/fight/icon_zidong.png","labelSize":24,"labelPadding":"50","labelFont":"FZXK","labelColors":"#63491a,#63491a,#63491a","label":"自动"},
+                    "nodeParent":53,
+                    "label":"Button(btn_auto)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -329,9 +329,9 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":140,"x":418,"stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
-                    "nodeParent":23,
-                    "label":"Button",
+                    "props":{"y":208,"x":549,"width":59,"visible":true,"var":"btn_bag","stateNum":"2","skin":"image/common/fight/icon_beibao.png","labelSize":24,"labelPadding":"50","labelFont":"FZXK","labelColors":"#63491a,#63491a,#63491a","label":"背包","height":59},
+                    "nodeParent":53,
+                    "label":"Button(btn_bag)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -343,8 +343,8 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":141,"x":257,"stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
-                    "nodeParent":23,
+                    "props":{"y":183,"x":341,"visible":false,"stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
+                    "nodeParent":53,
                     "label":"Button",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -352,77 +352,55 @@
                     "compId":31,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":142,"x":86,"stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
-                    "nodeParent":23,
+                    "props":{"y":184,"x":170,"visible":false,"stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
+                    "nodeParent":53,
                     "label":"Button",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":32,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":71,"x":95,"skin":"image/main/main_tansuo/frame_zhuxian_02.png"},
-                    "nodeParent":23,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":34,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":-1,"x":6,"text":"主线","fontSize":24,"font":"FZXK","color":"#000000"},
-                            "nodeParent":34,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":35,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":73,"x":169,"text":"逃离险地","fontSize":20,"font":"FZXK","color":"#63491a"},
-                    "nodeParent":23,
-                    "label":"Label",
+                    "type":"Button",
+                    "props":{"y":278,"x":167,"visible":false,"stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
+                    "nodeParent":53,
+                    "label":"Button",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":36,
+                    "compId":49,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":72,"x":260,"text":"（可交）","fontSize":20,"font":"FZXK","color":"#149a0d","align":"center"},
-                    "nodeParent":23,
-                    "label":"Label",
+                    "type":"Button",
+                    "props":{"y":279,"x":512,"visible":false,"stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
+                    "nodeParent":53,
+                    "label":"Button",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":37,
+                    "compId":50,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":95,"x":101},
-                    "nodeParent":23,
+                    "props":{"y":95,"x":101,"visible":false},
+                    "nodeParent":53,
                     "label":"Box",
                     "isOpen":false,
                     "isDirectory":true,
@@ -489,54 +467,28 @@
                             "compId":43,
                             "child":[
                                 ]
-                        }]
+                        }],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"HTMLDivElement",
-                    "props":{"y":97,"x":100,"width":309,"innerHTML":"htmlText","height":18},
-                    "nodeParent":23,
+                    "props":{"y":97,"x":100,"width":309,"visible":false,"innerHTML":"htmlText","height":18},
+                    "nodeParent":53,
                     "label":"HTMLDivElement",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":44,
                     "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":236,"x":83,"stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
-                    "nodeParent":23,
-                    "label":"Button",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":49,
-                    "child":[
                         ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":237,"x":428,"stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
-                    "nodeParent":23,
-                    "label":"Button",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":50,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":286,"x":0,"right":0,"left":0,"bottom":0},
-                    "nodeParent":23,
+                    "props":{"y":286,"right":0,"left":0,"bottom":0},
+                    "nodeParent":53,
                     "label":"Box",
                     "isOpen":true,
                     "isDirectory":true,
@@ -561,21 +513,6 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"x":534,"visible":true,"var":"btn_exit","stateNum":"2","skin":"image/main/main_tansuo/icon_tuivhu.png"},
-                            "nodeParent":45,
-                            "label":"Button(btn_exit)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":47,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
                             "props":{"x":17,"stateNum":"2","skin":"image/main/main_tansuo/icon_ditu.png"},
                             "nodeParent":45,
                             "label":"Button",
@@ -588,9 +525,224 @@
                                 ],
                             "$HIDDEN":false
                         }],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":74,"x":127,"var":"box_finishNeed"},
+                    "nodeParent":53,
+                    "label":"Box(box_finishNeed)",
+                    "isOpen":null,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":54,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "props":{"y":1,"skin":"image/main/main_tansuo/frame_zhuxian_02.png"},
+                            "nodeParent":54,
+                            "label":"Image",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":34,
+                            "child":[
+                                {
+                                    "type":"Label",
+                                    "props":{"y":-1,"x":6,"text":"目标","fontSize":24,"font":"FZXK","color":"#000000"},
+                                    "nodeParent":34,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":35,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":4,"x":95,"text":"逃离险地","fontSize":20,"font":"FZXK","color":"#63491a"},
+                            "nodeParent":54,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":36,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":4,"x":186,"text":"（可交）","fontSize":20,"font":"FZXK","color":"#149a0d","align":"center"},
+                            "nodeParent":54,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":37,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":286,"x":534,"visible":true,"var":"btn_exit","stateNum":"2","skin":"image/main/main_tansuo/icon_tuivhu.png"},
+                    "nodeParent":53,
+                    "label":"Button(btn_exit)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":47,
+                    "child":[
+                        ],
                     "$HIDDEN":false
-                }],
-            "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"main/Main_CutSkill_TaoLu_BtnItem.ui",
+                    "props":{"y":42,"x":1,"var":"tab_0"},
+                    "nodeParent":53,
+                    "label":"UIView(tab_0)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":55,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"main/Main_CutSkill_TaoLu_BtnItem.ui",
+                    "props":{"y":119,"x":1,"var":"tab_1"},
+                    "nodeParent":53,
+                    "label":"UIView(tab_1)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":56,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"main/Main_CutSkill_TaoLu_BtnItem.ui",
+                    "props":{"y":196,"x":1,"var":"tab_2"},
+                    "nodeParent":53,
+                    "label":"UIView(tab_2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":57,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"main/Main_CutSkill_TaoLu_BtnItem.ui",
+                    "props":{"y":273,"x":1,"var":"tab_3"},
+                    "nodeParent":53,
+                    "label":"UIView(tab_3)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":58,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"main/Main_Skill_Circle.ui",
+                    "props":{"y":114,"x":127,"var":"skill_1"},
+                    "nodeParent":53,
+                    "label":"UIView(skill_1)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":59,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"main/Main_Skill_Circle.ui",
+                    "props":{"y":114,"x":268,"var":"skill_2"},
+                    "nodeParent":53,
+                    "label":"UIView(skill_2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":60,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"main/Main_Skill_Circle.ui",
+                    "props":{"y":114,"x":409,"var":"skill_3"},
+                    "nodeParent":53,
+                    "label":"UIView(skill_3)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":61,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"main/Main_Skill_Circle.ui",
+                    "props":{"y":235,"x":127,"var":"skill_4"},
+                    "nodeParent":53,
+                    "label":"UIView(skill_4)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":62,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"main/Main_Skill_Circle.ui",
+                    "props":{"y":235,"x":268,"var":"skill_5"},
+                    "nodeParent":53,
+                    "label":"UIView(skill_5)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":63,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"main/Main_Skill_Circle.ui",
+                    "props":{"y":235,"x":409,"var":"skill_6"},
+                    "nodeParent":53,
+                    "label":"UIView(skill_6)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":64,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {

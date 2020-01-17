@@ -390,6 +390,22 @@ module GameUtil {
         return { des: ObjList, battle: battleDes }
 
     }
+    /**
+     * 
+     * @param min   区间最小值
+     * @param max   区间最大值
+     */
+    export function numberRandInt(min: number, max: number) {
+        let base = Math.random();
+        let returnNum;
+        let span = max - min;
+        if (base >= 0.5) {
+            returnNum = Math.ceil((base * span) + min);
+        }else{
+             returnNum = Math.floor((base * span) + min);
+        }
+        return returnNum;
+    }
 
 
     /**

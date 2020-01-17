@@ -5,10 +5,9 @@ module view.wuXue {
 			super();
 		}
 		public setData(id) {
-			let icon = SheetConfig.mydb_magicbuff_tbl.getInstance(null).BUFFICON(id);
+			let icon = SheetConfig.mydb_magicbuff_tbl.getInstance(null).BUFFSMALLICON(id);
 			this.img_BuffIcon.skin = 'image/common/buff/buff_icon_' + icon + '.png'
-			let name = SheetConfig.mydb_magicbuff_tbl.getInstance(null).NAME(id);
-			this.lab_BuffName.text = name;
+
 
 		}
 	}

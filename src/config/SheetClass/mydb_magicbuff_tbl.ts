@@ -69,7 +69,7 @@ public static getInstance(data): mydb_magicbuff_tbl { let Class:any=this;if(!Cla
  */
  public WHETHER_DISPERSE(configID):number { return this.data[configID][16]}
 /**
- *  BUFF是否能保存
+ *  BUFF是否能保存 0不保存1保存 离线计时 2保存离线不计时
  */
  public WHETHER_SAVE(configID):number { return this.data[configID][17]}
 /**
@@ -87,9 +87,17 @@ public static getInstance(data): mydb_magicbuff_tbl { let Class:any=this;if(!Cla
 /**
  *  BUFF的显示图标
  */
- public BUFFICON(configID):number { return this.data[configID][21]}
+ public BUFFSMALLICON(configID):number { return this.data[configID][21]}
 /**
  *  护盾之类的BUFF血量
  */
  public DURABILITY_VALUE(configID):number { return this.data[configID][22]}
+/**
+ *  buff触发的概率，万分比
+ */
+ public BUFF_GAILV(configID):number { return this.data[configID][23]}
+/**
+ *  bufficon图片
+ */
+ public BUFFBIGICON(configID):number { return this.data[configID][24]}
 }}

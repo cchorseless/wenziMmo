@@ -56,6 +56,11 @@ module view.wuXue {
 			// console.log(this.skillCircleArr)
 		}
 		public setData(id) {
+			if (id == GameApp.MainPlayer.defaultTaoLuID) {
+				this.btn_setTaolu.label = '默认出战套路'
+			} else {
+				this.btn_setTaolu.label = '设置出战套路'
+			}
 			let textArr = ['拳脚', '刀剑', '长兵', '奇门']
 			let str = '';
 			if (id == 0) {
@@ -146,13 +151,13 @@ module view.wuXue {
 			this.lab_num.text = '武学数量:' + this.tempData.length;
 
 			this.maxPage = Math.ceil(this.tempData.length / 12)
-			if(this.maxPage == 0){
+			if (this.maxPage == 0) {
 				this.maxPage = 1;
 			}
 			// this.lab_num.text = this.pageID+ '/' + this.maxPage;
 			if (this.tempData.length < 1) {
 				this.box_empty.visible = true;
-			}else{
+			} else {
 				this.box_empty.visible = false;
 			}
 			this.showPage();
@@ -349,7 +354,7 @@ module view.wuXue {
 			let point1 = new Laya.Point(e.stageX, e.stageY);
 			let pos1 = this.globalToLocal(point1);
 			let isChange = false;
-			let changeIndex;
+			let changeIndex;  //将要替换的iconID
 			for (let i = 1; i < 7; i++) {
 				if (pos1.x >= this.skillCircleArr[i - 1][0] && pos1.x <= this.skillCircleArr[i - 1][1] && pos1.y >= this.skillCircleArr[i - 1][2] && pos1.y <= this.skillCircleArr[i - 1][3]) {
 					isChange = true;
@@ -377,7 +382,18 @@ module view.wuXue {
 					if (this['ui_SkillCircle' + changeIndex].unLock) {
 						//移动的目标框的技能ID是否存在
 						if (this['ui_SkillCircle' + changeIndex].skillID) {
-							// this['ui_SkillCircle' + changeIndex].setData(this['ui_SkillCircle' + changeIndex].unLock, changeIndex, tempUI.configID)
+							if (changeIndex == 5 || changeIndex == 6) {
+								let mpCost = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(this.skillItem.configID)
+								if (mpCost < 5) {
+									TipsManage.showTips('该技能栏只能装备蓝耗5以上的技能');
+
+									this.removeChild(this.skillItem);
+									this.skillItem = null;
+									this.isTouchSkillShow = false
+									this.touchSkillShowID = -1;
+									return;
+								}
+							}
 							//脱技能
 							let pkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder();
 							pkt.shortcuts.btRow = GameApp.MainPlayer.taoluPageID;
@@ -398,6 +414,17 @@ module view.wuXue {
 							//穿
 							// this['ui_SkillCircle' + changeIndex].setData(this['ui_SkillCircle' + changeIndex].unLock, changeIndex, tempUI.configID)
 							//穿技能
+							if (changeIndex == 5 || changeIndex == 6) {
+								let mpCost = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(this.skillItem.configID)
+								if (mpCost < 5) {
+									TipsManage.showTips('该技能栏只能装备蓝耗5以上的技能');
+									this.removeChild(this.skillItem);
+									this.skillItem = null;
+									this.isTouchSkillShow = false
+									this.touchSkillShowID = -1;
+									return;
+								}
+							}
 							let skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this.skillItem.configID)
 							let pkt1 = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder();
 							pkt1.setValue('oldcol', changeIndex - 1);
@@ -441,6 +468,15 @@ module view.wuXue {
 				if (this['ui_SkillCircle' + changeIndex].unLock) {
 					//移动的目标框的技能ID是否存在
 					if (this['ui_SkillCircle' + changeIndex].skillID) {
+						if (changeIndex == 5 || changeIndex == 6) {
+							let mpCost = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(this.skillItem.configID)
+							if (mpCost < 5) {
+								TipsManage.showTips('该技能栏只能装备蓝耗5以上的技能');
+								this.isTouchSkillCircle = false
+								this.touchTaoLuID = -1;
+								return;
+							}
+						}
 						let pkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder();
 						pkt.shortcuts.btRow = this.taoLuID;
 						pkt.shortcuts.btCol = changeIndex - 1;
@@ -470,13 +506,16 @@ module view.wuXue {
 						pkt3.shortcuts.btCol = this.touchTaoLuID - 1;
 						pkt3.shortcuts.btRow = GameApp.MainPlayer.taoluPageID;
 						lcp.send(pkt3);
-						// this['ui_SkillCircle' + changeIndex].setData(this['ui_SkillCircle' + changeIndex].unLock, changeIndex, tempUI.configID)
-						// this['ui_SkillCircle' + this.touchTaoLuID].setData(true, this.touchTaoLuID, this['ui_SkillCircle' + changeIndex].skillID)
 					} else {
-						//穿
-						// this['ui_SkillCircle' + changeIndex].setData(this['ui_SkillCircle' + changeIndex].unLock, changeIndex, tempUI.configID)
-						//脱
-						// this['ui_SkillCircle' + this.touchTaoLuID].setData(true, this.touchTaoLuID)
+						if (changeIndex == 5 || changeIndex == 6) {
+							let mpCost = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(this.skillItem.configID)
+							if (mpCost < 5) {
+								TipsManage.showTips('该技能栏只能装备蓝耗5以上的技能');
+								this.isTouchSkillCircle = false
+								this.touchTaoLuID = -1;
+								return;
+							}
+						}
 						//脱技能
 						let pkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder();
 						pkt.shortcuts.btRow = this.taoLuID;

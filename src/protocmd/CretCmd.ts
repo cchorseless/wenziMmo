@@ -211,6 +211,19 @@ module ProtoCmd {
             this.read(data);
         }
     }
+    //蓝改变通知
+    export class CretMPChange extends Packet {
+        public static msgID: number = 0x02a4;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('dwTempId', PacketBase.TYPE_INT);//  4  临时ID  
+            this.addProperty('nChangeMp', PacketBase.TYPE_INT);//int  4  改变蓝量  
+            this.addProperty('nMp', PacketBase.TYPE_INT);// int  4  当前蓝量  
+            this.addProperty('nMaxMp', PacketBase.TYPE_INT);// int  4  最大蓝量 
+            this.addProperty('boShow', PacketBase.TYPE_BOOL); //int  4  
+            this.read(data);
+        }
+    }
 
 
     //金币 改变通知
@@ -726,7 +739,7 @@ module ProtoCmd {
                     case 11://vip类型
                         {
                             if (GameApp.MainPlayer.isMainPlayer) {
-                              GameApp.MainPlayer.viplvl=data.getUint32();
+                                GameApp.MainPlayer.viplvl = data.getUint32();
                             }
                             cret.feature.dwVip = data.getUint32();
                             break;

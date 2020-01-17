@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":124,
-    "selecteID":119,
+    "selectedBox":150,
+    "selecteID":113,
     "props":{"width":510,"sceneColor":"#ffffff","height":524},
     "nodeParent":-1,
     "label":"View",
@@ -26,34 +26,45 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":5,"x":37,"wordWrap":true,"width":123,"text":"出招效果","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
-                    "nodeParent":57,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":60,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Image",
-                    "props":{"y":12,"x":10,"skin":"image/common/wuxue/point_01.png"},
+                    "props":{"y":8,"x":10,"skin":"image/common/wuxue/shadow_title.png"},
                     "nodeParent":57,
                     "label":"Image",
-                    "isDirectory":false,
+                    "isOpen":null,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":61,
+                    "hasChild":true,
+                    "compId":149,
                     "child":[
-                        ]
+                        {
+                            "type":"Label",
+                            "props":{"y":-1,"x":27,"wordWrap":true,"width":123,"text":"出招效果","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
+                            "nodeParent":149,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":60,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":6,"x":0,"skin":"image/common/wuxue/point_01.png"},
+                            "nodeParent":149,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":61,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":35,"x":8,"width":485,"skin":"image/common/wuxue/line_02.png"},
+                    "props":{"y":31,"x":8,"width":485,"skin":"image/common/wuxue/line_02.png"},
                     "nodeParent":57,
                     "label":"Image",
                     "isDirectory":false,
@@ -66,7 +77,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":408,"width":67,"var":"lab_cost","text":"618","height":25,"fontSize":24,"font":"fzxk","color":"#63491a"},
+                    "props":{"y":7,"x":408,"width":67,"var":"lab_cost","text":"618","height":25,"fontSize":24,"font":"fzxk","color":"#63491a"},
                     "nodeParent":57,
                     "label":"Label(lab_cost)",
                     "isDirectory":false,
@@ -79,7 +90,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":-1,"x":383,"skin":"image/common/fight/icon_jingli_big.png"},
+                    "props":{"y":2,"x":383,"skin":"image/common/fight/icon_jingli_big.png"},
                     "nodeParent":57,
                     "label":"Image",
                     "isDirectory":false,
@@ -92,7 +103,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":322,"width":67,"text":"消耗：","height":25,"fontSize":24,"font":"fzxk","color":"#000000"},
+                    "props":{"y":7,"x":322,"width":67,"text":"消耗：","height":25,"fontSize":24,"font":"fzxk","color":"#000000"},
                     "nodeParent":57,
                     "label":"Label",
                     "isDirectory":false,
@@ -157,32 +168,6 @@
                             "child":[
                                 {
                                     "x":60,
-                                    "type":"Label",
-                                    "props":{"y":5,"x":37,"wordWrap":true,"width":123,"text":"突破消耗","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
-                                    "nodeParent":112,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":113,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":12,"x":10,"skin":"image/common/wuxue/point_01.png"},
-                                    "nodeParent":112,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":114,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":35,"x":8,"width":485,"skin":"image/common/wuxue/line_02.png"},
                                     "nodeParent":112,
@@ -193,6 +178,45 @@
                                     "compId":115,
                                     "child":[
                                         ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":12,"x":6,"skin":"image/common/wuxue/shadow_title.png"},
+                                    "nodeParent":112,
+                                    "label":"Image",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":150,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Image",
+                                            "props":{"y":7,"x":3,"skin":"image/common/wuxue/point_01.png"},
+                                            "nodeParent":150,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":114,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":0,"x":30,"wordWrap":true,"width":123,"text":"突破消耗","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
+                                            "nodeParent":150,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":113,
+                                            "child":[
+                                                ]
+                                        }]
                                 }],
                             "$LOCKED":false,
                             "$HIDDEN":false
@@ -286,14 +310,13 @@
                     "props":{"y":262,"x":24,"var":"box_max"},
                     "nodeParent":59,
                     "label":"Box(box_max)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":128,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":82,"x":140,"var":"btn_goto","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":28,"labelFont":"fzxk","labelColors":"#63491a,#63491a,","labelBold":false,"label":"前往领悟"},
                             "nodeParent":128,
@@ -307,7 +330,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"width":462,"text":"武学已满级","height":26,"fontSize":22,"font":"fzxk","color":"#bf8247","align":"center"},
                             "nodeParent":128,
@@ -320,7 +342,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":41,"width":462,"text":"武学品质决定了武学的突破等级上限","height":26,"fontSize":20,"font":"fzxk","color":"#903f14","align":"center"},
                             "nodeParent":128,

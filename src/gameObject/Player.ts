@@ -83,7 +83,12 @@ module GameObject {
         public skillShotButton: { [btRow: string]: ProtoCmd.stShortCuts } = {};// 所有技能快捷键信息
         public skillInfo: { [x: string]: ProtoCmd.stSkillLvlBase } = {};// 所有技能信息
 
-        public upGraspSkillID:number;
+        public upGraspSkillID:number;  //升品技能ID
+
+        public defaultTaoLuID:number;//默认设置的套路ID
+
+
+        public curFuBenID = 0;
 
         // public TitleID = null;
         // public wingID = null;
