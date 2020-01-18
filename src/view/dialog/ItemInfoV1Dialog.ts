@@ -27,6 +27,8 @@ module view.dialog {
 			// 战斗评分
 			this.lbl_score.text = obj.battleScore[jobLimit] + "";
 			let itemInMy = GameUtil.findEquipInPlayer(pos);
+			//描述
+			this.lbl_des.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMDES('' + obj.dwBaseID);
 			if (itemInMy) {
 				this.img_up.visible = true;
 				let job = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB('' + itemInMy.dwBaseID)
@@ -94,7 +96,7 @@ module view.dialog {
 				for (let i in effResult1.des) {
 					this.vbox_suit.addChild(new view.compart.SinglePropsItem().setData(effResult1.des[i]));
 				}
-				this.box_down.y = this.vbox_suit._childs.length * this.vbox_suit.height + 5;
+				this.box_down.y = this.vbox_suit._childs.length * this.box_suit.height + this.box_suit.y + 50;
 			} else {
 				this.box_suit.visible = false;
 				this.box_down.y = this.img_bg2.height + this.img_bg2.y + 20;

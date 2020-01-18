@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":99,
-    "selecteID":123,
+    "selectedBox":150,
+    "selecteID":140,
     "props":{"width":545,"height":798},
     "nodeParent":-1,
     "label":"Dialog",
@@ -65,17 +65,16 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"skin":"image/common/img_common_jianbian01.png"},
+                            "props":{"skin":"image/common/img_common_jianbian01.png","height":28},
                             "nodeParent":111,
                             "label":"Image",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":112,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":8,"x":9,"skin":"image/common/point_title.png"},
                                     "nodeParent":112,
@@ -88,7 +87,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":3,"x":28,"width":168,"text":"强者的霸气套装","height":24,"fontSize":24,"font":"HWXK","color":"#903f14","align":"center"},
                                     "nodeParent":112,
@@ -102,7 +100,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"x":190,"width":76.24798583984375,"text":"（8/8）","height":24,"fontSize":24,"font":"HWXK","color":"#903f14","align":"center"},
                                     "nodeParent":112,
@@ -408,9 +405,9 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"x":15,"wordWrap":true,"width":441,"text":"魔界神器之一，内封印魔尊重楼的元灵，持有者有如","leading":2,"height":49,"fontSize":20,"font":"FZXK","color":"#63491a"},
+                            "props":{"x":15,"wordWrap":true,"width":441,"var":"lbl_des","text":"魔界神器之一，内封印魔尊重楼的元灵，持有者有如","leading":2,"height":49,"fontSize":20,"font":"FZXK","color":"#63491a"},
                             "nodeParent":150,
-                            "label":"Label",
+                            "label":"Label(lbl_des)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
