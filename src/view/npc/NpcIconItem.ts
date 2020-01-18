@@ -22,10 +22,10 @@ module view.npc {
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
 				if (this.haogan == 0) {
 					//无好感度NPC弹窗
-					new view.main.Main_TanSuoV0Dialog().setData(this.item, 2).popup();
+					new view.npc.Main_TanSuoV0Dialog().setData(this.item, 2).popup();
 				} else {
 					//有好感度NPC
-					new view.main.Main_TanSuoV1Dialog().setData(this.item).popup();
+					new view.npc.Main_TanSuoV1Dialog().setData(this.item).popup();
 				}
 			});
 		}

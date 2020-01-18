@@ -40,7 +40,7 @@ module view.scene {
 				let job = player.job;
 				if (this.place == 1) {
 					//怪物信息弹窗
-					new view.main.Main_TanSuoV0Dialog().setData(this.item, 1).popup();
+					new view.npc.Main_TanSuoV0Dialog().setData(this.item, 1).popup();
 				} else {
 					//攻击
 					// player["startHandAtk" + job](this.item);

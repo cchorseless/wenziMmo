@@ -24,7 +24,7 @@ module view.main {
 		 * @param mode 
 		 */
 		public changeMode(mode): void {
-			if(mode==1){
+			if (mode == 1) {
 				this.ui_skill.setData();
 			}
 			this.viw_bottom.selectedIndex = mode;
@@ -81,11 +81,11 @@ module view.main {
 					// 
 					case EnumData.emMonsterType._MON_TYPE_LITTLEBOSS_:
 						monster = new view.scene.MonsterInSceneItemV1();
-						monster.setData(obj,1);
+						monster.setData(obj, 1);
 						break;
 					case EnumData.emMonsterType._MON_TYPE_NORMAL_:
 						monster = new view.scene.MonsterInSceneItemV0();
-						monster.setData(obj,1);
+						monster.setData(obj, 1);
 						break;
 				}
 				// monster = new view.scene.MonsterInSceneItemV0();
@@ -144,8 +144,8 @@ module view.main {
 					break;
 				//功能npc
 				case 3:
-					npcIcon = new view.scene.MonsterInSceneItemV15();
-					npcIcon.init_npc(obj);
+					npcIcon = new view.npc.NpcFunctionItem();
+					npcIcon.setData(obj);
 					break;
 			}
 			this.addCreatureObj(npcIcon);

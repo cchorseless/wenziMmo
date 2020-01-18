@@ -108,4 +108,20 @@ public static getInstance(data): mydb_npcgen_tbl { let Class:any=this;if(!Class.
  *  npc好感增加系数
  */
  public FAVORABLE_COEFFICIENT(configID):number { return this.data[configID][26]}
+/**
+ *  可从NPC身上请教获得的技能ID
+ */
+ public SKILLS_UP_ITEM(configID):string { return this.data[configID][27]}
+/**
+ *  NPC顺序对白
+ */
+ public TALKINFO_SHUNXU(configID):string { return this.data[configID][28]}
+/**
+ *  NPC随机对白
+ */
+ public TALKINFO_RANDOM(configID):string { return this.data[configID][29]}
+/**
+ *  NPC身上是否绑任务.0:没有任务；1有任务
+ */
+ public ISTASKONSELF(configID):number { return this.data[configID][30]}
 }}

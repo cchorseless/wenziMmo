@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.main {
-	export class Main_TanSuoV0Dialog extends ui.main.Main_TanSuoV0DialogUI {
+module view.npc {
+	export class Main_TanSuoV0Dialog extends ui.npc.Main_TanSuoV0DialogUI {
 		constructor() {
 			super();
 		}

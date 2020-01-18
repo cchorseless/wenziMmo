@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.main {
-	export class Main_TanSuoV1Dialog extends ui.main.Main_TanSuoV1DialogUI {
+module view.npc {
+	export class Main_TanSuoV1Dialog extends ui.npc.Main_TanSuoV1DialogUI {
 		constructor() {
 			super();
 		}
@@ -23,7 +23,7 @@ module view.main {
 			})
 			//请教武学
 			this.btn_wuxue.on(Laya.UIEvent.CLICK, this, () => {
-				new view.main.Main_NPCWuXueDialog().setData(this.item).popup();
+				new view.npc.Main_NPCWuXueDialog().setData(this.item).popup();
 			})
 		}
 		public init_haoganEvent(): void {
