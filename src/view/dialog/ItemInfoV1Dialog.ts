@@ -47,6 +47,7 @@ module view.dialog {
 				} else if (pingfen < inSelf) {
 					this.img_up.skin = 'image/main/img_common_down01.png';
 				}
+				this.img_up.x=this.lbl_score.x+this.lbl_score.width+5;
 			} else {
 				this.img_up.visible = false;
 			}
