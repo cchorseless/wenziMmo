@@ -15,10 +15,10 @@ module view.scene {
 			this.item = item;
 			item.ui_item = this;
 			this.lbl_name.text = this.item.objName;
+			
 			// 龙骨
 			let configID = '' + this.item.feature.dwCretTypeId;
-			let skePath
-			// this.addMonster(monsterObj);
+			let skePath;
 			this.type = skePath = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + configID);
 			if (skePath == EnumData.emMonsterType._MON_TYPE_COLLECT_) {
 				this.img_type.visible = true;
@@ -27,13 +27,15 @@ module view.scene {
 			this.img_icon.skin = 'image/common/npc/npc_half_' + skePath + '.png'
 			this.addEvent();
 		}
-		public collectHander: Laya.Handler;// 采集物Hander
+
+		public clickHander: Laya.Handler;// 点击Hander
 		public addEvent(): void {
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
 				if (!this.type) {
 					if (this.type == EnumData.emMonsterType._MON_TYPE_COLLECT_) {
 						new view.main.Main_TanSuoV0Dialog().setData(this.item).popup();
-					} else {
+					}
+					 else {
 						let player = GameApp.MainPlayer;
 						let configID = this.item.feature.dwCretTypeId;
 						let skePath: EnumData.emMonsterType = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_TYPE('' + configID);
@@ -41,8 +43,8 @@ module view.scene {
 						switch (skePath) {
 							// 收集道具
 							case EnumData.emMonsterType._MON_TYPE_COLLECT_:
-								if (this.collectHander) {
-									this.collectHander.run()
+								if (this.clickHander) {
+									this.clickHander.run()
 								}
 								else {
 									let closerHander = Laya.Handler.create(this, () => {
@@ -55,8 +57,8 @@ module view.scene {
 								break;
 							// 传送门
 							case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
-								if (this.collectHander) {
-									this.collectHander.run()
+								if (this.clickHander) {
+									this.clickHander.run()
 								}
 								else {
 									let closerHander = Laya.Handler.create(this, () => {
@@ -69,12 +71,12 @@ module view.scene {
 								break;
 						}
 					}
-
 				} else {
 					new view.zhaiYuan.ZhaiYuan_HeHuaChiDialog().popup();
 				}
 			})
 		}
+
 		public init_npc(data: GameObject.Npc): void {
 			this.img_type.visible = true;
 			this.img_type.skin = 'image/common/icon_common_shezhi.png';
