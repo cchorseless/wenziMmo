@@ -4,12 +4,15 @@ module view.npc {
 		constructor() {
 			super();
 		}
-
+		//npc好感度
+		public haogan;
+		//npc信息
 		public item: GameObject.Npc;
 		public setData(obj): NpcIconItem {
 			this.item = obj;
 			this.item.ui_item = this;
 			this.centerX = this.centerY = 0
+			this.haogan = SheetConfig.mydb_npcgen_tbl.getInstance(null).FAVORABLE_COEFFICIENT('' + obj.feature.dwCretTypeId)
 			this.initUI();
 			this.addEvent();
 			return this;
@@ -17,13 +20,13 @@ module view.npc {
 
 		public addEvent(): void {
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
-				let pkID = this.item.feature.dwCretTypeId
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.clickNpc, [pkID], 0, this, function (data) {
-					let aa = data;
-					new view.npc.NpcInfoV1Dialog().setData(this.item).popup(true);
-				})
-				lcp.send(pkt);
-
+				if (this.haogan == 0) {
+					//无好感度NPC弹窗
+					new view.npc.Main_TanSuoV0Dialog().setData(this.item, 2).popup();
+				} else {
+					//有好感度NPC
+					new view.npc.Main_TanSuoV1Dialog().setData(this.item).popup();
+				}
 			});
 		}
 

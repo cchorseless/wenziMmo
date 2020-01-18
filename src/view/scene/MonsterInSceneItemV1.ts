@@ -4,9 +4,17 @@ module view.scene {
 		constructor() {
 			super();
 		}
+		public place: number//0战斗界面1移动界面
 		public item: GameObject.Monster;
-		public setData(item: GameObject.Monster): void {
+// <<<<<<< HEAD
+		// public setData(item: GameObject.Monster): void {
 			// this.centerX = this.centerY = 0;s
+// =======
+		public setData(item: GameObject.Monster, place: number = 0): void {
+			this.place = place;
+			this.centerX = this.centerY = 0;
+// >>>>>>> b4
+// 7e2a747bc87b0079f68bf12bd3f31cb2c69f99
 			// 相互绑定
 			this.item = item;
 			item.ui_item = this;
@@ -36,8 +44,14 @@ module view.scene {
 			this.box_view.on(Laya.UIEvent.CLICK, this, () => {
 				let player = GameApp.MainPlayer;
 				let job = player.job;
-				// player["startHandAtk" + job](this.item);
-				player.startHandAtk0(this.item);
+				if (this.place == 1) {
+					//怪物信息弹窗
+					new view.npc.Main_TanSuoV0Dialog().setData(this.item, 1).popup();
+				} else {
+					//攻击
+					// player["startHandAtk" + job](this.item);
+					player.startHandAtk0(this.item);
+				}
 			})
 		}
 		public updateUI(): void {

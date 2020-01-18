@@ -183,17 +183,19 @@ module view.main {
 					case EnumData.emMonsterType._MON_TYPE_COLLECT_:
 					case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
 						monster = new view.scene.MonsterInSceneItemV15();
+						monster.setData(obj);
 						break;
 					// 
 					case EnumData.emMonsterType._MON_TYPE_LITTLEBOSS_:
 						monster = new view.scene.MonsterInSceneItemV1();
+						monster.setData(obj, 1);
 						break;
 					case EnumData.emMonsterType._MON_TYPE_NORMAL_:
 						monster = new view.scene.MonsterInSceneItemV0();
+						monster.setData(obj, 1);
 						break;
 				}
 				// monster = new view.scene.MonsterInSceneItemV0();
-				monster.setData(obj);
 			}
 			this.addCreatureObj(monster)
 			// 配置表ID
@@ -249,8 +251,8 @@ module view.main {
 					break;
 				//功能npc
 				case 3:
-					npcIcon = new view.scene.MonsterInSceneItemV15();
-					npcIcon.init_npc(obj);
+					npcIcon = new view.npc.NpcFunctionItem();
+					npcIcon.setData(obj);
 					break;
 			}
 			this.addCreatureObj(npcIcon);
@@ -448,7 +450,7 @@ module view.main {
 			for (let i = 0; i <= 7; i++) {
 				if (this['box_' + i]._childs.length > 0) {
 					let box_npc = this['box_' + i]._childs[0];
-					if (box_npc) {
+					if (box_npc.item) {
 						if (box_npc.item.taskState) {
 							if (box_npc.item.feature.dwCretTypeId == id) {
 								box_npc.item.taskState = state;

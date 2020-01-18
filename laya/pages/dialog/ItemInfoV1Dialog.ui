@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":99,
-    "selecteID":123,
+    "selecteID":107,
     "props":{"width":545,"height":798},
     "nodeParent":-1,
     "label":"Dialog",
@@ -65,7 +65,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"skin":"image/common/img_common_jianbian01.png"},
+                            "props":{"skin":"image/common/img_common_jianbian01.png","height":28},
                             "nodeParent":111,
                             "label":"Image",
                             "isOpen":true,
@@ -90,9 +90,9 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":3,"x":28,"width":168,"text":"强者的霸气套装","height":24,"fontSize":24,"font":"HWXK","color":"#903f14","align":"center"},
+                                    "props":{"y":3,"x":28,"width":168,"var":"lbl_suitname","text":"强者的霸气套装","height":24,"fontSize":24,"font":"HWXK","color":"#903f14","align":"center"},
                                     "nodeParent":112,
-                                    "label":"Label",
+                                    "label":"Label(lbl_suitname)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -104,9 +104,9 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":5,"x":190,"width":76.24798583984375,"text":"（8/8）","height":24,"fontSize":24,"font":"HWXK","color":"#903f14","align":"center"},
+                                    "props":{"y":5,"x":190,"width":76.24798583984375,"var":"lbl_suitNum","text":"（8/8）","height":24,"fontSize":24,"font":"HWXK","color":"#903f14","align":"center"},
                                     "nodeParent":112,
-                                    "label":"Label",
+                                    "label":"Label(lbl_suitNum)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -120,9 +120,9 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":-8,"x":328,"width":109,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#a9643b","labelSize":24,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"查看详情","height":52},
+                            "props":{"y":-8,"x":328,"width":109,"var":"btn_info","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#a9643b","labelSize":24,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"查看详情","height":52},
                             "nodeParent":111,
-                            "label":"Button",
+                            "label":"Button(btn_info)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -188,20 +188,6 @@
                     "hasChild":true,
                     "compId":99,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"UIView",
-                            "source":"compart/DaoJuItem.ui",
-                            "props":{"y":9,"x":15,"var":"ui_item","runtime":"view.compart.DaoJuItem"},
-                            "nodeParent":99,
-                            "label":"UIView(ui_item)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":101,
-                            "child":[
-                                ]
-                        },
                         {
                             "x":45,
                             "type":"Label",
@@ -294,8 +280,152 @@
                             "compId":123,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"HBox",
+                            "props":{"y":96,"x":25,"width":420,"space":15,"height":29},
+                            "nodeParent":99,
+                            "label":"HBox",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":155,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":0,"x":4,"width":32,"var":"btn_1","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":29},
+                                    "nodeParent":155,
+                                    "label":"Button(btn_1)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":151,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":0,"x":47,"width":32,"var":"btn_2","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":29},
+                                    "nodeParent":155,
+                                    "label":"Button(btn_2)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":157,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":0,"x":53,"width":32,"var":"btn_3","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":29},
+                                    "nodeParent":155,
+                                    "label":"Button(btn_3)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":152,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":0,"x":97,"width":32,"var":"btn_4","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":29},
+                                    "nodeParent":155,
+                                    "label":"Button(btn_4)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":153,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":0,"x":188,"width":32,"var":"btn_5","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":29},
+                                    "nodeParent":155,
+                                    "label":"Button(btn_5)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":154,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":0,"x":188,"width":32,"var":"btn_6","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":29},
+                                    "nodeParent":155,
+                                    "label":"Button(btn_6)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":158,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":0,"x":200,"width":32,"var":"btn_7","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":29},
+                                    "nodeParent":155,
+                                    "label":"Button(btn_7)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":159,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":0,"x":284,"width":32,"var":"btn_8","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":29},
+                                    "nodeParent":155,
+                                    "label":"Button(btn_8)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":160,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"x":294,"width":32,"var":"btn_9","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":29},
+                                    "nodeParent":155,
+                                    "label":"Button(btn_9)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":161,
+                                    "child":[
+                                        ]
+                                }]
                         }],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"compart/DaoJuItem.ui",
+                    "props":{"y":125,"x":45,"var":"ui_item","runtime":"view.compart.DaoJuItem"},
+                    "nodeParent":98,
+                    "label":"UIView(ui_item)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":101,
+                    "child":[
+                        ]
                 },
                 {
                     "x":30,
@@ -408,9 +538,9 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"x":15,"wordWrap":true,"width":441,"text":"魔界神器之一，内封印魔尊重楼的元灵，持有者有如","leading":2,"height":49,"fontSize":20,"font":"FZXK","color":"#63491a"},
+                            "props":{"x":15,"wordWrap":true,"width":441,"var":"lbl_des","text":"魔界神器之一，内封印魔尊重楼的元灵，持有者有如","leading":2,"height":49,"fontSize":20,"font":"FZXK","color":"#63491a"},
                             "nodeParent":150,
-                            "label":"Label",
+                            "label":"Label(lbl_des)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,

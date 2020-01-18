@@ -7,7 +7,7 @@ module view.wuXue {
             super();
         }
 
-        public setData(configID): void {
+        public setData(configID): WuXue_logoWithNameItem {
             this.configID = configID;
             if (configID == -1) {
                 this.html_name.visible = false;

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":257,
-    "selecteID":279,
+    "selecteID":236,
     "referenceLines":[
         {
             "value":1127,
@@ -41,13 +41,14 @@
                     "props":{"y":0,"x":0,"var":"box_mainTop","top":0,"right":0,"left":0},
                     "nodeParent":257,
                     "label":"Box(box_mainTop)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":129,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":0,"width":640,"skin":"image/main/frame_liaotin.png","height":40},
                             "nodeParent":129,
@@ -62,6 +63,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":40,"x":0,"skin":"image/main/frame_juesexinxi.png"},
                             "nodeParent":129,
@@ -75,6 +77,7 @@
                             "$LOCKED":true
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":37,"x":111,"skin":"image/common/zi_zongzhanli.png"},
                             "nodeParent":129,
@@ -88,6 +91,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"FontClip",
                             "props":{"y":40,"x":193,"width":107,"var":"clip_power","value":"199720","skin":"image/common/number/font_zhanli.png","sheet":"0123456789","height":21},
                             "nodeParent":129,
@@ -101,6 +105,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":5,"x":175,"width":465,"height":29},
                             "nodeParent":129,
@@ -310,6 +315,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":31,"x":106,"width":158,"var":"img_expBg","skin":"image/main/fram_common_03.png","height":6},
                             "nodeParent":129,
@@ -349,6 +355,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":0,"x":-8},
                             "nodeParent":129,
@@ -361,7 +368,7 @@
                             "child":[
                                 {
                                     "type":"Image",
-                                    "props":{"y":12,"x":23,"var":"img_head","skin":"image/common/frame_touxinag.png"},
+                                    "props":{"y":-8,"x":14,"var":"img_head","skin":"image/common/frame_touxinag.png"},
                                     "nodeParent":179,
                                     "label":"Image(img_head)",
                                     "isOpen":true,
@@ -376,7 +383,7 @@
                                 },
                                 {
                                     "type":"Image",
-                                    "props":{"y":14,"x":24,"width":84,"var":"img_avatarIcon","skin":"image/common/npc/npc_icon_1402.png","height":84},
+                                    "props":{"y":7,"x":26,"width":84,"var":"img_avatarIcon","skin":"image/common/icon_nv03.png","height":84},
                                     "nodeParent":179,
                                     "label":"Image(img_avatarIcon)",
                                     "isDirectory":false,
@@ -386,20 +393,6 @@
                                     "child":[
                                         ],
                                     "$LOCKED":false,
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Image",
-                                    "props":{"x":11,"width":110,"skin":"image/main/img_zhujiekuang.png","height":110,"centerY":0},
-                                    "nodeParent":179,
-                                    "label":"Image",
-                                    "isOpen":false,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":6,
-                                    "child":[
-                                        ],
                                     "$HIDDEN":false
                                 },
                                 {
@@ -491,6 +484,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":69,"x":102,"var":"btn_time","skin":"image/main/bnt_daxueweishi.png"},
                             "nodeParent":129,
@@ -527,6 +521,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":69,"x":186,"skin":"image/main/bnt_daxueweishi.png"},
                             "nodeParent":129,
@@ -538,6 +533,7 @@
                             "compId":210,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":2,"x":19,"text":"全体","strokeColor":"#835934","stroke":2,"fontSize":18,"font":"fzhl","color":"#f7ce99"},
                                     "nodeParent":210,
@@ -551,7 +547,7 @@
                                 }]
                         }],
                     "$LOCKED":true,
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -760,7 +756,7 @@
                                     "$HIDDEN":false
                                 }]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -832,7 +828,7 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,

@@ -14,6 +14,7 @@ module view.dialog {
 			obj.clone(item.data);
 			this.itemObj = obj;
 			this.model = model;
+			//名称
 			this.lab_Name.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(obj.dwBaseID.toString());
 			this.lab_Name.fontSize = (this.lab_Name.text.length > 5) ? 26 : 36;
 			// 玩家回收经验
@@ -27,6 +28,15 @@ module view.dialog {
 			// 战斗评分
 			this.lbl_score.text = obj.battleScore[jobLimit] + "";
 			let itemInMy = GameUtil.findEquipInPlayer(pos);
+			//星级
+			let star=obj.btStrengCount;
+			if(star>0){
+				for(let i=1;i<=star;i++){
+					this['btn_'+i].selected=true;
+				}
+			}
+			//描述
+			this.lbl_des.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMDES('' + obj.dwBaseID);
 			if (itemInMy) {
 				this.img_up.visible = true;
 				let job = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB('' + itemInMy.dwBaseID)
@@ -37,6 +47,7 @@ module view.dialog {
 				} else if (pingfen < inSelf) {
 					this.img_up.skin = 'image/main/img_common_down01.png';
 				}
+				this.img_up.x=this.lbl_score.x+this.lbl_score.width+5;
 			} else {
 				this.img_up.visible = false;
 			}
@@ -90,11 +101,18 @@ module view.dialog {
 			if (effid1) {
 				this.box_suit.y = this.img_bg2.height + this.img_bg2.y + 20;
 				this.box_suit.visible = true;
+				this.lbl_suitname.text=SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + obj.dwBaseID).split('·')[0];
+				let shuliang=0;
+				for(let suitpos=EnumData.emEquipPosition.EQUIP_RUNE_UP;suitpos<=EnumData.emEquipPosition.EQUIP_RUNE_UPLEFT;suitpos++){
+					let data=GameUtil.findEquipInPlayer(suitpos);
+					if(data){shuliang+=1;}
+				}
+				this.lbl_suitNum.text=shuliang+'/8';
 				let effResult1 = GameUtil.parseEffectidToObj(['' + effid1]);
 				for (let i in effResult1.des) {
 					this.vbox_suit.addChild(new view.compart.SinglePropsItem().setData(effResult1.des[i]));
 				}
-				this.box_down.y = this.vbox_suit._childs.length * this.vbox_suit.height + 5;
+				this.box_down.y = this.vbox_suit._childs.length * this.box_suit.height + this.box_suit.y + 50;
 			} else {
 				this.box_suit.visible = false;
 				this.box_down.y = this.img_bg2.height + this.img_bg2.y + 20;
@@ -168,6 +186,10 @@ module view.dialog {
 			// 关闭
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
+			});
+			//套装信息
+			this.btn_info.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.ItemSuitInfoDialog().setData(this.itemObj).popup();
 			});
 			switch (this.model) {
 				case EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP:

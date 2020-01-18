@@ -70,7 +70,7 @@ module view.dialog {
 				// 邮件内,无操作按钮，所以需要缩短界面高度
 				case EnumData.ItemInfoModel.SHOW_IN_MAIL:
 					this.box_operation.visible = false;
-					this.img_bigBg.height = this.box_channel.y + this.box_channel.height;
+					this.img_bigBg.height = this.box_channel.y + this.box_channel.height+40;
 					break;
 			}
 			if (obj.dwBinding) {
