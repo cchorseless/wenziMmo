@@ -74,9 +74,8 @@ module view.scene {
 		public addEvent() {
 			EventManage.onWithEffect(this.box_next, Laya.UIEvent.CLICK, this, () => {
 				this.box_next.disabled = true;
-				// this.parseSceneTalk();
-				Laya.Tween.to(this, { alpha: 0 }, 500, null, Laya.Handler.create(this, () => {
-					this.visible = false;
+				Laya.Tween.to(this, { height: 210 }, 500, null, Laya.Handler.create(this, () => {
+
 					for (let evt of this.eventInfo) {
 						GameApp.LListener.event(evt[0], evt[1]);
 					}

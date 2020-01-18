@@ -85,8 +85,8 @@ module view.main {
 			})
 		}
 		/**
-	  * 剧情信息
-	  */
+	  	 * 剧情信息
+	  	 */
 		public get_novelPian(): void {
 			if (GameApp.MainPlayer.pianZhangID) {
 				let pianzhang = SheetConfig.juQingPianZhangSheet.getInstance(null).data;

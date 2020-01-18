@@ -14,7 +14,6 @@ module view.common {
 		public job = 1;// 职业
 		public sex = 1;// 性别
 		public setData(): void {
-			this.vbox_left['sortItem'] = (items) => { };
 			// this.panel_0.vScrollBarSkin = '';
 			// this.panel_1.vScrollBarSkin = '';
 			// this.vbox_0['sortItem'] = (items) => { };
@@ -22,32 +21,17 @@ module view.common {
 			// this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 			// 	this.viw_talk.selectedIndex = index;
 			// }, null, false);
-			this.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
-			this.tab_jobSelect.selectHandler = Laya.Handler.create(this, (index) => {
-				let configID = '' + (index + 101);
-				this.lbl_job.text = SheetConfig.HeroInfoSheet.getInstance(null).JOBDES(configID);
-				this.job = SheetConfig.HeroInfoSheet.getInstance(null).JOB(configID);
-				this.sex = SheetConfig.HeroInfoSheet.getInstance(null).SEX(configID);
-				this.lbl_jueSeName.text = '' + SheetConfig.HeroInfoSheet.getInstance(null).NAME(configID);
-				this.lbl_jueSedes0.text = '' + SheetConfig.HeroInfoSheet.getInstance(null).DES0(configID);
-				this.lbl_jueSedes1.text = '           ' + SheetConfig.HeroInfoSheet.getInstance(null).DES1(configID);
-				this.lbl_jueSedes2.text = '           ' + SheetConfig.HeroInfoSheet.getInstance(null).DES2(configID);
-				// 半身像
-				this.img_avatarPic0.skin = LangConfig.getPlayerAvatarHalfSkinV3(this.sex, this.job);
+			// this.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
 
-			}, null, false);
-			this.tab_jobSelect.selectedIndex = 0;
-			this.addDiFuTalk();
-			this.addRenJianTalk();
 			this.initSelf();
 		}
 
 		public initSelf(): void {
 			// 适配处理
-			let getScaleY = PanelManage.getScaleY();
-			this.img_bottomBg.scaleY = getScaleY;
-			this.img_npcBg.scaleY = getScaleY;
-			this.box_uiScene0.scaleY = getScaleY;
+			// let getScaleY = PanelManage.getScaleY();
+			// this.img_bottomBg.scaleY = getScaleY;
+			// this.img_npcBg.scaleY = getScaleY;
+			// this.box_uiScene0.scaleY = getScaleY;
 			// 先隐藏
 			this.alpha = 0;
 			this.ui_npcTalk.visible = false;
@@ -55,7 +39,7 @@ module view.common {
 			// 加载动作
 			let skePlayer = new SkeletonUtil.SkeletonGroup();
 			skePlayer.loadRes(['sk/player/ZJ_GH.sk'], () => {
-				skePlayer.pos(this.box_self.width / 2, this.box_self.height / 2)
+				skePlayer.pos(this.box_self.width / 2, this.box_self.height)
 				this.box_self.addChild(skePlayer);
 				skePlayer.scale(1, 1);
 				skePlayer.play(0, true);
@@ -177,9 +161,8 @@ module view.common {
 			// 背景图
 			this.img_sceneBg.skin = 'image/common/scene/zdmap_icon_' + this.sceneBgList[index] + '.png';
 			// 清地图
-			this.vbox_left.removeChildren();
 			this.box_boss.removeChildren();
-			this.ui_item.clearAllMonster();
+			this.clearObjView();
 			// 移动的按钮
 			let mapName0 = this.mapNameList[index - 1];
 			let mapName1 = this.mapNameList[index];
@@ -189,23 +172,23 @@ module view.common {
 			this.btn_mapCenter.skin = 'image/main/frame_didian_2.png';
 			// this.lbl_sceneName.text = '' + mapName1;
 			if (mapName0) {
-				this.btn_mapDown.visible = this.img_mapLineDown.visible = true;
+				this.btn_mapDown.visible = true;
 				this.btn_mapDown.label = '' + mapName0;
 				this.btn_mapDown.labelColors = '#63491a';
 				this.btn_mapDown.skin = 'image/main/btn_didian_01.png';
 			}
 			else {
-				this.btn_mapDown.visible = this.img_mapLineDown.visible = false;
+				this.btn_mapDown.visible = false;
 			}
 
 			if (mapName2) {
-				this.btn_mapUp.visible = this.img_mapLineUp.visible = true
+				this.btn_mapUp.visible = true
 				this.btn_mapUp.label = '' + mapName2;
 				this.btn_mapUp.labelColors = '#63491a';
 				this.btn_mapUp.skin = 'image/main/btn_didian_01.png';
 			}
 			else {
-				this.btn_mapUp.visible = this.img_mapLineUp.visible = false;
+				this.btn_mapUp.visible = false;
 			}
 			// Npc
 			let npcList = this.npcConfigList[index];
@@ -216,7 +199,7 @@ module view.common {
 				npcObj.feature.dwCretTypeId = npcConfig;
 				npcObj.objName = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME('' + npcConfig);
 				npcUI.setData(npcObj);
-				this.vbox_left.addChild(npcUI);
+				this.addObjView(npcUI);
 			}
 			// 怪物
 			let monsterList = this.monsterConfigList[index];
@@ -240,7 +223,7 @@ module view.common {
 							break;
 					}
 					monsterUI.setData(npcObj);
-					this.ui_item.addMonster(monsterUI);
+					this.box_boss.addChild(monsterUI);
 				}
 			}
 			// 只有一个怪物
@@ -253,17 +236,12 @@ module view.common {
 				let configID = '' + monsterObj.feature.dwCretTypeId
 				let skePath: EnumData.emMonsterType = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_TYPE(configID)
 				switch (skePath) {
-					case EnumData.emMonsterType._MON_TYPE_COLLECT_: case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
+					case EnumData.emMonsterType._MON_TYPE_COLLECT_:
+					case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
 						monsterUI = new view.scene.MonsterInSceneItemV15();
 						break;
-					case EnumData.emMonsterType._MON_TYPE_LITTLEBOSS_:
-						monsterUI = new view.scene.MonsterInSceneItemV1();
-						break;
-					case EnumData.emMonsterType._MON_TYPE_NORMAL_:
-						monsterUI = new view.scene.MonsterInSceneItemV0();
-						break;
 				}
-				monsterUI.scale(1.5, 1.5)
+				// monsterUI.scale(1.5, 1.5)
 				monsterUI.setData(monsterObj);
 				monsterUI.collectHander = Laya.Handler.create(this, () => {
 					let progerUI = new view.npc.NpcProgressItem()
@@ -278,109 +256,42 @@ module view.common {
 						case 200005:
 							progerUI.setData('轮回之门正在开启...', 3000);
 							progerUI.closeHandler = Laya.Handler.create(this, () => {
-								this.lbl_finaName.text = this.playerName;
+								// this.lbl_finaName.text = this.playerName;
 								this.showDialog(4)
 							})
 							break;
 					};
-					this.box_uiScene0.addChild(progerUI);
+					// this.box_uiScene0.addChild(progerUI);
 					this.box_boss.disabled = true;
 				}, null, false);
 				this.box_boss.addChild(monsterUI);
 			}
 		}
 
+
+		/**
+		 * 添加UI对象
+		 */
+		public addObjView(uiObj): void {
+			for (let i = 1; i < 4; i++) {
+				if ((this['box_' + i] as Laya.Box).numChildren == 0) {
+					this['box_' + i].addChild(uiObj)
+				}
+			}
+		}
+
+		/**
+		 * 清视野
+		 */
+		public clearObjView(): void {
+			this.box_4.removeChildren();
+			this.box_5.removeChildren();
+			this.box_6.removeChildren();
+			this.box_boss.removeChildren();
+		}
+
+
 		public addEvent(): void {
-			// 随机名字
-			EventManage.onWithEffect(this.btn_randomName, Laya.UIEvent.CLICK, this, () => {
-				let name = this.randomName();
-				this.input_name.text = name;
-				this.input_name2.text = name;
-				this.playerName = name;
-			});
-			EventManage.onWithEffect(this.btn_randomName2, Laya.UIEvent.CLICK, this, () => {
-				let name = this.randomName();
-				this.input_name.text = name;
-				this.input_name2.text = name;
-				this.playerName = name;
-				console.log(this.playerName);
-			});
-
-
-			this.input_name2.on(Laya.UIEvent.BLUR, this, () => {
-				this.playerName = this.input_name2.text;
-				console.log(this.playerName);
-			})
-
-			// 确定名字
-			this.btn_nameSure.on(Laya.UIEvent.CLICK, this, () => {
-				if (!this.input_name.text) {
-					TipsManage.showTips('请输入昵称')
-				}
-				else {
-					this.playerName = this.input_name.text;
-					// 确定了人物形象
-					this.lbl_finaName.text = this.playerName;
-					this.input_name2.text = this.playerName;
-					this.showDialog(0);
-				}
-			});
-
-
-
-			// 确定形象
-			EventManage.onWithEffect(this.btn_avatarSure, Laya.UIEvent.CLICK, this, () => {
-				this.createAvatar();
-			});
-
-
-			// 性格资质随机
-			EventManage.onWithEffect(this.btn_randomXingGe, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.JS_randomXingGeValue, null, null, this, (jsonData) => {
-					console.log(jsonData);
-					GameApp.MainPlayer.xingGeInfo = jsonData;
-					this.updateXingGe();
-				})
-				lcp.send(pkt);
-			});
-
-			// 性格资质确定
-			EventManage.onWithEffect(this.btn_xingGeSure, Laya.UIEvent.CLICK, this, () => {
-				this.showDialog(0);
-			});
-
-			// 随机天赋
-			EventManage.onWithEffect(this.btn_randomtalent, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.JS_randomZiZhiValue, null, null, this, (jsonData) => {
-					console.log(jsonData);
-					GameApp.MainPlayer.talentInfo = jsonData;
-					this.updateTalent();
-				})
-				lcp.send(pkt);
-			});
-
-			/**
-			 * 最终结束
-			 */
-			EventManage.onWithEffect(this.btn_finallySure, Laya.UIEvent.CLICK, this, () => {
-				// 销毁界面
-				this.showDialog(0);
-				// 睁眼动画
-				let cg = new SkeletonUtil.SkeletonGroup();
-				cg.loadRes(['sk/new/Zhenyan.sk'], () => {
-					cg.pos(Laya.stage.width / 2, Laya.stage.height / 2);
-					Laya.stage.addChild(cg);
-					PanelManage.openJuQingModePanel();
-					cg.play(0, false, false, Laya.Handler.create(this, () => {
-						Laya.Tween.to(cg, { alpha: 1 }, 1000, null, Laya.Handler.create(this, () => {
-							cg.destroy(true);
-						}))
-					}), 0.5);
-				})
-
-			});
 
 			// 向前进
 			EventManage.onWithEffect(this.btn_mapUp, Laya.UIEvent.CLICK, this, () => {
@@ -410,12 +321,13 @@ module view.common {
 			// 更新任务提示
 			GameApp.LListener.on('createPlayer_updateTask', this, (des) => {
 				this.lbl_tipsDes.text = '' + des;
-			})
+			});
 
 			// 弹出dialog
 			GameApp.LListener.on('createPlayer_showDialog', this, (index) => {
 				this.showDialog(index);
-			})
+			});
+
 			// 新玩家进入游戏打开欢迎界面
 			GameApp.LListener.once(ProtoCmd.NEW_PLAYER_WelcomeDialog, this, this.welcomeDialog);
 
@@ -440,133 +352,33 @@ module view.common {
 			GameUtil.addEffectButton(btn)
 		}
 
-		// 随机角色姓名
-		private randomName(): string {
-			let index = RandomUtils.randomInt(1, 101);
-			let index2 = RandomUtils.randomInt(1, 101);
-			let xingShi = SheetConfig.randomNameSheet.getInstance(null).SURNAME('' + index);
-			let mingZi = '';
-			if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
-				mingZi = SheetConfig.randomNameSheet.getInstance(null).BOYNAME('' + index);
-			}
-			else {
-				mingZi = SheetConfig.randomNameSheet.getInstance(null).GIRLNAME('' + index);
-			}
-			return xingShi + mingZi
-
-		}
-
-		/**
-		 * 添加地府聊天
-		 */
-		public addDiFuTalk(): void {
-			Laya.timer.frameOnce(RandomUtils.randomInt(30, 80), this, () => {
-				let box = new Laya.Box();
-				box.width = 300;
-				box.height = 23;
-				let div = new Laya.HTMLDivElement();
-				div.style.width = 300;
-				div.style.leading = 5;
-				div.style.fontSize = 18;
-				let des = ColorUtils.addColor('[系统]', ColorUtils.black) + ':恭喜';
-				des += ColorUtils.addColor(this.randomName(), ColorUtils.green);
-				des += '往生轮回至';
-				des += ColorUtils.addColor(RandomUtils.randomArray(['天人道', '人道', '饿鬼道', '地狱道', '畜生道']), ColorUtils.red);
-				div.innerHTML = des;
-				box.addChild(div);
-				// this.vbox_1.addChild(box);
-				// Laya.timer.frameOnce(1, this, () => {
-				// 	this.panel_1.scrollTo(0, this.vbox_1.height);
-				// })
-				this.addDiFuTalk();
-			})
-
-		}
-
-		/**
-		 * 添加人间聊天
-		 */
-		public addRenJianTalk(): void {
-			Laya.timer.frameOnce(RandomUtils.randomInt(30, 80), this, () => {
-				let box = new Laya.Box();
-				box.width = 300;
-				box.height = 23;
-				let div = new Laya.HTMLDivElement();
-				div.style.width = 300;
-				div.style.leading = 5;
-				div.style.fontSize = 18;
-				let des = ColorUtils.addColor('[世界]:恭喜', ColorUtils.black);
-				des += ColorUtils.addColor(this.randomName(), ColorUtils.green);
-				des += '顺利降生人间';
-				div.innerHTML = des;
-				box.addChild(div);
-				// this.vbox_0.addChild(box);
-				// Laya.timer.frameOnce(1, this, () => {
-				// 	this.panel_0.scrollTo(0, this.vbox_0.height);
-				// })
-				this.addRenJianTalk();
-			})
-		}
-
 
 		/**
 		 * 显示对话框
 		 * @param index 0标识关闭 
 		 */
 		public showDialog(index): void {
-			if (index) {
-				this.viw_0.scale(0, 0);
-				this.viw_0.selectedIndex = index - 1;
-				Laya.Tween.to(this.viw_0, { scaleX: 1, scaleY: 1 }, 200);
-				this.img_dialog.visible = true;
-				// 最终界面
-				if (index == 4) {
-					this.img_finallyavatar.skin = LangConfig.getPlayerAvatarHalfSkinV3();
-					this.box_talent.addChild(this.box_talent0);
-					this.box_talent0.pos(0, 0);
-					this.box_xingGe.addChild(this.list_xingGe);
-					this.list_xingGe.pos(0, 0)
-					this.lbl_finaName.text = this.playerName;
-					this.lbl_job2.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[this.job]]
-				}
-			}
-			else {
-				Laya.Tween.to(this.viw_0, { scaleX: 0, scaleY: 0 }, 200, null, Laya.Handler.create(
-					this, () => {
-						this.img_dialog.visible = false;
-						this.ui_npcTalk.parseTalkList()
-					}
-				));
+			switch (index) {
+				// 关闭弹窗
+				case 0:
+					Laya.Dialog.manager.closeAll();
+					this.ui_npcTalk.parseTalkList()
+					break;
+				// 选择角色界面
+				case 1:
+					new view.createPlayer.CreateAvatarDialog().setData().popup()
+					break;
+				// 随机天赋界面
+				case 2:
+					new view.createPlayer.CreateAvatarTalentDialog().setData().popup()
+					break;
+				// 最终信息界面
+				case 3:
+					new view.createPlayer.CreateAvatarFinallyDialog().setData().popup()
+					break;
 
 			}
-		}
-		/**
-		 * 创建角色
-		 */
-		private createAvatar(): void {
-			console.log(this.playerName);
-			if (!this.playerName) {
-				TipsManage.showTips('你还没有地府注册过')
-				return
-			}
-			if (!this.sex) {
-				TipsManage.showTips('是男是女不知道，容易多多少少')
-				return
-			}
-			if (!this.job) {
-				TipsManage.showTips('出身没选过，往哪投胎呢')
-				return
-			}
-			// 角色名称
-			GameApp.MainPlayer.objName = this.playerName;
-			let createusr = new ProtoCmd.CreatePlayer();
-			createusr.setValue('szAccount', GameApp.MainPlayer.playerAccount);
-			createusr.setValue('countryId', 1);
-			createusr.playerinfo.setValue('szName', this.playerName);
-			createusr.playerinfo.feature.setValue('sex', this.sex);
-			createusr.playerinfo.feature.setValue('job', this.job);
-			// 创角协议
-			lcp.send(createusr);
+
 		}
 
 
@@ -606,33 +418,12 @@ module view.common {
 
 		}
 
-		/**
-		 * 更新天赋性格
-		 */
-		public updateTalent(): void {
-			for (let i = 1; i < 6; i++) {
-				let count = GameApp.MainPlayer.talentInfo[i];
-				// 阶数
-				this['lbl_talent' + i].text = '' + count;
-			}
-		}
 
 
-		public updateXingGe(): void {
-			this.list_xingGe.repeatX = 4;
-			this.list_xingGe.array = [];
-			let keys = Object.keys(GameApp.MainPlayer.xingGeInfo);
-			for (let key of keys) {
-				let id = GameApp.MainPlayer.xingGeInfo[key].id
-				this.list_xingGe.array.push(id);
-			}
-			this.list_xingGe.itemRender = view.juese.Person_SpeLabelItem;
-			this.list_xingGe.renderHandler = Laya.Handler.create(this, (cell: view.juese.Person_SpeLabelItem, index) => {
-				cell.scaleX = cell.scaleY = 0.8;
-				cell.setData(cell.dataSource);
-			}, null, false)
-		}
 
+
+		// 全部资质点
+		public totalZiZhiPoint: number;
 		public welcomeDialog(): void {
 			// 判定等级和任务情况，是否触发（等级1级 任务为空，领取第一个主线任务）
 			if (Object.keys(GameApp.GameEngine.taskInfo).length == 0) {
@@ -645,13 +436,12 @@ module view.common {
 			// 初始化性格天赋界面
 			let pkt1 = new ProtoCmd.QuestClientData();
 			pkt1.setString(ProtoCmd.JS_sendTianFuZiZhi, null, null, this, (jsonData: ProtoCmd.itf_JS_talentXingGeInfo) => {
-				this.lbl_talentAll.text = '' + jsonData.TotalZiZhiPoint;
+				// 全部资质点
+				this.totalZiZhiPoint = jsonData.TotalZiZhiPoint;
 				// 资质
 				GameApp.MainPlayer.talentInfo = jsonData.zztab;
 				// 性格、标签
 				GameApp.MainPlayer.xingGeInfo = jsonData.tftab;
-				this.updateXingGe();
-				this.updateTalent();
 			});
 			lcp.send(pkt1);
 

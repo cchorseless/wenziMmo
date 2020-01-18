@@ -35,6 +35,7 @@ module GameObject {
         public talentInfo;
         // 性格
         public xingGeInfo;
+
         public createTime;// 角色创建时间
         public zslevel: number = 0;//转生等级
         //等级精炼强化达标装备数量
