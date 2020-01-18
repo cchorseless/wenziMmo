@@ -27,49 +27,55 @@ module view.scene {
 			this.img_icon.skin = 'image/common/npc/npc_half_' + skePath + '.png'
 			this.addEvent();
 		}
-		public collectHander: Laya.Handler;// 采集物Hander
+		public clickHander: Laya.Handler;// 采集物Hander
 		public addEvent(): void {
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
-				if (this.type == EnumData.emMonsterType._MON_TYPE_COLLECT_) {
-					//采集物
-					new view.npc.Main_TanSuoV0Dialog().setData(this.item, 0).popup();
-				} else {
-					//怪物
-					new view.npc.Main_TanSuoV0Dialog().setData(this.item, 1).popup();
-					// let player = GameApp.MainPlayer;
-					// let configID = this.item.feature.dwCretTypeId;
-					// let skePath: EnumData.emMonsterType = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_TYPE('' + configID);
-					// // 怪物类型
-					// switch (skePath) {
-					// 	// 收集道具
-					// 	case EnumData.emMonsterType._MON_TYPE_COLLECT_:
-					// 		if (this.collectHander) {
-					// 			this.collectHander.run()
-					// 		}
-					// 		else {
-					// 			let closerHander = Laya.Handler.create(this, () => {
-					// 				let job = player.job;
-					// 				// player["startHandAtk" + job](this.item);
-					// 				player.startHandAtk0(this.item);
-					// 			}, null, false);
-					// 			PanelManage.Main.addNpcPregressItem(this.item, closerHander);
-					// 		}
-					// 		break;
-					// 	// 传送门
-					// 	case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
-					// 		if (this.collectHander) {
-					// 			this.collectHander.run()
-					// 		}
-					// 		else {
-					// 			let closerHander = Laya.Handler.create(this, () => {
-					// 				let job = player.job;
-					// 				// player["startHandAtk" + job](this.item);
-					// 				player.startHandAtk0(this.item);
-					// 			}, null, false);
-					// 			PanelManage.Main.addNpcPregressItem(this.item, closerHander);
-					// 		}
-					// 		break;
-					// }
+				if (this.clickHander) {
+					this.clickHander.run()
+				}
+				else {
+					if (this.type == EnumData.emMonsterType._MON_TYPE_COLLECT_) {
+						//采集物
+						new view.npc.Main_TanSuoV0Dialog().setData(this.item, 0).popup();
+					}
+					else {
+						//怪物
+						new view.npc.Main_TanSuoV0Dialog().setData(this.item, 1).popup();
+						// let player = GameApp.MainPlayer;
+						// let configID = this.item.feature.dwCretTypeId;
+						// let skePath: EnumData.emMonsterType = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_TYPE('' + configID);
+						// // 怪物类型
+						// switch (skePath) {
+						// 	// 收集道具
+						// 	case EnumData.emMonsterType._MON_TYPE_COLLECT_:
+						// 		if (this.collectHander) {
+						// 			this.collectHander.run()
+						// 		}
+						// 		else {
+						// 			let closerHander = Laya.Handler.create(this, () => {
+						// 				let job = player.job;
+						// 				// player["startHandAtk" + job](this.item);
+						// 				player.startHandAtk0(this.item);
+						// 			}, null, false);
+						// 			PanelManage.Main.addNpcPregressItem(this.item, closerHander);
+						// 		}
+						// 		break;
+						// 	// 传送门
+						// 	case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
+						// 		if (this.collectHander) {
+						// 			this.collectHander.run()
+						// 		}
+						// 		else {
+						// 			let closerHander = Laya.Handler.create(this, () => {
+						// 				let job = player.job;
+						// 				// player["startHandAtk" + job](this.item);
+						// 				player.startHandAtk0(this.item);
+						// 			}, null, false);
+						// 			PanelManage.Main.addNpcPregressItem(this.item, closerHander);
+						// 		}
+						// 		break;
+						// }
+					}
 				}
 			})
 		}

@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.common {
-	export class CreateAvatarPanel extends ui.common.CreateAvatarPanelUI {
+module view.createPlayer {
+	export class CreateAvatarPanel extends ui.createPlayer.CreateAvatarPanelUI {
 		constructor() {
 			super();
 		}
@@ -14,15 +14,6 @@ module view.common {
 		public job = 1;// 职业
 		public sex = 1;// 性别
 		public setData(): void {
-			// this.panel_0.vScrollBarSkin = '';
-			// this.panel_1.vScrollBarSkin = '';
-			// this.vbox_0['sortItem'] = (items) => { };
-			// this.vbox_1['sortItem'] = (items) => { };
-			// this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
-			// 	this.viw_talk.selectedIndex = index;
-			// }, null, false);
-			// this.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
-
 			this.initSelf();
 		}
 
@@ -34,8 +25,7 @@ module view.common {
 			// this.box_uiScene0.scaleY = getScaleY;
 			// 先隐藏
 			this.alpha = 0;
-			this.ui_npcTalk.visible = false;
-			this.ui_sceneTalk.visible = false;
+			this.ui_npcTalk.visible = false;;
 			// 加载动作
 			let skePlayer = new SkeletonUtil.SkeletonGroup();
 			skePlayer.loadRes(['sk/player/ZJ_GH.sk'], () => {
@@ -159,7 +149,7 @@ module view.common {
 			// 场景描写
 			this.ui_sceneTalk.parseSceneTalk(this.sceneConfigList[index]);
 			// 背景图
-			this.img_sceneBg.skin = 'image/common/scene/zdmap_icon_' + this.sceneBgList[index] + '.png';
+			this.img_sceneBg.skin = 'image/common/scene/zdmap_icon_' + this.sceneBgList[index] + '.jpg';
 			// 清地图
 			this.box_boss.removeChildren();
 			this.clearObjView();
@@ -203,65 +193,33 @@ module view.common {
 			}
 			// 怪物
 			let monsterList = this.monsterConfigList[index];
-			if (monsterList && monsterList.length > 1) {
-				for (let monConfig of monsterList) {
-					let monsterUI;
-					let npcObj = new GameObject.Monster();
-					npcObj.feature.dwCretTypeId = monConfig;
-					npcObj.objName = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + monConfig);
-					let configID = '' + npcObj.feature.dwCretTypeId
-					let skePath: EnumData.emMonsterType = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_TYPE(configID)
-					switch (skePath) {
-						case EnumData.emMonsterType._MON_TYPE_COLLECT_: case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
-							monsterUI = new view.scene.MonsterInSceneItemV15();
-							break;
-						case EnumData.emMonsterType._MON_TYPE_LITTLEBOSS_:
-							monsterUI = new view.scene.MonsterInSceneItemV1();
-							break;
-						case EnumData.emMonsterType._MON_TYPE_NORMAL_:
-							monsterUI = new view.scene.MonsterInSceneItemV0();
-							break;
-					}
-					monsterUI.setData(npcObj);
-					this.box_boss.addChild(monsterUI);
-				}
-			}
-			// 只有一个怪物
-			else if (monsterList && monsterList.length == 1) {
-				let monsterUI;
+			if (monsterList && monsterList.length == 1) {
+				let monsterUI = new view.scene.MonsterInSceneItemV15();
 				let monsterObj = new GameObject.Monster();
 				monsterObj.feature.dwCretTypeId = monsterList[0];
 				monsterObj.objName = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + monsterList[0]);
-
-				let configID = '' + monsterObj.feature.dwCretTypeId
-				let skePath: EnumData.emMonsterType = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_TYPE(configID)
-				switch (skePath) {
-					case EnumData.emMonsterType._MON_TYPE_COLLECT_:
-					case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
-						monsterUI = new view.scene.MonsterInSceneItemV15();
-						break;
-				}
-				// monsterUI.scale(1.5, 1.5)
 				monsterUI.setData(monsterObj);
-				monsterUI.collectHander = Laya.Handler.create(this, () => {
-					let progerUI = new view.npc.NpcProgressItem()
+				monsterUI.clickHander = Laya.Handler.create(this, () => {
+					let progerUI = new view.npc.NpcProgressItem();
 					switch (monsterList[0]) {
 						// 孽冤镜
 						case 200003:
 							progerUI.setData('镜面上泛起涟漪...', 3000);
-							progerUI.closeHandler = Laya.Handler.create(this, () => { this.showDialog(2) })
+							progerUI.closeHandler = Laya.Handler.create(this, () => {
+								this.showDialog(2)
+							})
 							break;
-
 						// 轮回道
 						case 200005:
 							progerUI.setData('轮回之门正在开启...', 3000);
 							progerUI.closeHandler = Laya.Handler.create(this, () => {
 								// this.lbl_finaName.text = this.playerName;
-								this.showDialog(4)
+								this.showDialog(3)
 							})
 							break;
 					};
-					// this.box_uiScene0.addChild(progerUI);
+					progerUI.centerY = 0;
+					this.addChild(progerUI);
 					this.box_boss.disabled = true;
 				}, null, false);
 				this.box_boss.addChild(monsterUI);
@@ -284,9 +242,9 @@ module view.common {
 		 * 清视野
 		 */
 		public clearObjView(): void {
-			this.box_4.removeChildren();
-			this.box_5.removeChildren();
-			this.box_6.removeChildren();
+			this.box_1.removeChildren();
+			this.box_2.removeChildren();
+			this.box_3.removeChildren();
 			this.box_boss.removeChildren();
 		}
 
@@ -349,7 +307,7 @@ module view.common {
 		public showTipsImage(btn: Laya.Button): void {
 			btn.disabled = false;
 			btn.alpha = 1;
-			GameUtil.addEffectButton(btn)
+			GameUtil.addEffectButton(btn);
 		}
 
 
@@ -376,9 +334,7 @@ module view.common {
 				case 3:
 					new view.createPlayer.CreateAvatarFinallyDialog().setData().popup()
 					break;
-
 			}
-
 		}
 
 
@@ -394,7 +350,7 @@ module view.common {
 			selector.setValue("nselectidx", 0);
 			selector.setValue("szName", msg.getValue('szPlayerName'));
 			selector.setValue("btmapsubline", 1);
-			lcp.send(selector, this, this.selectPlayerRet)
+			lcp.send(selector, this, this.selectPlayerRet);
 			GameApp.GameEngine.isLogin = true;
 			GameApp.SDKManager.createRole(msg.getValue('dwUserOnlyId'), msg.getValue('szPlayerName'));
 		}
@@ -411,15 +367,12 @@ module view.common {
 				GameApp.MainPlayer.objName = msgData.getValue('szName');
 				// 这里重置一下socket,启用重连协议进入服务器
 				GameApp.Socket.resetSocket(FunctionUtils.ipbytestoipstr(msgData.getValue('ip')), msgData.getValue('port'));
-			} else {
+			}
+			else {
 				TipsManage.showTips("选择昵称失败：" + msgData.getValue('nErrorCode'))
 			}
 			msgData.clear();
-
 		}
-
-
-
 
 
 		// 全部资质点

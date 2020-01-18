@@ -7,13 +7,31 @@ module view.createPlayer {
 
 		public setData() {
 			this.img_finallyavatar.skin = LangConfig.getPlayerAvatarHalfSkinV3();
-			this.box_talent.addChild(this.box_talent);
-			this.box_talent.pos(0, 0);
-			// this.box_xingGe.addChild(this.list_xingGe);
-			// this.list_xingGe.pos(0, 0)
-			// this.lbl_finaName.text = this.playerName;
-			// this.lbl_job.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[this.job]]
+			// 更新天赋
+			for (let i = 1; i < 6; i++) {
+				let count = GameApp.MainPlayer.talentInfo[i];
+				// 阶数
+				this['lbl_talent' + i].text = '' + count;
+			}
+			// 更新性格
+			this.list_xingGe.repeatX = 4;
+			this.list_xingGe.array = [];
+			let keys = Object.keys(GameApp.MainPlayer.xingGeInfo);
+			for (let key of keys) {
+				let id = GameApp.MainPlayer.xingGeInfo[key].id
+				this.list_xingGe.array.push(id);
+			}
+			this.list_xingGe.itemRender = view.juese.Person_SpeLabelItem;
+			this.list_xingGe.renderHandler = Laya.Handler.create(this, (cell: view.juese.Person_SpeLabelItem, index) => {
+				cell.scaleX = cell.scaleY = 0.8;
+				cell.setData(cell.dataSource);
+			}, null, false);
+			// 名字
+			this.lbl_finaName.text = GameApp.MainPlayer.objName;
+			// 职业
+			this.lbl_job.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[GameApp.MainPlayer.sex]];
 
+			this.addEvent();
 			return this
 		}
 		public addEvent(): void {

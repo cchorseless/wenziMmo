@@ -56,7 +56,7 @@ module PanelManage {
     export let serverError: view.common.ServerErrorPanel;                                //服务器意外失去连接界面
     export let Login: view.common.LoginPanel;                                            //登陆界面
     export let ChooseServer: view.common.ChooseServerPanel;                              //选择服务器界面
-    export let CreateAvatar: view.common.CreateAvatarPanel;                              //创角界面
+    export let CreateAvatar: view.createPlayer.CreateAvatarPanel;                              //创角界面
     export let ChooseAvatar: view.common.ChooseAvatarPanel;                              //选角界面
     export let Main: view.main.MainPanel;                                                //主界面                                              
     /*****************************游戏界面************************************* */
@@ -179,7 +179,7 @@ module PanelManage {
     export function openCreateAvatarPanel(): void {
         if (PopUpManager.showPanel(PanelManage.CreateAvatar)) return;
         ResManage.loadResource(ResData.PanelRes.CreateAvatar, () => {
-            PanelManage.CreateAvatar = new view.common.CreateAvatarPanel();
+            PanelManage.CreateAvatar = new view.createPlayer.CreateAvatarPanel();
             PanelManage.CreateAvatar['LCP_skin'] = ResData.PanelRes.CreateAvatar;
             PanelManage.CreateAvatar.setData();
             PanelManage.CreateAvatar.mouseEnabled = true;

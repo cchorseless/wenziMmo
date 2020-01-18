@@ -38,8 +38,8 @@ module view.createPlayer {
 			// 输入名字
 			this.input_name.on(Laya.UIEvent.BLUR, this, () => {
 				this.playerName = this.input_name.text;
-				console.log(this.playerName);
-			})
+			});
+
 			// 确定形象
 			EventManage.onWithEffect(this.btn_avatarSure, Laya.UIEvent.CLICK, this, () => {
 				this.createAvatar();
@@ -51,7 +51,6 @@ module view.createPlayer {
   		 * 创建角色
   		 */
 		private createAvatar(): void {
-			console.log(this.playerName);
 			if (!this.playerName) {
 				TipsManage.showTips('你还没有地府注册过')
 				return
