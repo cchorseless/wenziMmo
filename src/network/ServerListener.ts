@@ -83,9 +83,9 @@ class ServerListener extends SingletonClass {
         /*************************************同步玩家属性************************************ */
         // 血条/蓝条变化 0x0234
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretHealthChange), this, this.cretHealthChange);
-         // 蓝条变化 0x02a4
+        // 蓝条变化 0x02a4
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretMPChange), this, this.cretMPChange);
-        
+
         // 内功变化
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretChuanNeigongUpdate), this, this.cretNeiGongChange);
         // 金币 236
@@ -588,7 +588,6 @@ class ServerListener extends SingletonClass {
                     atker.startAttack();
                     let dwTempId = msgData.getValue('dwTempId')
                     let skillid = msgData.getValue('nMagicId')
-                    GameApp.GameEngine.mainPlayer.tempId
                     if (GameApp.GameEngine.mainPlayer.tempId == dwTempId) {
                         // PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
                         view.scene.BattleFuBenInfoV3Item.self.allSkillCD()
@@ -737,7 +736,12 @@ class ServerListener extends SingletonClass {
         let dwActionTick = cbpkt.getValue('dwActionTick');
         console.log()
         let atker = GameApp.MainPlayer.findViewObj(dwTempId);
-        atker && atker.showSkill(dwTargetId, nMagicId, dwActionTick);
+        // atker && atker.showSkill(dwTargetId, nMagicId, dwActionTick);
+        if (view.main.Main_tanSuoItem.self.viw_bottom.selectedIndex== 1){
+            // PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
+            view.main.Main_tanSuoItem.self.playFightAni(dwTempId,dwTargetId,nMagicId,dwActionTick)
+        }
+
         cbpkt.clear();
         cbpkt = null;
     }

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":8,
+    "selecteID":10,
     "props":{"width":135,"sceneColor":"#ffffff","height":112},
     "nodeParent":-1,
     "label":"View",
@@ -25,7 +25,7 @@
             "compId":5,
             "child":[
                 ],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,
@@ -53,7 +53,7 @@
                         ],
                     "$HIDDEN":false
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,
@@ -68,7 +68,20 @@
             "compId":8,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":1,"x":32,"width":69,"visible":false,"var":"img_mask","skin":"image/common/bottom_black.png","height":69},
+            "nodeParent":1,
+            "label":"Image(img_mask)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":9,
+            "child":[
+                ]
         }],
     "animations":[
         {

@@ -6,6 +6,8 @@ module view.npc {
 		}
 		//npc信息
 		public item: GameObject.Npc;
+		//好感度级别
+		public lvl;
 		public setData(obj: GameObject.Npc): Main_TanSuoV1Dialog {
 			this.item = obj;
 			//NPC姓名
@@ -23,12 +25,16 @@ module view.npc {
 			})
 			//请教武学
 			this.btn_wuxue.on(Laya.UIEvent.CLICK, this, () => {
-				new view.npc.Main_NPCWuXueDialog().setData(this.item).popup();
+				if (this.lvl) {
+					new view.npc.Main_NPCWuXueDialog().setData(this.item, this).popup();
+				}
+
 			})
 		}
 		public init_haoganEvent(): void {
 			let pkID = this.item.feature.dwCretTypeId
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.clickNpc, [pkID], 0, this, function (data: ProtoCmd.itf_NPC_HaoGanInfo) {
+				this.lvl = data.lvl;
 				this.lbl_now.text = '' + data.curexp;
 				this.lbl_max.text = '/' + data.maxexp;
 				let num = data.curexp / data.maxexp * 120;

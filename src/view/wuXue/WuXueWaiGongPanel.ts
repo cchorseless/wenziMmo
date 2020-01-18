@@ -10,6 +10,7 @@ module view.wuXue {
 		public listData1;
 		public listData2;
 		public setData(): void {
+
 			this.btn_waigong.selected = true;
 			let tab;
 			let key = 400

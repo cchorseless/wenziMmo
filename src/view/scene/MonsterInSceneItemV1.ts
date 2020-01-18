@@ -6,9 +6,15 @@ module view.scene {
 		}
 		public place: number//0战斗界面1移动界面
 		public item: GameObject.Monster;
+// <<<<<<< HEAD
+		// public setData(item: GameObject.Monster): void {
+			// this.centerX = this.centerY = 0;s
+// =======
 		public setData(item: GameObject.Monster, place: number = 0): void {
 			this.place = place;
-			this.centerX = this.centerY = 0;
+			// this.centerX = this.centerY = 0;
+// >>>>>>> b4
+// 7e2a747bc87b0079f68bf12bd3f31cb2c69f99
 			// 相互绑定
 			this.item = item;
 			item.ui_item = this;
@@ -50,6 +56,24 @@ module view.scene {
 		}
 		public updateUI(): void {
 			// this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
+		}
+		/**
+		 * 
+		 * @param type   1:受击  2:眩晕  3：石化
+		 */
+		public playAni(type: number) {
+			let self = this;
+			switch (type) {
+				case 1:
+					// this.mask.alpha = 0.6
+					self.img_mask.visible = true;
+					let ani = Laya.Tween.to(self.img_mask, { alpha: 0 }, 500, null, Laya.Handler.create(self, () => {
+						self.img_mask.visible = false;
+						self.img_mask.alpha = 0.6
+						Laya.Tween.clear(ani);
+					}));
+					break;
+			}
 		}
 		/**
 		 * 更新血条

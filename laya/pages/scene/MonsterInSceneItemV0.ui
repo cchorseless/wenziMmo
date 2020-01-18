@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":15,
-    "selecteID":30,
+    "selectedBox":30,
+    "selecteID":36,
     "props":{"y":0,"x":0,"width":180,"sceneColor":"#ffffff","height":130},
     "nodeParent":-1,
     "label":"View",
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":-16,"x":-18,"width":100,"skin":"image/common/frame_guaiwu.png","height":100},
+                    "props":{"y":3,"x":-7,"width":88,"skin":"image/common/frame_guaiwu.png","height":88},
                     "nodeParent":15,
                     "label":"Image",
                     "isOpen":true,
@@ -39,7 +39,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":0,"x":0,"width":100,"var":"img_icon","skin":"image/common/npc/npc_icon_1508.png","height":100},
+                            "props":{"var":"img_icon","top":5,"skin":"image/common/icon_nv01.png","right":5,"left":5,"bottom":5},
                             "nodeParent":30,
                             "label":"Image(img_icon)",
                             "isOpen":true,
@@ -51,6 +51,19 @@
                                 ],
                             "$LOCKED":false,
                             "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"visible":false,"var":"img_mask","top":2,"skin":"image/common/fight/mask.png","right":2,"left":2,"bottom":2,"alpha":0.6},
+                            "nodeParent":30,
+                            "label":"Image(img_mask)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":36,
+                            "child":[
+                                ]
                         }],
                     "$HIDDEN":false
                 },

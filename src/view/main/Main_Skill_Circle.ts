@@ -10,15 +10,31 @@ module view.main {
 		constructor() {
 			super();
 		}
-		public showCD() {
-			let cd = 1;
+		public showCD(cd) {
+			// let cd = 1;
 			let self = this;
-			if (this.skillID) {
-				this.gray = true
-				this.isCD = true;
-				Laya.timer.once(1000 * cd, this, function () {
-					self.gray = false;
-					self.isCD = false;
+			let spanH = (100 / (cd * 1000)) * 69;
+			// if (this.skillID) {
+			// 	this.gray = true
+			// 	this.isCD = true;
+			// 	Laya.timer.once(1000 * cd, this, function () {
+			// 		self.gray = false;
+			// 		self.isCD = false;
+			// 	})
+			// }
+			if (self.skillID) {
+				self.img_mask.visible = true;
+				self.img_mask.height = 69;
+				self.isCD = true
+				Laya.timer.loop(100, self, function CD() {
+					if (self.img_mask.height>0){
+						self.img_mask.height -= spanH
+					}else{
+						self.img_mask.visible = false;
+						self.img_mask.height = 69;
+						self.isCD = false;
+						Laya.timer.clear(self,CD)
+					}
 				})
 			}
 		}

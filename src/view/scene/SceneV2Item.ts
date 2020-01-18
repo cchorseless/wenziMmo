@@ -5,6 +5,7 @@ module view.scene {
 		constructor() {
 			super();
 		}
+		//主线
 		public setData(): void {
 			this.panel_0.vScrollBarSkin = '';
 			this.panel_2.hScrollBarSkin = '';
@@ -65,7 +66,6 @@ module view.scene {
 					this.box_content.removeChildren();
 				}
 				this.box_content.addChild(this.ui_Content);
-
 			})
 		}
 

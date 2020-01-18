@@ -5,7 +5,7 @@ module view.scene {
 		constructor() {
 			super();
 		}
-
+		//心魔
 		public setData(): void {
 			this.ui_Content = new BattleFuBenInfoV1Item();
 			this.panel_0.vScrollBarSkin = '';
