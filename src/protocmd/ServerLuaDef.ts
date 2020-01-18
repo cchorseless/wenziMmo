@@ -656,16 +656,16 @@ module ProtoCmd {
     export const skillLevelUp = 'skillLevelUp';  //技能ID, 升级次数
     //技能升阶
     export const skillUpgrade = 'skillUpgrade';  //技能ID
-     //技能升品
+    //技能升品
     export const skillRareUp = 'skillRareUp';  //技能ID
-     //技能遗忘
+    //技能遗忘
     export const deleteSkill = 'deleteSkill';  //技能ID
-      //技能学习
+    //技能学习
     export const useSkillItem = 'useSkillItem';  //道具ID
 
-    
-    
-    
+
+
+
 
 
 
@@ -1406,5 +1406,14 @@ module ProtoCmd {
         Bj: number//是否可领取0不可1可领取2已领取
         Item: any //{num: 数量, index: 物品id, bind: 是否绑定 }
         leftsec: number//活动时间
+    }
+    /***********************************NPC交互接口**************************** */
+    export interface itf_NPC_HaoGanInfo {
+        baowutab: any;
+        curexp: number//当前好感值
+        maxexp: number//最大好感值
+        lvl: number//当前好感等级
+        nexttime: number//收礼时间
+
     }
 }
