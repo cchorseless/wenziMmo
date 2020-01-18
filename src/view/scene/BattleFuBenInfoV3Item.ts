@@ -48,7 +48,7 @@ module view.scene {
 					this['ui_skill' + i].setData(false, i)
 				}
 			}
-			this.changeMP(GameApp.MainPlayer.ability.nowMP,GameApp.MainPlayer.ability.nMaxMP)
+			this.changeMP(GameApp.MainPlayer.ability.nowMP, GameApp.MainPlayer.ability.nMaxMP)
 		}
 		public changeMP(curMP, maxMP) {
 			this.html_MP.style.fontFamily = 'STkaiti';
@@ -65,6 +65,10 @@ module view.scene {
 		public addEvent(): void {
 			let self = this;
 			EventManage.onWithEffect(this.btn_exit, Laya.UIEvent.CLICK, this, () => {
+				if (GameApp.MainPlayer.curFuBenID > 0) {
+					main.Main_tanSuoItem.self.leaveFuBen()
+				}
+
 				PanelManage.Main.changeMode(0);
 			})
 			for (let i = 0; i < 4; i++) {
@@ -92,7 +96,7 @@ module view.scene {
 									GameApp.MainPlayer.startHandAtk0(GameApp.MainPlayer.allMonster[o], self['ui_skill' + i].skillID);
 									return;
 								}
-							}else{
+							} else {
 								TipsManage.showTips('能量值不足，无法释放~');
 							}
 
@@ -185,9 +189,9 @@ module view.scene {
 				TipsManage.showTips('当前能量不足，不能切换武学套路')
 			}
 		}
-		public allSkillCD(){
+		public allSkillCD() {
 			for (let i = 1; i < 7; i++) {
-				this['ui_skill' + i].showCD();
+				this['ui_skill' + i].showCD(1);
 			}
 		}
 	}

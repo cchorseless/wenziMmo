@@ -6,7 +6,7 @@ module view.scene {
 		}
 		public item: GameObject.Monster;
 		public setData(item: GameObject.Monster): void {
-			this.centerX = this.centerY = 0;
+			// this.centerX = this.centerY = 0;s
 			// 相互绑定
 			this.item = item;
 			item.ui_item = this;
@@ -44,6 +44,24 @@ module view.scene {
 			// this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
 		}
 		/**
+		 * 
+		 * @param type   1:受击  2:眩晕  3：石化
+		 */
+		public playAni(type: number) {
+			let self = this;
+			switch (type) {
+				case 1:
+					// this.mask.alpha = 0.6
+					self.img_mask.visible = true;
+					let ani = Laya.Tween.to(self.img_mask, { alpha: 0 }, 500, null, Laya.Handler.create(self, () => {
+						self.img_mask.visible = false;
+						self.img_mask.alpha = 0.6
+						Laya.Tween.clear(ani);
+					}));
+					break;
+			}
+		}
+		/**
 		 * 更新血条
 		 */
 		public updateHp(): void {
@@ -55,7 +73,7 @@ module view.scene {
 			this.hbox_buff.addChild(o);
 		}
 		public upDateDeBuff() {
-			this.hbox_debuff.x= this.hbox_buff.x + this.hbox_buff.numChildren * 30 + 10
+			this.hbox_debuff.x = this.hbox_buff.x + this.hbox_buff.numChildren * 30 + 10
 
 		}
 	}

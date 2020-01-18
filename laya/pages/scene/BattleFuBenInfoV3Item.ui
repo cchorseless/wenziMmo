@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":28,
-    "selecteID":57,
+    "selectedBox":48,
+    "selecteID":49,
     "props":{"width":640,"sceneColor":"#000000","height":378},
     "nodeParent":-1,
     "label":"View",
@@ -359,7 +359,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":61,"x":105,"stateNum":"2","skin":"image/main/main_tansuo/icon_zhandou.png"},
+                    "props":{"y":61,"x":105,"visible":false,"stateNum":"2","skin":"image/main/main_tansuo/icon_zhandou.png"},
                     "nodeParent":28,
                     "label":"Button",
                     "isOpen":null,
@@ -487,33 +487,20 @@
                 },
                 {
                     "x":30,
-                    "type":"HTMLDivElement",
-                    "props":{"y":97,"x":100,"width":309,"visible":false,"innerHTML":"htmlText","height":18},
-                    "nodeParent":28,
-                    "label":"HTMLDivElement",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":44,
-                    "child":[
-                        ],
-                    "$HIDDEN":true
-                },
-                {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":74,"x":127,"var":"box_finishNeed"},
                     "nodeParent":28,
                     "label":"Box(box_finishNeed)",
-                    "isOpen":null,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":48,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":1,"skin":"image/main/main_tansuo/frame_zhuxian_02.png"},
+                            "props":{"y":1,"x":0,"skin":"image/main/main_tansuo/frame_zhuxian_02.png"},
                             "nodeParent":48,
                             "label":"Image",
                             "isOpen":false,
@@ -533,31 +520,22 @@
                                     "compId":50,
                                     "child":[
                                         ]
-                                }]
+                                }],
+                            "$HIDDEN":false
                         },
                         {
-                            "type":"Label",
-                            "props":{"y":4,"x":95,"text":"逃离险地","fontSize":20,"font":"FZXK","color":"#63491a"},
+                            "x":45,
+                            "type":"HTMLDivElement",
+                            "props":{"y":2,"x":69,"width":296,"visible":false,"var":"html_need","height":22},
                             "nodeParent":48,
-                            "label":"Label",
+                            "label":"HTMLDivElement(html_need)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":51,
+                            "compId":44,
                             "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":4,"x":186,"text":"（可交）","fontSize":20,"font":"FZXK","color":"#149a0d","align":"center"},
-                            "nodeParent":48,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":52,
-                            "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         }]
                 },
                 {

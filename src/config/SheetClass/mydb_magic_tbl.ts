@@ -9,7 +9,9 @@ module SheetConfig {
         /**
          *  技能ID编号
          */
-        public SKILL_ID(configID): number { return this.data[configID][1] }
+        public SKILL_ID(configID): number {
+            console.log('aa')
+             return this.data[configID][1] }
         /**
          *  删除
          */

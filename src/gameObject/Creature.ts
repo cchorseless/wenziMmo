@@ -450,7 +450,7 @@ module GameObject {
          * 受击
          */
         public onAttack(): void {
-
+            
         }
 
         /**

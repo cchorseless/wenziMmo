@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":19,
-    "selecteID":80,
+    "selectedBox":1,
+    "selecteID":68,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -26,21 +26,63 @@
             "child":[
                 {
                     "x":30,
-                    "type":"HBox",
-                    "props":{"y":-235,"x":10,"space":40,"height":117,"align":"middle"},
+                    "type":"Panel",
+                    "props":{"y":-2,"x":47,"width":548,"var":"panel_fight","height":416},
                     "nodeParent":60,
-                    "label":"HBox",
+                    "label":"Panel(panel_fight)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":61,
+                    "compId":89,
                     "child":[
                         {
                             "x":45,
+                            "type":"HBox",
+                            "props":{"y":2,"x":1,"space":40,"height":117,"align":"middle"},
+                            "nodeParent":89,
+                            "label":"HBox",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":61,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"HBox",
+                            "props":{"y":149,"x":1,"space":40,"height":117,"align":"middle"},
+                            "nodeParent":89,
+                            "label":"HBox",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":65,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"HBox",
+                            "props":{"y":296,"x":1,"space":40,"height":117,"align":"middle"},
+                            "nodeParent":89,
+                            "label":"HBox",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":69,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
                             "type":"Box",
-                            "props":{"y":0,"x":0,"width":155,"var":"box_0","height":117},
-                            "nodeParent":61,
+                            "props":{"y":2,"x":1,"width":155,"var":"box_0","height":117},
+                            "nodeParent":89,
                             "label":"Box(box_0)",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -52,8 +94,8 @@
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"y":10,"x":10,"width":155,"var":"box_1","height":117},
-                            "nodeParent":61,
+                            "props":{"y":2,"x":196,"width":155,"var":"box_1","height":117},
+                            "nodeParent":89,
                             "label":"Box(box_1)",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -65,8 +107,8 @@
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"y":20,"x":20,"width":155,"var":"box_2","height":117},
-                            "nodeParent":61,
+                            "props":{"y":2,"x":391,"width":155,"var":"box_2","height":117},
+                            "nodeParent":89,
                             "label":"Box(box_2)",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -74,77 +116,12 @@
                             "compId":64,
                             "child":[
                                 ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"HBox",
-                    "props":{"y":-225,"x":20,"space":40,"height":117,"align":"middle"},
-                    "nodeParent":60,
-                    "label":"HBox",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":65,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":0,"x":0,"width":155,"var":"box_3","height":117},
-                            "nodeParent":65,
-                            "label":"Box(box_3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":66,
-                            "child":[
-                                ]
                         },
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"y":10,"x":10,"width":155,"var":"box_4","height":117},
-                            "nodeParent":65,
-                            "label":"Box(box_4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":67,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":20,"x":20,"width":155,"var":"box_5","height":117},
-                            "nodeParent":65,
-                            "label":"Box(box_5)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":68,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"HBox",
-                    "props":{"y":-215,"x":30,"space":40,"height":117,"align":"middle"},
-                    "nodeParent":60,
-                    "label":"HBox",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":69,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":0,"x":0,"width":155,"var":"box_6","height":117},
-                            "nodeParent":69,
+                            "props":{"y":296,"x":1,"width":155,"var":"box_6","height":117},
+                            "nodeParent":89,
                             "label":"Box(box_6)",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -156,8 +133,8 @@
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"y":0,"x":390,"width":155,"var":"box_7","height":117},
-                            "nodeParent":69,
+                            "props":{"y":296,"x":391,"width":155,"var":"box_7","height":117},
+                            "nodeParent":89,
                             "label":"Box(box_7)",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -169,13 +146,52 @@
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"y":10,"x":10,"width":155,"var":"box_self","height":117},
-                            "nodeParent":69,
+                            "props":{"y":296,"x":196,"width":155,"var":"box_self","height":117},
+                            "nodeParent":89,
                             "label":"Box(box_self)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":72,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":149,"x":1,"width":155,"var":"box_3","height":117},
+                            "nodeParent":89,
+                            "label":"Box(box_3)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":66,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":149,"x":196,"width":155,"var":"box_4","height":117},
+                            "nodeParent":89,
+                            "label":"Box(box_4)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":67,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":149,"x":391,"width":155,"var":"box_5","height":117},
+                            "nodeParent":89,
+                            "label":"Box(box_5)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":68,
                             "child":[
                                 ]
                         }]
@@ -370,19 +386,6 @@
                     "$HIDDEN":true
                 }],
             "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Panel",
-            "props":{},
-            "nodeParent":1,
-            "label":"Panel",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":83,
-            "child":[
-                ]
         }],
     "animations":[
         {

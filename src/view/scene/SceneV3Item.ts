@@ -5,6 +5,7 @@ module view.scene {
 		constructor() {
 			super();
 		}
+		//材料
 		public setData(): void {
 			this.panel_0.vScrollBarSkin = '';
 			this.panel_2.hScrollBarSkin = '';

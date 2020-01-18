@@ -35,7 +35,7 @@ module view.wuXue {
 			let BuffID = SheetConfig.mydb_magic_tbl.getInstance(null).BUFFID(configID);
 			let BuffIDArr = BuffID.split('|');
 			this.buff_0.visible = true;
-			this.buff_0.setData(BuffIDArr[0])
+			this.buff_0.setData(BuffIDArr[0],configID)
 			for (let i = 0; i < 4; i++) {
 
 			}

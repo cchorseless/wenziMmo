@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":15,
-    "selecteID":16,
+    "selectedBox":12,
+    "selecteID":24,
     "props":{"width":550,"sceneColor":"#fdfdfd","height":110},
     "nodeParent":-1,
     "label":"View",
@@ -35,6 +35,19 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":5,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":1,"x":19,"width":92,"visible":false,"var":"img_mask","skin":"image/common/fight/mask.png","height":82,"alpha":0.6},
+                    "nodeParent":12,
+                    "label":"Image(img_mask)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":24,
                     "child":[
                         ]
                 },

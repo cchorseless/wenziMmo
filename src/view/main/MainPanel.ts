@@ -45,7 +45,7 @@ module view.main {
 					this.box_mainTop.visible = false;
 					this.box_right.visible = true;
 					this.box_top.visible = true;
-					this.box_mainBottom.visible = true;
+					this.box_mainBottom.visible = false;
 					this.box_menu.visible = true;
 					break;
 				// 小说界面

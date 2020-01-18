@@ -54,7 +54,7 @@ module GameObject {
          * 受击
          */
         public onAttack(): void {
-            // this.ui_item.playAni(2);
+            this.ui_item.playAni(1);
         }
 
         /**
