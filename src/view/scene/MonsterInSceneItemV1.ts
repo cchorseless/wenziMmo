@@ -12,7 +12,7 @@ module view.scene {
 // =======
 		public setData(item: GameObject.Monster, place: number = 0): void {
 			this.place = place;
-			this.centerX = this.centerY = 0;
+			// this.centerX = this.centerY = 0;
 // >>>>>>> b4
 // 7e2a747bc87b0079f68bf12bd3f31cb2c69f99
 			// 相互绑定
