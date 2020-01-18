@@ -285,7 +285,7 @@ module view.common {
 		 */
 		public clearObjView(): void {
 			this.box_4.removeChildren();
-			this.box_5.removeChildren();
+			// this.box_5.removeChildren();
 			this.box_6.removeChildren();
 			this.box_boss.removeChildren();
 		}

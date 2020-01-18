@@ -354,19 +354,6 @@
                 },
                 {
                     "x":30,
-                    "type":"HBox",
-                    "props":{"y":457,"x":57,"width":510,"var":"hbox_skill","space":0,"height":113},
-                    "nodeParent":53,
-                    "label":"HBox(hbox_skill)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":30,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":601,"x":133,"width":108,"skin":"image/common/login/img_zhuangshi_03.png","height":14},
                     "nodeParent":53,
@@ -607,6 +594,33 @@
                     "child":[
                         ],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":456,"x":69,"width":490,"var":"box_skill","height":113},
+                    "nodeParent":53,
+                    "label":"Box(box_skill)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":54,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":674,"x":261,"visible":false,"var":"img_no","skin":"image/common/font_shangweixuehui.png"},
+                    "nodeParent":53,
+                    "label":"Image(img_no)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":55,
+                    "child":[
+                        ]
                 }]
         }],
     "animations":[
