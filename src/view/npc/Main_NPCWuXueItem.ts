@@ -77,6 +77,8 @@ module view.npc {
 		 * @param id 技能id
 		 */
 		public init_change(id): void {
+			// this.ui_skill.ui_item.visible=true;
+			// this.ui_skill.setData(id);
 			//升级所需要的碎片id
 			let partID = '' + SheetConfig.mydb_magic_tbl.getInstance(null).SKILLS_QUALITY_UP_ITEM('' + id);
 			//已有碎片数量
