@@ -250,24 +250,24 @@ module view.dialog {
 			packet.destLocation.btLocation = EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP;
 			// 给英雄穿戴装备需要加上位置偏移
 			let offset = 0;
-			if (data === 'hero') {
-				// 没有装备限制，给弟子穿装备
-				let jobType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB('' + this.itemObj.dwBaseID) || PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex;
-				switch (jobType) {
-					// 战士
-					case EnumData.JOB_TYPE.JOB_WARRIOR:
-						offset = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS;
-						break;
-					// 法师
-					case EnumData.JOB_TYPE.JOB_MAGE:
-						offset = EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS;
-						break;
-					// 道士
-					case EnumData.JOB_TYPE.JOB_MONK:
-						offset = EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS;
-						break;
-				}
-			}
+			// if (data === 'hero') {
+			// 	// 没有装备限制，给弟子穿装备
+			// 	let jobType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB('' + this.itemObj.dwBaseID) || PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex;
+			// 	switch (jobType) {
+			// 		// 战士
+			// 		case EnumData.JOB_TYPE.JOB_WARRIOR:
+			// 			offset = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS;
+			// 			break;
+			// 		// 法师
+			// 		case EnumData.JOB_TYPE.JOB_MAGE:
+			// 			offset = EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS;
+			// 			break;
+			// 		// 道士
+			// 		case EnumData.JOB_TYPE.JOB_MONK:
+			// 			offset = EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS;
+			// 			break;
+			// 	}
+			// }
 			// 双手镯双戒指可以通用位置需要特殊处理
 			let itemPosition = offset + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION('' + this.itemObj.dwBaseID);
 			switch (itemPosition) {

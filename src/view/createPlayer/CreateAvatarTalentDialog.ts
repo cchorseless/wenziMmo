@@ -26,7 +26,7 @@ module view.createPlayer {
 
 			// 性格资质确定
 			EventManage.onWithEffect(this.btn_xingGeSure, Laya.UIEvent.CLICK, this, () => {
-			PanelManage.CreateAvatar.showDialog(0);
+				PanelManage.CreateAvatar.showDialog(0);
 			});
 
 			// 随机天赋
@@ -41,8 +41,8 @@ module view.createPlayer {
 		}
 
 		/**
-  * 更新天赋性格
-  */
+  		 * 更新天赋性格
+  		 */
 		public updateTalent(): void {
 			for (let i = 1; i < 6; i++) {
 				let count = GameApp.MainPlayer.talentInfo[i];
@@ -51,7 +51,6 @@ module view.createPlayer {
 			}
 		}
 
-		
 		public updateXingGe(): void {
 			this.list_xingGe.repeatX = 4;
 			this.list_xingGe.array = [];
@@ -64,7 +63,7 @@ module view.createPlayer {
 			this.list_xingGe.renderHandler = Laya.Handler.create(this, (cell: view.juese.Person_SpeLabelItem, index) => {
 				cell.scaleX = cell.scaleY = 0.8;
 				cell.setData(cell.dataSource);
-			}, null, false)
+			}, null, false);
 		}
 	}
 }

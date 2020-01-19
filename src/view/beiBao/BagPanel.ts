@@ -21,11 +21,10 @@ module view.beiBao {
 			// 背包tab
 			this.tab_bag.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_bag.selectedIndex = index;
-			}, null, false)
+			}, null, false);
 			// 左边热卖商店
 			this.panel_sellHot.vScrollBarSkin = '';
 			this.vbox_sellHot['sortItem'] = (items) => { };
-			this.ui_equipInfo.lbl_dengji.text='('+GameApp.MainPlayer.EquipmentNum[0]+')';
 			// 初始化背包
 			this.initUI();
 			// 拉取热销商店数据
@@ -61,29 +60,24 @@ module view.beiBao {
 			// 刷新商店
 			this.btn_refreshItem.on(Laya.UIEvent.CLICK, this, this.refreshHotShop);
 			// 切换装备显示
-			for (let i = 0; i < 4; i++) {
-				this.ui_equipInfo["ui_tab" + i].on(Laya.UIEvent.CLICK, this, () => {
-					GameApp.GameEngine.mainPlayer.playerORHero = i;
-					this.reSetState(i);
-				})
-			}
+			// for (let i = 0; i < 4; i++) {
+			// 	this.ui_equipInfo["ui_tab" + i].on(Laya.UIEvent.CLICK, this, () => {
+			// 		GameApp.GameEngine.mainPlayer.playerORHero = i;
+			// 		this.reSetState(i);
+			// 	})
+			// }
 			// this.ui_equipInfo.tab_0.on(Laya.UIEvent.CLICK, this, () => {
 			// 	GameApp.GameEngine.mainPlayer.playerORHero = this.ui_equipInfo.tab_0.selectedIndex;
 			// });
-			// 装备等级大师
-			this.ui_equipInfo.btn_lvBuff.on(Laya.UIEvent.CLICK, this, () => {
-				let o = new view.juese.Person_Equip_SoulContentDialog()
-				o.setData(0)
-				o.popup();
-			});
+
 		}
 		public reSetState(id) {
-			for (let i = 0; i < 4; i++) {
-				this.ui_equipInfo["ui_tab" + i].img_circle.visible = false
-				if (i == id) {
-					this.ui_equipInfo["ui_tab" + i].img_circle.visible = true
-				}
-			}
+			// for (let i = 0; i < 4; i++) {
+			// 	this.ui_equipInfo["ui_tab" + i].img_circle.visible = false
+			// 	if (i == id) {
+			// 		this.ui_equipInfo["ui_tab" + i].img_circle.visible = true
+			// 	}
+			// }
 		}
 		public addLcpEvent(): void {
 			// 监听刷新商店
@@ -112,7 +106,6 @@ module view.beiBao {
 						let ui_item = new view.shopMall.ShopItemV1Item();
 						ui_item.setData(sellItemInfo);
 						this.vbox_sellHot.addChild(ui_item);
-
 					}
 				});
 		}
@@ -139,7 +132,6 @@ module view.beiBao {
 				let ui_item: view.compart.DaoJuItem = GameApp.GameEngine.bagItemDB[key].ui_item;
 				ui_item && ui_item.canGoToSell(msg === "btn_baiTan");
 			}
-
 			this.viw_bagBottom.selectedIndex = index;
 			// this.lbl_bagLogolbl.text = ['背包', '回收', '仓库', '摆摊'][index];
 			(this.viw_bagBottom.getChildAt(index) as any).setData();
@@ -212,7 +204,6 @@ module view.beiBao {
 							vbox_bag.addChild(new_group);
 							new_group.addItem(item);
 						}
-
 					}
 					break;
 				// 仓库
@@ -225,7 +216,7 @@ module view.beiBao {
 					break;
 
 			}
-			console.log("道具数量：", this.vbox_bag0.numChildren)
+			console.log("道具数量：", this.vbox_bag0.numChildren);
 		}
 
 		/**

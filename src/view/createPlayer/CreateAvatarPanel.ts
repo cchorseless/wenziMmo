@@ -343,8 +343,6 @@ module view.createPlayer {
 		 * @param data 
 		 */
 		public createPlayerRet(msg: ProtoCmd.CreatePlayerRet): void {
-			// 创建账号成功
-			this.showDialog(0);
 			// 单服单角色，这里可以扩展
 			let selector: ProtoCmd.SelectPlayer = new ProtoCmd.SelectPlayer();
 			selector.setValue("nselectidx", 0);
@@ -362,6 +360,8 @@ module view.createPlayer {
 		public selectPlayerRet(data: any): void {
 			let msgData: ProtoCmd.SelectPlayerRet = new ProtoCmd.SelectPlayerRet(data);
 			if (msgData.getValue('nErrorCode') == 0) {
+				// 创建账号成功,并成功登录游戏
+				this.showDialog(0);
 				GameApp.GameEngine.gamesvrIdType = msgData.getValue('gamesvr_id_type');
 				GameApp.MainPlayer.onlyId = msgData.getValue('dwUserOnlyId');
 				GameApp.MainPlayer.objName = msgData.getValue('szName');

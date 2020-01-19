@@ -5,7 +5,6 @@ module view.juese {
 			super();
 		}
 		public setData(): void {
-			this.btn_self.selected = true;
 			this.tab_player.selectHandler = Laya.Handler.create(this, (index) => {
 				// (this.viw_player.getChildAt(index) as any).setData();
 				this.viw_player.selectedIndex = index;
@@ -31,9 +30,7 @@ module view.juese {
 				PopUpManager.checkPanel(this);
 				PanelManage.openMainPanel()
 			})
-			EventManage.onWithEffect(this.btn_hero, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openDiZiPanel();
-			})
+
 			
 		}
 		//弟子基本信息发协议

@@ -69,7 +69,7 @@ module view.scene {
 			if (firstInfo) {
 				let label1 = new Laya.Label;
 				label1.autoSize = true;
-				label1.width = 590;
+				label1.left = label1.right = 0;
 				label1.color = '#63491a';
 				label1.font = 'FZXK';
 				label1.fontSize = 22;

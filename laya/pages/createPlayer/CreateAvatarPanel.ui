@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":853,
+    "selectedBox":851,
+    "selecteID":721,
     "referenceLines":null,
     "props":{"width":640,"sceneColor":"#f1dfdf","height":1136},
     "nodeParent":-1,
@@ -30,420 +30,379 @@
         },
         {
             "x":15,
-            "type":"VBox",
-            "props":{"y":349,"space":30,"right":0,"left":0,"align":"center"},
+            "type":"Box",
+            "props":{"y":27,"x":0,"right":0,"left":0,"bottom":0},
             "nodeParent":1,
-            "label":"VBox",
+            "label":"Box",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":803,
+            "compId":854,
             "child":[
                 {
                     "x":30,
-                    "type":"HBox",
-                    "props":{"y":-235,"x":10,"space":40,"height":117,"align":"middle"},
-                    "nodeParent":803,
-                    "label":"HBox",
-                    "isOpen":true,
+                    "type":"VBox",
+                    "props":{"y":324,"x":4,"space":30,"right":0,"left":0,"align":"center"},
+                    "nodeParent":854,
+                    "label":"VBox",
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":805,
+                    "compId":803,
                     "child":[
                         {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":0,"x":0,"width":155,"var":"box_1","height":117},
-                            "nodeParent":805,
-                            "label":"Box(box_1)",
-                            "isDirectory":false,
+                            "type":"HBox",
+                            "props":{"y":-235,"x":10,"space":40,"height":117,"align":"middle"},
+                            "nodeParent":803,
+                            "label":"HBox",
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":806,
+                            "hasChild":true,
+                            "compId":805,
                             "child":[
-                                ]
+                                {
+                                    "type":"Box",
+                                    "props":{"y":0,"x":0,"width":155,"var":"box_1","height":117},
+                                    "nodeParent":805,
+                                    "label":"Box(box_1)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":806,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Box",
+                                    "props":{"y":10,"x":10,"width":155,"var":"box_2","height":117},
+                                    "nodeParent":805,
+                                    "label":"Box(box_2)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":807,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Box",
+                                    "props":{"y":20,"x":20,"width":155,"var":"box_3","height":117},
+                                    "nodeParent":805,
+                                    "label":"Box(box_3)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":808,
+                                    "child":[
+                                        ]
+                                }]
                         },
                         {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":10,"x":10,"width":155,"var":"box_2","height":117},
-                            "nodeParent":805,
-                            "label":"Box(box_2)",
-                            "isDirectory":false,
+                            "type":"HBox",
+                            "props":{"y":-225,"x":20,"space":40,"height":117,"align":"middle"},
+                            "nodeParent":803,
+                            "label":"HBox",
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":807,
+                            "hasChild":true,
+                            "compId":809,
                             "child":[
-                                ]
+                                {
+                                    "type":"Box",
+                                    "props":{"y":0,"x":0,"width":155,"var":"box_4","height":117},
+                                    "nodeParent":809,
+                                    "label":"Box(box_4)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":810,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Box",
+                                    "props":{"y":10,"x":10,"width":155,"var":"box_boss","height":117},
+                                    "nodeParent":809,
+                                    "label":"Box(box_boss)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":811,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Box",
+                                    "props":{"y":20,"x":20,"width":155,"var":"box_6","height":117},
+                                    "nodeParent":809,
+                                    "label":"Box(box_6)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":812,
+                                    "child":[
+                                        ]
+                                }]
                         },
                         {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":20,"x":20,"width":155,"var":"box_3","height":117},
-                            "nodeParent":805,
-                            "label":"Box(box_3)",
-                            "isDirectory":false,
+                            "type":"HBox",
+                            "props":{"y":-215,"x":30,"space":40,"height":117,"align":"middle"},
+                            "nodeParent":803,
+                            "label":"HBox",
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":808,
+                            "hasChild":true,
+                            "compId":813,
                             "child":[
-                                ]
-                        }]
+                                {
+                                    "type":"Box",
+                                    "props":{"y":0,"x":0,"width":155,"height":117},
+                                    "nodeParent":813,
+                                    "label":"Box",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":814,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Box",
+                                    "props":{"y":0,"x":390,"width":155,"height":117},
+                                    "nodeParent":813,
+                                    "label":"Box",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":815,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Box",
+                                    "props":{"y":10,"x":10,"width":155,"var":"box_self","height":117},
+                                    "nodeParent":813,
+                                    "label":"Box(box_self)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":816,
+                                    "child":[
+                                        ]
+                                }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
-                    "type":"HBox",
-                    "props":{"y":-225,"x":20,"space":40,"height":117,"align":"middle"},
-                    "nodeParent":803,
-                    "label":"HBox",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":809,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":0,"x":0,"width":155,"var":"box_4","height":117},
-                            "nodeParent":809,
-                            "label":"Box(box_4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":810,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":10,"x":10,"width":155,"var":"box_boss","height":117},
-                            "nodeParent":809,
-                            "label":"Box(box_boss)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":811,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":20,"x":20,"width":155,"var":"box_6","height":117},
-                            "nodeParent":809,
-                            "label":"Box(box_6)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":812,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"HBox",
-                    "props":{"y":-215,"x":30,"space":40,"height":117,"align":"middle"},
-                    "nodeParent":803,
-                    "label":"HBox",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":813,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":0,"x":0,"width":155,"height":117},
-                            "nodeParent":813,
-                            "label":"Box",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":814,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":0,"x":390,"width":155,"height":117},
-                            "nodeParent":813,
-                            "label":"Box",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":815,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":10,"x":10,"width":155,"var":"box_self","height":117},
-                            "nodeParent":813,
-                            "label":"Box(box_self)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":816,
-                            "child":[
-                                ]
-                        }]
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":25,"x":-4,"skin":"image/main/main_tansuo/img_title.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":817,
-            "child":[
-                {
-                    "type":"Label",
-                    "props":{"y":43,"x":65,"width":129,"text":"酆都","stroke":4,"height":33,"fontSize":40,"font":"HWXK","color":"#ffffff","align":"center"},
-                    "nodeParent":817,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":818,
-                    "child":[
-                        ]
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"scene/SceneTalkInfoItem.ui",
-            "props":{"y":117,"x":0,"var":"ui_sceneTalk","runtime":"view.scene.SceneTalkInfoItem","height":210},
-            "nodeParent":1,
-            "label":"UIView(ui_sceneTalk)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":852,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"npc/NpcTalkInfoItem.ui",
-            "props":{"y":426,"x":0,"var":"ui_npcTalk","runtime":"view.npc.NpcTalkInfoItem"},
-            "nodeParent":1,
-            "label":"UIView(ui_npcTalk)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":853,
-            "child":[
-                ],
-            "$HIDDEN":true
-        },
-        {
-            "x":15,
-            "type":"Box",
-            "props":{"y":798,"x":0,"width":640,"height":336},
-            "nodeParent":1,
-            "label":"Box",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":851,
-            "child":[
-                {
                     "type":"Image",
-                    "props":{"y":145.5,"x":320,"skin":"image/main/main_tansuo/frame_ditu_zhandou.png","anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":851,
+                    "props":{"skin":"image/main/main_tansuo/img_title.png"},
+                    "nodeParent":854,
                     "label":"Image",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":827,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":59,"x":20,"skin":"image/main/main_tansuo/img_zhandou_ditu.png"},
-                            "nodeParent":827,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":840,
-                            "child":[
-                                ],
-                            "$LOCKED":true,
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":23.5,"x":30,"stateNum":"2","skin":"image/main/main_tansuo/icon_zhandou.png"},
-                    "nodeParent":851,
-                    "label":"Button",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":828,
+                    "compId":817,
                     "child":[
                         {
                             "type":"Label",
-                            "props":{"y":31,"x":-1,"text":"任务","fontSize":24,"font":"FZXK","color":"#63491a"},
-                            "nodeParent":828,
+                            "props":{"y":43,"x":65,"width":129,"text":"酆都","stroke":4,"height":33,"fontSize":40,"font":"HWXK","color":"#ffffff","align":"center"},
+                            "nodeParent":817,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":841,
+                            "compId":818,
                             "child":[
                                 ]
                         }],
-                    "$LOCKED":true,
                     "$HIDDEN":false
                 },
                 {
-                    "type":"Image",
-                    "props":{"y":28.5,"x":95,"skin":"image/main/main_tansuo/frame_zhuxian_02.png"},
-                    "nodeParent":851,
-                    "label":"Image",
+                    "x":30,
+                    "type":"UIView",
+                    "source":"scene/SceneTalkInfoItem.ui",
+                    "props":{"y":92,"x":0,"var":"ui_sceneTalk","runtime":"view.scene.SceneTalkInfoItem","height":210},
+                    "nodeParent":854,
+                    "label":"UIView(ui_sceneTalk)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":852,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"npc/NpcTalkInfoItem.ui",
+                    "props":{"y":401,"x":0,"var":"ui_npcTalk","runtime":"view.npc.NpcTalkInfoItem"},
+                    "nodeParent":854,
+                    "label":"UIView(ui_npcTalk)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":853,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":773,"x":0,"width":640,"height":336},
+                    "nodeParent":854,
+                    "label":"Box",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":830,
+                    "compId":851,
                     "child":[
                         {
-                            "type":"Label",
-                            "props":{"y":-1,"x":6,"var":"lbl_taskType","text":"引导","fontSize":24,"font":"FZXK","color":"#000000"},
-                            "nodeParent":830,
-                            "label":"Label(lbl_taskType)",
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":145.5,"x":320,"skin":"image/main/main_tansuo/frame_ditu_zhandou.png","anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":851,
+                            "label":"Image",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":827,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":59,"x":20,"skin":"image/main/main_tansuo/img_zhandou_ditu.png"},
+                                    "nodeParent":827,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":840,
+                                    "child":[
+                                        ],
+                                    "$LOCKED":true,
+                                    "$HIDDEN":false
+                                }],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":23.5,"x":30,"stateNum":"2","skin":"image/main/main_tansuo/icon_zhandou.png"},
+                            "nodeParent":851,
+                            "label":"Button",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":828,
+                            "child":[
+                                {
+                                    "type":"Label",
+                                    "props":{"y":31,"x":-1,"text":"引导","fontSize":24,"font":"FZXK","color":"#63491a"},
+                                    "nodeParent":828,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":841,
+                                    "child":[
+                                        ]
+                                }],
+                            "$LOCKED":true,
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":78.5,"x":246,"var":"btn_mapUp","stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
+                            "nodeParent":851,
+                            "label":"Button(btn_mapUp)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":842,
+                            "compId":832,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":212.5,"x":247,"var":"btn_mapDown","stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
+                            "nodeParent":851,
+                            "label":"Button(btn_mapDown)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":834,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":138,"x":241,"var":"btn_mapCenter","stateNum":"1","skin":"image/main/main_tansuo/btn_didian_02.png","labelSize":24,"labelFont":"FZXK","labelColors":"#18466b,#18466b","label":"label"},
+                            "nodeParent":851,
+                            "label":"Button(btn_mapCenter)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":835,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":36,"x":90,"var":"lbl_tipsDes","text":"逃离险地","fontSize":30,"font":"FZXK","color":"#63491a"},
+                            "nodeParent":851,
+                            "label":"Label(lbl_tipsDes)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":836,
                             "child":[
                                 ]
-                        }]
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":94.5,"x":246,"var":"btn_mapUp","stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
-                    "nodeParent":851,
-                    "label":"Button(btn_mapUp)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":832,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":215.5,"x":247,"var":"btn_mapDown","stateNum":"1","skin":"image/main/main_tansuo/btn_didian.png","labelSize":24,"labelFont":"FZXK","labelColors":"#46320e,#46320e","label":"label"},
-                    "nodeParent":851,
-                    "label":"Button(btn_mapDown)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":834,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":148.5,"x":241,"var":"btn_mapCenter","stateNum":"1","skin":"image/main/main_tansuo/btn_didian_02.png","labelSize":24,"labelFont":"FZXK","labelColors":"#18466b,#18466b","label":"label"},
-                    "nodeParent":851,
-                    "label":"Button(btn_mapCenter)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":835,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Label",
-                    "props":{"y":30.5,"x":169,"var":"lbl_tipsDes","text":"逃离险地","fontSize":20,"font":"FZXK","color":"#63491a"},
-                    "nodeParent":851,
-                    "label":"Label(lbl_tipsDes)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":836,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Label",
-                    "props":{"y":29.5,"x":260,"var":"lbl_taskState","text":"（可交）","fontSize":20,"font":"FZXK","color":"#c43939","align":"center"},
-                    "nodeParent":851,
-                    "label":"Label(lbl_taskState)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":837,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"HTMLDivElement",
-                    "props":{"y":52,"x":100,"width":309,"height":21},
-                    "nodeParent":851,
-                    "label":"HTMLDivElement",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":838,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":286,"x":0,"skin":"image/main/bottom_mainicon.png","right":0,"left":0,"bottom":0},
-                    "nodeParent":851,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":721,
-                    "child":[
+                        },
                         {
+                            "x":45,
+                            "type":"HTMLDivElement",
+                            "props":{"y":47,"x":85,"width":309,"height":21},
+                            "nodeParent":851,
+                            "label":"HTMLDivElement",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":838,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":-15,"x":261,"skin":"image/createplayer/img_fengyin.png"},
-                            "nodeParent":721,
+                            "props":{"x":0,"skin":"image/createplayer/img_cj_01.png","bottom":0},
+                            "nodeParent":851,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":722,
+                            "compId":855,
                             "child":[
-                                ],
-                            "$LOCKED":true
-                        }],
-                    "$HIDDEN":false
+                                ]
+                        }]
                 }]
         },
         {

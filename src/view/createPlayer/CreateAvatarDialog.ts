@@ -34,12 +34,10 @@ module view.createPlayer {
 				this.input_name.text = name;
 				this.playerName = name;
 			});
-
 			// 输入名字
 			this.input_name.on(Laya.UIEvent.BLUR, this, () => {
 				this.playerName = this.input_name.text;
 			});
-
 			// 确定形象
 			EventManage.onWithEffect(this.btn_avatarSure, Laya.UIEvent.CLICK, this, () => {
 				this.createAvatar();
@@ -75,6 +73,7 @@ module view.createPlayer {
 			lcp.send(createusr);
 		}
 
+
 		// 随机角色姓名
 		private randomName(): string {
 			let index = RandomUtils.randomInt(1, 101);
@@ -88,7 +87,6 @@ module view.createPlayer {
 				mingZi = SheetConfig.randomNameSheet.getInstance(null).GIRLNAME('' + index);
 			}
 			return xingShi + mingZi
-
 		}
 	}
 }

@@ -372,12 +372,15 @@ class ServerListener extends SingletonClass {
         player.clearViewObj();
         console.log('=====已经改变了地图ID======');
         console.log('===isFirstCreate===', msgData.getValue('isFirstCreate'))
-        // 非创建角色
-        if (!msgData.getValue('isFirstCreate') || GameApp.GameEngine.isReady) {
+        // 首次创建角色
+        let isFirstCreate = msgData.getValue('isFirstCreate');
+        // 非首次创建角色  且  首次切换地图的情况下，打开主界面。
+        // 其他情况  新手引导界面  或者  切换地图界面
+        if (!(isFirstCreate || GameApp.GameEngine.isReady)) {
             PanelManage.openMainPanel();
         }
         // 更新UI布局
-        PanelManage.Main && GameApp.SceneManager.loadScene();
+        GameApp.SceneManager.loadScene();
         msgData.clear();
     }
 
@@ -737,9 +740,9 @@ class ServerListener extends SingletonClass {
         console.log()
         let atker = GameApp.MainPlayer.findViewObj(dwTempId);
         // atker && atker.showSkill(dwTargetId, nMagicId, dwActionTick);
-        if (view.main.Main_tanSuoItem.self.viw_bottom.selectedIndex== 1){
+        if (view.main.Main_tanSuoItem.self.viw_bottom.selectedIndex == 1) {
             // PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
-            view.main.Main_tanSuoItem.self.playFightAni(dwTempId,dwTargetId,nMagicId,dwActionTick)
+            view.main.Main_tanSuoItem.self.playFightAni(dwTempId, dwTargetId, nMagicId, dwActionTick)
         }
 
         cbpkt.clear();
@@ -1574,12 +1577,12 @@ class ServerListener extends SingletonClass {
                         }
 
                         if (PopUpManager.curPanel == PanelManage.BeiBao) {
-                            if (PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex == updateTabIndex) {
-                                PanelManage.BeiBao.ui_equipInfo.updateUI();
-                            }
-                            else {
-                                PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex = updateTabIndex;
-                            }
+                            // if (PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex == updateTabIndex) {
+                            //     PanelManage.BeiBao.ui_equipInfo.updateUI();
+                            // }
+                            // else {
+                            //     PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex = updateTabIndex;
+                            // }
                         }
 
                         if (Laya.Dialog.getDialogsByGroup('ZhaiYuan_lianQiDialog').length > 0) {
