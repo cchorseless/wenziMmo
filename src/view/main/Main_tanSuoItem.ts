@@ -14,7 +14,7 @@ module view.main {
 		public times = 1;
 		public isClick: boolean = false;
 		public intoInfo = [];
-		public mode=0;
+		public mode = 0;
 		public addEvent() {
 			this.box_button.on(Laya.UIEvent.CLICK, this, () => {
 				this.isClick = !this.isClick;
@@ -152,7 +152,9 @@ module view.main {
 			label1.font = 'FZXK';
 			label1.fontSize = 22;
 			label1.wordWrap = true;
-			label1.text = SheetConfig.mapRoomSheet.getInstance(null).ROOMDES('' + GameApp.MainPlayer.roomId);
+			if (this.mode==0) {
+				label1.text = SheetConfig.mapRoomSheet.getInstance(null).ROOMDES('' + GameApp.MainPlayer.roomId);
+			}
 			// label1.text = SheetConfig.mapRoomSheet.getInstance(null).ROOMDES('14018');
 			this.init_updataHieght(label1);
 			// 更新主界面的UI信息
