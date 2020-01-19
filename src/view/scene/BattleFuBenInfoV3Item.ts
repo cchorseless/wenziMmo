@@ -8,6 +8,8 @@ module view.scene {
 
 		public isAuto = false;
 
+		public skillDes: Skill_DesDialog = null;
+
 
 		public costMPArr = {};
 		constructor() {
@@ -16,6 +18,7 @@ module view.scene {
 			this.addEvent();
 		}
 		public setData() {
+			this.img_cantSkill.visible = false;
 			let key = 400
 			if (GameApp.MainPlayer.skillShotButton[key]) {
 				GameApp.MainPlayer.defaultTaoLuID = GameApp.MainPlayer.skillShotButton[key].i64Id.int64ToNumber();
@@ -65,11 +68,17 @@ module view.scene {
 		public addEvent(): void {
 			let self = this;
 			EventManage.onWithEffect(this.btn_exit, Laya.UIEvent.CLICK, this, () => {
-				if (GameApp.MainPlayer.curFuBenID > 0) {
-					main.Main_tanSuoItem.self.leaveFuBen()
+				if (main.Main_tanSuoItem.self.canLeave) {
+					if (GameApp.MainPlayer.curFuBenID > 0) {
+						main.Main_tanSuoItem.self.leaveFuBen()
+					}
+					PanelManage.Main.changeMode(0);
+				} else {
+					TipsManage.showTips('暂时不可退出副本')
 				}
 
-				PanelManage.Main.changeMode(0);
+
+
 			})
 			for (let i = 0; i < 4; i++) {
 				this['ui_cut' + i].on(Laya.UIEvent.CLICK, this, function () {
@@ -85,7 +94,61 @@ module view.scene {
 				})
 			}
 			for (let i = 1; i < 7; i++) {
+				let touchBegin = false;
+				this['ui_skill' + i].on(Laya.UIEvent.MOUSE_DOWN, this, function () {
+					// touchBegin = Laya.Browser.now();
+					touchBegin = true;
+					Laya.timer.once(3000, self, function aa () {
+						if (!touchBegin) {
+							Laya.timer.clear(this,aa)
+							return;
+						}
+						self.skillDes = new Skill_DesDialog();
+						self.skillDes.setData(self['ui_skill' + i].skillConfigID);
+						self.addChild(self.skillDes);
+						self.skillDes.anchorX = self.skillDes.anchorY = 0.5;
+						let x1 = self['ui_skill' + i].x + self['ui_skill' + i].width * 0.5;
+						let y1 = self['ui_skill' + i].y - self.skillDes.height * 0.5 + 14;
+						self.skillDes.x = x1;
+						self.skillDes.y = y1
+
+					})
+				})
+				this['ui_skill' + i].on(Laya.UIEvent.MOUSE_OUT, this, function () {
+					// touchBegin = Laya.Browser.now();
+					if (touchBegin) {
+						touchBegin = false;
+						if (self.skillDes != null) {
+							// self.skillDes.parent.removeChild(self.skillDes);
+							self.skillDes.removeSelf();
+							self.skillDes = null;
+							return;
+						}
+					}
+				})
+				this.on(Laya.UIEvent.MOUSE_UP, this, function () {
+					// touchBegin = Laya.Browser.now();
+					if (touchBegin) {
+
+						touchBegin = false
+						if (self.skillDes != null) {
+							self.skillDes.removeSelf();
+							self.skillDes = null;
+							return;
+						}
+					}
+				})
+
 				this['ui_skill' + i].on(Laya.UIEvent.CLICK, this, function () {
+					if (touchBegin) {
+						touchBegin = false;
+						if (self.skillDes != null) {
+							// self.skillDes.parent.removeChild(self.skillDes);
+							self.skillDes.removeSelf();
+							self.skillDes = null;
+							// return;
+						}
+					}
 					if (!this.isAuto) {
 						if (this['ui_skill' + i].isCD) {
 							TipsManage.showTips('技能CD中~');
@@ -121,9 +184,13 @@ module view.scene {
 				this.autoFight();
 			})
 			GameApp.LListener.on(BattleFuBenInfoV3Item.CHANGETAOLU, this, function () {
-				GameApp.MainPlayer.defaultTaoLuID = GameApp.MainPlayer.skillShotButton[400].i64Id.int64ToNumber();
-				this.curTouchTaoLuID = GameApp.MainPlayer.defaultTaoLuID;
-				this.setView()
+				if (GameApp.MainPlayer.skillShotButton[400]) {
+					GameApp.MainPlayer.defaultTaoLuID = GameApp.MainPlayer.skillShotButton[400].i64Id.int64ToNumber();
+					this.curTouchTaoLuID = GameApp.MainPlayer.defaultTaoLuID;
+					this.setView()
+				}
+
+
 			})
 			//最大和当前蓝量
 			// GameApp.MainPlayer.ability.nMaxMP;
@@ -193,6 +260,15 @@ module view.scene {
 			for (let i = 1; i < 7; i++) {
 				this['ui_skill' + i].showCD(1);
 			}
+		}
+		public deBuffCantPlaySkill(time: number) {
+			this.img_cantSkill.visible = true;
+			this.btn_auto.mouseEnabled = false;
+
+			Laya.timer.once(time * 1000, this, function () {
+				this.img_cantSkill.visible = false;
+				this.btn_auto.mouseEnabled = true;
+			})
 		}
 	}
 }

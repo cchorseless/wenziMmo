@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":55,
-    "selecteID":73,
+    "selectedBox":1,
+    "selecteID":80,
     "props":{"y":0,"x":0,"width":145,"sceneColor":"#ffffff","height":156},
     "nodeParent":-1,
     "label":"View",
@@ -51,6 +51,19 @@
                                 ],
                             "$LOCKED":false,
                             "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":17,"x":5,"width":92,"visible":false,"var":"img_mask","skin":"image/common/fight/mask.png","height":82,"alpha":0.6},
+                            "nodeParent":78,
+                            "label":"Image(img_mask)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":80,
+                            "child":[
+                                ]
                         }],
                     "$HIDDEN":false
                 },
@@ -70,7 +83,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":92,"x":77,"visible":false,"var":"img_isfight","skin":"image/main/font_gong.png","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":92,"x":72,"width":147,"visible":false,"var":"img_isfight","skin":"image/common/skillName/1053.png","scaleY":0.2,"scaleX":0.2,"height":44,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":55,
                     "label":"Image(img_isfight)",
                     "isDirectory":false,

@@ -18,6 +18,8 @@ module view.scene {
 			} else {
 				this.lbl_name.fontSize = 20
 			}
+			this.lab_hp_ceng.text = 'X1'
+			this.lab_hp.text = this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
 			this.lbl_name.text = name;
 			// 龙骨
 			let configID = '' + this.item.feature.dwCretTypeId;
@@ -27,13 +29,23 @@ module view.scene {
 			let wuxing = SheetConfig.mydb_monster_tbl.getInstance(null).WUXINGPROPS(configID)
 			this.img_wuxing.skin = "image/common/skill/icon_wx_" + wuxing + ".png"
 			this.img_icon.skin = 'image/common/npc/npc_half_' + skePath + '.png'
-
+			this.changeBelong('');
 			this.addEvent();
-
 			this.updateUI();
+			this.upDateBuff()
+		}
+		public upDateBuff(){
+			let feat = this.item.feature
+
+		}
+		public changeBelong(name = '') {
+			this.lab_belong.text = name;
 		}
 		public collectHander: Laya.Handler;// 采集物Hander
 		public addEvent(): void {
+			GameApp.LListener.on(ProtoCmd.BossBelong, this, function (name) {
+				this.changeBelong(name)
+			})
 			this.box_view.on(Laya.UIEvent.CLICK, this, () => {
 				let player = GameApp.MainPlayer;
 				let job = player.job;
@@ -73,14 +85,11 @@ module view.scene {
 		 */
 		public updateHp(): void {
 			// GameApp.LListener.event(ProtoCmd.UPDATE_BOSSHP, { now: this.item.ability.nowHP, max: this.item.ability.nMaxHP })
-			// this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
-		}
-		public upDateBuff() {
-			let o;
-			this.hbox_buff.addChild(o);
+			this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * 360)
+			this.lab_hp.text = this.item.ability.nowHP + '/' + this.item.ability.nMaxHP
 		}
 		public upDateDeBuff() {
-			this.hbox_debuff.x = this.hbox_buff.x + this.hbox_buff.numChildren * 30 + 10
+			this.hbox_debuff.x = this.hbox_buff.x + this.hbox_buff.numChildren * 30 + 10;
 
 		}
 	}
