@@ -281,6 +281,8 @@ module ResData {
             { url: 'json/Skill_combination.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Skill_combination },
             //技能升级消耗表
             { url: 'json/Upgrade_consumption.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Upgrade_consumption },
+             //物品Buff
+            { url: 'json/mydb_drugbuff_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_drugbuff_tbl },
             //装备天赋
             { url: 'json/Martial_arts.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Martial_arts },
             //基础门派表
