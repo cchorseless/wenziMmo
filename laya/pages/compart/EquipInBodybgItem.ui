@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":4,
-    "selecteID":9,
-    "props":{"width":85,"sceneColor":"#ead6d6","height":85},
+    "selectedBox":1,
+    "selecteID":11,
+    "props":{"width":85,"sceneColor":"#ead6d6","height":100},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -56,42 +56,81 @@
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":0,"x":49,"width":34,"var":"lbl_stronger","text":"+30","height":18,"fontSize":18,"color":"#000000","align":"right"},
+            "type":"Image",
+            "props":{"y":2,"x":3,"var":"img_chuanShi","skin":"image/juese/img_xing.png"},
             "nodeParent":1,
-            "label":"Label(lbl_stronger)",
-            "isDirectory":false,
+            "label":"Image(img_chuanShi)",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
+            "hasChild":true,
+            "compId":9,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":2,"x":1,"width":23,"var":"lbl_chuanshi","text":"5","height":19,"fontSize":20,"color":"#000000","align":"center"},
+                    "nodeParent":9,
+                    "label":"Label(lbl_chuanshi)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":8,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":69,"x":0,"width":52,"var":"lbl_soul","text":"+30","height":16,"fontSize":18,"color":"#000000","align":"left"},
+            "type":"Image",
+            "props":{"y":66,"x":39,"var":"img_stronger","skin":"image/juese/frame_jiacheng.png"},
             "nodeParent":1,
-            "label":"Label(lbl_soul)",
-            "isDirectory":false,
+            "label":"Image(img_stronger)",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":6,
+            "hasChild":true,
+            "compId":10,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":-5,"x":4,"width":34,"var":"lbl_stronger","text":"+30","height":18,"fontSize":22,"color":"#ffffff","align":"right"},
+                    "nodeParent":10,
+                    "label":"Label(lbl_stronger)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":5,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":30,"x":16,"width":52,"var":"lbl_chuanshi","text":"Ⅴ","fontSize":24,"color":"#000000","align":"center"},
+            "type":"Image",
+            "props":{"y":80,"x":0,"width":84,"var":"img_soul","skin":"image/juese/frame_jinglian.png","height":22},
             "nodeParent":1,
-            "label":"Label(lbl_chuanshi)",
-            "isDirectory":false,
+            "label":"Image(img_soul)",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":8,
+            "hasChild":true,
+            "compId":11,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":3,"var":"lbl_soul","text":"精炼:+30","right":0,"left":0,"height":16,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
+                    "nodeParent":11,
+                    "label":"Label(lbl_soul)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":6,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {

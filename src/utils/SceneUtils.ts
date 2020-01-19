@@ -88,10 +88,12 @@ class SceneManager extends SingletonClass {
         lcp.send(ready, this, () => {
             // 首次ready拉取一次数据
             if (!GameApp.GameEngine.isReady) {
+                // 打开主界面
                 PanelManage.Main.initData();
                 this.updateSelfPlayer(this.ui_scene);
             }
             else {
+                // 打开探索界面
                 PanelManage.openTanSuoPanel();
             }
             console.log('客户端准备完成');

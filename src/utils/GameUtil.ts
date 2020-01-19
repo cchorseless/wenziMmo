@@ -779,7 +779,7 @@ module GameUtil {
      */
     export function addEffectButton(btn: Laya.Sprite) {
         EffectUtils.playScaleEffect(btn, 200, 2);
-        btn.filters = [new Laya.GlowFilter('#4af608', 50)];
+        btn.filters = [new Laya.GlowFilter('#fbf108', 50)];
         // 按钮添加监听
         btn.once(Laya.UIEvent.CLICK, this, () => {
             btn.filters = null;

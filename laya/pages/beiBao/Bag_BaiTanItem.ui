@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":41,
-    "props":{"width":520,"sceneColor":"#f4efef","height":390},
+    "selectedBox":14,
+    "selecteID":15,
+    "props":{"width":491,"sceneColor":"#f4efef","height":452},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -110,52 +110,52 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":103,"x":377,"width":136,"skin":"image/common/bottom_touming.png","sizeGrid":"0,8,0,0","height":210,"alpha":0.6},
+            "props":{"y":103,"x":365,"width":122,"skin":"image/common/bottom_touming.png","sizeGrid":"0,8,0,0","height":210,"alpha":0.6},
             "nodeParent":1,
             "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":42,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":196,"x":385,"var":"lab_sellLog","text":"暂无交易记录","height":24,"fontSize":20,"font":"FZHL","color":"#4c3101","alpha":0.6},
-            "nodeParent":1,
-            "label":"Label(lab_sellLog)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":44,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Panel",
-            "props":{"y":106,"x":378,"width":134,"var":"panel_sellRecord","height":202,"alpha":0.6},
-            "nodeParent":1,
-            "label":"Panel(panel_sellRecord)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":12,
+            "compId":42,
             "child":[
                 {
                     "x":30,
-                    "type":"VBox",
-                    "props":{"var":"vbox_sellRecord","top":0,"space":3,"right":0,"left":0,"align":"center"},
-                    "nodeParent":12,
-                    "label":"VBox(vbox_sellRecord)",
+                    "type":"Panel",
+                    "props":{"y":3,"x":5,"width":134,"var":"panel_sellRecord","height":202,"alpha":0.6},
+                    "nodeParent":42,
+                    "label":"Panel(panel_sellRecord)",
                     "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":12,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"VBox",
+                            "props":{"var":"vbox_sellRecord","top":0,"space":3,"right":0,"left":0,"align":"center"},
+                            "nodeParent":12,
+                            "label":"VBox(vbox_sellRecord)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":13,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":93,"x":27,"var":"lab_sellLog","text":"暂无交易记录","height":24,"fontSize":20,"font":"FZHL","color":"#4c3101","alpha":0.6},
+                    "nodeParent":42,
+                    "label":"Label(lab_sellLog)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":13,
+                    "compId":44,
                     "child":[
                         ]
                 }]
@@ -163,7 +163,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":58,"x":8,"width":359,"skin":"image/common/bottom_touming.png","sizeGrid":"20,18,23,22","height":320},
+            "props":{"y":70,"x":6,"width":352,"skin":"image/common/bottom_touming.png","sizeGrid":"20,18,23,22","height":341},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -217,7 +217,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":64,"x":375,"width":140,"skin":"image/bag/img_common_08.png","height":36},
+            "props":{"y":67,"x":355,"width":140,"skin":"image/bag/img_common_08.png","height":36},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -258,7 +258,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":321,"x":375,"width":142,"var":"btn_jiaoYiHang","stateNum":"2","skin":"image/common/frame_biaoqian.png","labelStrokeColor":"4e2a2a","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"交易行","height":63},
+            "props":{"y":322,"x":366,"width":125,"var":"btn_jiaoYiHang","stateNum":"2","skin":"image/common/frame_biaoqian.png","labelStrokeColor":"4e2a2a","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"交易行","height":63},
             "nodeParent":1,
             "label":"Button(btn_jiaoYiHang)",
             "isDirectory":false,

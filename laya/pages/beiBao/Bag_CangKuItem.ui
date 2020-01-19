@@ -1,15 +1,15 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":22,
-    "selecteID":25,
+    "selectedBox":1,
+    "selecteID":31,
     "referenceLines":[
         {
             "value":-222,
             "type":0,
             "id":1
         }],
-    "props":{"width":520,"sceneColor":"#f4e6e6","height":390},
+    "props":{"width":490,"sceneColor":"#dec3c3","height":450},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -21,7 +21,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":7,"x":17,"skin":"image/common/bottom_smalltitle.png","sizeGrid":"0,32,0,32"},
+            "props":{"y":10,"x":12,"width":195,"skin":"image/bag/title_wp_01.png","sizeGrid":"0,32,0,32","height":38},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -91,18 +91,19 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":50,"x":10,"width":510,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"8,7,6,7","height":340},
+            "props":{"width":480,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"8,7,6,7","right":5,"left":5,"height":388,"bottom":5},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":5,
             "child":[
                 {
+                    "x":30,
                     "type":"Panel",
-                    "props":{"y":5,"width":505,"var":"panel_0","right":2,"height":330},
+                    "props":{"y":5,"width":476,"var":"panel_0","right":2,"left":2,"height":371},
                     "nodeParent":5,
                     "label":"Panel(panel_0)",
                     "isOpen":true,
@@ -112,6 +113,7 @@
                     "compId":6,
                     "child":[
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"var":"vbox_0","right":0,"left":0,"align":"left"},
                             "nodeParent":6,
@@ -125,6 +127,19 @@
                                 ]
                         }]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":5,"x":285,"width":201,"skin":"image/bag/img_common_jianbian04.png","height":42},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":31,
+            "child":[
+                ]
         }],
     "animations":[
         {

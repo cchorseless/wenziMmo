@@ -259,6 +259,58 @@ module LangConfig {
         return path + number + '.png';
     }
     /**
+    * 好感度
+    */
+    export function RELATIONSHIP_TYPEDES(lvl: number): any {
+        let array = [];
+        let lab;
+        let color;
+        switch (lvl) {
+            case 1:
+                lab = '死敌';
+                color = '#93bee1';
+                break;
+            case 2:
+                lab = '仇恨';
+                color = '#8785f2';
+                break;
+            case 3:
+                lab = '敌意';
+                color = '#b7a0ee';
+                break;
+            case 4:
+                lab = '冷淡';
+                color = '#928aaf';
+                break;
+            case 5:
+                lab = '初见';
+                color = '#f8ade9';
+                break;
+            case 6:
+                lab = '融洽';
+                color = '#f7ace8';
+                break;
+            case 7:
+                lab = '喜爱';
+                color = '#e184a9';
+                break;
+            case 8:
+                lab = '亲密';
+                color = '#e184a9';
+                break;
+            case 9:
+                lab = '灵犀';
+                color = '#ee9779';
+                break;
+            case 10:
+                lab = '不渝';
+                color = '#ea6b6b';
+                break;
+        }
+        array.push(lab,color);
+        return array;
+    }
+    /**
      * 职业
      */
     export const JOB_TYPEDES = {

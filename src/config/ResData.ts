@@ -284,7 +284,11 @@ module ResData {
             //装备天赋
             { url: 'json/Martial_arts.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Martial_arts },
             //基础门派表
-            { url: 'json/BaseMenPaiSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.BaseMenPaiSheet }
+            { url: 'json/BaseMenPaiSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.BaseMenPaiSheet },
+            //npc特殊对白表
+            { url: 'json/NPC_specialtalkInfoSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.NPC_specialtalkInfoSheet }
+
+
         ];
     }
 

@@ -73,13 +73,13 @@ module ProtoCmd {
 
         public int64ToNumber(): number {
             let num: number = 0;
-            let nk: number = 0;
+            let bufferArray = new Uint8Array(this._bytes.buffer);
+
             for (let i = 0; i < 8; i++) {
-                nk = this._bytes.getUint8();
-                num = num + (nk * Math.pow(2, 8 * i));
+                num = num + (bufferArray[i] * Math.pow(2, 8 * i));
             }
 
-            if (nk & 0x80) {  //最高位是1
+            if (bufferArray[7] & 0x80) {  //最高位是1
                 num = 18446744073709551616 - num + 1;
                 num = -num;
             }
@@ -3455,7 +3455,7 @@ module ProtoCmd {
         /**
          * 技能等级
          */
-        public set subLevel(value:number) {
+        public set subLevel(value: number) {
             this.setValue('sublevel', value);
         }
         /**
