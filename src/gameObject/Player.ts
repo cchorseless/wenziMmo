@@ -667,6 +667,7 @@ module GameObject {
          * 受击
          */
         public onAttack(): void {
+            this.ui_item.onAttack(1)
 
         }
 

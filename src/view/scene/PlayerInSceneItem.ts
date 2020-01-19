@@ -55,7 +55,7 @@ module view.scene {
 		public changeBuff(data) {
 			let buffID = data.getValue('dwMagicID');  //BuffID
 			let isAdd = data.getValue('btBuffOrAction');  //0动作(不处理)1无就增加，有就更新2取消3不显示
-			let dwTick =data.getValue('dwTick');//剩余时间
+			let dwTick = data.getValue('dwTick');//剩余时间
 			let buffLv = data.getValue('btLevel');//buff等级
 			let leftNum = data.getValue('nValue');//剩余量   
 
@@ -90,6 +90,24 @@ module view.scene {
 		 */
 		public updateNeiGong(): void {
 			// this.img_mp.width = this.img_mpBg.width * this.item.ability.nowInnerValue / this.item.ability.nInnerValue;
+		}
+		/**
+		 * 
+		 * @param type   1:受击  2:眩晕  3：石化
+		 */
+		public onAttack(type: number) {
+			let self = this;
+			switch (type) {
+				case 1:
+					// this.mask.alpha = 0.6
+					self.img_mask.visible = true;
+					let ani = Laya.Tween.to(self.img_mask, { alpha: 0 }, 500, null, Laya.Handler.create(self, () => {
+						self.img_mask.visible = false;
+						self.img_mask.alpha = 0.6
+						Laya.Tween.clear(ani);
+					}));
+					break;
+			}
 		}
 
 
