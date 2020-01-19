@@ -45,6 +45,7 @@ module view.npc {
 
 		public initUI(): void {
 			this.lbl_npcName.text = '' + this.item.objName;
+
 			// 任务状态
 			switch (this.item.taskState) {
 				//无任务
@@ -54,17 +55,20 @@ module view.npc {
 				//可交付
 				case EnumData.NPCSTATUS.ONETASKCOMPLETE:
 				case EnumData.NPCSTATUS.REPEATTASKCOMPLETE:
+					this.lbl_state.visible = true;
 					this.lbl_state.text = '？';
 					this.lbl_state.color = '#efc623';
 					break;
 				//可领取
 				case EnumData.NPCSTATUS.ONETASKNORECEIV:
 				case EnumData.NPCSTATUS.REPEATTASKNORECEIV:
+					this.lbl_state.visible = true;
 					this.lbl_state.text = '!';
 					this.lbl_state.color = '#efc623';
 					break;
 				//接了任务未达成
 				case EnumData.NPCSTATUS.ONETASKNOT:
+					this.lbl_state.visible = true;
 					this.lbl_state.text = '？';
 					this.lbl_state.color = '#000000';
 					break;

@@ -152,7 +152,7 @@ module view.main {
 			label1.font = 'FZXK';
 			label1.fontSize = 22;
 			label1.wordWrap = true;
-			if (this.mode==0) {
+			if (this.mode == 0) {
 				label1.text = SheetConfig.mapRoomSheet.getInstance(null).ROOMDES('' + GameApp.MainPlayer.roomId);
 			}
 			// label1.text = SheetConfig.mapRoomSheet.getInstance(null).ROOMDES('14018');
@@ -466,17 +466,20 @@ module view.main {
 									//可交付
 									case EnumData.NPCSTATUS.ONETASKCOMPLETE:
 									case EnumData.NPCSTATUS.REPEATTASKCOMPLETE:
+										box_npc.lbl_state.visible = true;
 										box_npc.lbl_state.text = '？';
 										box_npc.lbl_state.color = '#efc623';
 										break;
 									//可领取
 									case EnumData.NPCSTATUS.ONETASKNORECEIV:
 									case EnumData.NPCSTATUS.REPEATTASKNORECEIV:
+										box_npc.lbl_state.visible = true;
 										box_npc.lbl_state.text = '!';
 										box_npc.lbl_state.color = '#efc623';
 										break;
 									//接了任务未达成
 									case EnumData.NPCSTATUS.ONETASKNOT:
+										box_npc.lbl_state.visible = true;
 										box_npc.lbl_state.text = '？';
 										box_npc.lbl_state.color = '#000000';
 										break;
