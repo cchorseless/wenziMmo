@@ -14,6 +14,7 @@ module view.main {
 		public times = 1;
 		public isClick: boolean = false;
 		public intoInfo = [];
+		public mode=0;
 		public addEvent() {
 			this.box_button.on(Laya.UIEvent.CLICK, this, () => {
 				this.isClick = !this.isClick;
@@ -21,7 +22,7 @@ module view.main {
 			})
 			//主线
 			GameApp.LListener.on(ProtoCmd.FB_ChuMoRightPlane, this, (jsonData: ProtoCmd.itf_FB_MainFBjindu) => {
-				console.log('主线',jsonData , GameApp.MainPlayer.curFuBenID);
+				console.log('主线', jsonData, GameApp.MainPlayer.curFuBenID);
 				// GameApp.GameEngine.curFuBenMsg = jsonData;
 				GameApp.GameEngine.curFuBenMsg = null;
 				GameApp.GameEngine.curFuBenMsg = {
@@ -39,7 +40,7 @@ module view.main {
 			})
 			//材料
 			GameApp.LListener.on(ProtoCmd.map_CaiLiaoFubenPlane2, this, (jsonData) => {
-				console.log('材料' , jsonData , GameApp.MainPlayer.curFuBenID);
+				console.log('材料', jsonData, GameApp.MainPlayer.curFuBenID);
 				// GameApp.GameEngine.curFuBenMsg = jsonData;
 				GameApp.GameEngine.curFuBenMsg = null;
 				GameApp.GameEngine.curFuBenMsg = {
@@ -56,7 +57,7 @@ module view.main {
 			})
 			//心魔
 			GameApp.LListener.on(ProtoCmd.GeRenBoss_FB_Info, this, (jsonData) => {
-				console.log('心魔',jsonData , GameApp.MainPlayer.curFuBenID);
+				console.log('心魔', jsonData, GameApp.MainPlayer.curFuBenID);
 				GameApp.GameEngine.curFuBenMsg = null;
 				if (jsonData.flag == 0) {
 					GameApp.GameEngine.curFuBenMsg = {
@@ -87,6 +88,7 @@ module view.main {
 		 * @param mode 
 		 */
 		public changeMode(mode): void {
+			this.mode = mode;
 			if (mode == 1) {
 				this.ui_skill.setData();
 			} else {
@@ -188,11 +190,11 @@ module view.main {
 					// 
 					case EnumData.emMonsterType._MON_TYPE_LITTLEBOSS_:
 						monster = new view.scene.MonsterInSceneItemV1();
-						monster.setData(obj, 1);
+						monster.setData(obj, this.mode);
 						break;
 					case EnumData.emMonsterType._MON_TYPE_NORMAL_:
 						monster = new view.scene.MonsterInSceneItemV0();
-						monster.setData(obj, 1);
+						monster.setData(obj, this.mode);
 						break;
 				}
 				// monster = new view.scene.MonsterInSceneItemV0();

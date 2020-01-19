@@ -4,9 +4,9 @@ module view.scene {
 		constructor() {
 			super();
 		}
-		public place: number//0战斗界面1移动界面
+		public place: number//1战斗界面0移动界面
 		public item: GameObject.Monster;
-		public setData(item: GameObject.Monster, place: number = 0): void {
+		public setData(item: GameObject.Monster, place): void {
 			this.place = place;
 			this.centerX = this.centerY = 0;
 			// 相互绑定
@@ -39,7 +39,7 @@ module view.scene {
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
 				let player = GameApp.MainPlayer;
 				let job = player.job;
-				if (this.place == 1) {
+				if (this.place == 0) {
 					//怪物信息弹窗
 					new view.npc.Main_TanSuoV0Dialog().setData(this.item, 1).popup();
 				} else {
