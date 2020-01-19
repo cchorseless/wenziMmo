@@ -2,6 +2,7 @@
 module view.main {
 	export class Main_tanSuoItem extends ui.main.Main_tanSuoItemUI {
 		static self: Main_tanSuoItem;
+		public canLeave = false;
 		constructor() {
 			super();
 			Main_tanSuoItem.self = this;
@@ -90,7 +91,14 @@ module view.main {
 		public changeMode(mode): void {
 			this.mode = mode;
 			if (mode == 1) {
+				this.canLeave = false;
+
 				this.ui_skill.setData();
+				this.ui_skill.btn_exit.gray = true;
+				Laya.timer.once(10000, this, function () {
+					this.ui_skill.btn_exit.gray = false;
+					this.canLeave = true;
+				})
 			} else {
 				scene.BattleFuBenInfoV3Item.self.isAuto = false;
 				this.leaveFuBen();
@@ -137,6 +145,19 @@ module view.main {
 					break;
 			}
 
+		}
+		public showSkillName(skillID) {
+			let icon;
+			let configID = GameApp.MainPlayer.skillInfo[skillID].configID;
+			icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(configID);
+			let item:any = this.box_self.getChildAt(0);
+			item.img_isfight.skin = 'image/common/skillName/1053.png'
+			// item.img_isfight.skin ='image/common/skillName/' + icon + '.png'
+				item.img_isfight.visible = true;
+			Laya.Tween.to(item.img_isfight, { scaleX: 1, scaleY: 1 }, 1000, null, Laya.Handler.create(this, () => {
+				item.img_isfight.visible = false;
+				item.img_isfight.scaleX = item.img_isfight.scaleY = 0.2;
+			}))
 		}
 
 
@@ -429,14 +450,15 @@ module view.main {
 
 				let _skeGroup: SkeletonUtil.SkeletonGroup = new SkeletonUtil.SkeletonGroup();
 				_skeGroup.rotation = -90;
-				_skeGroup.loadRes(['sk/skill/huoqu/B_fire_02_ske.sk', 'sk/skill/huoqu/S_fire_02_ske.sk'], () => {
+				_skeGroup.loadRes(['sk/skill/fight/EFF_DG.sk'], () => {
 					// _skeGroup.pos(fightPos[0]+ 100, fightPos[1])
 					_skeGroup.pos(x1, y1)
 					self.panel_fight.addChild(_skeGroup);
+					_skeGroup.play(0,false)
 					Laya.Tween.to(_skeGroup, { x: x2, y: y2 }, 500, null, Laya.Handler.create(this, () => {
-						_skeGroup.showChild(1);
-						_skeGroup.play(0, false, true, Laya.Handler.create(this, () => {
-							_skeGroup.removeSelf()
+						// _skeGroup.showChild(1);
+						_skeGroup.play(1, false, true, Laya.Handler.create(this, () => {
+							// self.panel_fight.removeChild(_skeGroup);
 						}))
 					}))
 				})

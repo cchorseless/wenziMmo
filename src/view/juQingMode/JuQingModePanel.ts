@@ -204,6 +204,7 @@ module view.juQingMode {
 						this.isGetNew = true;
 						this.updateTalkInfo(nextID.zjid);
 					} else {
+						
 						TipsManage.showTips('当前任务未完成');
 					}
 					PanelManage.Main.updateTaskInfo();
@@ -311,13 +312,6 @@ module view.juQingMode {
 				this.nextReadInfo.x = 0;
 				this.box1.addChild(this.nextReadInfo)
 			}
-
-
-			// 选项模式决定选哪个对白
-			// if (_talkInfo.msg.eventBn.length == 0) {
-			// 	this.SELECT_MODE = true;
-			// }
-			// let context = this.SELECT_MODE ? _talkInfo.msg.content : _talkInfo.msg.eventBn;
 		}
 		public getPZMsg(pzid) {
 			let pkt1 = new ProtoCmd.QuestClientData();
@@ -769,13 +763,13 @@ module view.juQingMode {
 									this.showPageMsg(this.pageID + 1);
 								}))
 							} else {
-								if (this.isJuQing) {
-									TipsManage.showTips('剧情任务未完成')
-									this.initBox();
-								} else {
+								// if (this.isJuQing) {
+								// 	TipsManage.showTips('剧情任务未完成')
+								// 	this.initBox();
+								// } else {
 									let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [this.maxInfoNum], )
 									lcp.send(pkt);
-								}
+								// }
 
 							}
 						}

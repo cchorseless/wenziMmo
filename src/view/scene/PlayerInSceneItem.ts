@@ -52,6 +52,18 @@ module view.scene {
 			});
 
 		}
+		public changeBuff(data) {
+			let buffID = data.getValue('dwMagicID');  //BuffID
+			let isAdd = data.getValue('btBuffOrAction');  //0动作(不处理)1无就增加，有就更新2取消3不显示
+			let dwTick = data.getValue('dwTick');//剩余时间
+			let buffLv = data.getValue('btLevel');//buff等级
+			let leftNum = data.getValue('nValue');//剩余量   
+
+			// if(){
+
+			// }
+			// let 
+		}
 
 		/**
 		 * 刷新自己的UI
@@ -79,6 +91,24 @@ module view.scene {
 		public updateNeiGong(): void {
 			// this.img_mp.width = this.img_mpBg.width * this.item.ability.nowInnerValue / this.item.ability.nInnerValue;
 		}
+		/**
+		 * 
+		 * @param type   1:受击  2:眩晕  3：石化
+		 */
+		public onAttack(type: number) {
+			let self = this;
+			switch (type) {
+				case 1:
+					// this.mask.alpha = 0.6
+					self.img_mask.visible = true;
+					let ani = Laya.Tween.to(self.img_mask, { alpha: 0 }, 500, null, Laya.Handler.create(self, () => {
+						self.img_mask.visible = false;
+						self.img_mask.alpha = 0.6
+						Laya.Tween.clear(ani);
+					}));
+					break;
+			}
+		}
 
 
 		/**
@@ -87,11 +117,13 @@ module view.scene {
 		 */
 		public playAni(model = 0, loop: boolean = false, force = false, completeHandler: Laya.Handler = null, playbackRate = 1): void {
 			// this._skeGroup.play(model, loop, force, completeHandler, playbackRate);
-			this.img_isfight.visible = true;
-			Laya.Tween.to(this.img_isfight, { scaleX: 1.1, scaleY: 1.1 }, 500, null, Laya.Handler.create(this, () => {
-				this.img_isfight.scaleX = this.img_isfight.scaleY = 1;
-				this.img_isfight.visible = false;
-			}))
+			// this.img_isfight.skin = 
+			// this.img_isfight.visible = true;
+			// Laya.Tween.to(this.img_isfight, { scaleX: 1, scaleY: 1 }, 1000, null, Laya.Handler.create(this, () => {
+			// 	this.img_isfight.visible = false;
+			// 	this.img_isfight.scaleX = this.img_isfight.scaleY = 0.2;
+
+			// }))
 		}
 
 		public stopPlayAni(): void {

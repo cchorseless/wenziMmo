@@ -77,7 +77,7 @@ module ProtoCmd {
         }
     }
     /**
-     * 怪物Buff
+     * 自己Buff
      */
     export class stCretBuffState extends Packet {
         public static msgID: number = 0x0298;

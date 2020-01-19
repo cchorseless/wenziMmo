@@ -46,7 +46,7 @@ class ServerListener extends SingletonClass {
         // 攻击 0x0232
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretAttackRet), this, this.cretAttackRet);
 
-        //怪物Buff
+        //自己的Buff
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretBuffState), this, this.cretMonsterBuff);
         // 怪物掉血 0x0297
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretStruck), this, this.cretStruck);
@@ -481,6 +481,7 @@ class ServerListener extends SingletonClass {
      */
     public syncNotPlayerFeature(data: any): void {
         let cbPkt = ProtoCmd.AvaterIconDecoder.getInstance();
+
         cbPkt.read(data);
     }
 
@@ -594,12 +595,9 @@ class ServerListener extends SingletonClass {
                     if (GameApp.GameEngine.mainPlayer.tempId == dwTempId) {
                         // PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
                         view.scene.BattleFuBenInfoV3Item.self.allSkillCD()
+                        view.main.Main_tanSuoItem.self.showSkillName(skillid)
+
                     }
-
-
-                    // if(){
-
-                    // }
 
                     break;
                 default:
@@ -693,8 +691,17 @@ class ServerListener extends SingletonClass {
         msg.clear();
         msg = null;
     }
+    //自己的Buff
     public cretMonsterBuff(data: any) {
         let msg = new ProtoCmd.stCretBuffState(data);
+        let buffID = msg.getValue('dwMagicID');
+        let isAdd = msg.getValue('btBuffOrAction');
+        let dwTick = msg.getValue('dwTick');
+        let player = GameApp.MainPlayer;
+        let base = player.findViewObj(GameApp.MainPlayer.tempId);
+        base.changeBuff(msg);
+        
+        console.log('有Buff')
         msg.clear();
         msg = null;
     }

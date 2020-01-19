@@ -85,9 +85,9 @@ module GameObject {
         public nCoAtt2Player = 0;//合击对怪物增伤害
         public nCoAttLvl = 0;//合击技能等级
         public nHpPer = 0;//生命万分比
-        public nAtkPer=0;//攻击万分比
-        public nPhyDefPer=0;//物理防御万分比
-        public nMagDefPer=0;//魔法防御万分比
+        public nAtkPer = 0;//攻击万分比
+        public nPhyDefPer = 0;//物理防御万分比
+        public nMagDefPer = 0;//魔法防御万分比
     }
 
     /**
@@ -320,8 +320,11 @@ module GameObject {
                 this.ability.nowMP = nowMP;
             }
             if (this.isMainPlayer) {
-
+                this.ability.nMaxMP = nMaxMP;
             }
+        }
+        public changeBuff(data) {
+            this.ui_item.changeBuff(data);
         }
 
         /**
@@ -450,7 +453,7 @@ module GameObject {
          * 受击
          */
         public onAttack(): void {
-            
+
         }
 
         /**

@@ -610,6 +610,7 @@ module ProtoCmd {
                     case 9://主人ID;
                         {
                             (cret.feature as ProtoCmd.AnimalFeature).dwMasterTmpID = data.getInt32();
+                            
                             break;
                         }
                     case 10://NPC 怪物基本ID  
