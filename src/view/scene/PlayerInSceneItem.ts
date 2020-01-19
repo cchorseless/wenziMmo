@@ -58,11 +58,9 @@ module view.scene {
 			let dwTick = data.getValue('dwTick');//剩余时间
 			let buffLv = data.getValue('btLevel');//buff等级
 			let leftNum = data.getValue('nValue');//剩余量   
-
-			// if(){
-
-			// }
-			// let 
+			let buffIcon;
+			// let itemData=SheetConfig.mydb_drugbuff_tbl.getInstance(null)
+			
 		}
 
 		/**
