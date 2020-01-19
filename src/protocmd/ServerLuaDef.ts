@@ -380,6 +380,9 @@ module ProtoCmd {
     export const JS_updata_GangqiUse = "updata_GangqiUse";
     //武学基础修炼
     export const JS_upgradeWuXueSiFa = "upgradeWuXueSiFa";//参数(pos)穿戴位置
+    /*********************************NPC******************** */
+    //请教武学（获取技能碎片）
+    export const NPC_getSkillItem = "getSkillItem";//(参数：(npcid, skillid技能编号))
     /*********************************菜单******************** */
     //菜单祈福面板
     export const Menu_QiFuClientOpen = "QiFuClientOpen";
@@ -1414,6 +1417,7 @@ module ProtoCmd {
         maxexp: number//最大好感值
         lvl: number//当前好感等级
         nexttime: number//收礼时间
+        skillFirst: any//
 
     }
 }

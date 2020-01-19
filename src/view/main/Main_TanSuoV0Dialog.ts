@@ -9,7 +9,11 @@ module view.npc {
 		 * @param data 采集物信息
 		 * @param type 类型：0采集物1怪物2无好感NPC（功能NPC）
 		 */
+		public item;
 		public setData(data, type: number): Main_TanSuoV0Dialog {
+			this.panel_jiaohu.vScrollBarSkin = '';
+			this.vbox_jiaohu['sortItem'] = (items) => { };
+			this.item = data;
 			this.img_battle.visible = false;
 			this.view_type.selectedIndex = type;
 			this.lbl_level.text = 'LV.' + data.level;
@@ -50,6 +54,7 @@ module view.npc {
 					//造型图
 					let half = SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER('' + data.feature.dwCretTypeId);
 					this.img_tu.skin = 'image/common/npc/npc_half_' + half + '.png';
+					this.init_npcTalk();
 					break;
 			}
 			this.addEvent();
@@ -59,6 +64,23 @@ module view.npc {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			})
+		}
+		/**
+		 * npc对白
+		 */
+		public init_npcTalk(): void {
+			//随机对白
+			let talkArray = SheetConfig.mydb_npcgen_tbl.getInstance(null).TALKINFO_RANDOM('' + this.item.feature.dwCretTypeId).split('~');
+			let index = Math.floor((Math.random() * talkArray.length));
+			let lbl = new Laya.Label();
+			lbl.fontSize = 20;
+			lbl.font = 'FZXK';
+			lbl.color = '#000000'
+			lbl.x = 0;
+			lbl.text = SheetConfig.NPC_specialtalkInfoSheet.getInstance(null).TALKINFO('' + talkArray[index]);
+			lbl.width = this.panel_jiaohu.width;
+			lbl.wordWrap = true;
+			this.vbox_jiaohu.addChild(lbl);
 		}
 	}
 }
