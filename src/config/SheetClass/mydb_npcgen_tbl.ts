@@ -124,4 +124,8 @@ public static getInstance(data): mydb_npcgen_tbl { let Class:any=this;if(!Class.
  *  NPC身上是否绑任务.0:没有任务；1有任务
  */
  public ISTASKONSELF(configID):number { return this.data[configID][30]}
+/**
+ *  NPCicon编号
+ */
+ public ICON_ICON_NUMBER(configID):number { return this.data[configID][31]}
 }}
