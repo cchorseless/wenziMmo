@@ -33,11 +33,24 @@ module ProtoCmd {
     //
     export const clickNpc = "clickNpc";   //点击NPC
     // 偷盗
-    export const stealNpcItem = 'stealNpcItem';
+    // export const stealNpcItem = 'stealNpcItem';
     // 切搓
     export const fightWithNpc = 'fightWithNpc'; // (_, npcid)
     // 送礼
     export const giveGiftToNpc = 'giveGiftToNpc'; //(_, npcid, itemid)
+    //偷窃
+    export const stealNpcItem = 'stealNpcItem'  //(npcid, itemid)
+    //下毒
+    export const poisonNpc = 'poisonNpc'  //(npcid, itemid)
+    //治疗
+    export const treatNpc = 'treatNpc'  //(npcid, itemid)
+    //暗杀
+    export const killNpc = 'killNpc'//(npcid)
+
+    //辩论  打开辩论界面
+    export const argueWithNpc = 'argueWithNpc';//(npcid)
+    //出牌  
+    export const argueAttack = 'argueAttack';//(id)出牌:id(1铁证,2诡辩,3反驳)
 
 
     /*****************************帮派*********************** */

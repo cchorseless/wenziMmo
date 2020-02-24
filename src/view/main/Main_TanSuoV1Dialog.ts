@@ -1,8 +1,11 @@
 /**Created by the LayaAirIDE*/
 module view.npc {
 	export class Main_TanSuoV1Dialog extends ui.npc.Main_TanSuoV1DialogUI {
+		public static self: Main_TanSuoV1Dialog;
+		public static UPDATE_DETAIL = 'upDate_detail'
 		constructor() {
 			super();
+			Main_TanSuoV1Dialog.self = this;
 		}
 		//npc信息
 		public item: GameObject.Npc;
@@ -25,6 +28,15 @@ module view.npc {
 			return this;
 		}
 		public addEvent(): void {
+			GameApp.LListener.on(Main_TanSuoV1Dialog.UPDATE_DETAIL, this, function (string) {
+				let lab = new Laya.Label();
+				lab.width = 305;
+				lab.fontSize = 22;
+				lab.font = 'fzxk';
+				lab.color = '#000000';
+				lab.text = string;
+				this.vbox_jiaohu.addChild(lab);
+			})
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			})
@@ -32,6 +44,40 @@ module view.npc {
 			this.btn_wuxue.on(Laya.UIEvent.CLICK, this, () => {
 				this.view_npc.selectedIndex = 1;
 			})
+			//偷窃
+			this.btn_Steal.on(Laya.UIEvent.CLICK, this, function () {
+				this.stealFromNpc();
+			})
+			//送礼
+			this.btn_sendGift.on(Laya.UIEvent.CLICK, this, function () {
+				this.sendGiftToNpc();
+			})
+			//暗杀
+			this.btn_Kill.on(Laya.UIEvent.CLICK, this, function () {
+				// this.stealFromNpc();
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.killNpc, [this.item.feature.dwCretTypeId], 0, this
+					, function (res) {
+						console.log('暗杀回调', res)
+						let str = '';
+						if (res.ret == 0) {
+							str = '暗杀成功！'
+						} else {
+							str = '暗杀失败!'
+						}
+						GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
+						// this.parentUI.view_npc.selectedIndex = 0;
+					})
+				lcp.send(pkt);
+			})
+		}
+		public sendGiftToNpc() {
+			this.ui_send.setData(this.item.feature.dwCretTypeId, Main_TanSuoV1Dialog.self)
+			this.view_npc.selectedIndex = 3;
+		}
+		public stealFromNpc() {
+			this.ui_steal.setData(this.item.feature.dwCretTypeId, Main_TanSuoV1Dialog.self)
+			this.view_npc.selectedIndex = 2;
+
 		}
 		public init_haoganEvent(): void {
 			let pkID = this.item.feature.dwCretTypeId

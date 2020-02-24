@@ -131,17 +131,18 @@ module view.juQingMode {
 				}
 			});
 			EventManage.onWithEffect(this.btn_zhiNan, Laya.UIEvent.CLICK, this, () => {
-				// new view.juQingMode.JuQingPrizeDialog().setData().popup();
-				this.muluShow = !this.muluShow;
-				// this.muluItem.visible = !this.muluItem.visible;
-				if (this.muluShow) {
-					this.muluItem.visible = this.muluShow;
-					Laya.Tween.to(this.muluItem, { x: 0 }, 300)
-				} else {
-					Laya.Tween.to(this.muluItem, { x: -1 * this.muluItem.width }, 300, null, Laya.Handler.create(this, () => {
-						this.muluItem.visible = this.muluShow;
-					}))
-				}
+				// // new view.juQingMode.JuQingPrizeDialog().setData().popup();
+				// this.muluShow = !this.muluShow;
+				// // this.muluItem.visible = !this.muluItem.visible;
+				// if (this.muluShow) {
+				// 	this.muluItem.visible = this.muluShow;
+				// 	Laya.Tween.to(this.muluItem, { x: 0 }, 300)
+				// } else {
+				// 	Laya.Tween.to(this.muluItem, { x: -1 * this.muluItem.width }, 300, null, Laya.Handler.create(this, () => {
+				// 		this.muluItem.visible = this.muluShow;
+				// 	}))
+				// }
+				PanelManage.openZhiNanPanel()
 			});
 
 			// // 章节信息

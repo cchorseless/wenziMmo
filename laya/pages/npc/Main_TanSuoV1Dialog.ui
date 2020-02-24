@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":56,
+    "selectedBox":21,
+    "selecteID":25,
     "props":{"width":632,"sceneColor":"#000000","height":1011},
     "nodeParent":-1,
     "label":"Dialog",
@@ -354,13 +354,14 @@
                             "props":{"var":"img_relation1","skin":"image/common/frame_youshan.png"},
                             "nodeParent":52,
                             "label":"Image(img_relation1)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":21,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"x":83,"width":40,"text":"友善","height":20,"fontSize":20,"font":"HWXK","color":"#750606","align":"center"},
                                     "nodeParent":21,
@@ -375,10 +376,11 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":40,"x":42,"stateNum":"2","skin":"image/common/but_youshan.png","labelStrokeColor":"#9c3e2d","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#ffe7bc,#ffe7bc","label":"辩论"},
+                                    "props":{"y":40,"x":42,"var":"btb_Argue","stateNum":"2","skin":"image/common/but_youshan.png","labelStrokeColor":"#9c3e2d","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#ffe7bc,#ffe7bc","label":"辩论"},
                                     "nodeParent":21,
-                                    "label":"Button",
+                                    "label":"Button(btb_Argue)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -388,10 +390,11 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":93,"x":42,"stateNum":"2","skin":"image/common/but_youshan.png","labelStrokeColor":"#9c3e2d","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#ffe7bc,#ffe7bc","label":"送礼"},
+                                    "props":{"y":93,"x":42,"var":"btn_sendGift","stateNum":"2","skin":"image/common/but_youshan.png","labelStrokeColor":"#9c3e2d","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#ffe7bc,#ffe7bc","label":"送礼"},
                                     "nodeParent":21,
-                                    "label":"Button",
+                                    "label":"Button(btn_sendGift)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -401,6 +404,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":144,"x":42,"stateNum":"2","skin":"image/common/but_youshan.png","labelStrokeColor":"#9c3e2d","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#ffe7bc,#ffe7bc","label":"治疗"},
                                     "nodeParent":21,
@@ -414,6 +418,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":196,"x":42,"stateNum":"2","skin":"image/common/but_youshan.png","labelStrokeColor":"#9c3e2d","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#ffe7bc,#ffe7bc","label":"讲经"},
                                     "nodeParent":21,
@@ -434,13 +439,14 @@
                             "props":{"x":233,"var":"img_relation2","skin":"image/common/frame_didui.png"},
                             "nodeParent":52,
                             "label":"Image(img_relation2)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":28,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"x":83,"width":40,"text":"敌对","height":20,"fontSize":20,"font":"HWXK","color":"#513866","align":"center"},
                                     "nodeParent":28,
@@ -455,10 +461,11 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":40,"x":42,"stateNum":"2","skin":"image/common/but_didui.png","labelStrokeColor":"#56628f","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#e9feff,#e9feff","label":"偷窃"},
+                                    "props":{"y":40,"x":42,"var":"btn_Steal","stateNum":"2","skin":"image/common/but_didui.png","labelStrokeColor":"#56628f","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#e9feff,#e9feff","label":"偷窃"},
                                     "nodeParent":28,
-                                    "label":"Button",
+                                    "label":"Button(btn_Steal)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -468,6 +475,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":93,"x":42,"stateNum":"2","skin":"image/common/but_didui.png","labelStrokeColor":"#56628f","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#e9feff,#e9feff","label":"索要"},
                                     "nodeParent":28,
@@ -481,10 +489,11 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":144,"x":42,"stateNum":"2","skin":"image/common/but_didui.png","labelStrokeColor":"#56628f","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#e9feff,#e9feff","label":"下毒"},
+                                    "props":{"y":144,"x":42,"var":"btn_Poison","stateNum":"2","skin":"image/common/but_didui.png","labelStrokeColor":"#56628f","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#e9feff,#e9feff","label":"下毒"},
                                     "nodeParent":28,
-                                    "label":"Button",
+                                    "label":"Button(btn_Poison)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -494,10 +503,11 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":196,"x":42,"stateNum":"2","skin":"image/common/but_didui.png","labelStrokeColor":"#56628f","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#e9feff,#e9feff","label":"暗杀"},
+                                    "props":{"y":196,"x":42,"var":"btn_Kill","stateNum":"2","skin":"image/common/but_didui.png","labelStrokeColor":"#56628f","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#e9feff,#e9feff","label":"暗杀"},
                                     "nodeParent":28,
-                                    "label":"Button",
+                                    "label":"Button(btn_Kill)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -594,13 +604,14 @@
                             "props":{"y":280,"x":233,"var":"img_relation4","skin":"image/common/frame_guanxi.png"},
                             "nodeParent":52,
                             "label":"Image(img_relation4)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":40,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"x":83,"width":40,"text":"其他","height":20,"fontSize":20,"font":"HWXK","color":"#754506","align":"center"},
                                     "nodeParent":40,
@@ -615,6 +626,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":67,"x":42,"var":"btn_wuxue","stateNum":"2","skin":"image/common/but_guanxi.png","labelStrokeColor":"#a27533","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#fff1d9,#fff1d9","label":"请教武学"},
                                     "nodeParent":40,
@@ -628,6 +640,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":119,"x":42,"stateNum":"2","skin":"image/common/but_guanxi.png","labelStrokeColor":"#a27533","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#fff1d9,#fff1d9","label":"任务"},
                                     "nodeParent":40,
@@ -641,6 +654,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":169,"x":42,"stateNum":"2","skin":"image/common/but_guanxi.png","labelStrokeColor":"#a27533","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#fff1d9,#fff1d9","label":"交易"},
                                     "nodeParent":40,
@@ -661,13 +675,43 @@
                     "x":30,
                     "type":"UIView",
                     "source":"npc/Main_NPCWuXueItem.ui",
-                    "props":{"var":"ui_wuxue","runtime":"view.npc.Main_NPCWuXueItem","name":"item1"},
+                    "props":{"y":0,"x":0,"var":"ui_wuxue","runtime":"view.npc.Main_NPCWuXueItem","name":"item1"},
                     "nodeParent":53,
                     "label":"UIView(ui_wuxue)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":54,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"npc/Main_Npc_stealitem.ui",
+                    "props":{"y":0,"x":0,"visible":false,"var":"ui_steal","runtime":"view.npc.Main_Npc_stealitem","name":"item2"},
+                    "nodeParent":53,
+                    "label":"UIView(ui_steal)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":57,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"npc/Main_Npc_sendGift.ui",
+                    "props":{"var":"ui_send","runtime":"view.npc.Main_Npc_sendGift","name":"item3"},
+                    "nodeParent":53,
+                    "label":"UIView(ui_send)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":59,
                     "child":[
                         ],
                     "$HIDDEN":true
