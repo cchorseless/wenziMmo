@@ -12,11 +12,11 @@ module view.npc {
 			this.addEvent();
 		}
 		/**
-  * 
-  * @param npcid  npc 的id
-  * @param parent 父载体
-  */
-		public setData(npcid, uiParent, ) {
+         * 
+         * @param npcid  npc 的id
+         * @param parent 父载体
+         */
+		public setData(npcid, uiParent) {
 			this.npcID = npcid;
 			this.parentUI = uiParent;
 			this.lbl_tili.text = GameApp.MainPlayer.nTili + '';
@@ -24,14 +24,21 @@ module view.npc {
 		}
 		public showGiftItem() {
 			let itemMsg = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(this.npcID);
-			let itemlist = itemMsg.split('|');
+			// let itemlist = itemMsg.split('|');
+			let itemlist = [1000,1001,1002,1003,1004,1005,1006,1007,1008,1009]
 			for (let i = 0; i < 10; i++) {
 				this['ui_gift' + i].initView();
 			}
 			for (let i = 0; i < itemlist.length; i++) {
-				let num = GameUtil.findItemInBag(parseInt(itemlist[i]),GameApp.GameEngine.bagItemDB)
+				let num = GameUtil.findItemInBag(itemlist[i], GameApp.GameEngine.bagItemDB)
 				this['ui_gift' + i].setData(itemlist[i], num, 3, i);
 			}
+		}
+		public showLight() {
+			for (let i = 0; i < 9; i++) {
+				this['ui_gift' + i].setLight(false);
+			}
+			this['ui_gift' + this.touchID].setLight(true);
 		}
 		public addEvent() {
 			this.btn_leave.on(Laya.UIEvent.CLICK, this, function () {
@@ -40,6 +47,7 @@ module view.npc {
 			for (let i = 0; i < 10; i++) {
 				this['ui_gift' + i].on(Laya.UIEvent.CLICK, this, function () {
 					this.touchID = i;
+					this.showLight();
 				})
 			}
 			this.btn_send.on(Laya.UIEvent.CLICK, this, function () {
@@ -52,8 +60,11 @@ module view.npc {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.giveGiftToNpc, [this.npcID, itemID], 0, this
 					, function (res) {
 						console.log('送礼回调' + res)
+						this.parentUI.curExp = res.likeValue;
+						this.parentUI.lvl = res.lvl;
+						this.parentUI.updataHaoGan();
 						this.parentUI.view_npc.selectedIndex = 0;
-						let itemName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(res.itemid)
+						let itemName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(itemID)
 						let str = '';
 						if (res.ret == 0) {
 							str = '送礼成功！'

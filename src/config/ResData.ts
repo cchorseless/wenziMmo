@@ -52,6 +52,7 @@ module ResData {
         { url: "res/atlas/image/juese/gangqi.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/npc_jiaohu.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/map/northland.atlas", type: Laya.Loader.ATLAS },
         ];
         // 主界面 主界面资源通过同步加载

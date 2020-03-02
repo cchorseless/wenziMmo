@@ -41,16 +41,28 @@ module ProtoCmd {
     //偷窃
     export const stealNpcItem = 'stealNpcItem'  //(npcid, itemid)
     //下毒
-    export const poisonNpc = 'poisonNpc'  //(npcid, itemid)
+    export const poisonToNpc = 'poisonToNpc'  //(npcid, itemid,type:1\2\3  使用 的毒药类型)
     //治疗
-    export const treatNpc = 'treatNpc'  //(npcid, itemid)
+    export const treatNpc = 'treatNpc'  //(npcid, itemid,type:1\2\3  使用 的解药类型)
     //暗杀
     export const killNpc = 'killNpc'//(npcid)
+
+    //npc 关系监听
+    export const npcRelation = 'npcRelation'
 
     //辩论  打开辩论界面
     export const argueWithNpc = 'argueWithNpc';//(npcid)
     //出牌  
     export const argueAttack = 'argueAttack';//(id)出牌:id(1铁证,2诡辩,3反驳)
+
+    //结拜  swearNpc(_, npcid)
+    export const swearNpc = 'swearNpc';//npcid
+
+    //表白
+    export const declareNpc = 'declareNpc'; //npcid
+
+    //解除表白
+    export const delDeclareNpc = 'delDeclareNpc';//npcid
 
 
     /*****************************帮派*********************** */
@@ -1425,12 +1437,14 @@ module ProtoCmd {
     }
     /***********************************NPC交互接口**************************** */
     export interface itf_NPC_HaoGanInfo {
-        baowutab: any;
+        baowutab: any;//宝物信息
         curexp: number//当前好感值
         maxexp: number//最大好感值
         lvl: number//当前好感等级
+        poisontab:{}//npc中毒状态
         nexttime: number//收礼时间
-        skillFirst: any//
+        skillFirst: any//是否第一次获得技能物品
+    
 
     }
 }

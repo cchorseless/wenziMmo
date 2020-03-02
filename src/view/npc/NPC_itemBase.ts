@@ -46,6 +46,10 @@ module view.npc {
 					this.lab_num.text = num + '';
 					break;
 			}
+			this.setLight(false)
+		}
+		public setLight(boo: boolean) {
+			this.img_light.visible = boo;
 		}
 		public addEvent() {
 			// this.on(Laya.UIEvent.CLICK, this, function () {

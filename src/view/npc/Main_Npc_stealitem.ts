@@ -29,8 +29,19 @@ module view.npc {
 				this['ui_steal' + i].initView();
 			}
 			for (let i = 0; i < itemlist.length; i++) {
-				this['ui_steal' + i].setData(itemlist[i], 0, 0, i);
+				//物品品质
+				let quality = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(itemlist[i]);
+				let lv = GameApp.MainPlayer.skillInfo['400002'].subLevel;//偷窃技能等级
+				let haoganExp = Main_TanSuoV1Dialog.self.curExp;//好感度
+				let k = (0.5 + 0.05 * lv + - 0.01 * quality - 0.01 * quality) * 100;
+				this['ui_steal' + i].setData(itemlist[i], k, 0, i);
 			}
+		}
+		public showLight() {
+			for (let i = 0; i < 9; i++) {
+				this['ui_steal' + i].setLight(false);
+			}
+			this['ui_steal' + this.touchID].setLight(true);
 		}
 		public addEvent() {
 			this.btn_leave.on(Laya.UIEvent.CLICK, this, function () {
@@ -39,6 +50,7 @@ module view.npc {
 			for (let i = 0; i < 10; i++) {
 				this['ui_steal' + i].on(Laya.UIEvent.CLICK, this, function () {
 					this.touchID = i;
+					this.showLight();
 				})
 			}
 			this.btn_steal.on(Laya.UIEvent.CLICK, this, function () {
@@ -51,13 +63,20 @@ module view.npc {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.stealNpcItem, [this.npcID, itemID], 0, this
 					, function (res) {
 						console.log('偷窃回调' + res)
+						this.parentUI.curExp = res.likeValue;
+						this.parentUI.lvl = res.lvl;
+						this.parentUI.updataHaoGan();
 						this.parentUI.view_npc.selectedIndex = 0;
 						let itemName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(res.itemid)
 						let str = '';
+						let npcName = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(this.npcID)
 						if (res.ret == 0) {
-							str = '偷窃成功！'
-						}else{
-							str = '偷窃失败!'
+							str = npcName + '说道：“你一来，我就发现少了件东西”' +
+								'\n偷窃成功，NPC好感度降低50点，你获得' + itemName + '，窃术熟练度上升100点。';
+
+						} else {
+							str = npcName + '说道：“这是怎么一回事，为何拿我的东西”' +
+								'\n偷窃失败，NPC好感度降低500点，你的名誉降低5点。';
 						}
 						GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
 					})

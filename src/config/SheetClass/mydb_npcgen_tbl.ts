@@ -128,4 +128,28 @@ public static getInstance(data): mydb_npcgen_tbl { let Class:any=this;if(!Class.
  *  NPCicon编号
  */
  public ICON_ICON_NUMBER(configID):number { return this.data[configID][31]}
+/**
+ *  臂力属性
+ */
+ public STRENGTH(configID):number { return this.data[configID][32]}
+/**
+ *  洞察属性
+ */
+ public INSIGHT(configID):number { return this.data[configID][33]}
+/**
+ *  根骨属性
+ */
+ public BONE(configID):number { return this.data[configID][34]}
+/**
+ *  魅力属性
+ */
+ public CHARM(configID):number { return this.data[configID][35]}
+/**
+ *  悟性属性
+ */
+ public UNDERSTANDING(configID):number { return this.data[configID][36]}
+/**
+ *  口才属性
+ */
+ public ELOQUENCE(configID):number { return this.data[configID][37]}
 }}

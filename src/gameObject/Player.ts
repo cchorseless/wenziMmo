@@ -116,6 +116,8 @@ module GameObject {
         public nYanZhi: number = 0;// 颜值
         public nXinQing: number = 0;// 心情
 
+        public npcRelation:{[index:number]:number}= {};//npc关系列表   0结拜  1情侣
+
         public skillLvUpPoint: number = 0;//技能升级所需
         /******************BOSS积分************ */
         public bossCoin: number = 0;

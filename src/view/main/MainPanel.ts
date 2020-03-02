@@ -196,6 +196,7 @@ module view.main {
 			this.font_vipLevel.value = '' + _player.viplvl;
 		}
 		public addEvent(): void {
+			
 
 
 			// 物品
@@ -359,6 +360,11 @@ module view.main {
 			GameApp.LListener.on(ProtoCmd.tubiaofasong, this, (data) => {
 				console.log(data);
 				GameApp.GameEngine.turnActivity = data;
+			})
+			//监听npc关系变化
+			GameApp.LListener.on(ProtoCmd.npcRelation, this, (data) => {
+				console.log(data);
+				GameApp.MainPlayer.npcRelation = data;
 			})
 			//任务日常活跃
 			GameApp.LListener.on(ProtoCmd.TASK_HuoYueDuClientOpen, this, (jsonData) => {
@@ -599,6 +605,14 @@ module view.main {
 			//月卡剩余时间
 			this.getMoonCardData();
 
+			//npc关系表
+			this.getNPCRelation();
+
+		}
+		public getNPCRelation(){
+			let pkt = new ProtoCmd.QuestClientData;
+			pkt.setString(ProtoCmd.npcRelation)
+			lcp.send(pkt);
 		}
 		public getActiveInfoData() {
 			let pkt = new ProtoCmd.QuestClientData;

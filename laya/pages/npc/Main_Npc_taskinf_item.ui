@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":5,
-    "props":{"width":80,"sceneColor":"#ffffff","height":100},
+    "selecteID":6,
+    "props":{"width":440,"sceneColor":"#000000","height":58},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,54 +15,53 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":3,"x":3,"width":75,"var":"img_bg","skin":"image/common/daoju/quality_2.png","height":74},
+            "props":{"y":0,"x":0,"width":440,"skin":"image/juQingMode/box_ml_02.png","height":58},
             "nodeParent":1,
-            "label":"Image(img_bg)",
+            "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":2,
             "child":[
-                ],
-            "$HIDDEN":false
+                ]
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":7.5,"x":7.5,"width":67,"var":"img_icon","skin":"image/common/daoju/itemicon_135.png","height":67},
+            "type":"HTMLDivElement",
+            "props":{"y":18,"x":70,"width":324,"var":"html_detail","innerHTML":"htmlText","height":22},
             "nodeParent":1,
-            "label":"Image(img_icon)",
+            "label":"HTMLDivElement(html_detail)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":3,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":78,"x":3,"width":74,"var":"lab_num","text":"70%","height":20,"fontSize":20,"font":"FZXK","color":"#63491a","align":"center"},
-            "nodeParent":1,
-            "label":"Label(lab_num)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":4,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":3,"x":3,"visible":false,"var":"img_light","skin":"image/common/light_wuji.png","scaleY":1,"scaleX":1},
+            "props":{"y":10,"x":24,"skin":"image/npc_jiaohu/box_common__.png"},
             "nodeParent":1,
-            "label":"Image(img_light)",
+            "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":5,
+            "child":[
+                ],
+            "$LOCKED":true
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":18,"x":32,"width":22,"var":"lab_task_State","text":"?","height":22,"fontSize":22,"font":"fzxk","color":"#000000","align":"center"},
+            "nodeParent":1,
+            "label":"Label(lab_task_State)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":6,
             "child":[
                 ]
         }],
