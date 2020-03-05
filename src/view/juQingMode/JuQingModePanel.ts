@@ -643,6 +643,9 @@ module view.juQingMode {
 			else if (span < 0) {
 				if (Math.abs(span) >= Laya.stage.width / 3) {
 					if (this.pageID > this.juQingPageID) {
+
+
+						// 无任务
 						let next = this.getNextCharpterID(GameApp.MainPlayer.charpterID)
 						let zjidInTalkInfoArr = Object.keys(GameApp.MainPlayer.talkInfo);
 						if (next.zjid <= parseInt(zjidInTalkInfoArr[zjidInTalkInfoArr.length - 1])) {
@@ -659,7 +662,9 @@ module view.juQingMode {
 						}
 					}
 					else {
+
 						if (this.hasLookBack < 0) {
+							console.log(22222222)
 							Laya.Tween.to(this.box2, { x: -640 }, 250, null, Laya.Handler.create(this, () => {
 								this.showPageMsg(this.pageID + 1);
 							}))
@@ -673,6 +678,13 @@ module view.juQingMode {
 								}))
 							}
 							else {
+								// 判断是否有任务
+								if (this.isJuQing) {
+									console.log(1111111111)
+									Laya.Tween.to(this.box2, { x: 0 }, 250);
+									this.showJuQingEvent()
+									return
+								}
 								let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [this.maxInfoNum])
 								lcp.send(pkt);
 							}
@@ -687,7 +699,7 @@ module view.juQingMode {
 			}
 		}
 
-		public changeCharpter(v){
+		public changeCharpter(v) {
 
 		}
 
