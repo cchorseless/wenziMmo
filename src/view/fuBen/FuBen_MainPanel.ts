@@ -139,7 +139,7 @@ module view.fuBen {
 				this.showZJID += 1;
 				if (this.showZJID > GameApp.MainPlayer.charpterID) {
 					this.showZJID = GameApp.MainPlayer.charpterID;
-					TipsManage.showTips('已经是最后一章');
+					TipsManage.showTips('继续阅读小说解锁新的关卡');
 					return;
 				} else {
 					this.updateMainFuBenInfo(this.showZJID);
