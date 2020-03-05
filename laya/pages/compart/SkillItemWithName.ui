@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":4,
-    "selecteID":3,
+    "selectedBox":5,
+    "selecteID":2,
     "props":{"width":92,"sceneColor":"#ffffff","height":116},
     "nodeParent":-1,
     "label":"View",
@@ -27,15 +27,29 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":8,"width":75,"var":"img_skill","skin":"image/common/daoju/quality_2.png","height":74},
+                    "props":{"y":6,"x":8,"width":78,"var":"img_skillBg","skin":"image/common/daoju/quality_2.png","height":78},
                     "nodeParent":4,
-                    "label":"Image(img_skill)",
-                    "isDirectory":false,
+                    "label":"Image(img_skillBg)",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":2,
+                    "hasChild":true,
+                    "compId":5,
                     "child":[
-                        ],
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":-1,"x":1,"width":75,"var":"img_skill","skin":"image/common/daoju/quality_2.png","height":75},
+                            "nodeParent":5,
+                            "label":"Image(img_skill)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":2,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
                     "$HIDDEN":false
                 },
                 {

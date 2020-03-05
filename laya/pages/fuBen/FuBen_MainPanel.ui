@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":426,
-    "selecteID":428,
+    "selecteID":402,
     "props":{"width":640,"sceneColor":"#e8d0d0","name":"FuBen","height":1136},
     "nodeParent":-1,
     "label":"View(FuBen)",
@@ -53,7 +53,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":53,"x":71,"width":129,"text":"剧情","stroke":4,"height":33,"fontSize":30,"font":"HWXK","color":"#ffffff"},
+                            "props":{"y":38,"x":71,"width":129,"text":"剧情","stroke":4,"height":33,"fontSize":40,"font":"HWXK","color":"#ffffff"},
                             "nodeParent":428,
                             "label":"Label",
                             "isDirectory":false,
@@ -265,7 +265,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":986,"x":205,"var":"btn_saodang","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#a9643b","labelSize":26,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"星级扫荡","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":986,"x":205,"visible":false,"var":"btn_saodang","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#a9643b","labelSize":26,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"星级扫荡","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":426,
                     "label":"Button(btn_saodang)",
                     "isDirectory":false,
@@ -278,7 +278,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":986,"x":433,"var":"btn_rank","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#a9643b","labelSize":26,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a,#761a1a","label":"星级排行","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":986,"x":320,"var":"btn_rank","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#a9643b","labelSize":26,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a,#761a1a","label":"星级排行","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":426,
                     "label":"Button(btn_rank)",
                     "isDirectory":false,

@@ -197,8 +197,6 @@ module view.main {
 		}
 		public addEvent(): void {
 			
-
-
 			// 物品
 			EventManage.onWithEffect(this.btn_wuPin, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openBeiBaoPanel();

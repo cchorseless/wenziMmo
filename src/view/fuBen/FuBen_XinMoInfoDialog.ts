@@ -32,7 +32,7 @@ module view.fuBen {
 		public init_bossInfo(): void {
 			//boss造型
 			let imgItem = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + this.data.monsterid);
-			this.img_icon.skin = 'image/common/npc/npc_half_' + imgItem + '.png';
+			this.img_icon.skin = 'image/common/npc/npc_icon_' + imgItem + '.png';
 			//boss[1]名称
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + this.data.monsterid).split("_");
 			this.lbl_name.text = '' + name[0];
@@ -84,13 +84,13 @@ module view.fuBen {
 			this.lbl_battle.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT('' + this.data.monsterid);
 			//技能
 			this.panel_skill.removeChildren();
-			let skills = SheetConfig.mydb_monster_tbl.getInstance(null).SKILL_NUMBER('' + this.data.monsterid).split(',');
+			let skills = SheetConfig.mydb_monster_tbl.getInstance(null).SKILL_NUMBER('' + this.data.monsterid).split('|');
 			for (let i in skills) {
 				let skill = skills[i].split('/');
 				let num = parseInt(i);
 				if (skill) {
 					let ui_skill = new view.compart.SkillItemWithName();
-					ui_skill.x = num % 3 * (ui_skill.width + 20);
+					ui_skill.x = num % 3 * (ui_skill.width + 30);
 					ui_skill.y = Math.floor(num / 3) * (ui_skill.height + 10);
 					ui_skill.setData(skill[0], skill[1]);
 					this.panel_skill.addChild(ui_skill);

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":302,
-    "selecteID":306,
+    "selecteID":151,
     "referenceLines":[
         {
             "value":595,
@@ -516,14 +516,13 @@
                     "props":{"y":574,"x":28},
                     "nodeParent":333,
                     "label":"Box",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":328,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":-3,"width":640,"skin":"image/menu/tab_zhenbaoge_02.png","height":21},
                             "nodeParent":328,
@@ -537,12 +536,11 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":30,"x":16,"width":602,"skin":"image/menu/fram_caidan_02.png","sizeGrid":"0,34,0,38","height":138},
                             "nodeParent":328,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -740,7 +738,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":175,"x":16,"width":602,"skin":"image/menu/fram_caidan_02.png","sizeGrid":"0,34,0,38","height":138},
                             "nodeParent":328,
@@ -943,7 +940,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":319,"x":16,"width":602,"skin":"image/menu/fram_caidan_02.png","sizeGrid":"0,34,0,38","height":138},
                             "nodeParent":328,
@@ -1190,7 +1186,7 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"y":-10,"x":65,"width":62,"stateNum":"2","skin":"image/menu/icon_kefu_01down_finish.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":28,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"客服","height":65},
+                                    "props":{"y":-10,"x":65,"width":62,"visible":false,"stateNum":"2","skin":"image/menu/icon_kefu_01down_finish.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":28,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"客服","height":65},
                                     "nodeParent":302,
                                     "label":"Button",
                                     "isDirectory":false,
@@ -1204,7 +1200,7 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"y":-8,"x":-5,"width":63,"var":"btn_setUp","stateNum":"2","skin":"image/menu/icon_shezhi_01down_finish.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":28,"labelPadding":"25","labelFont":"fzxk","labelColors":"#ffffff,#ffffff","label":"设置","height":59},
+                                    "props":{"y":-8,"x":-5,"width":63,"visible":false,"var":"btn_setUp","stateNum":"2","skin":"image/menu/icon_shezhi_01down_finish.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":28,"labelPadding":"25","labelFont":"fzxk","labelColors":"#ffffff,#ffffff","label":"设置","height":59},
                                     "nodeParent":302,
                                     "label":"Button(btn_setUp)",
                                     "isDirectory":false,
@@ -1219,7 +1215,7 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":28,"x":165,"width":343,"text":"点击左侧录制按钮，即可录制本局比赛.","strokeColor":"#000000","stroke":3,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                                    "props":{"y":33,"x":80,"width":430,"text":"健康游戏，快乐生活。理性消费，获得成就。","strokeColor":"#000000","stroke":3,"height":27,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":302,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -1233,7 +1229,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":20,"x":133,"skin":"image/common/icon_tishi.png"},
+                                    "props":{"y":29,"x":26,"skin":"image/common/icon_tishi.png"},
                                     "nodeParent":302,
                                     "label":"Image",
                                     "isDirectory":false,

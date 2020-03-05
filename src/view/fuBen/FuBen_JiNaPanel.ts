@@ -17,7 +17,7 @@ module view.fuBen {
 			this.panel_item.hScrollBarSkin = '';
 			this.init_JiDao();
 			this.addEvent();
-			this.img_left.disabled=true;
+			this.img_left.disabled = true;
 		}
 		public addEvent(): void {
 			//返回
@@ -40,10 +40,10 @@ module view.fuBen {
 			this.btn_jina.on(Laya.UIEvent.CLICK, this, function () {
 				return;
 			})
-			this.panel_boss.on(Laya.Event.MOUSE_DOWN, this,(ev)=>{
+			this.panel_boss.on(Laya.Event.MOUSE_DOWN, this, (ev) => {
 				this.beginPos = ev.stageX;
 			})
-			this.panel_boss.on(Laya.Event.MOUSE_MOVE, this,(ev)=>{
+			this.panel_boss.on(Laya.Event.MOUSE_MOVE, this, (ev) => {
 				if (Math.abs(ev.stageX - this.beginPos) > 50) {
 					this.finalPos = ev.stageX;
 					this.init_slideEvent();
@@ -64,7 +64,7 @@ module view.fuBen {
 						let mapType = SheetConfig.mapRoomSheet.getInstance(null).ROOMTYPE('' + jsonData.curmapid);
 						GameApp.SceneManager.updateUiScene(mapType);
 						// 更新场景信息
-						this.updateSceneView('进入了' + jsonData.curmapid);
+						// this.updateSceneView('进入了' + jsonData.curmapid);
 
 					}
 				})
@@ -74,6 +74,7 @@ module view.fuBen {
 		public init_JiDao(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_YeWaiBoss_Open, null, null, this, (jsonData: { [v: string]: ProtoCmd.itf_FB_JiDaoInfo }) => {
+				console.log('野外BOSS',jsonData);
 				let bossArray = [];
 				for (let i in jsonData) {
 					let data = jsonData[i];
@@ -130,7 +131,7 @@ module view.fuBen {
 			} else {
 				this.img_left.disabled = false;
 			}
-			Laya.Tween.to(this.box_boss,{x:(-this.index * this.panel_boss.width)},500)
+			Laya.Tween.to(this.box_boss, { x: (-this.index * this.panel_boss.width) }, 500)
 			this.beginPos = this.finalPos = undefined;
 			let dangqian = this.index * 8;
 			this.update_yeWai(dangqian)
@@ -157,7 +158,7 @@ module view.fuBen {
 			this.img_boss.skin = 'image/common/npc/npc_half_' + bossicon + '.png';
 			//boss名称
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + bossInfo.data.monid).split("_");
-			this.lbl_bossName.text=this.lbl_name.text = '' + name[0];
+			this.lbl_bossName.text = this.lbl_name.text = '' + name[0];
 			//战力
 			this.lbl_battle.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT('' + bossInfo.data.monid)
 			//推荐等级

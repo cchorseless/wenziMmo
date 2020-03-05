@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":104,
-    "selecteID":174,
+    "selectedBox":181,
+    "selecteID":51,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -164,7 +164,7 @@
                             "compId":171,
                             "child":[
                                 ],
-                            "$HIDDEN":true
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
@@ -215,45 +215,31 @@
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":1001,"width":640,"height":93},
+                    "type":"Image",
+                    "props":{"y":1042,"x":0,"skin":"image/main/main_zonglan/bottom_mainicon.png"},
                     "nodeParent":181,
-                    "label":"Box",
-                    "isOpen":true,
-                    "isDirectory":true,
+                    "label":"Image",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":103,
+                    "hasChild":false,
+                    "compId":44,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":41,"skin":"image/main/main_zonglan/bottom_mainicon.png"},
-                            "nodeParent":103,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":44,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":48,"x":590,"var":"btn_back","stateNum":"2","skin":"image/main/icon_fanhui.png","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":103,
-                            "label":"Button(btn_back)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":51,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":1049,"x":590,"var":"btn_back","stateNum":"2","skin":"image/main/icon_fanhui.png","anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":181,
+                    "label":"Button(btn_back)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":51,
+                    "child":[
+                        ],
                     "$HIDDEN":false
                 }]
         }],

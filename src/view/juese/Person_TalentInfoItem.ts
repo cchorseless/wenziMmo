@@ -79,7 +79,7 @@ module view.juese {
 			//购买
 			this.btn_buy.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.iteminfo.length > 0) {
-					new view.juese.Person_BuyAndUseDialog().setData(this.iteminfo, 1).popup();
+					new view.juese.Person_BuyAndUseDialog().setData(this.iteminfo, 1).show();
 				}
 			})
 		}

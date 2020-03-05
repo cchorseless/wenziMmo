@@ -19,7 +19,7 @@ module view.main {
 				this.lbl_nowPlace.text = GameApp.MainPlayer.mapName
 			} else {
 				let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
-				this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
+				this.lbl_nowPlace.text = GameApp.MainPlayer.mapName +'-'+ roomName;
 			}
 			//当前所在地图位置
 			let locationmapid = GameApp.MainPlayer.location.mapid;

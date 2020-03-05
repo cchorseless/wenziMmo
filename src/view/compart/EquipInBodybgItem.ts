@@ -5,19 +5,17 @@ module view.compart {
 			super();
 		}
 		public checkIsFull(): boolean {
-			return this.numChildren === 2;
+			return this.box_equip.numChildren === 1;
 		}
 
 		public addItem(item) {
-			if (this.checkIsFull()) {
-				this.removeChildAt(1);
-			}
-			this.addChild(item);
-			item.centerX = item.centerY = 0;
+			this.clearItem();
+			this.box_equip.addChild(item);
+			item.top = item.bottom = item.left = item.right = 0;
 		}
 		public clearItem() {
 			if (this.checkIsFull()) {
-				this.removeChildAt(1);
+				this.box_equip.removeChildren();
 			}
 		}
 

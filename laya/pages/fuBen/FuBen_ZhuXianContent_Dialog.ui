@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":21,
+    "selectedBox":33,
+    "selecteID":35,
     "props":{"width":633,"sceneColor":"#000000","height":981},
     "nodeParent":-1,
     "label":"Dialog",
@@ -93,7 +93,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":94,"x":49,"skin":"image/juQingMode/box_common_01.png"},
+            "props":{"y":94,"x":49,"width":76,"skin":"image/juQingMode/box_common_01.png","height":76},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -105,7 +105,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":-15,"x":-3,"var":"img_Icon","skin":"image/common/icon_nv01.png"},
+                    "props":{"var":"img_Icon","top":0,"skin":"image/common/icon_nv01.png","right":0,"left":0,"bottom":0},
                     "nodeParent":6,
                     "label":"Image(img_Icon)",
                     "isDirectory":false,
@@ -113,8 +113,10 @@
                     "hasChild":false,
                     "compId":10,
                     "child":[
-                        ]
-                }]
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -132,7 +134,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":101,"x":494,"skin":"image/juQingMode/frame_zhiye.png"},
+            "props":{"y":101,"x":494,"visible":false,"skin":"image/juQingMode/frame_zhiye.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -443,7 +445,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":-5,"x":130,"var":"btn_timesAdd","stateNum":"2","skin":"image/main/bnt_jia.png"},
+                    "props":{"y":-5,"x":130,"visible":false,"var":"btn_timesAdd","stateNum":"2","skin":"image/main/bnt_jia.png"},
                     "nodeParent":33,
                     "label":"Button(btn_timesAdd)",
                     "isDirectory":false,

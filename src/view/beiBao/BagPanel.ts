@@ -46,7 +46,7 @@ module view.beiBao {
 			this.addLcpEvent();
 			// 返回
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.BeiBao=undefined;
+				PanelManage.BeiBao = undefined;
 				PanelManage.openMainPanel()
 			});
 			// 背包
@@ -59,6 +59,10 @@ module view.beiBao {
 			this.btn_huiShou.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_huiShou']);
 			// 刷新商店
 			this.btn_refreshItem.on(Laya.UIEvent.CLICK, this, this.refreshHotShop);
+			// 整理
+			this.btn_zhengLi.on(Laya.UIEvent.CLICK, this, () => {
+				TipsManage.showTips('整理完成');
+			});
 			// 切换装备显示
 			// for (let i = 0; i < 4; i++) {
 			// 	this.ui_equipInfo["ui_tab" + i].on(Laya.UIEvent.CLICK, this, () => {
