@@ -5,11 +5,17 @@ module view.compart {
 			super();
 		}
 		public setData(id, lvl): SkillItemWithName {
-			let data = SheetConfig.mydb_magic_tbl.getInstance(null).getAllData(parseInt(id));
-			//技能icon
-			this.img_skill.skin = 'image/common/skill/skill_icon_' + data[56] + '.png';
-			//技能名称
-			this.lbl_name.text=''+data[3];
+
+			let skillId = parseInt(id) * 100 + parseInt(lvl);
+			let icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillId);
+			// 技能icon
+			this.img_skill.skin = 'image/common/skill/skill_icon_' + icon + '.png';
+			// 技能名称
+			let _skillName = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(skillId).split('_')[0];
+			this.lbl_name.text = '' + _skillName;
+			// 技能品质
+			let SKILLQUALITY = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLQUALITY(skillId);
+			
 			return this;
 		}
 	}

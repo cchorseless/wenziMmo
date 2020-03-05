@@ -62,8 +62,6 @@ module view.juese {
 				self.upDateView();
 				self.upDataMyselfDress()
 			})
-
-
 			EventManage.onWithEffect(this.btn_fashion, Laya.UIEvent.CLICK, this, function () {
 				this.touchID = 0;
 				this.showView_Stack(this.touchID);
@@ -98,7 +96,6 @@ module view.juese {
 				this.btn_Designation.selected = true;
 			}
 			this.curBox = this.V_Show.getChildByName('item' + type);
-
 			if (this.curBox.numChildren <= 0) {
 				GameApp.LListener.on(ProtoCmd.dressPanel, self, (data) => {
 					this.curBox.removeChildren();
@@ -162,13 +159,7 @@ module view.juese {
 			}
 		}
 		public upDateView() {
-			// let box = this.V_Show.getChildAt(this.V_Show.selectedIndex);
-			// if (box) {
-			// 	if (box.numChildren > 0) {
-			// 		box.removeChildren();
-			// 	}
 			this.curBox.removeChildren();
-			// this.showView_Stack(this.V_Show.selectedIndex)
 			this.upDateiew(this.curBox,this.V_Show.selectedIndex)
 			// }
 		}

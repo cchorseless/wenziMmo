@@ -169,22 +169,22 @@ module view.wuXue {
 		}
 		public getSkillComBo() {
 			let arr = [];
-			for (let i = 0; i < this.tempData.length; i++) {
-				let baseID = this.tempData[i].configID;
-				let comboID = SheetConfig.mydb_magic_tbl.getInstance(null).COMBINATION_SKILLSID(baseID);
-				if (!comboID) {
-					return;
-				}
-				let comboIdArr = comboID.split('`')
-				for (let o = 0; o < comboIdArr.length; o++) {
-					if (parseInt(comboIdArr[o]) > 0) {
-						let tempID = SheetConfig.Skill_combination.getInstance(null).EFFECTID(parseInt(comboIdArr[o]));
-						arr.push(tempID);
-					}
-				}
+			// for (let i = 0; i < this.tempData.length; i++) {
+			// 	let baseID = this.tempData[i].configID;
+			// 	let comboID = SheetConfig.mydb_magic_tbl.getInstance(null).COMBINATION_SKILLSID(baseID);
+			// 	if (!comboID) {
+			// 		return;
+			// 	}
+			// 	let comboIdArr = comboID.split('`')
+			// 	for (let o = 0; o < comboIdArr.length; o++) {
+			// 		if (parseInt(comboIdArr[o]) > 0) {
+			// 			let tempID = SheetConfig.Skill_combination.getInstance(null).EFFECTID(parseInt(comboIdArr[o]));
+			// 			arr.push(tempID);
+			// 		}
+			// 	}
 
 
-			}
+			// }
 			if (arr.length <= 0) {
 				return;
 			}

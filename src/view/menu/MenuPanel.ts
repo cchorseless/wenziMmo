@@ -242,6 +242,9 @@ module view.menu {
 
 		public addEvent(): void {
 
+			this.btn_championship.on(Laya.UIEvent.CLICK, this, () => {
+				TipsManage.showTips('活动暂未开放');
+			} )
 
 
 			EventManage.onWithEffect(this.btn_FirstCharge, Laya.UIEvent.CLICK, this, function () {

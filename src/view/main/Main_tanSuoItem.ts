@@ -110,7 +110,6 @@ module view.main {
 			this.mode = mode;
 			if (mode == 1) {
 				this.canLeave = false;
-
 				this.ui_skill.setData();
 				this.ui_skill.btn_exit.gray = true;
 				Laya.timer.once(10000, this, function () {
@@ -250,17 +249,7 @@ module view.main {
 			this.addCreatureObj(monster)
 			// 配置表ID
 			let configID = (obj as GameObject.Monster).feature.dwCretTypeId;
-			// 判断是否是BOSS,最多三个BOSS
-			let isBoss = SheetConfig.mydb_monster_tbl.getInstance(null).BOSS('' + configID);
-			if (isBoss) {
-				// 切换成BOSS模式
 
-				// 添加BOSS
-			}
-			// 小怪根据模式添加
-			else {
-
-			}
 			//是否是任务目标
 			let istarget = false;
 			for (let index in GameApp.GameEngine.taskInfo) {
@@ -325,18 +314,19 @@ module view.main {
 		}
 		public init_shenSuo(v: boolean): void {
 			if (v) {
-
 				this.btn_xiangXia.skin = 'image/common/img_tansuojiantou.png';
 				this.panel_sceneDes.scrollTo(0, this.panel_sceneDes.contentHeight);
 				this.img_sceneTxt.skin = 'image/main/main_tansuo/img_zhandou-juanzhou_03.png'
 				this.img_sceneTxt.height = 690;
 				this.box_shijian.visible = false;
+				this.box_button.y = 262
 			}
 			else {
 				this.btn_xiangXia.skin = 'image/common/img_jiantou_bianzhang_01.png';
 				this.img_sceneTxt.skin = 'image/main/main_tansuo/img_zhandou_juanzhou.png'
 				this.panel_sceneDes.scrollTo(0, this.panel_sceneDes.contentHeight);
 				this.img_sceneTxt.height = 210;
+				this.box_button.y = 722
 				this.box_shijian.visible = true;
 			}
 		}

@@ -27,13 +27,13 @@ module view.zhaiYuan {
 			// this.box_back.y = this.box_back.y * getScaleY;
 		}
 		public initSkeBone(): void {
-			let birdSke = new SkeletonUtil.SkeletonGroup();
-			birdSke.loadRes(['sk/zhaiyuan_niao/CJ_NIAO_1.sk'], () => {
-				this.panel_shiWai.addChild(birdSke);
-				birdSke.pos(this.width / 2, this.height * 0.3);
-				// this._skeGroup.scale(0.5, 0.5)
-				birdSke.play(0, true);
-			});
+			// let birdSke = new SkeletonUtil.SkeletonGroup();
+			// birdSke.loadRes(['sk/zhaiyuan_niao/CJ_NIAO_1.sk'], () => {
+			// 	this.panel_shiWai.addChild(birdSke);
+			// 	birdSke.pos(this.width / 2, this.height * 0.3);
+			// 	// this._skeGroup.scale(0.5, 0.5)
+			// 	birdSke.play(0, true);
+			// });
 
 			// let guanJia = new SkeletonUtil.SkeletonGroup();
 			// guanJia.loadRes(['sk/zhaiyuan_laoguanjia/NPC_LGJ_1.sk'], () => {

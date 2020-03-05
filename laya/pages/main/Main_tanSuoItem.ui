@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":68,
+    "selectedBox":17,
+    "selecteID":18,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -225,7 +225,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":53,"x":71,"width":129,"var":"lbl_roomName","text":"襄阳城外","stroke":4,"height":33,"fontSize":30,"font":"HWXK","color":"#ffffff"},
+                            "props":{"y":33,"x":67,"width":129,"var":"lbl_roomName","text":"襄阳城外","stroke":4,"height":33,"fontSize":40,"font":"HWXK","color":"#ffffff"},
                             "nodeParent":17,
                             "label":"Label(lbl_roomName)",
                             "isDirectory":false,
@@ -291,7 +291,7 @@
                         {
                             "x":45,
                             "type":"Panel",
-                            "props":{"x":25,"width":590,"var":"panel_sceneDes","top":40,"bottom":40},
+                            "props":{"x":25,"width":590,"var":"panel_sceneDes","top":40,"bottom":10},
                             "nodeParent":19,
                             "label":"Panel(panel_sceneDes)",
                             "isOpen":true,
@@ -321,7 +321,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"x":275,"width":98,"var":"box_button","height":53,"bottom":3},
+                    "props":{"y":262,"x":324,"width":98,"visible":false,"var":"box_button","height":53,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":77,
                     "label":"Box(box_button)",
                     "isOpen":true,

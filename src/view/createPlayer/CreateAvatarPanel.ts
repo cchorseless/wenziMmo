@@ -324,15 +324,15 @@ module view.createPlayer {
 					break;
 				// 选择角色界面
 				case 1:
-					new view.createPlayer.CreateAvatarDialog().setData().popup()
+					new view.createPlayer.CreateAvatarDialog().setData().show()
 					break;
 				// 随机天赋界面
 				case 2:
-					new view.createPlayer.CreateAvatarTalentDialog().setData().popup()
+					new view.createPlayer.CreateAvatarTalentDialog().setData().show()
 					break;
 				// 最终信息界面
 				case 3:
-					new view.createPlayer.CreateAvatarFinallyDialog().setData().popup()
+					new view.createPlayer.CreateAvatarFinallyDialog().setData().show()
 					break;
 			}
 		}

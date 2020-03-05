@@ -205,18 +205,18 @@ module view.juQingMode {
 						this.isGetNew = true;
 						this.updateTalkInfo(nextID.zjid);
 					} else {
-						
+
 						TipsManage.showTips('当前任务未完成');
 					}
 					PanelManage.Main.updateTaskInfo();
 				} else {
 					this.lastTalkID = jsonData.dbid
-					this.juQingPageID = Math.ceil((GameApp.MainPlayer.talkID - GameApp.MainPlayer.allCharpterInfo[GameApp.GameEngine.mainPlayer.charpterID].startdbid + 1) / this.maxInfoNum)
-
+					this.juQingPageID = Math.ceil((GameApp.MainPlayer.talkID - GameApp.MainPlayer.allCharpterInfo[GameApp.GameEngine.mainPlayer.charpterID].startdbid + 1) / this.maxInfoNum);
 					if (this.hasLookBack < 0) {
 						this.showPageMsg(1);
 						this.hasLookBack++;
-					} else {
+					}
+					else {
 						Laya.Tween.to(self.box2, { x: -640 }, 250, null,
 							Laya.Handler.create(this, () => {
 								self.initBox();
@@ -225,14 +225,13 @@ module view.juQingMode {
 
 					}
 					this.box_jiangLi.visible = true;
-					Laya.Tween.to(this.box_jiangLi, { x: Laya.stage.width / 2, y: Laya.stage.height * 0.8, scaleX: 0.3, scaleY: 0.3 }, 600, null,
+					Laya.Tween.to(this.box_jiangLi, { x: 334, y: 1100, scaleX: 0.3, scaleY: 0.3 }, 600, null,
 						Laya.Handler.create(this, () => {
 							this.box_jiangLi.visible = false;
-							this.box_jiangLi.pos(this.panel_read.width / 2, this.panel_read.height / 2);
+							this.box_jiangLi.pos(334, 914);
 							this.box_jiangLi.scale(1, 1);
 						})
 					)
-
 				}
 			});
 			// 拉取剧情对白数据
@@ -271,7 +270,8 @@ module view.juQingMode {
 				this.lastReadInfo.x = 0;
 				this.box3.addChild(this.lastReadInfo)
 
-			} else if (index == 0) {
+			}
+			else if (index == 0) {
 				this.curReadInfo = null;
 				this.curReadInfo = new JuQing_ReadInfo();
 				if (isFirst) {
@@ -302,7 +302,8 @@ module view.juQingMode {
 				}
 				this.curReadInfo.x = 0
 				this.box2.addChild(this.curReadInfo)
-			} else if (index == 1) {
+			}
+			else if (index == 1) {
 				this.nextReadInfo = null;
 				this.nextReadInfo = new JuQing_ReadInfo();
 				if (isFirst) {
@@ -742,8 +743,8 @@ module view.juQingMode {
 							}))
 						} else {
 							// if (GameApp.MainPlayer.curCharpterHasPass) {
-								let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [this.maxInfoNum])
-								lcp.send(pkt);
+							let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [this.maxInfoNum])
+							lcp.send(pkt);
 							// } else {
 							// 	TipsManage.showTips('尚未通关当前章节所有主线副本')
 							// 	self.initBox();
@@ -768,8 +769,8 @@ module view.juQingMode {
 								// 	TipsManage.showTips('剧情任务未完成')
 								// 	this.initBox();
 								// } else {
-									let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [this.maxInfoNum], )
-									lcp.send(pkt);
+								let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [this.maxInfoNum], )
+								lcp.send(pkt);
 								// }
 
 							}

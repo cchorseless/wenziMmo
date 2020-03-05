@@ -154,12 +154,14 @@ class SceneManager extends SingletonClass {
         if (selfPlayerUI == null) {
             let _uiItem = new view.scene.PlayerInSceneItem();
             _uiItem.setData(GameApp.MainPlayer);
-            _uiItem.centerX = _uiItem.centerY = 0;
+            _uiItem.centerX = 0;
+            _uiItem.bottom=0
             scene.box_self.addChild(_uiItem);
         }
         else {
             selfPlayerUI.updateUI();
-            selfPlayerUI.centerX = selfPlayerUI.centerY = 0;
+            selfPlayerUI.centerX = 0;
+                    selfPlayerUI.bottom=0
             scene.box_self.addChild(selfPlayerUI);
         }
     }
