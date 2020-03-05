@@ -78,7 +78,8 @@ module view.scene {
 						main.Main_tanSuoItem.self.leaveFuBen();
 					}
 					PanelManage.Main.changeMode(0);
-				} else {
+				}
+				 else {
 					TipsManage.showTips('暂时不可退出副本')
 				}
 
