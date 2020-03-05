@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":53,
-    "selecteID":64,
+    "selectedBox":1,
+    "selecteID":63,
     "props":{"width":632,"visible":true,"sceneColor":"#000000","height":1011},
     "nodeParent":-1,
     "label":"Dialog",
@@ -704,9 +704,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":338,"x":504,"width":29,"stateNum":"2","skin":"image/npc_jiaohu/icon_wenhao.png","height":28},
+            "props":{"y":338,"x":504,"width":29,"var":"btn_haogan","stateNum":"2","skin":"image/npc_jiaohu/icon_wenhao.png","height":28},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_haogan)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,

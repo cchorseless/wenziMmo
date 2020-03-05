@@ -674,6 +674,8 @@ class ServerListener extends SingletonClass {
         let maxhp = msg.getValue('nMaxHp');
         let actmpid = msg.getValue('dwAcTmpID');
         let tartmpid = msg.getValue('dwTmpId');
+        let tartmpType = msg.getValue('nDamageType');
+        
         let skillID = msg.getValue('wdMagicID');
         let player = GameApp.MainPlayer;
         // 攻击者
@@ -683,7 +685,8 @@ class ServerListener extends SingletonClass {
         if (targeter) {
             targeter.onAttack();
             targeter.changeHp(nowhp, maxhp);
-            TipsManage.showTxt('HP--' + npower);
+            targeter.showPower(npower,tartmpType)
+            // TipsManage.showTxt('HP--' + npower);
         }
         else {
             TipsManage.showTips('没有找到受击对象')
@@ -747,6 +750,10 @@ class ServerListener extends SingletonClass {
         console.log()
         let atker = GameApp.MainPlayer.findViewObj(dwTempId);
         // atker && atker.showSkill(dwTargetId, nMagicId, dwActionTick);
+        // if( dwTempId == 16043){
+        //     console.error("大中了")
+        //     return;
+        // }
         if (view.main.Main_tanSuoItem.self.viw_bottom.selectedIndex == 1) {
             // PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
             view.main.Main_tanSuoItem.self.playFightAni(dwTempId, dwTargetId, nMagicId, dwActionTick)

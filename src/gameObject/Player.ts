@@ -88,8 +88,10 @@ module GameObject {
 
         public defaultTaoLuID: number;//默认设置的套路ID
 
-
+        //副本ID
         public curFuBenID = 0;
+
+        public fubenMonsterPower =0;
 
         // public TitleID = null;
         // public wingID = null;
@@ -116,7 +118,7 @@ module GameObject {
         public nYanZhi: number = 0;// 颜值
         public nXinQing: number = 0;// 心情
 
-        public npcRelation:{[index:number]:number}= {};//npc关系列表   0结拜  1情侣
+        public npcRelation: { [index: number]: number } = {};//npc关系列表   0结拜  1情侣
 
         public skillLvUpPoint: number = 0;//技能升级所需
         /******************BOSS积分************ */
@@ -570,6 +572,7 @@ module GameObject {
         public tryAttack(target: Creature, skillID: number = 999): void {
             this.atkTargetTempId = target.tempId;
             console.log('当前目标:', this.atkTargetTempId);
+
             let pkt = new ProtoCmd.CretAttack();
             pkt.dwTempId = this.tempId;
             pkt.nMagicId = skillID;
@@ -678,6 +681,25 @@ module GameObject {
          */
         public goDie(): void {
             TipsManage.showTips(this.objName + '死亡了');
+            if (this.objName == GameApp.MainPlayer.objName) {
+                switch (GameApp.MainPlayer.curFuBenID) {
+                    // 心魔副本
+                    case EnumData.emRoomType.singleFuBen:
+                    // 除魔副本
+                    case EnumData.emRoomType.chuMoFuBen:
+                    // 资源副本
+                    case EnumData.emRoomType.resourceFuBen:
+                        let p = new view.scene.BattleRewardInfoV0Item();
+                        p.setData(1);
+                        p.popup();
+                        break;
+                    // 多人副本   只有boss的野外地图
+                    case EnumData.emRoomType.publicFuBen:
+
+                        break;
+                }
+
+            }
             // this.ui_item && this.ui_item.playAni(3, false)
         }
 

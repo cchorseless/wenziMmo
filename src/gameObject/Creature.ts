@@ -304,6 +304,9 @@ module GameObject {
                 this.ui_item.updateHp();
             }
         }
+        public showPower(power: number,tartmpType:number) {
+            this.ui_item.showPower(power,tartmpType);
+        }
 
 
         /**

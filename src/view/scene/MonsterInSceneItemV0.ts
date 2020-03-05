@@ -30,6 +30,7 @@ module view.scene {
 			this.img_wx.skin = "image/common/skill/icon_wx_" + wuxing + ".png"
 			skePath = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + configID);
 			this.img_icon.skin = 'image/common/npc/npc_icon_' + skePath + '.png'
+			GameApp.MainPlayer.fubenMonsterPower += SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT(configID)
 			this.addEvent();
 
 			this.updateUI();
@@ -75,6 +76,22 @@ module view.scene {
 		 */
 		public updateHp(): void {
 			this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
+		}
+		public showPower(num, type) {
+			this.fc_Num.alpha = 1;
+			this.fc_Num.visible = true;
+			this.fc_Num.value = num + '';
+			// this.fc_Num.skin = 'image/common/number/shuzi_baoji.png';
+			if (type == 4) {
+				this.fc_Num.skin = 'image/common/number/shuzi_huixin.png';
+			} else if (type == 0) {
+				this.fc_Num.skin = 'image/common/number/shuzi_putong.png';
+			} else {
+				this.fc_Num.skin = 'image/common/number/shuzi_baoji.png';
+			}
+			Laya.Tween.to(this.fc_Num, { alpha: 0.8 }, 500, null, Laya.Handler.create(this, () => {
+				this.fc_Num.visible = false;
+			}));
 		}
 
 	}

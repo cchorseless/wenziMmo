@@ -5,6 +5,7 @@ module view.main {
 		public canLeave = false;
 		constructor() {
 			super();
+			this.ui_skill.setData();
 			Main_tanSuoItem.self = this;
 			this.panel_sceneDes.vScrollBarSkin = '';
 			this.vbox_sceneDes['sortItem'] = (items) => { };
@@ -33,11 +34,18 @@ module view.main {
 					item: jsonData.item
 				}
 				if (jsonData.curcnt >= jsonData.totalcnt) {
-					new scene.BattleRewardInfoV0Item().popup();
+					 let p = new scene.BattleRewardInfoV0Item();
+					 p.setData(0);
+					 p.popup();
 					GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
 				}
-				this.ui_skill.html_need.innerHTML = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
+				let s = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
 					+ "<span style='color:#ffffff'>(" + jsonData.curcnt + "/" + jsonData.totalcnt + ")</span>";
+				this.ui_skill.showNeed(s);
+				// this.ui_skill.html_need.innerHTML = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
+				// 	+ "<span style='color:#ffffff'>(" + jsonData.curcnt + "/" + jsonData.totalcnt + ")</span>";
+				// this.ui_skill.html_need.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>" + '主线副本' + "</span>"
+				console.log(this.ui_skill.html_need.innerHTML)
 			})
 			//材料
 			GameApp.LListener.on(ProtoCmd.map_CaiLiaoFubenPlane2, this, (jsonData) => {
@@ -51,8 +59,11 @@ module view.main {
 					item: jsonData.JiangLi
 				}
 				if (jsonData.KILLCNT >= jsonData.MAXCNT) {
-					new scene.BattleRewardInfoV0Item().popup();
+										 let p = new scene.BattleRewardInfoV0Item();
+					 p.setData(0);
+					 p.popup();
 				}
+
 				this.ui_skill.html_need.innerHTML = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
 					+ "<span style='color:#ffffff'>(" + jsonData.curcnt + "/" + jsonData.totalcnt + ")</span>";
 			})
@@ -69,7 +80,9 @@ module view.main {
 					}
 					this.ui_skill.html_need.innerHTML = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
 						+ "<span style='color:#ffffff'>(" + jsonData.curcnt + "/" + jsonData.totalcnt + ")</span>";
-					new scene.BattleRewardInfoV0Item().popup();
+										 let p = new scene.BattleRewardInfoV0Item();
+					 p.setData(0);
+					 p.popup();
 				} else {
 					GameApp.GameEngine.curFuBenMsg = {
 						curNum: 0,
@@ -123,14 +136,16 @@ module view.main {
 					let pkt = new ProtoCmd.QuestClientData();
 					pkt.setString(ProtoCmd.FB_GeRenBoss_Leave);
 					lcp.send(pkt);
-					GameApp.MainPlayer.curFuBenID = -1
+					GameApp.MainPlayer.curFuBenID = -1;
+					GameApp.MainPlayer.fubenMonsterPower = 0
 					break;
 				// 除魔副本
 				case EnumData.emRoomType.chuMoFuBen:
 					let pkt1 = new ProtoCmd.QuestClientData();
 					pkt1.setString(ProtoCmd.FB_ChuMoLeave);
 					lcp.send(pkt1);
-					GameApp.MainPlayer.curFuBenID = -1
+					GameApp.MainPlayer.curFuBenID = -1;
+					GameApp.MainPlayer.fubenMonsterPower = 0
 					break;
 				// 资源副本
 				case EnumData.emRoomType.resourceFuBen:
@@ -138,6 +153,7 @@ module view.main {
 					pkt2.setString(ProtoCmd.FB_CaiLiaoFuBenLikai);
 					lcp.send(pkt2);
 					GameApp.MainPlayer.curFuBenID = -1
+					GameApp.MainPlayer.fubenMonsterPower = 0;
 					break;
 				// 多人副本   只有boss的野外地图
 				case EnumData.emRoomType.publicFuBen:
@@ -152,7 +168,7 @@ module view.main {
 			icon = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_EFFECTSID(configID);
 			let item: any = this.box_self.getChildAt(0);
 			// item.img_isfight.skin = 'image/common/skillName/1053.png'
-			if(icon == 1000){
+			if (icon == 1000) {
 				return;
 			}
 			item.img_isfight.skin = 'image/common/skillName/' + icon + '.png'
@@ -214,6 +230,7 @@ module view.main {
 						monster.setData(obj);
 						break;
 					// 
+					case EnumData.emMonsterType._MON_TYPE_BIGBOSS_:
 					case EnumData.emMonsterType._MON_TYPE_LITTLEBOSS_:
 						monster = new view.scene.MonsterInSceneItemV1();
 						monster.setData(obj, this.mode);

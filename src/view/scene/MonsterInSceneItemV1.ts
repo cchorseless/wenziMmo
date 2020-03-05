@@ -28,16 +28,19 @@ module view.scene {
 			skePath = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + configID);
 			let wuxing = SheetConfig.mydb_monster_tbl.getInstance(null).WUXINGPROPS(configID)
 			this.img_wuxing.skin = "image/common/skill/icon_wx_" + wuxing + ".png"
-			this.img_icon.skin = 'image/common/npc/npc_half_' + skePath + '.png'
+			this.img_icon.skin = 'image/common/npc/npc_icon_' + skePath + '.png'
+			GameApp.MainPlayer.fubenMonsterPower = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT(configID)
 			this.changeBelong('');
 			this.addEvent();
 			this.updateUI();
 			this.upDateBuff()
+			this.updateHp()
 		}
-		public upDateBuff(){
+		public upDateBuff() {
 			let feat = this.item.feature
 
 		}
+
 		public changeBelong(name = '') {
 			this.lab_belong.text = name;
 		}
@@ -85,12 +88,41 @@ module view.scene {
 		 */
 		public updateHp(): void {
 			// GameApp.LListener.event(ProtoCmd.UPDATE_BOSSHP, { now: this.item.ability.nowHP, max: this.item.ability.nMaxHP })
-			this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * 360)
-			this.lab_hp.text = this.item.ability.nowHP + '/' + this.item.ability.nMaxHP
+			// this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * 360)
+			// this.lab_hp.text = this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
+
+			let max = 10000;
+			let ceng = Math.ceil(this.item.ability.nowHP /10000);
+			let curHP = this.item.ability.nowHP % 10000;
+			if(curHP == 0){
+				curHP =10000;
+			}
+			this.lab_hp_ceng.text = ceng + ''
+
+			this.img_hp_cur.width = Math.ceil((curHP / max) * 360);
+			this.lab_hp.text = curHP + '/' + max;
+
+
 		}
 		public upDateDeBuff() {
 			this.hbox_debuff.x = this.hbox_buff.x + this.hbox_buff.numChildren * 30 + 10;
 
+		}
+		public showPower(num, type) {
+			this.fc_Num.alpha = 1;
+			this.fc_Num.visible = true;
+			this.fc_Num.value = num + '';
+			// this.fc_Num.skin = 'image/common/number/shuzi_baoji.png';
+			if (type == 4) {
+				this.fc_Num.skin = 'image/common/number/shuzi_huixin.png';
+			} else if (type == 0) {
+				this.fc_Num.skin = 'image/common/number/shuzi_putong.png';
+			} else {
+				this.fc_Num.skin = 'image/common/number/shuzi_baoji.png';
+			}
+			Laya.Tween.to(this.fc_Num, { alpha: 0.8 }, 500, null, Laya.Handler.create(this, () => {
+				this.fc_Num.visible = false;
+			}));
 		}
 	}
 }
