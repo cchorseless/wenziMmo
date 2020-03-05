@@ -37,7 +37,7 @@ module view.main {
 					let p = new scene.BattleRewardInfoV0Item();
 					p.setData(0);
 					p.popup();
-					GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
+					// GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
 				}
 				let s = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
 					+ "<span style='color:#ffffff'>(" + jsonData.curcnt + "/" + jsonData.totalcnt + ")</span>";
