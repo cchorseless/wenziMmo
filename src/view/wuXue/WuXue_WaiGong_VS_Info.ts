@@ -71,7 +71,8 @@ module view.wuXue {
 			this.lab_taoluText.text = str
 			this.taoLuID = id;
 			let myLv = GameApp.MainPlayer.level;
-			let unlockNum = Math.floor(myLv / this.unlockNeed);
+			// let unlockNum = Math.floor(myLv / this.unlockNeed);
+			let unlockNum = 6
 			for (let i = 1; i < 7; i++) {
 				if (i <= unlockNum) {
 					let key = id * 100 + i - 1
@@ -108,7 +109,7 @@ module view.wuXue {
 					return;
 				}
 				let isActive = SheetConfig.mydb_magic_tbl.getInstance(null).ACTIVE_PASSIVE(configID);
-				if (isActive == 0){
+				if (isActive == 0) {
 					continue;
 				}
 				let skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLED_OCCUPATION(configID);
@@ -387,10 +388,22 @@ module view.wuXue {
 					if (this['ui_SkillCircle' + changeIndex].unLock) {
 						//移动的目标框的技能ID是否存在
 						if (this['ui_SkillCircle' + changeIndex].skillID) {
-							if (changeIndex == 5 || changeIndex == 6) {
+							if (changeIndex == 5) {
 								let mpCost = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(this.skillItem.configID)
 								if (mpCost < 5) {
 									TipsManage.showTips('该技能栏只能装备蓝耗5以上的技能');
+
+									this.removeChild(this.skillItem);
+									this.skillItem = null;
+									this.isTouchSkillShow = false
+									this.touchSkillShowID = -1;
+									return;
+								}
+							}
+							if (changeIndex == 6) {
+								let mpCost = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(this.skillItem.configID)
+								if (mpCost < 6) {
+									TipsManage.showTips('该技能栏只能装备蓝耗6以上的技能');
 
 									this.removeChild(this.skillItem);
 									this.skillItem = null;
@@ -419,10 +432,21 @@ module view.wuXue {
 							//穿
 							// this['ui_SkillCircle' + changeIndex].setData(this['ui_SkillCircle' + changeIndex].unLock, changeIndex, tempUI.configID)
 							//穿技能
-							if (changeIndex == 5 || changeIndex == 6) {
+							if (changeIndex == 5) {
 								let mpCost = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(this.skillItem.configID)
 								if (mpCost < 5) {
 									TipsManage.showTips('该技能栏只能装备蓝耗5以上的技能');
+									this.removeChild(this.skillItem);
+									this.skillItem = null;
+									this.isTouchSkillShow = false
+									this.touchSkillShowID = -1;
+									return;
+								}
+							}
+							if (changeIndex == 6) {
+								let mpCost = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(this.skillItem.configID)
+								if (mpCost < 6) {
+									TipsManage.showTips('该技能栏只能装备蓝耗6以上的技能');
 									this.removeChild(this.skillItem);
 									this.skillItem = null;
 									this.isTouchSkillShow = false
@@ -473,10 +497,19 @@ module view.wuXue {
 				if (this['ui_SkillCircle' + changeIndex].unLock) {
 					//移动的目标框的技能ID是否存在
 					if (this['ui_SkillCircle' + changeIndex].skillID) {
-						if (changeIndex == 5 || changeIndex == 6) {
+						if (changeIndex == 5) {
 							let mpCost = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(this.skillItem.configID)
 							if (mpCost < 5) {
 								TipsManage.showTips('该技能栏只能装备蓝耗5以上的技能');
+								this.isTouchSkillCircle = false
+								this.touchTaoLuID = -1;
+								return;
+							}
+						}
+						if (changeIndex == 6) {
+							let mpCost = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(this.skillItem.configID)
+							if (mpCost < 6) {
+								TipsManage.showTips('该技能栏只能装备蓝耗6以上的技能');
 								this.isTouchSkillCircle = false
 								this.touchTaoLuID = -1;
 								return;
@@ -512,10 +545,19 @@ module view.wuXue {
 						pkt3.shortcuts.btRow = GameApp.MainPlayer.taoluPageID;
 						lcp.send(pkt3);
 					} else {
-						if (changeIndex == 5 || changeIndex == 6) {
+						if (changeIndex == 5) {
 							let mpCost = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(this.skillItem.configID)
 							if (mpCost < 5) {
 								TipsManage.showTips('该技能栏只能装备蓝耗5以上的技能');
+								this.isTouchSkillCircle = false
+								this.touchTaoLuID = -1;
+								return;
+							}
+						}
+						if (changeIndex == 6) {
+							let mpCost = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(this.skillItem.configID)
+							if (mpCost < 6) {
+								TipsManage.showTips('该技能栏只能装备蓝耗6以上的技能');
 								this.isTouchSkillCircle = false
 								this.touchTaoLuID = -1;
 								return;

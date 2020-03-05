@@ -90,8 +90,13 @@ module GameObject {
 
         //副本ID
         public curFuBenID = 0;
-
+        //副本怪物战力
         public fubenMonsterPower =0;
+        //主线副本奖励
+        public zhuxianFuBenReward = {
+            '0':null,
+            '1':null
+        }
 
         // public TitleID = null;
         // public wingID = null;
