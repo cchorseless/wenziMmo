@@ -31,7 +31,7 @@ module view.main {
 					curNum: jsonData.curcnt,
 					maxNum: jsonData.totalcnt,
 					fubenStr: jsonData.tiaojian,
-					item: jsonData.item
+					item: GameApp.MainPlayer.zhuxianFuBenReward
 				}
 				if (jsonData.curcnt >= jsonData.totalcnt) {
 					let p = new scene.BattleRewardInfoV0Item();

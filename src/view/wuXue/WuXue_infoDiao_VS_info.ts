@@ -14,7 +14,7 @@ module view.wuXue {
 			// GameApp.MainPlayer.comboTypeByPage;
 			this.showCombo(configID);
 
-			// this.showTalent(configID)
+			this.showTalent(configID)
 			this.showBuff(configID)
 			this.lab_explain.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_DESCRIPTION(configID);
 			this.reSize();
@@ -33,13 +33,13 @@ module view.wuXue {
 		}
 		public showBuff(configID) {
 			let BuffID = SheetConfig.mydb_magic_tbl.getInstance(null).BUFFID(configID);
-			if(BuffID == '0'){
+			if (BuffID == '0') {
 				this.box_buff.visible = false;
 				return;
 			}
 			let BuffIDArr = BuffID.split('|');
 			this.buff_0.visible = true;
-			this.buff_0.setData(BuffIDArr[0],configID)
+			this.buff_0.setData(BuffIDArr[0], configID)
 			for (let i = 0; i < 4; i++) {
 
 			}
@@ -76,21 +76,31 @@ module view.wuXue {
 					p.style.bold = true;
 					p.style.fontFamily = 'STKaiti';
 					if (i < Lv) {
+						// p.innerHTML = "<span style='color:#000000'>【" + talentName + '】</span>'
+						// 	+ "<span style='color:#63491a'>" + talentContentArr[0] + '</span>'
+						// 	+ "<span style='color:#38ad32'>" + talentContentArr[1] + '</span>'
+						// 	+ "<span style='color:#63491a'>，突破</span>"
+						// 	+ "<span style='color:#38ad32'>+" + (i + 1) + '</span>'
+						// 	+ "<span style='color:#63491a'>激活</span>";
+
 						p.innerHTML = "<span style='color:#000000'>【" + talentName + '】</span>'
-							+ "<span style='color:#63491a'>" + talentContentArr[0] + '</span>'
-							+ "<span style='color:#38ad32'>" + talentContentArr[1] + '</span>'
+							+ "<span style='color:#63491a'>" + talentContent + '</span>'
 							+ "<span style='color:#63491a'>，突破</span>"
 							+ "<span style='color:#38ad32'>+" + (i + 1) + '</span>'
 							+ "<span style='color:#63491a'>激活</span>";
 					} else {
+						// p.innerHTML = "<span style='color:#777777'>【" + talentName + '】</span>'
+						// 	+ "<span style='color:#777777'>" + talentContentArr[0] + '</span>'
+						// 	+ "<span style='color:#777777'>" + talentContentArr[1] + '</span>'
+						// 	+ "<span style='color:#777777'>，突破</span>"
+						// 	+ "<span style='color:#777777'>+" + (i + 1) + '</span>'
+						// 	+ "<span style='color:#777777'>激活</span>";
 						p.innerHTML = "<span style='color:#777777'>【" + talentName + '】</span>'
-							+ "<span style='color:#777777'>" + talentContentArr[0] + '</span>'
-							+ "<span style='color:#777777'>" + talentContentArr[1] + '</span>'
+							+ "<span style='color:#777777'>" + talentContent + '</span>'
 							+ "<span style='color:#777777'>，突破</span>"
 							+ "<span style='color:#777777'>+" + (i + 1) + '</span>'
 							+ "<span style='color:#777777'>激活</span>";
 					}
-
 					p.y = i * (p.contextHeight + 5);
 					this.panel_inborn.addChild(p);
 				}

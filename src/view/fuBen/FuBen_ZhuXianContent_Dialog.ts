@@ -62,7 +62,7 @@ module view.fuBen {
 			let dropItems;
 
 			item = firstReward.split('|');
-			for (let i  = 0;i <item.length;i++) {
+			for (let i = 0; i < item.length; i++) {
 				let o = new FuBen_RewardItem();
 				let itembase = new ProtoCmd.ItemBase();
 				let base = item[i].split('`')
@@ -74,29 +74,40 @@ module view.fuBen {
 			}
 
 			dropItems = dropReward.split('|');
-			for (let i  = 0;i <dropItems.length;i++) {
+			let item0 = {index:0,num:0,bind:0};
+			let item1 = {index:0,num:0,bind:0};
+			for (let i = 0; i < dropItems.length; i++) {
 				let o = new compart.DaoJuWithNameItem();
 				let itembase = new ProtoCmd.ItemBase();
 				let base = dropItems[i].split('`')
 
-				if (parseInt(base[0]) != 20001 &&parseInt(base[0]) != 20015) {
+				if (parseInt(base[0]) != 20001 && parseInt(base[0]) != 20015) {
 					itembase.dwBaseID = parseInt(base[0]);
 					itembase.dwCount = parseInt(base[1]);
 					o.setData(itembase)
 					o.x = this.panel_reward2.numChildren * o.width + 20;
 					this.panel_reward2.addChild(o);
-				} else if(parseInt(base[0]) == 20015){
+				} else if (parseInt(base[0]) == 20015) {
 					this.lab_yuanbao.text = base[1];
-				}else if(parseInt(base[0]) == 20001){
+					item0.index = 20015;
+					item0.num = base[1];
+					item0.bind = 1;
+					GameApp.MainPlayer.zhuxianFuBenReward[0] = item0
+				} else if (parseInt(base[0]) == 20001) {
 					this.lab_exp.text = base[1];
+					item1.index = 20001;
+					item1.num = base[1];
+					item1.bind = 1;
+					GameApp.MainPlayer.zhuxianFuBenReward[1] = item1;
 				}
+
 
 			}
 		}
 		public addEvent() {
 			this.btn_fight.on(Laya.UIEvent.CLICK, this, function () {
 				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.FB_ChuMoEnter, [this.cengID],0,this,function(res){
+				pkt.setString(ProtoCmd.FB_ChuMoEnter, [this.cengID], 0, this, function (res) {
 					console.log('CHUMO' + res)
 				});
 				lcp.send(pkt);
