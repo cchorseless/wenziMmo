@@ -162,9 +162,6 @@ module view.wuXue {
 			// 	this.panel_combo.visible = false;
 			// 	this.img_combo.visible = false;
 			// }
-
 		}
-
-
 	}
 }
