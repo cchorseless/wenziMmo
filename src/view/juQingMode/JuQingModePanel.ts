@@ -775,12 +775,6 @@ module view.juQingMode {
 
 							}
 						}
-
-
-
-
-
-
 					}
 				} else if (Math.abs(span) < Laya.stage.width / 2) {
 					Laya.Tween.to(self.box2, { x: 0 }, 250);
