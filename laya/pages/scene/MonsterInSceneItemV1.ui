@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":12,
-    "selecteID":24,
+    "selectedBox":1,
+    "selecteID":25,
     "props":{"width":550,"sceneColor":"#fdfdfd","height":110},
     "nodeParent":-1,
     "label":"View",
@@ -107,7 +107,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":1,"x":0,"width":300,"var":"img_hp_cur","skin":"image/main/progress bar_boss_02.png","height":23},
+                    "props":{"y":1,"x":0,"width":360,"var":"img_hp_cur","skin":"image/main/progress bar_boss_02.png","height":23},
                     "nodeParent":15,
                     "label":"Image(img_hp_cur)",
                     "isOpen":true,
@@ -211,6 +211,19 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":23,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"FontClip",
+            "props":{"y":0,"x":15,"width":100,"visible":false,"var":"fc_Num","value":"9","skin":"image/common/number/shuzi_baoji.png","sheet":"0123456789","align":"center"},
+            "nodeParent":1,
+            "label":"FontClip(fc_Num)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":25,
             "child":[
                 ]
         }],

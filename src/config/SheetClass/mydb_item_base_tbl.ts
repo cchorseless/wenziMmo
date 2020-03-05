@@ -390,7 +390,7 @@ public static getInstance(data): mydb_item_base_tbl { let Class:any=this;if(!Cla
  */
  public CANSPLIT(configID):number { return this.data[configID][83]}
 /**
- *  NPC好感度
+ *  给NPC赠送该道具后获得的基础好感度
  */
  public LIKEVALUE(configID):number { return this.data[configID][84]}
 /**

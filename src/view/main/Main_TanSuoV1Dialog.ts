@@ -32,6 +32,15 @@ module view.npc {
 			return this;
 		}
 		public addEvent(): void {
+			this.btn_haogan.on(Laya.UIEvent.CLICK,this,function(){
+				let o  = new Main_Npc_HaoGanDialog();
+				o.show();
+			})
+			this.btn_info.on(Laya.UIEvent.CLICK,this,function(){
+				let o  = new Main_Npc_Detail_Dialog();
+				o.setData(this.item,this.curExp,this.lvl);
+				o.popup(true);
+			})
 			GameApp.LListener.on(Main_TanSuoV1Dialog.UPDATE_DETAIL, this, function (string) {
 				let lab = new Laya.Label();
 				lab.width = 305;

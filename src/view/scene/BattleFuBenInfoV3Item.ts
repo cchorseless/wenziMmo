@@ -17,6 +17,11 @@ module view.scene {
 			BattleFuBenInfoV3Item.self = this;
 			this.addEvent();
 		}
+		public showNeed(str:string){
+			console.log('showwwww' + str)
+			this.html_need.innerHTML = str;
+			console.log('needddddddddddd'+this.html_need.innerHTML)
+		}
 		public setData() {
 			this.img_cantSkill.visible = false;
 			let key = 400
@@ -70,7 +75,7 @@ module view.scene {
 			EventManage.onWithEffect(this.btn_exit, Laya.UIEvent.CLICK, this, () => {
 				if (main.Main_tanSuoItem.self.canLeave) {
 					if (GameApp.MainPlayer.curFuBenID > 0) {
-						main.Main_tanSuoItem.self.leaveFuBen()
+						main.Main_tanSuoItem.self.leaveFuBen();
 					}
 					PanelManage.Main.changeMode(0);
 				} else {

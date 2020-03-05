@@ -18,11 +18,14 @@ module view.fuBen {
 			for (var i = 0; i < dataArr.length; i += 3) {
 				result.push(dataArr.slice(i, i + 3));
 			}
-			for (let i = 0; i < result.length; i++) {
+			for (let k = 0; k < result.length; k++) {
 				let o = new FuBen_SaoDang_Info();
-				let index = i +1 ;
-				o.setData(result[i], StarArr,StarArr.starbox[2*i+1],StarArr.starbox[2*i+2])
-				o.y = i * (o.height + 10)
+				let index = k +1 ;
+				if(k  == 10){
+					console.log(k)
+				}
+				o.setData(result[k], StarArr,StarArr.starbox[2*k+1],StarArr.starbox[2*k+2])
+				o.y = k * (o.height + 10)
 				this.panel_show.addChild(o);
 			}
 			let statNum = 0;

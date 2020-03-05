@@ -60,7 +60,7 @@ module view.scene {
 			let leftNum = data.getValue('nValue');//剩余量   
 			let buffIcon;
 			// let itemData=SheetConfig.mydb_drugbuff_tbl.getInstance(null)
-			
+
 		}
 
 		/**
@@ -130,6 +130,22 @@ module view.scene {
 
 		public updateZuoBiao(): void {
 			// this.lbl_hp.text = '' + this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
+		}
+		public showPower(num, type) {
+			this.fc_Num.alpha = 1;
+			this.fc_Num.visible = true;
+			this.fc_Num.value = num + '';
+			// this.fc_Num.skin = 'image/common/number/shuzi_baoji.png';
+			if (type == 4) {
+				this.fc_Num.skin = 'image/common/number/shuzi_huixin.png';
+			} else if (type == 0) {
+				this.fc_Num.skin = 'image/common/number/shuzi_putong.png';
+			} else {
+				this.fc_Num.skin = 'image/common/number/shuzi_baoji.png';
+			}
+			Laya.Tween.to(this.fc_Num, { alpha: 0.8 }, 500, null, Laya.Handler.create(this, () => {
+				this.fc_Num.visible = false;
+			}));
 		}
 	}
 }

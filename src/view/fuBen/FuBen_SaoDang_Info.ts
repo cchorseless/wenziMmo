@@ -37,8 +37,12 @@ module view.fuBen {
 			this.lab_curStar.text = '达成' + starNum + '星';
 			this.curStarNum = starNum;
 			this.reward = starReward.split('^');
+			console.log( '章节', GameUtil.SectionToChinese(parseInt(charpter.index), 0))
+			console.log( '章节名', charpter.name)
 			this.box1bj = starBox1.bj;
 			this.box2bj = starBox2.bj;
+			console.log('标记1', starBox1.bj, '章节', GameUtil.SectionToChinese(parseInt(charpter.index), 0))
+			console.log('标记bj2', starBox2.bj, '章节名', charpter.name)
 			this.reSize()
 			this.setBoxShow();
 		}
