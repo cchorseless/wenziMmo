@@ -34,9 +34,9 @@ module view.main {
 					item: jsonData.item
 				}
 				if (jsonData.curcnt >= jsonData.totalcnt) {
-					 let p = new scene.BattleRewardInfoV0Item();
-					 p.setData(0);
-					 p.popup();
+					let p = new scene.BattleRewardInfoV0Item();
+					p.setData(0);
+					p.popup();
 					GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
 				}
 				let s = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
@@ -59,13 +59,14 @@ module view.main {
 					item: jsonData.JiangLi
 				}
 				if (jsonData.KILLCNT >= jsonData.MAXCNT) {
-										 let p = new scene.BattleRewardInfoV0Item();
-					 p.setData(0);
-					 p.popup();
+					let p = new scene.BattleRewardInfoV0Item();
+					p.setData(0);
+					p.popup();
 				}
-
-				this.ui_skill.html_need.innerHTML = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
-					+ "<span style='color:#ffffff'>(" + jsonData.curcnt + "/" + jsonData.totalcnt + ")</span>";
+				let s = "<span style='color:#ffed8f'>" + '击杀怪物' + "</span>"
+					+ "<span style='color:#ffffff'>(" + jsonData.KILLCNT + "/" + jsonData.MAXCNT + ")</span>";
+				this.ui_skill.showNeed(s);
+				// this.ui_skill.html_need.innerHTML = 
 			})
 			//心魔
 			GameApp.LListener.on(ProtoCmd.GeRenBoss_FB_Info, this, (jsonData) => {
@@ -78,11 +79,13 @@ module view.main {
 						fubenStr: "击杀怪物",
 						item: jsonData.item
 					}
-					this.ui_skill.html_need.innerHTML = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
-						+ "<span style='color:#ffffff'>(" + jsonData.curcnt + "/" + jsonData.totalcnt + ")</span>";
-										 let p = new scene.BattleRewardInfoV0Item();
-					 p.setData(0);
-					 p.popup();
+					let s = "<span style='color:#ffed8f'>" + GameApp.GameEngine.curFuBenMsg.fubenStr + "</span>"
+						+ "<span style='color:#ffffff'>(" + GameApp.GameEngine.curFuBenMsg.curNum + "/" + GameApp.GameEngine.curFuBenMsg.maxNum + ")</span>";
+					this.ui_skill.showNeed(s);
+					// this.ui_skill.html_need.innerHTML =
+					let p = new scene.BattleRewardInfoV0Item();
+					p.setData(0);
+					p.popup();
 				} else {
 					GameApp.GameEngine.curFuBenMsg = {
 						curNum: 0,
@@ -90,8 +93,10 @@ module view.main {
 						fubenStr: "击杀怪物",
 						item: jsonData.item
 					}
-					this.ui_skill.html_need.innerHTML = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
-						+ "<span style='color:#ffffff'>(" + jsonData.curcnt + "/" + jsonData.totalcnt + ")</span>";
+					let s = "<span style='color:#ffed8f'>" + GameApp.GameEngine.curFuBenMsg.fubenStr + "</span>"
+						+ "<span style='color:#ffffff'>(" + GameApp.GameEngine.curFuBenMsg.curNum + "/" + GameApp.GameEngine.curFuBenMsg.maxNum + ")</span>";
+					this.ui_skill.showNeed(s);
+					// this.ui_skill.html_need.innerHTML = 
 				}
 
 			})

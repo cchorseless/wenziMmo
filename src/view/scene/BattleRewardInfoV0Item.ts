@@ -12,7 +12,7 @@ module view.scene {
 		\ * @param showStr 
 		\ */
 		public setData(winState, showStr = '击杀怪物') {
-			if (winState = 0) {
+			if (winState == 0) {
 				this.box_win.visible = true;
 				this.box_lose.visible = false;
 				this.img_bg.skin = 'image/main/main_tansuo/img_js_jieguo0.png'

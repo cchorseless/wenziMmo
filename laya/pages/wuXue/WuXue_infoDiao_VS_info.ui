@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":58,
-    "selecteID":23,
+    "selectedBox":1,
+    "selecteID":31,
     "props":{"width":510,"sceneColor":"#ffffff","height":840},
     "nodeParent":-1,
     "label":"View",
@@ -145,17 +145,16 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":135,"x":10,"var":"img_combo","height":36},
+            "props":{"y":135,"x":10,"visible":false,"var":"img_combo","height":36},
             "nodeParent":1,
             "label":"Image(img_combo)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":8,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":7,"x":5,"width":160,"skin":"image/common/wuxue/shadow_title.png","height":28},
                     "nodeParent":8,
@@ -167,7 +166,6 @@
                     "compId":48,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":3,"x":32,"wordWrap":true,"width":123,"text":"组合效果","strokeColor":"#4e2a2a","height":24,"fontSize":26,"font":"hwxk","color":"#903f14"},
                             "nodeParent":48,
@@ -180,7 +178,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":9,"x":5,"skin":"image/common/wuxue/point_01.png"},
                             "nodeParent":48,
@@ -194,7 +191,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":31,"x":8,"width":485,"skin":"image/common/wuxue/line_02.png"},
                     "nodeParent":8,
@@ -212,7 +208,7 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":171,"x":15,"width":480,"var":"panel_combo","height":154},
+            "props":{"y":171,"x":15,"width":480,"visible":false,"var":"panel_combo","height":154},
             "nodeParent":1,
             "label":"Panel(panel_combo)",
             "isOpen":true,
@@ -530,7 +526,8 @@
                             "child":[
                                 ]
                         }]
-                }]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

@@ -14,7 +14,7 @@ module view.wuXue {
 			// GameApp.MainPlayer.comboTypeByPage;
 			this.showCombo(configID);
 
-			this.showTalent(configID)
+			// this.showTalent(configID)
 			this.showBuff(configID)
 			this.lab_explain.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_DESCRIPTION(configID);
 			this.reSize();
@@ -33,6 +33,10 @@ module view.wuXue {
 		}
 		public showBuff(configID) {
 			let BuffID = SheetConfig.mydb_magic_tbl.getInstance(null).BUFFID(configID);
+			if(BuffID == '0'){
+				this.box_buff.visible = false;
+				return;
+			}
 			let BuffIDArr = BuffID.split('|');
 			this.buff_0.visible = true;
 			this.buff_0.setData(BuffIDArr[0],configID)
@@ -104,59 +108,63 @@ module view.wuXue {
 
 		}
 		public showCombo(configID) {
-			let curPageComboType = GameApp.MainPlayer.comboTypeByPage[GameApp.MainPlayer.taoluPageID];
-			let comboID = SheetConfig.mydb_magic_tbl.getInstance(null).COMBINATION_SKILLSID(configID);
-			if (comboID != '0' && comboID) {
-				let comboIdArr = comboID.split('`')
-				for (let i = 0; i < comboIdArr.length; i++) {
-					let key = parseInt(comboIdArr[i])
-					if (key > 0) {
-						let comboName = SheetConfig.Skill_combination.getInstance(null).NAME(key);
-						let comboSkillID = SheetConfig.Skill_combination.getInstance(null).EFFECTID(key);
-						let comboSkillIDNum = SheetConfig.Skill_combination.getInstance(null).SKILLID(key);
-						let comboEff = SheetConfig.Skill_combination.getInstance(null).DESCRIBE(key);
-						let comboEffArr = comboEff.split('`');
-						let isActive = false;
-						for (let o in curPageComboType) {
-							if (parseInt(o) == comboSkillID) {
-								if (curPageComboType[o] >= comboSkillIDNum) {
-									isActive = true;
-								}
-							}
-						}
-						// let p = new laya.html.dom.HTMLDivElement()
-						let p = new Laya.HTMLDivElement()
-						p.width = this.panel_combo.width - 30;
-						p.style.fontSize = 22;
-						p.style.bold = true;
-						p.style.fontFamily = 'STKaiti';
-						if (isActive) {
-							p.innerHTML = "<span style='color:#000000'>【" + comboName + '】</span>'
-								+ "<span style='color:#63491a'>" + comboEffArr[0] + '</span>'
-								+ "<span style='color:#38ad32'>" + comboEffArr[1] + '</span>'
-								+ "<span style='color:#63491a'>" + comboEffArr[2] + '</span>';
-						} else {
-							p.innerHTML = "<span style='color:#777777'>【" + comboName + '】</span>'
-								+ "<span style='color:#777777'>" + comboEffArr[0] + '</span>'
-								+ "<span style='color:#777777'>" + comboEffArr[1] + '</span>'
-								+ "<span style='color:#777777'>" + comboEffArr[2] + '</span>';
-							// + "<span style='color:#777777'>" + comboEff + '</span>';
-						}
-						p.y = i * (p.contextHeight + 5);
-						this.panel_combo.addChild(p);
-					}
-				}
-			}
-			if (this.panel_combo.numChildren > 0) {
-				let num = this.panel_combo.numChildren * 22 + (this.panel_combo.numChildren - 1) * 5 + 10;
-				this.panel_combo.height = num;
-			} else {
-				this.panel_combo.height = -8;
-				this.img_combo.height = -10
-				this.panel_combo.visible = false;
-				this.img_combo.visible = false;
-			}
+			this.panel_combo.height = 0;
+			this.img_combo.height = 0;
+			// let curPageComboType = GameApp.MainPlayer.comboTypeByPage[GameApp.MainPlayer.taoluPageID];
+			// let comboID = SheetConfig.mydb_magic_tbl.getInstance(null).COMBINATION_SKILLSID(configID);
+			// if (comboID != '0' && comboID) {
+			// 	let comboIdArr = comboID.split('`')
+			// 	for (let i = 0; i < comboIdArr.length; i++) {
+			// 		let key = parseInt(comboIdArr[i])
+			// 		if (key > 0) {
+			// 			let comboName = SheetConfig.Skill_combination.getInstance(null).NAME(key);
+			// 			let comboSkillID = SheetConfig.Skill_combination.getInstance(null).EFFECTID(key);
+			// 			let comboSkillIDNum = SheetConfig.Skill_combination.getInstance(null).SKILLID(key);
+			// 			let comboEff = SheetConfig.Skill_combination.getInstance(null).DESCRIBE(key);
+			// 			let comboEffArr = comboEff.split('`');
+			// 			let isActive = false;
+			// 			for (let o in curPageComboType) {
+			// 				if (parseInt(o) == comboSkillID) {
+			// 					if (curPageComboType[o] >= comboSkillIDNum) {
+			// 						isActive = true;
+			// 					}
+			// 				}
+			// 			}
+			// 			// let p = new laya.html.dom.HTMLDivElement()
+			// 			let p = new Laya.HTMLDivElement()
+			// 			p.width = this.panel_combo.width - 30;
+			// 			p.style.fontSize = 22;
+			// 			p.style.bold = true;
+			// 			p.style.fontFamily = 'STKaiti';
+			// 			if (isActive) {
+			// 				p.innerHTML = "<span style='color:#000000'>【" + comboName + '】</span>'
+			// 					+ "<span style='color:#63491a'>" + comboEffArr[0] + '</span>'
+			// 					+ "<span style='color:#38ad32'>" + comboEffArr[1] + '</span>'
+			// 					+ "<span style='color:#63491a'>" + comboEffArr[2] + '</span>';
+			// 			} else {
+			// 				p.innerHTML = "<span style='color:#777777'>【" + comboName + '】</span>'
+			// 					+ "<span style='color:#777777'>" + comboEffArr[0] + '</span>'
+			// 					+ "<span style='color:#777777'>" + comboEffArr[1] + '</span>'
+			// 					+ "<span style='color:#777777'>" + comboEffArr[2] + '</span>';
+			// 				// + "<span style='color:#777777'>" + comboEff + '</span>';
+			// 			}
+			// 			p.y = i * (p.contextHeight + 5);
+			// 			this.panel_combo.addChild(p);
+			// 		}
+			// 	}
+			// }
+			// if (this.panel_combo.numChildren > 0) {
+			// 	let num = this.panel_combo.numChildren * 22 + (this.panel_combo.numChildren - 1) * 5 + 10;
+			// 	this.panel_combo.height = num;
+			// } else {
+			// 	this.panel_combo.height = -8;
+			// 	this.img_combo.height = -10
+			// 	this.panel_combo.visible = false;
+			// 	this.img_combo.visible = false;
+			// }
 
 		}
+
+
 	}
 }

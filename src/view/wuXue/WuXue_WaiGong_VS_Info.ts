@@ -100,11 +100,16 @@ module view.wuXue {
 				if (key == "999" || key == '1000') {
 					continue;
 				}
+
 				// _skillBase.getValue('sublevel')
 				let configID = _skillBase.configID;
 				let deleteID = SheetConfig.mydb_magic_tbl.getInstance(null).DELETED(configID);
 				if (deleteID == 1) {
 					return;
+				}
+				let isActive = SheetConfig.mydb_magic_tbl.getInstance(null).ACTIVE_PASSIVE(configID);
+				if (isActive == 0){
+					continue;
 				}
 				let skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLED_OCCUPATION(configID);
 				switch (skillType) {
@@ -147,7 +152,7 @@ module view.wuXue {
 					break;
 			}
 
-			this.getSkillComBo();
+			// this.getSkillComBo();
 			this.lab_num.text = '武学数量:' + this.tempData.length;
 
 			this.maxPage = Math.ceil(this.tempData.length / 12)

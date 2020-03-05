@@ -10,6 +10,7 @@ module view.wuXue {
 		public setData(configID: string): void {
 			let wuXing = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEXTRAPROP(configID);
 			let icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(configID);
+			console.log('技能icon编号',icon)
 			// let quality = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLQUALITY(configID);
 			let lv = SheetConfig.mydb_magic_tbl.getInstance(null).LEVEL(configID);
 			this.lab_lv.text = lv + '';
@@ -17,7 +18,7 @@ module view.wuXue {
 			this.img_skill_bg.skin = 'image/common/fight/frane_jineng_' + quality+'.png'
 			
 
-			// this.img_skill_Icon.skin = "image/common/skill/skill_icon_" + icon + ".png"
+			this.img_skill_Icon.skin = "image/common/skill/skill_icon_" + icon + ".png"
 			let type = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID);
 			this.img_skillType.skin = "image/common/wuxue/img_" + type + ".png"
 			if (wuXing > 0) {
