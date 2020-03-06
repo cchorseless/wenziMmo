@@ -33,15 +33,18 @@ module view.main {
 					fubenStr: jsonData.tiaojian,
 					item: GameApp.MainPlayer.zhuxianFuBenReward
 				}
+				let s = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
+					+ "<span style='color:#ffffff'>(" + jsonData.curcnt + "/" + jsonData.totalcnt + ")</span>";
+				this.ui_skill.showNeed(s);
+				this.ui_skill.startAuto();
 				if (jsonData.curcnt >= jsonData.totalcnt) {
+					this.ui_skill.stopAuto();
 					let p = new scene.BattleRewardInfoV0Item();
 					p.setData(0);
 					p.popup();
 					// GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
 				}
-				let s = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
-					+ "<span style='color:#ffffff'>(" + jsonData.curcnt + "/" + jsonData.totalcnt + ")</span>";
-				this.ui_skill.showNeed(s);
+
 				// this.ui_skill.html_need.innerHTML = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
 				// 	+ "<span style='color:#ffffff'>(" + jsonData.curcnt + "/" + jsonData.totalcnt + ")</span>";
 				// this.ui_skill.html_need.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>" + '主线副本' + "</span>"
@@ -58,14 +61,20 @@ module view.main {
 					fubenStr: "",
 					item: jsonData.JiangLi
 				}
+				let s = "<span style='color:#ffed8f'>" + '击杀怪物' + "</span>"
+					+ "<span style='color:#ffffff'>(" + jsonData.KILLCNT + "/" + jsonData.MAXCNT + ")</span>";
+				this.ui_skill.showNeed(s);
+				if (!this.ui_skill.isAuto) {
+					this.ui_skill.startAuto();
+				}
+
 				if (jsonData.KILLCNT >= jsonData.MAXCNT) {
+					this.ui_skill.stopAuto();
 					let p = new scene.BattleRewardInfoV0Item();
 					p.setData(0);
 					p.popup();
 				}
-				let s = "<span style='color:#ffed8f'>" + '击杀怪物' + "</span>"
-					+ "<span style='color:#ffffff'>(" + jsonData.KILLCNT + "/" + jsonData.MAXCNT + ")</span>";
-				this.ui_skill.showNeed(s);
+
 				// this.ui_skill.html_need.innerHTML = 
 			})
 			//心魔
@@ -82,6 +91,7 @@ module view.main {
 					let s = "<span style='color:#ffed8f'>" + GameApp.GameEngine.curFuBenMsg.fubenStr + "</span>"
 						+ "<span style='color:#ffffff'>(" + GameApp.GameEngine.curFuBenMsg.curNum + "/" + GameApp.GameEngine.curFuBenMsg.maxNum + ")</span>";
 					this.ui_skill.showNeed(s);
+					this.ui_skill.stopAuto();
 					// this.ui_skill.html_need.innerHTML =
 					let p = new scene.BattleRewardInfoV0Item();
 					p.setData(0);
@@ -96,6 +106,7 @@ module view.main {
 					let s = "<span style='color:#ffed8f'>" + GameApp.GameEngine.curFuBenMsg.fubenStr + "</span>"
 						+ "<span style='color:#ffffff'>(" + GameApp.GameEngine.curFuBenMsg.curNum + "/" + GameApp.GameEngine.curFuBenMsg.maxNum + ")</span>";
 					this.ui_skill.showNeed(s);
+					this.ui_skill.startAuto();
 					// this.ui_skill.html_need.innerHTML = 
 				}
 
@@ -479,7 +490,7 @@ module view.main {
 				})
 			}
 			else {
-				TipsManage.showTips('技能没有找到目标对象');
+				// TipsManage.showTips('技能没有找到目标对象');
 			}
 		}
 		/**

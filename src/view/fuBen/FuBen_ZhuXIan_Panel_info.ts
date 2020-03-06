@@ -91,7 +91,7 @@ module view.fuBen {
 				this['img_Star' + i + '_1'].skin = 'image/fuben/star_small_02.png'
 			}
 			if (jsonData.star > 0) {
-				for (let i = 1; i < jsonData.star; i++) {
+				for (let i = 1; i < jsonData.star+1; i++) {
 					this['img_Star' + i].skin = 'image/fuben/star_big_1.png'
 					this['img_Star' + i + '_1'].skin = 'image/fuben/star_small_01.png'
 				}

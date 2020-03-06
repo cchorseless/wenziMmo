@@ -16,11 +16,12 @@ module view.scene {
 			super();
 			BattleFuBenInfoV3Item.self = this;
 			this.addEvent();
+
 		}
-		public showNeed(str:string){
+		public showNeed(str: string) {
 			console.log('showwwww' + str)
 			this.html_need.innerHTML = str;
-			console.log('needddddddddddd'+this.html_need.innerHTML)
+			console.log('needddddddddddd' + this.html_need.innerHTML)
 		}
 		public setData() {
 			this.img_cantSkill.visible = false;
@@ -41,7 +42,8 @@ module view.scene {
 				this['ui_cut' + i].setButton(i == GameApp.MainPlayer.defaultTaoLuID)
 			}
 			let myLv = GameApp.MainPlayer.level;
-			let unlockNum = Math.floor(myLv / this.unlockNeed);
+			// let unlockNum = Math.floor(myLv / this.unlockNeed);
+			let unlockNum = 6;
 			for (let i = 1; i < 7; i++) {
 				if (i <= unlockNum) {
 					let key = this.curTouchTaoLuID * 100 + i - 1
@@ -79,7 +81,7 @@ module view.scene {
 					}
 					PanelManage.Main.changeMode(0);
 				}
-				 else {
+				else {
 					TipsManage.showTips('暂时不可退出副本')
 				}
 
@@ -104,12 +106,15 @@ module view.scene {
 				this['ui_skill' + i].on(Laya.UIEvent.MOUSE_DOWN, this, function () {
 					// touchBegin = Laya.Browser.now();
 					touchBegin = true;
-					Laya.timer.once(3000, self, function aa () {
+					Laya.timer.once(3000, self, function aa() {
 						if (!touchBegin) {
-							Laya.timer.clear(this,aa)
+							Laya.timer.clear(this, aa)
 							return;
 						}
 						self.skillDes = new Skill_DesDialog();
+						if (!self['ui_skill' + i].skillConfigID) {
+							return;
+						}
 						self.skillDes.setData(self['ui_skill' + i].skillConfigID);
 						self.addChild(self.skillDes);
 						self.skillDes.anchorX = self.skillDes.anchorY = 0.5;
@@ -159,6 +164,9 @@ module view.scene {
 						if (this['ui_skill' + i].isCD) {
 							TipsManage.showTips('技能CD中~');
 						} else {
+							if (!self['ui_skill' + i].skillConfigID) {
+								return;
+							}
 							let costMP = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(self['ui_skill' + i].skillConfigID);
 							if (costMP <= GameApp.MainPlayer.ability.nowMP) {
 								for (let o in GameApp.MainPlayer.allMonster) {
@@ -201,6 +209,26 @@ module view.scene {
 			//最大和当前蓝量
 			// GameApp.MainPlayer.ability.nMaxMP;
 			// GameApp.MainPlayer.ability.nowMP;
+		}
+		public stopAuto() {
+			this.isAuto = false;
+			if (this.isAuto) {
+				this.btn_auto.label = '手动';
+
+			} else {
+				this.btn_auto.label = '自动';
+			}
+			this.autoFight();
+		}
+		public startAuto() {
+			this.isAuto = true;
+			if (this.isAuto) {
+				this.btn_auto.label = '手动';
+
+			} else {
+				this.btn_auto.label = '自动';
+			}
+			this.autoFight();
 		}
 		public autoFight() {
 			let self = this;
