@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.compart {
 	export class DaoJuWithNameItem extends ui.compart.DaoJuWithNameItemUI {
+		public itemID;
 		constructor() {
 			super();
 		}
@@ -10,6 +11,7 @@ module view.compart {
 			this.lbl_itemName.color = ColorUtils.nameColor[SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.dwBaseID)];
 			// this.lbl_itemName.color
 			this.ui_item.setData(item, mode);
+			this.itemID = item.dwBaseID;
 		}
 		public removeSelf() {
 			let _item: ProtoCmd.ItemBase = this.ui_item.item;

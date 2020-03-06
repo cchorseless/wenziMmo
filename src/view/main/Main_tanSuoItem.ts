@@ -304,6 +304,7 @@ module view.main {
 					npcIcon = new view.npc.NpcFunctionItem();
 					npcIcon.setData(obj);
 					break;
+					
 			}
 			this.addCreatureObj(npcIcon);
 		}
