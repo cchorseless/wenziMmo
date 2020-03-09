@@ -50,6 +50,9 @@ module ProtoCmd {
     //npc 关系监听
     export const npcRelation = 'npcRelation'
 
+    //采集物NPC  采集
+    export const collectItem = 'collectItem' ;// tempid  allMonster的Key  详情见Main_TanSuoV15Dialog
+
     //辩论  打开辩论界面
     export const argueWithNpc = 'argueWithNpc';//(npcid)
     //出牌  

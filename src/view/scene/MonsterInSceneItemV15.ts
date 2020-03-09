@@ -36,7 +36,7 @@ module view.scene {
 				else {
 					if (this.type == EnumData.emMonsterType._MON_TYPE_COLLECT_) {
 						//采集物
-						new view.npc.Main_TanSuoV0Dialog().setData(this.item, 0).popup();
+						new view.npc.Main_TanSuoV15Dialog().setData(this.item).popup();
 					}
 					else {
 						//怪物

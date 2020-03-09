@@ -44,7 +44,7 @@ module view.npc {
 		}
 
 		public initUI(): void {
-			this.lbl_npcName.text = '' + this.item.objName;
+			this.lbl_npcName.text = '' + this.item.objName.split("_")[0];
 
 			// 任务状态
 			switch (this.item.taskState) {

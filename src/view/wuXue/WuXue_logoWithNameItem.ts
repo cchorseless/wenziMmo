@@ -6,6 +6,12 @@ module view.wuXue {
         constructor() {
             super();
         }
+        public setInit(){
+            this.img_quality.skin = '';
+            this.html_name.innerHTML = '';
+            this.ui_item.init()
+
+        }
 
         public setData(configID): WuXue_logoWithNameItem {
             this.configID = configID;

@@ -37,7 +37,13 @@ module view.wuXue {
 			let spanLv = stage * 15 - curLv;
 
 			//升级1次消耗
-			let needCost = (curLv - 1) * 135 + 80;
+			let needCost
+			if (curLv == 0) {
+				needCost = 80;
+			} else {
+				needCost = (curLv - 1) * 135 + 80;
+			}
+
 			//升级5次消耗
 			let needCost5Bet = (curLv + 3 + curLv) * 2 * 135 + 5 * 80;
 			//我拥有的升级消耗

@@ -7,6 +7,12 @@ module view.wuXue {
 		public showligth(boo: boolean) {
 			this.img_light.visible = boo;
 		}
+		public init(){
+			this.img_skill_bg.skin ='';
+			this.img_skillType.skin = '';
+			this.img_skill_Icon.skin = '';
+			this.img_shuxing.skin = '';
+		}
 		public setData(configID: string): void {
 			let wuXing = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEXTRAPROP(configID);
 			let icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(configID);
@@ -29,6 +35,7 @@ module view.wuXue {
 			}
 
 		}
+
 
 
 

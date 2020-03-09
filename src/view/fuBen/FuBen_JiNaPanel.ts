@@ -78,12 +78,12 @@ module view.fuBen {
 				let bossArray = [];
 				for (let i in jsonData) {
 					let data = jsonData[i];
-					if (data.monid > 18021) {
-						continue;
-					} else {
+					// if (data.monid > 18021) {
+					// 	continue;
+					// } else {
 						let battle = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT('' + data.monid);
 						bossArray.push({ data: data, battle: battle });
-					}
+					// }
 
 				}
 				//根據战力把boss信息从小到大排序
