@@ -171,11 +171,17 @@ module view.fuBen {
 			this.lbl_lvl.text = '' + lvl;
 			//掉落奖励
 			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + bossInfo.data.monid);
+			let jiangliArr = jiangli.split('|');
+			let resultArr =[];
+			for(let i = 0 ; i<jiangliArr.length;i++){
+				let base =jiangliArr[i].split('`');
+				resultArr.push(parseInt(base[0]))
+			}
 			this.panel_item.removeChildren();
-			for (let index in jiangli) {
+			for (let index in resultArr) {
 				let _itemUI = new view.compart.DaoJuItem();
 				let itemInfo = new ProtoCmd.ItemBase();
-				itemInfo.dwBaseID = jiangli[index];
+				itemInfo.dwBaseID = resultArr[index];
 				_itemUI.scaleX = _itemUI.scaleY = 0.9;
 				_itemUI.x = parseInt(index) % 4 * (_itemUI.width + 10);
 				if (jiangli.length > 4) {

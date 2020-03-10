@@ -15,22 +15,42 @@ module view.createPlayer {
 
 		public addEvent() {
 			// 性格资质随机
-			EventManage.onWithEffect(this.btn_randomXingGe, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.JS_randomXingGeValue, null, null, this, (jsonData) => {
-					GameApp.MainPlayer.xingGeInfo = jsonData;
-					this.updateXingGe();
-				})
-				lcp.send(pkt);
-			});
+			// EventManage.onWithEffect(this.btn_randomXingGe, Laya.UIEvent.CLICK, this, () => {
+			// 	let pkt = new ProtoCmd.QuestClientData();
+			// 	pkt.setString(ProtoCmd.JS_randomXingGeValue, null, null, this, (jsonData) => {
+			// 		GameApp.MainPlayer.xingGeInfo = jsonData;
+			// 		this.updateXingGe();
+			// 	})
+			// 	lcp.send(pkt);
+			// });
+
+			// EventManage.onWithEffect(this.btn_rand, Laya.UIEvent.CLICK, this, () => {
+			// 	let pkt = new ProtoCmd.QuestClientData();
+			// 	pkt.setString(ProtoCmd.JS_randomXingGeValue, null, null, this, (jsonData) => {
+			// 		GameApp.MainPlayer.xingGeInfo = jsonData;
+			// 		this.updateXingGe();
+			// 	})
+			// 	lcp.send(pkt);
+			// });
 
 			// 性格资质确定
-			EventManage.onWithEffect(this.btn_xingGeSure, Laya.UIEvent.CLICK, this, () => {
+			// EventManage.onWithEffect(this.btn_xingGeSure, Laya.UIEvent.CLICK, this, () => {
+			// 	PanelManage.CreateAvatar.showDialog(0);
+			// });
+			EventManage.onWithEffect(this.btn_confirm, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.CreateAvatar.showDialog(0);
 			});
 
 			// 随机天赋
-			EventManage.onWithEffect(this.btn_randomtalent, Laya.UIEvent.CLICK, this, () => {
+			// EventManage.onWithEffect(this.btn_randomtalent, Laya.UIEvent.CLICK, this, () => {
+			// 	let pkt = new ProtoCmd.QuestClientData();
+			// 	pkt.setString(ProtoCmd.JS_randomZiZhiValue, null, null, this, (jsonData) => {
+			// 		GameApp.MainPlayer.talentInfo = jsonData;
+			// 		this.updateTalent();
+			// 	})
+			// 	lcp.send(pkt);
+			// });
+			EventManage.onWithEffect(this.btn_rand, Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.JS_randomZiZhiValue, null, null, this, (jsonData) => {
 					GameApp.MainPlayer.talentInfo = jsonData;
@@ -47,7 +67,10 @@ module view.createPlayer {
 			for (let i = 1; i < 6; i++) {
 				let count = GameApp.MainPlayer.talentInfo[i];
 				// 阶数
-				this['lbl_talent' + i].text = '' + count;
+				// this['lbl_talent' + i].text = '' + count;
+				this['lab_num' + (i - 1)].text = '' + count;
+				this['lab_lv' + (i - 1)].text = 'Lv.' + count;
+				
 			}
 		}
 

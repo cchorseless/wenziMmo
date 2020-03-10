@@ -46,12 +46,13 @@ module ProtoCmd {
     export const treatNpc = 'treatNpc'  //(npcid, itemid,type:1\2\3  使用 的解药类型)
     //暗杀
     export const killNpc = 'killNpc'//(npcid)
-
+    //离开NPC副本  如 辩论、暗杀
+    export const leaveNpcCopy = 'leaveNpcCopy';
     //npc 关系监听
     export const npcRelation = 'npcRelation'
 
     //采集物NPC  采集
-    export const collectItem = 'collectItem' ;// tempid  allMonster的Key  详情见Main_TanSuoV15Dialog
+    export const collectItem = 'collectItem';// tempid  allMonster的Key  详情见Main_TanSuoV15Dialog
 
     //辩论  打开辩论界面
     export const argueWithNpc = 'argueWithNpc';//(npcid)
@@ -1444,10 +1445,10 @@ module ProtoCmd {
         curexp: number//当前好感值
         maxexp: number//最大好感值
         lvl: number//当前好感等级
-        poisontab:{}//npc中毒状态
+        poisontab: {}//npc中毒状态
         nexttime: number//收礼时间
         skillFirst: any//是否第一次获得技能物品
-    
+
 
     }
 }

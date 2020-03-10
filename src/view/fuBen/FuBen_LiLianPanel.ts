@@ -96,8 +96,14 @@ module view.fuBen {
 			this.lbl_introduce.text = introduce;
 			//掉落奖励
 			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + data.monid);
+			let jiangliArr = jiangli.split('|');
+			let resultArr = [];
+			for (let i = 0; i < jiangliArr.length; i++) {
+				let base = jiangliArr[i].split('`');
+				resultArr.push(parseInt(base[0]))
+			}
 			this.hbox_jiangli.removeChildren();
-			for (let item of jiangli) {
+			for (let item of resultArr) {
 				let _itemUI = new view.compart.DaoJuItem();
 				let itemInfo = new ProtoCmd.ItemBase();
 				itemInfo.dwBaseID = item;
@@ -159,10 +165,16 @@ module view.fuBen {
 				if (num == 1) {
 					//奖励
 					let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + id);
-					for (let i = 0; jiangli[i]; i++) {
+					let jiangliArr = jiangli.split('|');
+					let resultArr = [];
+					for (let i = 0; i < jiangliArr.length; i++) {
+						let base = jiangliArr[i].split('`');
+						resultArr.push(parseInt(base[0]))
+					}
+					for (let i = 0; resultArr[i]; i++) {
 						let ui_item = new view.compart.DaoJuItem();
 						let itemInfo = new ProtoCmd.ItemBase();
-						itemInfo.dwBaseID = jiangli[i];
+						itemInfo.dwBaseID = resultArr[i];
 						ui_item.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 						this.box_jiangli.addChild(ui_item);
 						//奖励添加位置
@@ -171,14 +183,14 @@ module view.fuBen {
 						} else {
 							ui_item.x = 140;
 						}
-						ui_item.y = Math.floor(i / 2) *( ui_item.height + 20);
+						ui_item.y = Math.floor(i / 2) * (ui_item.height + 20);
 					}
 				}
 			}
 			//稀有boss存活数量
 			this.lbl_num.text = '' + lifenum;
 			//层数
-			this.lbl_ceng.text = '第' + GameUtil.SectionToChinese(i,0) + '层';
+			this.lbl_ceng.text = '第' + GameUtil.SectionToChinese(i, 0) + '层';
 			return this;
 		}
 		/**
@@ -200,11 +212,17 @@ module view.fuBen {
 				this.lbl_detail.text = '' + detail;
 				//掉落奖励
 				let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + jsonData[1].bossid);
+				let jiangliArr = jiangli.split('|');
+				let resultArr = [];
+				for (let i = 0; i < jiangliArr.length; i++) {
+					let base = jiangliArr[i].split('`');
+					resultArr.push(parseInt(base[0]))
+				}
 				this.hbox_yinkui.removeChildren();
-				for (let i = 0; jiangli[i]; i++) {
+				for (let i = 0; resultArr[i]; i++) {
 					let _itemUI = new view.compart.DaoJuWithNameItem();
 					let itemInfo = new ProtoCmd.ItemBase();
-					itemInfo.dwBaseID = jiangli[i];
+					itemInfo.dwBaseID = resultArr[i];
 					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					this.hbox_yinkui.addChild(_itemUI)
 				}

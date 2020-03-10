@@ -49,13 +49,19 @@ module view.fuBen {
 			this.lbl_jinbi.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).GOLD_NUMBER('' + this.data.monsterid);
 			//掉落奖励
 			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + this.data.monsterid);
+			let jiangliArr = jiangli.split('|');
+			let resultArr = [];
+			for (let i = 0; i < jiangliArr.length; i++) {
+				let base = jiangliArr[i].split('`');
+				resultArr.push(parseInt(base[0]))
+			}
 			this.hbox_item.removeChildren();
-			for (let i = 0; jiangli[i]; i++) {
-					let _itemUI = new view.compart.DaoJuWithNameItem();
-					let itemInfo = new ProtoCmd.ItemBase();
-					itemInfo.dwBaseID = jiangli[i];
-					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-					this.hbox_item.addChild(_itemUI)
+			for (let i = 0; resultArr[i]; i++) {
+				let _itemUI = new view.compart.DaoJuWithNameItem();
+				let itemInfo = new ProtoCmd.ItemBase();
+				itemInfo.dwBaseID = resultArr[i];
+				_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+				this.hbox_item.addChild(_itemUI)
 			}
 			//挑战等级限制
 			let mylvl = GameApp.MainPlayer.level;

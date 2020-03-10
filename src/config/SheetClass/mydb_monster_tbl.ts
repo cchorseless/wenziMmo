@@ -375,7 +375,7 @@ public static getInstance(data): mydb_monster_tbl { let Class:any=this;if(!Class
 /**
  *  怪物掉落物品
  */
- public DROPPED_ARTICLES(configID):Array<number> { return this.data[configID][93]}
+ public DROPPED_ARTICLES(configID):string { return this.data[configID][93]}
 /**
  *  是否为人形怪物
  */

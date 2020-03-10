@@ -107,19 +107,24 @@ module view.npc {
 				}
 			}
 			let items = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES(this.monsterID);
+			let jiangliArr = items.split('|');
+			let resultArr = [];
+			for (let i = 0; i < jiangliArr.length; i++) {
+				let base = jiangliArr[i].split('`');
+				resultArr.push(parseInt(base[0]))
+			}
 			for (let i = 0; i < 8; i++) {
 				this.ui_item0.initView
 				this['ui_item' + i].initView()
 			}
-			if (items.length > 0) {
-				for (let i = 0; i < items.length; i++) {
+			if (resultArr.length > 0) {
+				for (let i = 0; i < resultArr.length; i++) {
 					if (i >= 8) {
 						return;
 					}
-					if (items[i] > 0) {
+					if (resultArr[i] > 0) {
 						this['ui_item' + i].setData(items[i], 10, 0, i);
 					}
-
 				}
 			}
 
