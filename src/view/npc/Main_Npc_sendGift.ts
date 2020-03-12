@@ -24,30 +24,75 @@ module view.npc {
 		}
 		public showGiftItem() {
 			let itemMsg = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(this.npcID);
-			// let itemlist = itemMsg.split('|');
-			let itemlist = [1000,1001,1002,1003,1004,1005,1006,1007,1008,1009]
-			for (let i = 0; i < 10; i++) {
-				this['ui_gift' + i].initView();
-			}
+			let itemlist = itemMsg.split('|');
+			// let itemlist = [1000,1001,1002,1003,1004,1005,1006,1007,1008,1009]
+			// for (let i = 0; i < 10; i++) {
+			// 	this['ui_gift' + i].initView();
+			// }
+
 			for (let i = 0; i < itemlist.length; i++) {
-				let num = GameUtil.findItemInBag(itemlist[i], GameApp.GameEngine.bagItemDB)
-				this['ui_gift' + i].setData(itemlist[i], num, 3, i);
+				let likeValue = SheetConfig.mydb_item_base_tbl.getInstance(null).LIKEVALUE(itemlist[i]);
+				// this.lab_haogan
+				this['lab_haogan' + i].text = '+' + likeValue;
+				let item = new ProtoCmd.ItemBase();
+				item.dwBaseID = parseInt(itemlist[i])
+				let num: number = GameUtil.findItemInBag(item.dwBaseID)
+				item.dwCount = num;
+				item.dwBinding = 1;
+				// this.ui_daoju0.setData(item)
+				this['ui_daoju' + i].setData(item)
 			}
 		}
 		public showLight() {
-			for (let i = 0; i < 9; i++) {
-				this['ui_gift' + i].setLight(false);
+			for (let i = 0; i < 3; i++) {
+				this['img_light' + i].visible = false;
 			}
-			this['ui_gift' + this.touchID].setLight(true);
+			this['img_light' + this.touchID].visible = true;
 		}
+		public dealTouch() {
+			let span = this.endTime - this.startTime;
+			if (span < 1000) {
+				this.showLight();
+			} else {
+				this['ui_daoju' + this.touchID].ui_item.clickEvent();
+				this.showLight();
+			}
+			this.isTouch = false;
+		}
+		public startTime;
+		public isTouch = false;
+		public endTime;
 		public addEvent() {
+			// this.ui_daoju0.ui_item.clickEvent();
 			this.btn_leave.on(Laya.UIEvent.CLICK, this, function () {
 				this.parentUI.view_npc.selectedIndex = 0;
 			})
-			for (let i = 0; i < 10; i++) {
-				this['ui_gift' + i].on(Laya.UIEvent.CLICK, this, function () {
+			for (let i = 0; i < 3; i++) {
+				this['box' + i].on(Laya.UIEvent.MOUSE_DOWN, this, function () {
 					this.touchID = i;
-					this.showLight();
+					this.isTouch = true;
+					this.startTime = Date.now();
+					// this.showLight();
+					// this.ui_daoju0.ui_item.clickEvent();
+				})
+				this['box' + i].on(Laya.UIEvent.MOUSE_UP, this, function () {
+					if (this.isTouch) {
+						this.endTime = Date.now();
+						this.dealTouch();
+					}
+
+					// this.touchID = i;
+					// this.showLight();
+					// this.ui_daoju0.ui_item.clickEvent();
+				})
+				this['box' + i].on(Laya.UIEvent.MOUSE_OUT, this, function () {
+					if (this.isTouch) {
+						this.endTime = Date.now();
+						this.dealTouch();
+					}
+					// this.touchID = i;
+					// this.showLight();
+					// this.ui_daoju0.ui_item.clickEvent();
 				})
 			}
 			this.btn_send.on(Laya.UIEvent.CLICK, this, function () {
@@ -56,7 +101,7 @@ module view.npc {
 					TipsManage.showTips('未选择送礼目标')
 					return;
 				}
-				let itemID = parseInt(this['ui_gift' + this.touchID].itemID);
+				let itemID =this['ui_daoju' + this.touchID].itemID;
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.giveGiftToNpc, [this.npcID, itemID], 0, this
 					, function (res) {
 						console.log('送礼回调' + res)

@@ -4,6 +4,8 @@ module view.compart {
 		public item: ProtoCmd.ItemBase;
 		public model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE;
 		public type;//区分是普通消耗物品还是罡气消耗
+
+		public isSendToNpc
 		constructor() {
 			super();
 			this.addEvent();
@@ -62,72 +64,75 @@ module view.compart {
 
 		public addEvent(): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
-				if (this.model == EnumData.ItemInfoModel.SHOW_NONE) {
-					return
-				}
-				// 是否可以上架
-				if (this.isNotCanSell) {
-					TipsManage.showTips('绑定物品不能上架');
-					return
-				}
-				let itemInfoDialog;
-				let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item.dwBaseID);
-				// 关闭其他ItemInfoDialog界面
-				Laya.Dialog.closeByGroup('ItemInfoDialog');
-				// 根据物品类型显示不同界面
-				switch (itemType) {
-					// 货币,不进背包
-					case EnumData.ItemTypeDef.ITEM_TYPE_GOLD:
-						return
-					// 材料
-					case EnumData.ItemTypeDef.ITEM_TYPE_NORMAL:
-						itemInfoDialog = new view.dialog.ItemInfoV0Dialog();
-						break;
-					// 装备
-					case EnumData.ItemTypeDef.ITEM_TYPE_EQUIP:
-						itemInfoDialog = new view.dialog.ItemInfoV1Dialog();
-						break;
-					// 消耗品
-					case EnumData.ItemTypeDef.ITEM_TYPE_DRUG:
-					case EnumData.ItemTypeDef.ITEM_TYPE_SKILL:
-					case EnumData.ItemTypeDef.ITEM_TYPE_MAZE:
-					case EnumData.ItemTypeDef.ITEM_TYPE_SCROLL:
-						itemInfoDialog = new view.dialog.ItemInfoV0Dialog();
-						break;
-					// 任务物品
-					case EnumData.ItemTypeDef.ITEM_TYPE_TASK:
-						itemInfoDialog = new view.dialog.ItemInfoV0Dialog();
-						break;
-				}
-				if (itemInfoDialog) {
-					// 根据model显示界面不同的状态
-					switch (this.model) {
-						// 背包场景 有三种子状态 0背包-装备 1背包-回收 2背包-仓库 3背包-摆摊
-						case EnumData.ItemInfoModel.SHOW_IN_BAG:
-							let model: EnumData.ItemInfoModel;
-							switch (PanelManage.BeiBao.viw_bagBottom.selectedIndex) {
-								case 0:
-									model = EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP;
-									break;
-								case 1:
-									model = EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU;
-									break;
-								case 2:
-									model = EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU;
-									break;
-								case 3:
-									model = EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN;
-									break;
-							}
-							itemInfoDialog.setData(this.item, model, this.type).show(false);
-							break;
-						default:
-							itemInfoDialog.setData(this.item, this.model, this.type).show(false);
-							break;
-					}
-				}
-
+				this.clickEvent();
 			});
+		}
+		public clickEvent() {
+			if (this.model == EnumData.ItemInfoModel.SHOW_NONE) {
+				return
+			}
+			// 是否可以上架
+			if (this.isNotCanSell) {
+				TipsManage.showTips('绑定物品不能上架');
+				return
+			}
+			let itemInfoDialog;
+			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item.dwBaseID);
+			// 关闭其他ItemInfoDialog界面
+			Laya.Dialog.closeByGroup('ItemInfoDialog');
+			// 根据物品类型显示不同界面
+			switch (itemType) {
+				// 货币,不进背包
+				case EnumData.ItemTypeDef.ITEM_TYPE_GOLD:
+					return
+				// 材料
+				case EnumData.ItemTypeDef.ITEM_TYPE_NORMAL:
+					itemInfoDialog = new view.dialog.ItemInfoV0Dialog();
+					break;
+				// 装备
+				case EnumData.ItemTypeDef.ITEM_TYPE_EQUIP:
+					itemInfoDialog = new view.dialog.ItemInfoV1Dialog();
+					break;
+				// 消耗品
+				case EnumData.ItemTypeDef.ITEM_TYPE_DRUG:
+				case EnumData.ItemTypeDef.ITEM_TYPE_SKILL:
+				case EnumData.ItemTypeDef.ITEM_TYPE_MAZE:
+				case EnumData.ItemTypeDef.ITEM_TYPE_SCROLL:
+					itemInfoDialog = new view.dialog.ItemInfoV0Dialog();
+					break;
+				// 任务物品
+				case EnumData.ItemTypeDef.ITEM_TYPE_TASK:
+					itemInfoDialog = new view.dialog.ItemInfoV0Dialog();
+					break;
+			}
+			if (itemInfoDialog) {
+				// 根据model显示界面不同的状态
+				switch (this.model) {
+					// 背包场景 有三种子状态 0背包-装备 1背包-回收 2背包-仓库 3背包-摆摊
+					case EnumData.ItemInfoModel.SHOW_IN_BAG:
+						let model: EnumData.ItemInfoModel;
+						switch (PanelManage.BeiBao.viw_bagBottom.selectedIndex) {
+							case 0:
+								model = EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP;
+								break;
+							case 1:
+								model = EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU;
+								break;
+							case 2:
+								model = EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU;
+								break;
+							case 3:
+								model = EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN;
+								break;
+						}
+						itemInfoDialog.setData(this.item, model, this.type).show(false);
+						break;
+					default:
+						itemInfoDialog.setData(this.item, this.model, this.type).show(false);
+						break;
+				}
+			}
+
 		}
 
 		/**

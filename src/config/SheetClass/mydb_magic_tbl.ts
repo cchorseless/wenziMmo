@@ -299,9 +299,9 @@ module SheetConfig {
          */
         public RETURN_DEBRIS(configID): number { return this.data[configID][73] }
         /**
-              * 获取技能数据
-              * @param skillID 技能编号
-              */
+             * 获取技能数据
+             * @param skillID 技能编号
+             */
         public getAllData(skillID: number): any {
             let base;
             for (let i in this.data) {

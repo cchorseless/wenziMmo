@@ -12,7 +12,7 @@ module view.scene {
 			// 相互绑定
 			this.item = item;
 			item.ui_item = this;
-			let name: string = this.item.objName
+			let name: string = this.item.objName.split("_")[0];
 
 			if (name.length > 4) {
 				this.lbl_name.fontSize = 15

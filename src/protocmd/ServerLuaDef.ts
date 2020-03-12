@@ -46,9 +46,13 @@ module ProtoCmd {
     export const treatNpc = 'treatNpc'  //(npcid, itemid,type:1\2\3  使用 的解药类型)
     //暗杀
     export const killNpc = 'killNpc'//(npcid)
-
+    //离开NPC副本  如 辩论、暗杀
+    export const leaveNpcCopy = 'leaveNpcCopy';
     //npc 关系监听
     export const npcRelation = 'npcRelation'
+
+    //采集物NPC  采集
+    export const collectItem = 'collectItem';// tempid  allMonster的Key  详情见Main_TanSuoV15Dialog
 
     //辩论  打开辩论界面
     export const argueWithNpc = 'argueWithNpc';//(npcid)

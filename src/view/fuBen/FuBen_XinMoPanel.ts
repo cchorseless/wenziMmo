@@ -94,11 +94,17 @@ module view.fuBen {
 			let data: ProtoCmd.itf_FB_XinMoInfo = this.bossData[index]
 			// boss掉落奖励
 			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + data.monsterid);
+			let jiangliArr = jiangli.split('|');
+			let resultArr = [];
+			for (let i = 0; i < jiangliArr.length; i++) {
+				let base = jiangliArr[i].split('`');
+				resultArr.push(parseInt(base[0]))
+			}
 			this.hbox_drop.removeChildren();
-			for (let i = 0; jiangli[i]; i++) {
+			for (let i = 0; resultArr[i]; i++) {
 				let _itemUI = new view.compart.DaoJuWithNameItem();
 				let itemInfo = new ProtoCmd.ItemBase();
-				itemInfo.dwBaseID = jiangli[i];
+				itemInfo.dwBaseID = resultArr[i];
 				_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.hbox_drop.addChild(_itemUI)
 			}
@@ -121,8 +127,8 @@ module view.fuBen {
 			if (data.minlv) { lvl = data.minlv + '级'; }
 			this.lbl_lvl.text = lvl;
 			//心魔名称
-			let nameArray=['','贪婪','怨念','神秘','仇恨','痴念','妄念'];
-			this.lbl_name.text=nameArray[index];
+			let nameArray = ['', '贪婪', '怨念', '神秘', '仇恨', '痴念', '妄念'];
+			this.lbl_name.text = nameArray[index];
 			//已挑战次数/最大挑战次数
 			this.lbl_count.text = (data.maxcnt - data.flag) + '/' + data.maxcnt;
 			//战力

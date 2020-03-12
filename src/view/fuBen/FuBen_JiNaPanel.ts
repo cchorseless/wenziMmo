@@ -74,12 +74,17 @@ module view.fuBen {
 		public init_JiDao(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_YeWaiBoss_Open, null, null, this, (jsonData: { [v: string]: ProtoCmd.itf_FB_JiDaoInfo }) => {
-				console.log('野外BOSS',jsonData);
+				console.log('野外BOSS', jsonData);
 				let bossArray = [];
 				for (let i in jsonData) {
 					let data = jsonData[i];
-					let battle = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT('' + data.monid);
-					bossArray.push({ data: data, battle: battle });
+					// if (data.monid > 18021) {
+					// 	continue;
+					// } else {
+						let battle = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT('' + data.monid);
+						bossArray.push({ data: data, battle: battle });
+					// }
+
 				}
 				//根據战力把boss信息从小到大排序
 				function compare(property) {
@@ -166,11 +171,17 @@ module view.fuBen {
 			this.lbl_lvl.text = '' + lvl;
 			//掉落奖励
 			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + bossInfo.data.monid);
+			let jiangliArr = jiangli.split('|');
+			let resultArr =[];
+			for(let i = 0 ; i<jiangliArr.length;i++){
+				let base =jiangliArr[i].split('`');
+				resultArr.push(parseInt(base[0]))
+			}
 			this.panel_item.removeChildren();
-			for (let index in jiangli) {
+			for (let index in resultArr) {
 				let _itemUI = new view.compart.DaoJuItem();
 				let itemInfo = new ProtoCmd.ItemBase();
-				itemInfo.dwBaseID = jiangli[index];
+				itemInfo.dwBaseID = resultArr[index];
 				_itemUI.scaleX = _itemUI.scaleY = 0.9;
 				_itemUI.x = parseInt(index) % 4 * (_itemUI.width + 10);
 				if (jiangli.length > 4) {

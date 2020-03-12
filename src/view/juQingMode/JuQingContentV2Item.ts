@@ -9,7 +9,7 @@ module view.juQingMode {
 			txt = GameApp.DomUtil.dealWithTalkTxt(txt);
 			this.div_content.style.fontSize = 24;
 			this.div_content.style.bold = true;
-			this.div_content.style.fontFamily = "FZHuaLi-M14S";
+			this.div_content.style.fontFamily = "STKaiti";
 			this.div_content.style.wordWrap = true;
 			this.div_content.style.leading = 5;
 			this.div_content.style.align = 'middle';
