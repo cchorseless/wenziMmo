@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":13,
-    "selecteID":19,
-    "props":{"width":192,"sceneColor":"#000000","height":639},
+    "selectedBox":1,
+    "selecteID":2,
+    "props":{"width":640,"sceneColor":"#000000","height":590},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,21 +15,20 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":16,"width":160,"var":"img_bg","skin":"image/fuben/img_guanka_selected.png"},
+            "props":{"y":0,"width":160,"var":"img_bg0","skin":"image/fuben/img_guanka_selected.png","left":50,"height":639},
             "nodeParent":1,
-            "label":"Image(img_bg)",
-            "isOpen":true,
+            "label":"Image(img_bg0)",
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
-                    "x":30,
                     "type":"HTMLDivElement",
-                    "props":{"y":56,"x":37,"width":81,"var":"html_StageID","innerHTML":"<span>3/1</span>","height":30},
+                    "props":{"y":56,"x":37,"width":81,"var":"html_StageID0","innerHTML":"<span>3/1</span>","height":30},
                     "nodeParent":2,
-                    "label":"HTMLDivElement(html_StageID)",
+                    "label":"HTMLDivElement(html_StageID0)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -38,7 +37,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"x":-16,"top":90,"skin":"image/fuben/frame_boss_big.png"},
                     "nodeParent":2,
@@ -50,11 +48,10 @@
                     "compId":4,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
-                            "props":{"y":-7,"x":23,"var":"img_icon","skin":"image/common/npc/npc_half_1105.png"},
+                            "props":{"y":-7,"x":23,"var":"img_icon0","skin":"image/common/npc/npc_half_1105.png"},
                             "nodeParent":4,
-                            "label":"Image(img_icon)",
+                            "label":"Image(img_icon0)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -63,7 +60,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":139,"x":27,"skin":"image/fuben/frame_name_big.png"},
                             "nodeParent":4,
@@ -75,11 +71,10 @@
                             "compId":7,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":2,"x":7,"width":119,"var":"lab_BossName","text":"南海娘子","height":26,"fontSize":26,"font":"fzxk","color":"#15053a","align":"center"},
+                                    "props":{"y":2,"x":7,"width":119,"var":"lab_BossName0","text":"南海娘子","height":26,"fontSize":26,"font":"fzxk","color":"#15053a","align":"center"},
                                     "nodeParent":7,
-                                    "label":"Label(lab_BossName)",
+                                    "label":"Label(lab_BossName0)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -91,11 +86,10 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Label",
-                    "props":{"x":61,"wordWrap":true,"width":36,"var":"lab_StageName","top":280,"text":"大闹南海龙宫","height":216,"fontSize":36,"font":"fzxk","color":"#15053a"},
+                    "props":{"x":61,"wordWrap":true,"width":36,"var":"lab_StageName0","top":280,"text":"大闹南海龙宫","height":216,"fontSize":36,"font":"fzxk","color":"#15053a"},
                     "nodeParent":2,
-                    "label":"Label(lab_StageName)",
+                    "label":"Label(lab_StageName0)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -104,11 +98,10 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
-                    "props":{"y":500,"x":99,"var":"img_Star3","skin":"image/fuben/star_big_1.png"},
+                    "props":{"y":500,"x":99,"var":"img_Star3_0","skin":"image/fuben/star_small_01.png"},
                     "nodeParent":2,
-                    "label":"Image(img_Star3)",
+                    "label":"Image(img_Star3_0)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -117,11 +110,10 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
-                    "props":{"y":521,"x":58,"var":"img_Star2","skin":"image/fuben/star_big_1.png"},
+                    "props":{"y":521,"x":62,"var":"img_Star2_0","skin":"image/fuben/star_small_01.png"},
                     "nodeParent":2,
-                    "label":"Image(img_Star2)",
+                    "label":"Image(img_Star2_0)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -130,11 +122,10 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
-                    "props":{"y":500,"x":12,"var":"img_Star1","top":500,"skin":"image/fuben/star_big_1.png"},
+                    "props":{"y":500,"x":13,"var":"img_Star1_0","skin":"image/fuben/star_small_01.png"},
                     "nodeParent":2,
-                    "label":"Image(img_Star1)",
+                    "label":"Image(img_Star1_0)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -147,7 +138,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":16,"width":160,"var":"img_bg1","skin":"image/fuben/img_guanka_normal.png"},
+            "props":{"y":0,"x":240,"width":160,"var":"img_bg1","skin":"image/fuben/img_guanka_normal.png","height":611},
             "nodeParent":1,
             "label":"Image(img_bg1)",
             "isOpen":true,
@@ -250,7 +241,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":500,"x":61,"var":"img_Star2_1","skin":"image/fuben/star_small_01.png"},
+                    "props":{"y":500,"x":62,"var":"img_Star2_1","skin":"image/fuben/star_small_01.png"},
                     "nodeParent":13,
                     "label":"Image(img_Star2_1)",
                     "isDirectory":false,
@@ -263,13 +254,144 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"x":12,"var":"img_Star1_1","top":479,"skin":"image/fuben/star_small_01.png"},
+                    "props":{"y":479,"x":12,"var":"img_Star1_1","skin":"image/fuben/star_small_01.png"},
                     "nodeParent":13,
                     "label":"Image(img_Star1_1)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":22,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":0,"width":160,"var":"img_bg2","skin":"image/fuben/img_guanka_normal.png","right":50,"height":611},
+            "nodeParent":1,
+            "label":"Image(img_bg2)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":23,
+            "child":[
+                {
+                    "x":30,
+                    "type":"HTMLDivElement",
+                    "props":{"y":56,"x":37,"width":81,"var":"html_StageID2","innerHTML":"<span>3/1</span>","height":30},
+                    "nodeParent":23,
+                    "label":"HTMLDivElement(html_StageID2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":24,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"x":-11,"top":90,"skin":"image/fuben/frame_boss_small.png"},
+                    "nodeParent":23,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":25,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":-5,"x":21,"var":"img_icon2","skin":"image/common/npc/npc_half_1105.png"},
+                            "nodeParent":25,
+                            "label":"Image(img_icon2)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":26,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":141,"x":27,"skin":"image/fuben/frame_name_small.png"},
+                            "nodeParent":25,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":27,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":2,"x":7,"width":119,"var":"lab_BossName2","text":"南海娘子","height":26,"fontSize":26,"font":"fzxk","color":"#15053a","align":"center"},
+                                    "nodeParent":27,
+                                    "label":"Label(lab_BossName2)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":28,
+                                    "child":[
+                                        ]
+                                }]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"x":61,"wordWrap":true,"width":36,"var":"lab_StageName2","top":280,"text":"大闹南海龙宫","height":216,"fontSize":36,"font":"fzxk","color":"#15053a","align":"center"},
+                    "nodeParent":23,
+                    "label":"Label(lab_StageName2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":29,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":479,"x":106,"var":"img_Star3_2","skin":"image/fuben/star_small_01.png"},
+                    "nodeParent":23,
+                    "label":"Image(img_Star3_2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":30,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":500,"x":61,"var":"img_Star2_2","skin":"image/fuben/star_small_01.png"},
+                    "nodeParent":23,
+                    "label":"Image(img_Star2_2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":31,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":479,"x":12,"var":"img_Star1_2","skin":"image/fuben/star_small_01.png"},
+                    "nodeParent":23,
+                    "label":"Image(img_Star1_2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":32,
                     "child":[
                         ]
                 }],

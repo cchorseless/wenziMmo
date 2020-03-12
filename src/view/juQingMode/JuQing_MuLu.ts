@@ -10,25 +10,23 @@ module view.juQingMode {
 			super();
 			this.addEvent();
 			this.panel_mulu.vScrollBarSkin = '';
+			this.vBox_mulu['sortItem'] = (items) => { };
 		}
-		public async setData(volumeIDArr) {
+		public setData() {
 			this.html_BookName.style.fontFamily = 'STXingkai';
 			this.html_BookName.style.fontSize = 30;
 			this.html_BookName.style.align = 'center';
 			this.html_BookName.style.color = '#3a302d';
 			this.html_BookName.innerHTML = "<span>文字江湖</span>";
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.JQ_GET_JQ_PIANZHANG, null, null, this, (jsonData) => {
-				this.vBox_mulu.removeChildren();
-				let keys = Object.keys(jsonData);
-				for (let key of keys) {
-					let charpterInfo: ProtoCmd.itf_JUQING_PIANZHANG = jsonData[key];
-					let ui_item = new JuQing_MuLuInfo();
-					ui_item.setData(charpterInfo, parseInt(key));
-					this.vBox_mulu.addChild(ui_item);
-				}
-			})
-			lcp.send(pkt);
+			this.vBox_mulu.removeChildren();
+			let jsonData = GameApp.MainPlayer.allPianZhangInfo;
+			let keys = Object.keys(jsonData);
+			for (let key of keys) {
+				let charpterInfo: ProtoCmd.itf_JUQING_PIANZHANG = jsonData[key];
+				let ui_item = new JuQing_MuLuInfo();
+				ui_item.setData(charpterInfo, parseInt(key));
+				this.vBox_mulu.addChild(ui_item);
+			}
 			this.img_bg.left = this.img_showbg.width;
 		}
 		public addEvent() {

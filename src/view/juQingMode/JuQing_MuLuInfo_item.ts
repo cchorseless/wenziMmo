@@ -31,14 +31,8 @@ module view.juQingMode {
 				}
 				this.img_islock.visible = false;
 				this.lab_pageNum.visible = true;
-				let pages = 0;
-				let arr = GameApp.MainPlayer.pagesNum;
-				for (let i in GameApp.MainPlayer.pagesNum) {
-					if ((pid * 100 + index) >= parseInt(i)) {
-						pages += GameApp.MainPlayer.pagesNum[i]
-					}
-				}
-				this.lab_pageNum.text = pages + '';
+				let pages = GameApp.MainPlayer.allCharpterInfo[zjid].maxPage;
+				this.lab_pageNum.text = pages + '页';
 			}
 		}
 	}

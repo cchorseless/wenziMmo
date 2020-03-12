@@ -30,7 +30,7 @@ module ResManage {
     }
     // 资源加载出错
     function onError(errFunc, err: String): void {
-        console.log("加载失败: " + err);
+        // console.log("加载失败: " + err);
         errFunc();
     }
 

@@ -11,7 +11,7 @@ module view.compart {
 		public addItem(item) {
 			this.clearItem();
 			this.box_equip.addChild(item);
-			item.top = item.bottom = item.left = item.right = 0;
+			// item.width = item.height = this.box_equip.width;
 		}
 		public clearItem() {
 			if (this.checkIsFull()) {
