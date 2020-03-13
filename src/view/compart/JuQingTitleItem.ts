@@ -59,7 +59,7 @@ module view.compart {
 					_item.btn_bg.selected = false;
 				}
 				this.btn_bg.selected = true;
-				PanelManage.FuBenMain.updateMainFuBenInfo(this.dataItem.zjid);
+				// PanelManage.FuBenMain.updateMainFuBenInfo(this.dataItem.zjid);
 			})
 		}
 	}

@@ -196,7 +196,7 @@ module view.main {
 			this.font_vipLevel.value = '' + _player.viplvl;
 		}
 		public addEvent(): void {
-			
+
 			// 物品
 			EventManage.onWithEffect(this.btn_wuPin, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openBeiBaoPanel();
@@ -602,12 +602,11 @@ module view.main {
 			this.getActiveInfoData();
 			//月卡剩余时间
 			this.getMoonCardData();
-
 			//npc关系表
 			this.getNPCRelation();
 
 		}
-		public getNPCRelation(){
+		public getNPCRelation() {
 			let pkt = new ProtoCmd.QuestClientData;
 			pkt.setString(ProtoCmd.npcRelation)
 			lcp.send(pkt);
@@ -709,12 +708,44 @@ module view.main {
 		public loadJuQingData(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_SELF_INFO, null, null, this, () => {
-				console.log('劇情信息獲取成功');
-				// 初始化劇情信息
-				Main_JuQingItem.self.setData();
+				console.log('同步剧情信息獲取成功');
+				// 获取全部章节剧情信息
+				this.getJuQingMuLuData();
 			});
 			lcp.send(pkt);
 		}
+
+
+		/**
+		 * 拉取目录数据
+		 */
+		public getJuQingMuLuData() {
+			// 计算总页数
+			let maxInfoNum = PanelManage.getAspectRatio() ? 8 : 7;
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.JQ_GET_JQ_PIANZHANG, null, null, this, (jsonData) => {
+				console.log(jsonData)
+				for (let i = 1; jsonData[i]; i++) {
+					let d = jsonData[i]
+					jsonData[i]['cnt'] = Object.keys(d.charpterInfo).length;
+					// 添加索引
+					for (let j = 1; d.charpterInfo[j]; j++) {
+						d.charpterInfo[j]['index'] = j;
+						d.charpterInfo[j]['pzid'] = d.pzid;
+						d.charpterInfo[j]['maxPage'] = Math.ceil((d.charpterInfo[j].enddbid - d.charpterInfo[j].startdbid + 1) / maxInfoNum);
+						// console.log(d.charpterInfo[j])
+						GameApp.MainPlayer.allCharpterInfo[d.charpterInfo[j].zjid] = d.charpterInfo[j];
+					}
+				}
+				GameApp.MainPlayer.allPianZhangInfo = jsonData;
+				// 初始化劇情信息
+				Main_JuQingItem.self.setData();
+			})
+			lcp.send(pkt);
+
+		}
+
+
 
 		/**
 		 * 拉取性格天赋数据

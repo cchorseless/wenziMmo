@@ -1470,16 +1470,16 @@ class ServerListener extends SingletonClass {
         GameApp.SceneManager.addViewObjUI(itemInfo, EnumData.CRET_TYPE.CRET_ITEM);
         let num = 0;
         //消失时间倒计时
-        Laya.timer.loop(1000, this, function time(): void {
-            num += 1;
-            if (num > 1) {
-                if (GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()].protectTime > 0) {
-                    GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()].protectTime = itemInfo.protectTime - 1;
-                } else {
-                    Laya.timer.clear(this, time)
-                }
-            }
-        });
+        // Laya.timer.loop(1000, this, function time(): void {
+        //     num += 1;
+        //     if (num > 1) {
+        //         if (GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()].protectTime > 0) {
+        //             GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()].protectTime = itemInfo.protectTime - 1;
+        //         } else {
+        //             Laya.timer.clear(this, time)
+        //         }
+        //     }
+        // });
         msg.clear();
         msg = null;
     }
@@ -1952,9 +1952,9 @@ class ServerListener extends SingletonClass {
             }
         }
         //刷新主界面剧情界面任务
-        PanelManage.Main.view_scene._childs[0].init_noChange();
+        view.main.Main_JuQingItem.self.updateTaskinfo()
         //刷新主界面场景界面任务
-        PanelManage.Main.view_scene._childs[1].updataMonsterByTask();
+        // PanelManage.Main.view_scene._childs[1].updataMonsterByTask();
         //刷新任务列表
         let TaskDialog: view.dialog.TaskDialog = Laya.Dialog.getDialogsByGroup('TaskDialog')[0];
         TaskDialog && TaskDialog.setData();
@@ -1985,7 +1985,7 @@ class ServerListener extends SingletonClass {
             }
         }
         //刷新主界面任务
-        PanelManage.Main.view_scene._childs[0].init_noChange();
+        view.main.Main_JuQingItem.self.updateTaskinfo()
         //刷新任务列表
         let TaskDialog: view.dialog.TaskDialog = Laya.Dialog.getDialogsByGroup('TaskDialog')[0];
         TaskDialog && TaskDialog.setData();

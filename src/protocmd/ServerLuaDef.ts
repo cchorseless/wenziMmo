@@ -138,7 +138,7 @@ module ProtoCmd {
     export const JQ_GET_JQ_PIANZHANG = 'getJuQingPianZhang';
 
     // 剧情章节目录:篇章ID
-    export const JQ_GET_JQ_ZHANGJIE = 'getJuQingCharpter';   //参数  篇章ID  获取一整篇
+    // export const JQ_GET_JQ_ZHANGJIE = 'getJuQingCharpter';   //参数  篇章ID  获取一整篇
 
     // 剧情详情:章节ID
     export const JQ_GET_JQ_JuQingInfo = 'getJuQingInfo';
@@ -927,12 +927,13 @@ module ProtoCmd {
     }
 
     /**
-     * 单条篇章目录
+     * 单个篇章目录
      */
     export interface itf_JUQING_PIANZHANG {
-        id: number;// 篇章ID
-        name: number;// 篇章名称
+        pzid: number;// 篇章ID
+        pzname: number;// 篇章名称
         cnt: number;// 篇章内章节数量
+        charpterInfo: any;//
     }
 
     /**
@@ -949,7 +950,8 @@ module ProtoCmd {
         zjid: number;// 章节ID
         zslvl: number;// 转生等级
         index: string;//章节编号
-        events: any;//事件信息
+        pzid: number;//篇章ID
+        maxPage: number;//最大页数
     }
 
     /**

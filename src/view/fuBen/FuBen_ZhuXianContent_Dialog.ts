@@ -9,13 +9,13 @@ module view.fuBen {
 			FuBen_ZhuXianContent_Dialog.self = this;
 			this.addEvent();
 		}
-		public setData(stageData, data, hasGet) {
+		public setData(stageData, data) {
 			this.cengID = stageData.ceng;
 			this.hbox_1.removeChildren();
 			this.hbox_2.removeChildren();
 			this.panel_reward1.removeChildren();
 			this.panel_reward2.removeChildren();
-			this.hasGet = hasGet;
+			this.hasGet = stageData.star > 0;
 			this.html_StageName.style.fontFamily = 'STXingkai';
 			this.html_StageName.style.fontSize = 28;
 			this.html_StageName.style.align = 'center';
@@ -74,8 +74,8 @@ module view.fuBen {
 			}
 
 			dropItems = dropReward.split('|');
-			let item0 = {index:0,num:0,bind:0};
-			let item1 = {index:0,num:0,bind:0};
+			let item0 = { index: 0, num: 0, bind: 0 };
+			let item1 = { index: 0, num: 0, bind: 0 };
 			for (let i = 0; i < dropItems.length; i++) {
 				let o = new compart.DaoJuWithNameItem();
 				let itembase = new ProtoCmd.ItemBase();

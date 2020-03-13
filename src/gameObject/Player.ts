@@ -63,20 +63,17 @@ module GameObject {
         public guildInfo: ProtoCmd.stSingleGuildinfoBase;// 行会信息
         // *****************剧情*******************
         public talkInfo = {};// 所有对白信息
-        public allCharpterInfo = {};//一篇里面所有章节的掉落信息{{章节ID：章节info}}
-        public volumeCharpterInfo = {}//章节信息
-
-
-
-        public pagesNum: { [index: number]: number } = {};  //当前已开启章节的总页数
-
-        public curCharpterHasPass = true;   //是否通关当前章节的所有主线副本
+        public allCharpterInfo = {};//所有章节信息
+        public allPianZhangInfo = null//篇章信息 {index:{id,name,charpterInfo}
+        // public allFuBenInfo = {};// 主线副本信息
+        public curFuBenMainID = 1;   //是否通关当前章节的所有主线副本
 
         public pianZhangID: number;// 篇章ID
         public charpterID: number;// 章节ID
         public talkID: number;// 对白ID
         public charpterName: string;// 章节名字
         public pianZhangName: string;// 篇章名字
+
         /******************技能******************** */
         public skill_stage: { [index: number]: number } = {};
         public comboTypeByPage = {}  //根据页数的技能组合ID以及其对应数量
@@ -91,11 +88,11 @@ module GameObject {
         //副本ID
         public curFuBenID = 0;
         //副本怪物战力
-        public fubenMonsterPower =0;
+        public fubenMonsterPower = 0;
         //主线副本奖励
         public zhuxianFuBenReward = {
-            '0':null,
-            '1':null
+            '0': null,
+            '1': null
         }
 
         // public TitleID = null;
@@ -546,7 +543,6 @@ module GameObject {
          * @param data 
          */
         public changeJuQingInfo(data: ProtoCmd.itf_JUQING_SELFINFO) {
-            console.log(data);
             this.charpterID = data.zjid;
             this.talkID = data.dbid;
             this.pianZhangID = data.pzid;// 篇章ID
@@ -555,18 +551,21 @@ module GameObject {
             this.getFuBenMainMsg()
 
         }
+        /**
+         * 拉取除魔副本信息
+         */
         public getFuBenMainMsg() {
-            let self = this;
-            let pkt = new ProtoCmd.QuestClientData();
-            pkt.setString(ProtoCmd.FB_ChuMoClientOpen, [this.charpterID], null, this, (jsonData: ProtoCmd.itf_FB_MainFbInfo) => {
-                console.log(jsonData)
-                for (let i in jsonData.state) {
-                    if (jsonData.ceng <= jsonData.state[i].ceng) {
-                        self.curCharpterHasPass = false
-                    }
-                }
-            })
-            lcp.send(pkt);
+            // if (this.allFuBenInfo[this.charpterID]) {
+            //     return
+            // }
+            // else {
+            //     let pkt = new ProtoCmd.QuestClientData();
+            //     pkt.setString(ProtoCmd.FB_ChuMoClientOpen, [this.charpterID], null, this, (jsonData: ProtoCmd.itf_FB_MainFbInfo) => {
+            //         this.allFuBenInfo[this.charpterID] = jsonData;
+            //     })
+            //     lcp.send(pkt);
+            // }
+
         }
 
 

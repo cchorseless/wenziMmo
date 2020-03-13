@@ -1,100 +1,111 @@
 /**Created by the LayaAirIDE*/
 module view.fuBen {
 	export class FuBen_ZhuXIan_Panel_info extends ui.fuBen.FuBen_ZhuXIan_Panel_infoUI {
-		public isUnLock = false;
-		public dbid;
-		public curStage;
-		public myStage;
+
 		public jsonData;
-		public hasGet = false;
-		public needLv;
 		constructor() {
 			super();
 			this.addEvent();
 		}
 		public addEvent() {
-			this.on(Laya.UIEvent.CLICK, this, function () {
-				if (!this.isUnLock) {
-					if (GameApp.MainPlayer.level < this.needLv) {
-						TipsManage.showTips('未达到关卡等级')
-					} else {
-						if (this.myStage < this.curStage) {
-							TipsManage.showTips('未通关该关卡前置')
-						} else {
-							if (GameApp.MainPlayer.talkID < this.dbid) {
-								TipsManage.showTips('未解锁对应章节')
-							}
-						}
+			for (let i = 0; i < 3; i++) {
+				this['img_bg' + i].on(Laya.UIEvent.CLICK, this, () => {
+					let fubenInfo = this.jsonData[i + 1];
+					// 已解锁
+					if (GameApp.MainPlayer.curFuBenMainID >= fubenInfo.ceng) {
+						this.showDialog(fubenInfo.ceng);
 					}
-				}
-				else {
-					this.showDialog();
-				}
-			})
+					// 未解锁
+					else {
+						TipsManage.showTips('通关前一关卡可以解锁')
+					}
+				})
+			}
+
 		}
-		public showDialog() {
-			if (this.jsonData.ceng == null) { return };
+		public showDialog(ceng) {
 			let pkt = new ProtoCmd.QuestClientData();
 			// type(1强化等级，2神盾，3龙魂，4光翼，5武器等级,6穿戴多少件多少等级的装备，8勋章ID)
-			pkt.setString(ProtoCmd.FB_ChuMoCengOpen, [this.jsonData.ceng], null, this, (jsonData: { type?: number, need?: number, lv?: number, item: any, times: number }) => {
+			pkt.setString(ProtoCmd.FB_ChuMoCengOpen, [ceng], null, this, (jsonData: { type?: number, need?: number, lv?: number, item: any, times: number }) => {
 				console.log(jsonData)
 				let o = new FuBen_ZhuXianContent_Dialog();
-				o.setData(this.jsonData, jsonData, this.hasGet);
+				// 层数转化成索引
+				let index = ceng % 3 || 3;
+				o.setData(this.jsonData[index], jsonData);
 				o.popup();
 			});
 			lcp.send(pkt);
 		}
-		public setData(curCeng, jsonData, stageID) {
-			this.dbid = jsonData.dbid;
-			this.needLv = jsonData.lv;
-			this.jsonData = jsonData;
-			this.myStage = curCeng;
-			this.curStage = jsonData.ceng
-			if (GameApp.MainPlayer.level >= jsonData.lv) {
-				if (curCeng >= jsonData.ceng) {
-					if (GameApp.MainPlayer.talkID >= jsonData.dbid) {
-						this.isUnLock = true
-					}
-				}
+
+		public setData(jsonData) {
+			// jsonData要排序
+			let tmp = {}
+			for (let i = 1; jsonData[i]; i++) {
+				let tmpdata = jsonData[i];
+				tmp[tmpdata.ceng % 3 || 3] = tmpdata;
+			}
+			console.log(tmp)
+			this.jsonData = tmp;
+			for (let i = 1; i < 4; i++) {
+				this.setItemData(i - 1, this.jsonData[i]);
 			}
 
-			if (curCeng > jsonData.ceng) {
-				this.hasGet = true
-			}
-			if (this.isUnLock) {
-				this.img_bg.visible = true;
-				this.img_bg1.visible = false;
-			} else {
-				this.img_bg.visible = false;
-				this.img_bg1.visible = true;
-			}
-			let curStageID = SheetConfig.Thread_sweep_tbl.getInstance(null).NUMBER_CHECKPOINTS(jsonData.ceng)
-			this.html_StageID.style.fontFamily = 'STXingkai';
-			this.html_StageID.style.fontSize = 30;
-			this.html_StageID.style.align = 'center';
-			this.html_StageID.style.color = '#ffffff';
-			this.html_StageID.innerHTML = "<span>" + curStageID + '</span>';
+		}
 
-			this.html_StageID1.style.fontFamily = 'STXingkai';
-			this.html_StageID1.style.fontSize = 30;
-			this.html_StageID1.style.align = 'center';
-			this.html_StageID1.style.color = '#ffffff';
-			this.html_StageID1.innerHTML = "<span>" + curStageID + '</span>';
-
+		/**
+		 * 设置子对象数据
+		 * @param index 
+		 * @param data 
+		 */
+		public setItemData(index, jsonData) {
+			let html_StageID = this['html_StageID' + index];
+			let img_icon = this['img_icon' + index];
+			let lab_BossName = this['lab_BossName' + index];
+			let lab_StageName = this['lab_StageName' + index];
+			let img_Star3_ = this['img_Star3_' + index];
+			let img_Star2_ = this['img_Star2_' + index];
+			let img_Star1_ = this['img_Star1_' + index];
+			let img_bg = this['img_bg' + index];
+			// 副本层数 1-1
+			html_StageID.style.fontFamily = 'STXingkai';
+			html_StageID.style.fontSize = 30;
+			html_StageID.style.align = 'center';
+			html_StageID.style.color = '#ffffff';
+			let curStageID = SheetConfig.Thread_sweep_tbl.getInstance(null).NUMBER_CHECKPOINTS(jsonData.ceng);
+			html_StageID.innerHTML = "<span>" + curStageID + '</span>';
 			let iconID = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE(jsonData.monsterid)
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME(jsonData.monsterid)
-			this.img_icon.skin = this.img_icon1.skin = 'image/common/npc/npc_half_' + iconID + '.png';
-			this.lab_BossName.text = this.lab_BossName1.text = name;
-			this.lab_StageName1.text = this.lab_StageName.text = jsonData.title;
-			for (let i = 1; i < 4; i++) {
-				this['img_Star' + i].skin = 'image/fuben/star_big_02.png'
-				this['img_Star' + i + '_1'].skin = 'image/fuben/star_small_02.png'
+			// BOSS形象
+			img_icon.skin = this.img_icon1.skin = 'image/common/npc/npc_half_' + iconID + '.png';
+			// BOSS名称
+			lab_BossName.text = name;
+			// 关卡名称
+			lab_StageName.text = jsonData.title;
+			// 关卡星级
+			switch (jsonData.star) {
+				case 0:
+					img_Star3_.skin = img_Star2_.skin = img_Star1_.skin = 'image/fuben/star_small_02.png';
+					break;
+				case 1:
+					img_Star1_.skin = 'image/fuben/star_small_01.png';
+					img_Star3_.skin = img_Star2_.skin = 'image/fuben/star_small_02.png';
+					break;
+				case 2:
+					img_Star2_.skin = img_Star1_.skin = 'image/fuben/star_small_01.png';
+					img_Star3_.skin = 'image/fuben/star_small_02.png';
+					break;
+				case 3:
+					img_Star3_.skin = img_Star2_.skin = img_Star1_.skin = 'image/fuben/star_small_01.png';
+					break;
 			}
-			if (jsonData.star > 0) {
-				for (let i = 1; i < jsonData.star+1; i++) {
-					this['img_Star' + i].skin = 'image/fuben/star_big_1.png'
-					this['img_Star' + i + '_1'].skin = 'image/fuben/star_small_01.png'
-				}
+			if (GameApp.MainPlayer.curFuBenMainID >= jsonData.ceng) {
+				// 背景图
+				img_bg.skin = 'image/fuben/img_guanka_selected.png';
+				img_bg.height = 639
+			}
+			else {
+				img_bg.skin = 'image/fuben/img_guanka_normal.png';
+				img_bg.height = 611
 			}
 
 		}

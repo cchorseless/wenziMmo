@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":5,
+    "selectedBox":13,
+    "selecteID":10,
     "props":{"width":474,"sceneColor":"#ffffff","height":300},
     "nodeParent":-1,
     "label":"View",
@@ -19,12 +19,24 @@
             "nodeParent":1,
             "label":"Image(img_panel_Bg)",
             "isOpen":true,
-            "isDirectory":false,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":13,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"VBox",
+                    "props":{"var":"vbox_show","top":0,"space":5,"right":0,"left":0},
+                    "nodeParent":13,
+                    "label":"VBox(vbox_show)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":10,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -32,14 +44,13 @@
             "props":{"y":0,"x":0,"width":474,"var":"img_bg","skin":"image/juQingMode/box_ml_01.png","height":49},
             "nodeParent":1,
             "label":"Image(img_bg)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
-                    "x":30,
                     "type":"HTMLDivElement",
                     "props":{"y":10,"x":5,"width":100,"var":"lab_volumeIndex","height":30},
                     "nodeParent":2,
@@ -52,7 +63,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"HTMLDivElement",
                     "props":{"y":10,"x":132,"width":100,"var":"lab_volumeName","height":28},
                     "nodeParent":2,
@@ -65,7 +75,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"HTMLDivElement",
                     "props":{"y":13,"x":300,"width":166,"var":"lab_total_VolumeNum","innerHTML":"htmlText","height":24},
                     "nodeParent":2,
@@ -84,14 +93,13 @@
             "props":{"y":8,"x":362,"var":"img_lock","skin":"image/juQingMode/icon_shuo_01.png"},
             "nodeParent":1,
             "label":"Image(img_lock)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":9,
             "child":[
                 {
-                    "x":30,
                     "type":"HTMLDivElement",
                     "props":{"y":4,"x":28,"width":78,"var":"lab_noLock","innerHTML":"未解锁","height":24},
                     "nodeParent":9,
@@ -100,31 +108,6 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":16,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Panel",
-            "props":{"width":452,"var":"panel_info","top":55,"right":11,"left":11,"height":100},
-            "nodeParent":1,
-            "label":"Panel(panel_info)",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":8,
-            "child":[
-                {
-                    "type":"VBox",
-                    "props":{"var":"vbox_show","top":0,"space":5,"right":0,"left":0},
-                    "nodeParent":8,
-                    "label":"VBox(vbox_show)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":10,
                     "child":[
                         ]
                 }]
