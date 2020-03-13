@@ -22,11 +22,11 @@ module view.juQingMode {
 					contentText = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMDES(id);
 					break;
 				case "n":                     //NPC
-					name = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(id);
+					name = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(id).split("_")[0] +'';
 					contentText = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_DES1(id);
 					break;
 				case "m":                     //怪物
-					name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME(id);
+					name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME(id).split("_")[0] +'';
 					contentText = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTERDES(id);
 					break;
 			}

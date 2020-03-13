@@ -5,9 +5,11 @@ module view.scene {
 			super();
 			this.addEvent()
 		}
+		public static ARGUE = 'argue';
 		// public _skeGroup: SkeletonUtil.SkeletonGroup = new SkeletonUtil.SkeletonGroup();
 		public item: GameObject.Player;
 		public setData(item: GameObject.Player): void {
+
 			this.item = item;
 			this.item.ui_item = this;
 			// 名字
@@ -41,6 +43,14 @@ module view.scene {
 		}
 
 		public addEvent(): void {
+			// GameApp.LListener.on()
+			GameApp.LListener.on(view.scene.PlayerInSceneItem.ARGUE,this,function(res){
+				if(res == '1'){
+					this.img_Argue.visible = true;
+				}else{
+					this.img_Argue.visible = false;
+				}
+			});
 			GameApp.LListener.on(ProtoCmd.UP_DATE_DRESS, this, function () {
 				let ch = GameApp.GameEngine.mainPlayer.feature.nTitleId;
 
@@ -130,6 +140,9 @@ module view.scene {
 
 		public updateZuoBiao(): void {
 			// this.lbl_hp.text = '' + this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
+		}
+		public changeHeartNum(num) {
+			this.lab_Argue.text = '心理值:' + num;
 		}
 		public showPower(num, type) {
 			this.fc_Num.alpha = 1;

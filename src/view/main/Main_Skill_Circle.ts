@@ -14,14 +14,6 @@ module view.main {
 			// let cd = 1;
 			let self = this;
 			let spanH = (100 / (cd * 1000)) * 69;
-			// if (this.skillID) {
-			// 	this.gray = true
-			// 	this.isCD = true;
-			// 	Laya.timer.once(1000 * cd, this, function () {
-			// 		self.gray = false;
-			// 		self.isCD = false;
-			// 	})
-			// }
 			if (self.skillID) {
 				self.img_mask.visible = true;
 				self.img_mask.height = 69;

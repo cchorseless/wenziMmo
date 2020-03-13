@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":9,
-    "selecteID":7,
+    "selectedBox":71,
+    "selecteID":73,
     "props":{"width":555,"sceneColor":"#ffffff","height":625},
     "nodeParent":-1,
     "label":"Dialog",
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"Tab",
-            "props":{"y":24,"x":52,"var":"tab_des","stateNum":2,"skin":"image/common/yeqian_xiaotanchaung.png","selectedIndex":0,"labels":"属性,武学,评论","labelSize":24,"labelPadding":"-5","labelFont":"fzxk","labelColors":"#736663,#903f14,#903f14"},
+            "props":{"y":24,"x":52,"var":"tab_des","stateNum":2,"skin":"image/common/yeqian_xiaotanchaung.png","selectedIndex":0,"labels":"属性,武学","labelSize":24,"labelPadding":"-5","labelFont":"fzxk","labelColors":"#736663,#903f14,#903f14"},
             "nodeParent":1,
             "label":"Tab(tab_des)",
             "isDirectory":false,
@@ -190,13 +190,14 @@
                     "props":{"y":7,"x":2,"width":260,"var":"box_shuxing","name":"item0","height":467},
                     "nodeParent":113,
                     "label":"Box(box_shuxing)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":112,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":42,"x":18,"width":200,"skin":"image/common/wuxue/line_01.png"},
                             "nodeParent":112,
@@ -210,6 +211,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{},
                             "nodeParent":112,
@@ -221,6 +223,7 @@
                             "compId":19,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"好感：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":19,
@@ -233,6 +236,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":154,"var":"lab_haogan","text":"民满天星","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":19,
@@ -247,6 +251,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":55,"x":0},
                             "nodeParent":112,
@@ -258,6 +263,7 @@
                             "compId":65,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"立场：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":65,
@@ -270,6 +276,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":85,"var":"lab_lichang","text":"民满天星","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":65,
@@ -284,6 +291,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":86,"x":0},
                             "nodeParent":112,
@@ -295,6 +303,7 @@
                             "compId":68,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"喜好：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":68,
@@ -307,6 +316,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"wordWrap":true,"width":195,"var":"lab_xihao","text":"民满天星","height":50,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":68,
@@ -321,6 +331,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":164},
                             "nodeParent":112,
@@ -332,6 +343,7 @@
                             "compId":71,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"名誉：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":71,
@@ -344,6 +356,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":85,"var":"lab_mingyu","text":"民满天星","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":71,
@@ -358,6 +371,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":196},
                             "nodeParent":112,
@@ -369,6 +383,7 @@
                             "compId":74,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"隶属：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":74,
@@ -381,6 +396,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":85,"var":"lab_lishu","text":"民满天星","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":74,
@@ -395,6 +411,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":227},
                             "nodeParent":112,
@@ -406,6 +423,7 @@
                             "compId":77,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"身份：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":77,
@@ -418,6 +436,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":85,"var":"lab_shenfen","text":"民满天星","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":77,
@@ -432,6 +451,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":259},
                             "nodeParent":112,
@@ -443,6 +463,7 @@
                             "compId":78,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"战力：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":78,
@@ -455,6 +476,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":85,"var":"lab_zhanlli","text":"民满天星","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":78,
@@ -469,6 +491,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":321},
                             "nodeParent":112,
@@ -480,6 +503,7 @@
                             "compId":83,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"臂力：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":83,
@@ -492,6 +516,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":85,"var":"lab_bili","text":"90","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":83,
@@ -506,6 +531,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":352},
                             "nodeParent":112,
@@ -517,6 +543,7 @@
                             "compId":84,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"洞察：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":84,
@@ -529,6 +556,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":85,"var":"lab_dongcha","text":"80","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":84,
@@ -543,6 +571,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":383},
                             "nodeParent":112,
@@ -554,6 +583,7 @@
                             "compId":85,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"魅力：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":85,
@@ -566,6 +596,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":85,"var":"lab_meili","text":"90","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":85,
@@ -580,6 +611,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":414},
                             "nodeParent":112,
@@ -591,6 +623,7 @@
                             "compId":86,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"口才：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":86,
@@ -603,6 +636,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":85,"var":"lab_koucai","text":"90","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":86,
@@ -617,6 +651,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":445},
                             "nodeParent":112,
@@ -628,6 +663,7 @@
                             "compId":107,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"生命值：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":107,
@@ -640,6 +676,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":70,"width":85,"var":"lab_shengming","text":"9000","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":107,
@@ -654,6 +691,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":321,"x":117},
                             "nodeParent":112,
@@ -665,6 +703,7 @@
                             "compId":95,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"攻击：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":95,
@@ -677,6 +716,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":85,"var":"lab_gongji","text":"民满天星","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":95,
@@ -691,6 +731,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":352,"x":117},
                             "nodeParent":112,
@@ -702,6 +743,7 @@
                             "compId":96,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"防御：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":96,
@@ -714,6 +756,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":85,"var":"lab_fangyu","text":"民满天星","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":96,
@@ -728,6 +771,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":383,"x":117},
                             "nodeParent":112,
@@ -739,6 +783,7 @@
                             "compId":97,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"根骨：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":97,
@@ -751,6 +796,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":85,"var":"lab_gengu","text":"民满天星","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":97,
@@ -765,6 +811,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":414,"x":117},
                             "nodeParent":112,
@@ -776,6 +823,7 @@
                             "compId":98,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"text":"悟性：","fontSize":20,"font":"fzxk","color":"#000000"},
                                     "nodeParent":98,
@@ -788,6 +836,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":50,"width":85,"var":"lab_wuxing","text":"民满天星","height":22,"fontSize":20,"font":"fzxk","color":"#63491a"},
                                     "nodeParent":98,
@@ -802,6 +851,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":142,"x":18,"width":200,"skin":"image/common/wuxue/line_01.png"},
                             "nodeParent":112,
@@ -815,6 +865,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":302,"x":18,"width":200,"skin":"image/common/wuxue/line_01.png"},
                             "nodeParent":112,
@@ -827,7 +878,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -1141,7 +1192,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,

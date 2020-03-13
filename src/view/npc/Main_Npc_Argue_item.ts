@@ -32,10 +32,12 @@ module view.npc {
 					, function (res) {
 						console.log('辩论回调' + res)
 						this.parentUI.view_npc.selectedIndex = 0;
+						this.parentUI.close();
 						// GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
 						//打开辩论界面
 					})
 				lcp.send(pkt);
+				// this.uiParent.close();
 			})
 		}
 	}

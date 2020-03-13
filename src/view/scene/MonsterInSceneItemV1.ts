@@ -97,7 +97,7 @@ module view.scene {
 			if(curHP == 0){
 				curHP =10000;
 			}
-			this.lab_hp_ceng.text = ceng + ''
+			this.lab_hp_ceng.text = "x"+ceng;
 
 			this.img_hp_cur.width = Math.ceil((curHP / max) * 360);
 			this.lab_hp.text = curHP + '/' + max;

@@ -189,7 +189,8 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretPkModel), this, this.changePkModel);
         // 更新BOSS归属
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretChangeName), this, this.updateCretChangeName);
-
+        //出牌  结算奖励
+        GameApp.LListener.on(ProtoCmd.argueAttackEnd, this, this.getArgueReward);
 
 
         // 初始化标记
@@ -471,6 +472,12 @@ class ServerListener extends SingletonClass {
         let szMasterName = cbpkt.getValue('szMasterName');// 主人名字
         let btType = cbpkt.getValue('btType');// 0:正常，1: 英雄, 2:道士宠物, 3:英雄道士宠物, 4:怪物归属, 5:怪物队伍归属
         GameApp.LListener.event(ProtoCmd.BossBelong, szMasterName)
+    }
+    /**
+     * NPC辩论  出牌结束奖励
+     */
+    public getArgueReward(data){
+
     }
 
 

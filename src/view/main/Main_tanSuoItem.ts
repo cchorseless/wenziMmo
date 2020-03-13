@@ -127,9 +127,11 @@ module view.main {
 					this.ui_skill.btn_exit.gray = false;
 					this.canLeave = true;
 				})
-			} else {
+			} else if (mode == 0) {
 				scene.BattleFuBenInfoV3Item.self.isAuto = false;
 				this.leaveFuBen();
+			} else if (mode == 2) {
+
 			}
 			this.viw_bottom.selectedIndex = mode;
 		}
@@ -173,6 +175,12 @@ module view.main {
 				// 多人副本   只有boss的野外地图
 				case EnumData.emRoomType.publicFuBen:
 
+					break;
+				// NPC辩论
+				case EnumData.emRoomType.NpcArgue:
+					let pkt3 = new ProtoCmd.QuestClientData();
+					pkt3.setString(ProtoCmd.leaveNpcCopy);
+					lcp.send(pkt3);
 					break;
 			}
 
@@ -304,7 +312,7 @@ module view.main {
 					npcIcon = new view.npc.NpcFunctionItem();
 					npcIcon.setData(obj);
 					break;
-					
+
 			}
 			this.addCreatureObj(npcIcon);
 		}

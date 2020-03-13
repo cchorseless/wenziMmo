@@ -59,6 +59,9 @@ module ProtoCmd {
     //出牌  
     export const argueAttack = 'argueAttack';//(id)出牌:id(1铁证,2诡辩,3反驳)
 
+    //出牌结束奖励
+    export const argueAttackEnd = 'argueAttackEnd';
+
     //结拜  swearNpc(_, npcid)
     export const swearNpc = 'swearNpc';//npcid
 
@@ -304,7 +307,7 @@ module ProtoCmd {
     // 切换弟子出战状态
     export const Hero_ChangeHero = 'ChangeHero';
     // 转生面板
-    export const Hero_zhuanShengPanel = 'zhuanShengPanel';//(1弟子0玩家)
+    export const Hero_zhuanShengPanel = 'zhuanShengPanel';//(1弟子0玩家   
     // 转生
     export const Hero_zhuanSheng = 'zhuanSheng';//(1弟子0玩家)
     // 获取修为面板
@@ -360,35 +363,35 @@ module ProtoCmd {
     // 拉取姓名九宫和生辰八字
     export const JS_birthdateAndCompellation = 'birthdateAndCompellation';
     // 善緣=官印
-    export const JS_OfficialSealPanel = 'OfficialSealPanel';
+    export const JS_Panel4 = 'OfficialSealPanel';
     // 善緣激活
-    export const JS_activeOfficialSeal = 'activeOfficialSeal';
+    export const JS_active4 = 'activeOfficialSeal';
     // 善緣升级
-    export const JS_upgradeOfficialSeal = 'upgradeOfficialSeal';
+    export const JS_upgrade4 = 'upgradeOfficialSeal';
     // 悟性=龙魂
-    export const JS_DragonSoulPanel = 'DragonSoulPanel';//得到数据curscore：当前经验 isfull:是否满级 score: 最大经验
+    export const JS_Panel0 = 'DragonSoulPanel';//得到数据curscore：当前经验 isfull:是否满级 score: 最大经验
     // 悟性激活
-    export const JS_activeDragonSoul = 'activeDragonSoul';
+    export const JS_active0 = 'activeDragonSoul';
     // 悟性升级
-    export const JS_upgradeDragonSoul = 'upgradeDragonSoul';
+    export const JS_upgrade0 = 'upgradeDragonSoul';
     // 臂力-神盾
-    export const JS_ShieldPanel = 'ShieldPanel';
+    export const JS_Panel2 = 'ShieldPanel';
     // 臂力激活
-    export const JS_activeShield = 'activeShield';
+    export const JS_active2 = 'activeShield';
     // 臂力升级
-    export const JS_upgradeShield = 'upgradeShield';
+    export const JS_upgrade2 = 'upgradeShield';
     // 身法=血玉
-    export const JS_BloodJadePanel = 'BloodJadePanel';
+    export const JS_Panel3 = 'BloodJadePanel';
     // 身法激活
-    export const JS_activeBloodJade = 'activeBloodJade';
+    export const JS_active3 = 'activeBloodJade';
     // 身法升级
-    export const JS_upgradeBloodJade = 'upgradeBloodJade';
+    export const JS_upgrade3 = 'upgradeBloodJade';
     // 根骨-勋章
-    export const JS_MedalPanel = 'MedalPanel';
+    export const JS_Panel1 = 'MedalPanel';
     // 根骨激活
-    export const JS_activeMedal = 'activeMedal';
+    export const JS_active1 = 'activeMedal';
     // 根骨升级
-    export const JS_upgradeMedal = 'upgradeMedal';
+    export const JS_upgrade1 = 'upgradeMedal';
     // 请求介绍手册的解锁状态
     export const getIntroductionInfo = 'getIntroductionInfo';
     // 领取介绍手册中奖励
@@ -1030,6 +1033,7 @@ module ProtoCmd {
         maxxw: number//最大修为
         xw: number//当前修为
         xwlvl: number//修为等级
+        jmlvl:number//需要的经脉的等级和
     }
     /**
      * 弟子散功修为面板

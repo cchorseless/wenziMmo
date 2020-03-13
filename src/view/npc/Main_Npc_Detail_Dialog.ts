@@ -63,8 +63,9 @@ module view.npc {
 			'不渝',
 		];
 		public showNPCMsg() {
+			let arr = ['中庸','守序','唯我']
 			this.lab_haogan.text = this.textArr[this.lvl] + ' ' + this.curExp;
-			// this.lab_lichang.text = SheetConfig.mydb_npcgen_tbl.getInstance(null)
+			this.lab_lichang.text = arr[SheetConfig.mydb_npcgen_tbl.getInstance(null).ATTITUDE(this.npcID)]
 			let itemMsg = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(this.npcID);
 			let itemlist = itemMsg.split('|');
 			let xihaoStr = [];
@@ -73,7 +74,8 @@ module view.npc {
 			}
 			this.lab_xihao.text = xihaoStr.join('-');
 
-			this.lab_mingyu.text = '中立';
+			let mingyu = SheetConfig.mydb_npcgen_tbl.getInstance(null).REPUTATION(this.npcID);
+			this.lab_mingyu.text = SheetConfig.reputation.getInstance(null).getNameByNum(mingyu)
 			let menpaiID = SheetConfig.mydb_npcgen_tbl.getInstance(null).SECTS(this.npcID);
 
 			this.lab_lishu.text = SheetConfig.BaseMenPaiSheet.getInstance(null).NAME(menpaiID);
