@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":81,
+    "selectedBox":82,
+    "selecteID":83,
     "props":{"y":0,"x":0,"width":145,"sceneColor":"#ffffff","height":156},
     "nodeParent":-1,
     "label":"View",
@@ -200,6 +200,34 @@
             "compId":81,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":107,"x":7,"visible":false,"var":"img_Argue","skin":"image/npc_jiaohu/frame_xinlizhi.png"},
+            "nodeParent":1,
+            "label":"Image(img_Argue)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":82,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":3,"x":6,"width":120,"var":"lab_Argue","text":"心理值:100","strokeColor":"#000000","height":18,"fontSize":20,"font":"FZXK","color":"#4f230f","align":"center"},
+                    "nodeParent":82,
+                    "label":"Label(lab_Argue)",
+                    "isOpen":false,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":83,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

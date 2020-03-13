@@ -169,7 +169,7 @@ module view.compart {
 
 				}
 				else {
-					this.lbl_count.text = '';
+					this.lbl_count.text = '0';
 				}
 			}
 		}

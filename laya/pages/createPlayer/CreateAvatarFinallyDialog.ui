@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":47,
+    "selectedBox":47,
+    "selecteID":77,
     "props":{"width":632,"sceneColor":"#000000","height":1011},
     "nodeParent":-1,
     "label":"Dialog",
@@ -673,20 +673,6 @@
                 },
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":385,"x":31,"skin":"image/common/create/shadow_jingkai.png"},
-                    "nodeParent":47,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":56,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":927,"x":232,"width":176,"var":"btn_confirm","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelSize":28,"labelFont":"FZXK","labelColors":"#761a1a,#461010","label":"转世投胎","height":60},
                     "nodeParent":47,
@@ -698,21 +684,6 @@
                     "child":[
                         ],
                     "$LOCKED":false,
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":444,"x":7,"skin":"image/juese/jingmai/img_jingmai.png"},
-                    "nodeParent":47,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":58,
-                    "child":[
-                        ],
-                    "$LOCKED":true,
                     "$HIDDEN":false
                 },
                 {
@@ -740,6 +711,35 @@
                             "child":[
                                 ]
                         }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":385,"x":31,"skin":"image/common/create/shadow_jingkai.png"},
+                    "nodeParent":47,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":56,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":444,"x":7,"skin":"image/juese/jingmai/img_jingmai.png"},
+                    "nodeParent":47,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":58,
+                    "child":[
+                        ],
+                    "$LOCKED":true,
                     "$HIDDEN":false
                 },
                 {

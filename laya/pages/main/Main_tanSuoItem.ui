@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":17,
-    "selecteID":18,
+    "selectedBox":74,
+    "selecteID":90,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -351,16 +351,17 @@
             "props":{"x":0,"width":640,"var":"viw_bottom","height":330,"bottom":0},
             "nodeParent":1,
             "label":"ViewStack(viw_bottom)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":74,
             "child":[
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"map/SmallMapItem.ui",
-                    "props":{"x":0,"var":"ui_smallMap","runtime":"view.map.SmallMapItem","name":"item0","bottom":0},
+                    "props":{"y":-48,"x":0,"var":"ui_smallMap","runtime":"view.map.SmallMapItem","name":"item0","bottom":0},
                     "nodeParent":74,
                     "label":"UIView(ui_smallMap)",
                     "isDirectory":false,
@@ -372,6 +373,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"scene/BattleFuBenInfoV3Item.ui",
                     "props":{"var":"ui_skill","runtime":"view.scene.BattleFuBenInfoV3Item","name":"item1","bottom":0},
@@ -381,6 +383,21 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":75,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"scene/BattleFuBenInfoV4Item.ui",
+                    "props":{"y":-48,"x":0,"var":"ui_Aegue","runtime":"view.scene.BattleFuBenInfoV4Item","name":"item2"},
+                    "nodeParent":74,
+                    "label":"UIView(ui_Aegue)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":90,
                     "child":[
                         ],
                     "$HIDDEN":true

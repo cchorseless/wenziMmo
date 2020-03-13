@@ -36,10 +36,12 @@ module view.juQingMode {
 				case EnumData.QUESTSTATUS.QUESTMALLCOMPLETED:
 					this.div_jinDu.innerHTML = '任务已完成';
 					this.btn_qianWang.label = '领取奖励';
+					this.btn_close.visible= false;
 					break;
 				// 进行中
 				case EnumData.QUESTSTATUS.QUESTDOING:
 					this.div_jinDu.innerHTML = '' + taskInfo.taskJinDu;
+					this.btn_close.visible= true;
 					break;
 			}
 

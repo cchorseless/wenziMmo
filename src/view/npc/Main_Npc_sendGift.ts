@@ -29,19 +29,36 @@ module view.npc {
 			// for (let i = 0; i < 10; i++) {
 			// 	this['ui_gift' + i].initView();
 			// }
-
-			for (let i = 0; i < itemlist.length; i++) {
-				let likeValue = SheetConfig.mydb_item_base_tbl.getInstance(null).LIKEVALUE(itemlist[i]);
+			if (itemlist.length == 1) {
+				let likeValue = SheetConfig.mydb_item_base_tbl.getInstance(null).LIKEVALUE(itemlist[0]);
 				// this.lab_haogan
-				this['lab_haogan' + i].text = '+' + likeValue;
+				this['lab_haogan' + 1].text = '+' + likeValue;
 				let item = new ProtoCmd.ItemBase();
-				item.dwBaseID = parseInt(itemlist[i])
+				item.dwBaseID = parseInt(itemlist[0])
 				let num: number = GameUtil.findItemInBag(item.dwBaseID)
 				item.dwCount = num;
 				item.dwBinding = 1;
 				// this.ui_daoju0.setData(item)
-				this['ui_daoju' + i].setData(item)
+				this['ui_daoju' + 1].setData(item)
+				this.ui_daoju0.visible = this.ui_daoju2.visible = false;
+				this.box_value0.visible = this.box_value2.visible = false;
+			} else {
+				this.ui_daoju0.visible = this.ui_daoju2.visible = true;
+				this.box_value0.visible = this.box_value2.visible = true;
+				for (let i = 0; i < itemlist.length; i++) {
+					let likeValue = SheetConfig.mydb_item_base_tbl.getInstance(null).LIKEVALUE(itemlist[i]);
+					// this.lab_haogan
+					this['lab_haogan' + i].text = '+' + likeValue;
+					let item = new ProtoCmd.ItemBase();
+					item.dwBaseID = parseInt(itemlist[i])
+					let num: number = GameUtil.findItemInBag(item.dwBaseID)
+					item.dwCount = num;
+					item.dwBinding = 1;
+					// this.ui_daoju0.setData(item)
+					this['ui_daoju' + i].setData(item)
+				}
 			}
+
 		}
 		public showLight() {
 			for (let i = 0; i < 3; i++) {
@@ -101,7 +118,7 @@ module view.npc {
 					TipsManage.showTips('未选择送礼目标')
 					return;
 				}
-				let itemID =this['ui_daoju' + this.touchID].itemID;
+				let itemID = this['ui_daoju' + this.touchID].itemID;
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.giveGiftToNpc, [this.npcID, itemID], 0, this
 					, function (res) {
 						console.log('送礼回调' + res)

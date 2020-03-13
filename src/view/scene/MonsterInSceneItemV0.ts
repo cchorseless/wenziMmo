@@ -4,7 +4,7 @@ module view.scene {
 		constructor() {
 			super();
 		}
-		public place: number//1战斗界面0移动界面
+		public place: number//1战斗界面0移动界面 2:辩论
 		public item: GameObject.Monster;
 		public setData(item: GameObject.Monster, place): void {
 			this.place = place;
@@ -13,6 +13,10 @@ module view.scene {
 			this.item = item;
 			item.ui_item = this;
 			let name: string = this.item.objName.split("_")[0];
+			if (place == 2) {
+				this.img_Argue.visible = true;
+			}
+
 
 			if (name.length > 4) {
 				this.lbl_name.fontSize = 15
@@ -36,6 +40,9 @@ module view.scene {
 			this.updateUI();
 		}
 		public collectHander: Laya.Handler;// 采集物Hander
+		public changeHeartNum(num) {
+			this.lab_Argue.text = '心理值:' + num;
+		}
 		public addEvent(): void {
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
 				let player = GameApp.MainPlayer;
@@ -43,10 +50,12 @@ module view.scene {
 				if (this.place == 0) {
 					//怪物信息弹窗
 					new view.npc.Main_TanSuoV0Dialog().setData(this.item, 1).popup();
-				} else {
+				} else if (this.place == 1) {
 					//攻击
 					// player["startHandAtk" + job](this.item);
 					player.startHandAtk0(this.item);
+				} else if (this.place == 2) {
+					// new view.npc.Main_TanSuoV1Dialog().setData(this.item).popup();
 				}
 			})
 		}

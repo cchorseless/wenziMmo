@@ -156,4 +156,8 @@ public static getInstance(data): mydb_npcgen_tbl { let Class:any=this;if(!Class.
  *  口才属性
  */
  public ELOQUENCE(configID):number { return this.data[configID][38]}
+/**
+ *  0是中庸，1是守序，2是唯我
+ */
+ public ATTITUDE(configID):number { return this.data[configID][39]}
 }}

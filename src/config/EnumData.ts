@@ -391,7 +391,7 @@ module EnumData {
         talent_wuXing = 1,// 悟性-龙魂
         talent_genGu = 2,// 根骨-勋章
         talent_biLi = 3,// 臂力-神盾
-        talent_shenFa = 4,// 身法-血玉
+        talent_shenFa = 4,// 身法-血玉a
         talent_shanYuan = 5,// 善缘-官印
     }
 
@@ -1148,6 +1148,8 @@ module EnumData {
         zuDuiFuBen = 201,// 组队副本        历练
         publicYeWai = 300, // 普通公共野外     只有小怪
         publicZhuCheng = 301,// 主城
+        NpcArgue = 400,//Npc辩论的战斗场景
+        
 
     }
 

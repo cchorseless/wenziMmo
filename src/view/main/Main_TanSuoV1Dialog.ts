@@ -17,6 +17,13 @@ module view.npc {
 		//技能是否第一次学
 		public skillFirst;
 		public setData(obj: GameObject.Npc): Main_TanSuoV1Dialog {
+			this.btn_jiaoyi.visible = false;
+			let jiaoyiData = SheetConfig.mydb_npcsell_tbl.getInstance(null).data;
+			for(let i in jiaoyiData){
+				if(parseInt(i) == obj.feature.dwCretTypeId){
+					this.btn_jiaoyi.visible = true;
+				}
+			}
 			this.panel_jiaohu.vScrollBarSkin = '';
 			this.vbox_jiaohu['sortItem'] = (items) => { };
 			this.item = obj;
@@ -126,7 +133,8 @@ module view.npc {
 						} else {
 							str = '暗杀失败!'
 						}
-						GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
+						GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str);
+						this.close();
 						// this.parentUI.view_npc.selectedIndex = 0;
 					})
 				lcp.send(pkt);
