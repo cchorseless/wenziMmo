@@ -77,12 +77,10 @@ module GameObject {
         /******************技能******************** */
         public skill_stage: { [index: number]: number } = {};
         public comboTypeByPage = {}  //根据页数的技能组合ID以及其对应数量
-        public taoluPageID;    //当前是哪一页套路  0123
+        // public taoluPageID;    //当前是哪一页套路  0123
         public skillShotButton: { [btRow: string]: ProtoCmd.stShortCuts } = {};// 所有技能快捷键信息
         public skillInfo: { [x: string]: ProtoCmd.stSkillLvlBase } = {};// 所有技能信息
-
         public upGraspSkillID: number;  //升品技能ID
-
         public defaultTaoLuID: number;//默认设置的套路ID
 
         //副本ID
@@ -416,7 +414,7 @@ module GameObject {
          * @param type 
          */
         public removeViewObj(tempId: number, type: EnumData.CRET_TYPE): void {
-            console.log(tempId + '从视野被移除');
+            Log.trace(tempId + '从视野被移除');
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
                     let label = new Laya.Label;
@@ -575,7 +573,7 @@ module GameObject {
          */
         public tryAttack(target: Creature, skillID: number = 999): void {
             this.atkTargetTempId = target.tempId;
-            console.log('当前目标:', this.atkTargetTempId);
+            Log.trace('当前目标:', this.atkTargetTempId);
 
             let pkt = new ProtoCmd.CretAttack();
             pkt.dwTempId = this.tempId;

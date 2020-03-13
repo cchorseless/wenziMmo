@@ -29,12 +29,20 @@ module view.juQingMode {
 			}
 			this.img_bg.left = this.img_showbg.width;
 		}
+
+		public updateUI() {
+			let jsonData = GameApp.MainPlayer.allPianZhangInfo;
+			let keys = Object.keys(jsonData);
+			for (let key of keys) {
+				let charpterInfo: ProtoCmd.itf_JUQING_PIANZHANG = jsonData[key];
+				let ui_item = new JuQing_MuLuInfo();
+				ui_item.setData(charpterInfo, parseInt(key));
+			}
+		}
+
 		public addEvent() {
 			this.img_touch.on(Laya.UIEvent.CLICK, this, function () {
-				JuQingModePanel.self.muluShow = !JuQingModePanel.self.muluShow
-				Laya.Tween.to(JuQingModePanel.self.muluItem, { x: -1 * JuQingModePanel.self.muluItem.width }, 300, null, Laya.Handler.create(this, () => {
-					JuQingModePanel.self.muluItem.visible = this.muluShow;
-				}))
+				JuQingModePanel.self.closeMuLu();
 			})
 			this.on(Laya.Event.MOUSE_DOWN, this, function (e) {
 				this.isTouch = true;
@@ -45,10 +53,7 @@ module view.juQingMode {
 					this.touchEndX = e.stageX;
 					let span = this.touchEndX - this.touchBeginX;
 					if (span < -100) {
-						JuQingModePanel.self.muluShow = !JuQingModePanel.self.muluShow
-						Laya.Tween.to(JuQingModePanel.self.muluItem, { x: -1 * JuQingModePanel.self.muluItem.width }, 300, null, Laya.Handler.create(this, () => {
-							JuQingModePanel.self.muluItem.visible = this.muluShow;
-						}))
+						JuQingModePanel.self.closeMuLu();
 					} else {
 						this.isTouch = false;
 						return;
@@ -57,15 +62,12 @@ module view.juQingMode {
 					return;
 				}
 			})
-			this.on(Laya.UIEvent.MOUSE_UP, this, function (e) {
+			this.on(Laya.UIEvent.MOUSE_OUT, this, function (e) {
 				if (this.isTouch) {
 					this.touchEndX = e.stageX;
 					let span = this.touchEndX - this.touchBeginX;
 					if (span > 100) {
-						JuQingModePanel.self.muluShow = !JuQingModePanel.self.muluShow
-						Laya.Tween.to(JuQingModePanel.self.muluItem, { x: -1 * JuQingModePanel.self.muluItem.width }, 300, null, Laya.Handler.create(this, () => {
-							JuQingModePanel.self.muluItem.visible = this.muluShow;
-						}))
+						JuQingModePanel.self.closeMuLu();
 					} else {
 						this.isTouch = false;
 						return;

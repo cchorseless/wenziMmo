@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":9,
-    "selecteID":11,
+    "selectedBox":7,
+    "selecteID":21,
     "props":{"y":0,"x":0,"width":640,"sceneColor":"#ffffff","height":1004},
     "nodeParent":-1,
     "label":"View",
@@ -78,29 +78,29 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":22,"x":30,"skin":"image/juQingMode/box_common_daojudi.png"},
+                                    "props":{"y":11,"x":-1,"width":94,"skin":"image/juQingMode/box_common_daojudi.png","height":94},
                                     "nodeParent":9,
                                     "label":"Image",
-                                    "isDirectory":false,
+                                    "isOpen":true,
+                                    "isDirectory":true,
                                     "isAniNode":true,
-                                    "hasChild":false,
+                                    "hasChild":true,
                                     "compId":7,
                                     "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Button",
-                                    "props":{"y":33,"x":39,"stateNum":"2","skin":"image/main/icon_wuxue_02down_finish.png"},
-                                    "nodeParent":9,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":11,
-                                    "child":[
-                                        ],
+                                        {
+                                            "x":75,
+                                            "type":"Image",
+                                            "props":{"top":5,"skin":"image/common/ic_launcher.png","right":5,"left":5,"bottom":5},
+                                            "nodeParent":7,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":21,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        }],
                                     "$HIDDEN":false
                                 },
                                 {
@@ -141,7 +141,8 @@
                                     "compId":16,
                                     "child":[
                                         ]
-                                }]
+                                }],
+                            "$HIDDEN":false
                         }],
                     "$LOCKED":true
                 },

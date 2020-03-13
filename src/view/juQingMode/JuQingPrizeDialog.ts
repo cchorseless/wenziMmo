@@ -62,11 +62,11 @@ module view.juQingMode {
 					switch (itemInfo.index) {
 						// 金币
 						case 20015:
-							this.lbl_coinXl.text = itemInfo.num + '/H';
+							this.lbl_coinXl.text = itemInfo.num + '/小时';
 							break;
 						// 玩家经验
 						case EnumData.CoinType.COIN_TYPE_PLAYER_EXP:
-							this.lbl_playerExp.text = itemInfo.num + '/H';
+							this.lbl_playerExp.text = itemInfo.num + '/小时';
 							break;
 						// 英雄经验
 						case EnumData.CoinType.COIN_TYPE_HERO_EXP:

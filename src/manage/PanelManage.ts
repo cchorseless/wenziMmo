@@ -63,24 +63,18 @@ module PanelManage {
     export let JueSe: view.juese.Person_MainPanel;//角色界面
     export let Clothe: view.juese.ClothePanel;//时装界面
     export let WaiGong: view.wuXue.WuXueWaiGongPanel;//武学外功界面
-    export let MiJi: view.wuXue.WuXue_MiJi_Panel;//武学外功界面
+    export let MiJi: view.wuXue.WuXue_MiJi_Panel;//武学秘籍界面
 
-    export let NeiGong: view.wuXue.WuXueNeiGongPanel;//武学内功界面
-    export let HeDao: view.wuXue.WuXueHeDaoPanel;//武学合道界面
-    export let CloseDoor: view.wuXue.WuXueCloseDoorPanel;//武学闭关界面
+
     export let BeiBao: view.beiBao.BagPanel;//背包界面
     export let FuBenMain: view.fuBen.FuBen_MainPanel;//主线副本界面
     export let FuBenJiNa: view.fuBen.FuBen_JiNaPanel;//缉拿副本界面
     export let FuBenRes: view.fuBen.Fuben_ResourcePanel;//资源副本界面
     export let FuBenXinMo: view.fuBen.FuBen_XinMoPanel;//心魔副本界面
-    export let FuBenLiLian: view.fuBen.FuBen_LiLianPanel;//历练副本界面
-    export let FuBenXianShi: view.fuBen.FuBen_XianShiPanel;//限时副本界面
 
 
     export let ZhaiYuan: view.zhaiYuan.ZhaiYuanPanel;//养成界面
-    export let Task_Main: view.task.Task_MainPanel;//主线任务界面
-    export let Task_Daily: view.task.Task_DailyPanel;//日常任务界面
-    export let Task_LiLian: view.task.Task_LiLianPanel;//历练任务界面
+
 
     export let NorthMap: view.map.BigMap_BeiLuPanel;//北陆地图界面
     export let SouthMap: view.map.BigMap_NanLuPanel;//南陆地图界面
@@ -290,48 +284,8 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.MiJi, 1, 0, 2);
         })
     }
-    /**
-    * 武学内功界面
-    */
-    export function openWuXueNeiGongPanel(): void {
-        if (PopUpManager.showPanel(PanelManage.NeiGong)) return;
-        ResManage.loadResource(ResData.PanelRes.NeiGong, () => {
-            PanelManage.NeiGong = new view.wuXue.WuXueNeiGongPanel();
-            PanelManage.NeiGong['LCP_skin'] = ResData.PanelRes.NeiGong;
-            PanelManage.NeiGong.setData();
-            PanelManage.NeiGong.name = "neigong"
-            PanelManage.NeiGong.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.NeiGong, 1, 0, 2);
-        })
-    }
-    /**
-    * 武学合道界面
-    */
-    export function openWuXueHeDaoPanel(): void {
-        if (PopUpManager.showPanel(PanelManage.HeDao)) return;
-        ResManage.loadResource(ResData.PanelRes.HeDao, () => {
-            PanelManage.HeDao = new view.wuXue.WuXueHeDaoPanel();
-            PanelManage.HeDao['LCP_skin'] = ResData.PanelRes.HeDao;
-            PanelManage.HeDao.setData();
-            PanelManage.HeDao.name = "hedao"
-            PanelManage.HeDao.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.HeDao, 1, 0, 2);
-        })
-    }
-    /**
-      * 武学闭关界面
-      */
-    export function openWuXueCloseDoorPanel(): void {
-        if (PopUpManager.showPanel(PanelManage.CloseDoor)) return;
-        ResManage.loadResource(ResData.PanelRes.CloseDoor, () => {
-            PanelManage.CloseDoor = new view.wuXue.WuXueCloseDoorPanel();
-            PanelManage.CloseDoor['LCP_skin'] = ResData.PanelRes.CloseDoor;
-            PanelManage.CloseDoor.setData();
-            PanelManage.CloseDoor.name = "biguan"
-            PanelManage.CloseDoor.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.CloseDoor, 1, 0, 2);
-        })
-    }
+
+
 
 
 
@@ -543,8 +497,8 @@ module PanelManage {
         })
     }
     /**
-* 新服活动
-*/
+     * 新服活动
+     */
     export function openNewServer_MainPanel(): void {
         // if (PopUpManager.showPanel(PanelManage.NewServerActive)) return;
         ResManage.loadResource(ResData.PanelRes.NewServerActive, () => {
@@ -609,47 +563,10 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.BeiBao, 1, 0, 2);
         })
     }
-    /**
-     * 主线任务界面
-     */
-    export function openTask_MainPanel(): void {
-        if (PopUpManager.showPanel(PanelManage.Task_Main)) return;
-        ResManage.loadResource(ResData.PanelRes.Task_Main, () => {
-            PanelManage.Task_Main = new view.task.Task_MainPanel();
-            PanelManage.Task_Main['LCP_skin'] = ResData.PanelRes.Task_Main;
-            PanelManage.Task_Main.setData();
-            PanelManage.Task_Main.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Task_Main, 2, 0, 2);
-        })
-    }
 
-    /**
-     * 日常任务界面
-     */
-    export function openTask_DailyPanel(): void {
-        if (PopUpManager.showPanel(PanelManage.Task_Daily)) return;
-        ResManage.loadResource(ResData.PanelRes.Task_Daily, () => {
-            PanelManage.Task_Daily = new view.task.Task_DailyPanel();
-            PanelManage.Task_Daily['LCP_skin'] = ResData.PanelRes.Task_Daily;
-            PanelManage.Task_Daily.setData();
-            PanelManage.Task_Daily.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Task_Daily, 2, 0, 2);
-        })
-    }
 
-    /**
-     * 历练任务界面
-     */
-    export function openTask_LiLianPanel(): void {
-        if (PopUpManager.showPanel(PanelManage.Task_LiLian)) return;
-        ResManage.loadResource(ResData.PanelRes.Task_LiLian, () => {
-            PanelManage.Task_LiLian = new view.task.Task_LiLianPanel();
-            PanelManage.Task_LiLian['LCP_skin'] = ResData.PanelRes.Task_LiLian;
-            PanelManage.Task_LiLian.setData();
-            PanelManage.Task_LiLian.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Task_LiLian, 2, 0, 2);
-        })
-    }
+
+
 
     /**
      * 主线副本界面
@@ -704,33 +621,9 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.FuBenXinMo, 2, 0, 2);
         })
     }
-    /**
-     * 历练副本界面
-     */
-    export function openFuBenLiLianPanel(): void {
-        if (PopUpManager.showPanel(PanelManage.FuBenLiLian)) return;
-        ResManage.loadResource(ResData.PanelRes.FuBenLiLian, () => {
-            PanelManage.FuBenLiLian = new view.fuBen.FuBen_LiLianPanel();
-            PanelManage.FuBenLiLian['LCP_skin'] = ResData.PanelRes.FuBenLiLian;
-            PanelManage.FuBenLiLian.setData();
-            PanelManage.FuBenLiLian.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.FuBenLiLian, 2, 0, 2);
-        })
-    }
 
-    /**
-     * 限时副本界面
-     */
-    export function openFuBenXianShiPanel(): void {
-        if (PopUpManager.showPanel(PanelManage.FuBenXianShi)) return;
-        ResManage.loadResource(ResData.PanelRes.FuBenXianShi, () => {
-            PanelManage.FuBenXianShi = new view.fuBen.FuBen_XianShiPanel();
-            PanelManage.FuBenXianShi['LCP_skin'] = ResData.PanelRes.FuBenXianShi;
-            PanelManage.FuBenXianShi.setData();
-            PanelManage.FuBenXianShi.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.FuBenXianShi, 2, 0, 2);
-        })
-    }
+
+  
 
 
 

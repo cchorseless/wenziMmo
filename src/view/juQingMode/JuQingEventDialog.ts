@@ -63,26 +63,28 @@ module view.juQingMode {
 			EventManage.onWithEffect(this.btn_close, Laya.UIEvent.CLICK, this, this.close);
 			// 前往任务
 			EventManage.onWithEffect(this.btn_qianWang, Laya.UIEvent.CLICK, this, () => {
-				// 任务进度
-				switch (this.taskInfo.queststatus) {
-					// 完成
-					case EnumData.QUESTSTATUS.QUESTCOMPLETED:
-					case EnumData.QUESTSTATUS.QUESTMALLCOMPLETED:
-						let pkt = new ProtoCmd.SelectTalkOptionEncoder();
-						pkt.questType = this.taskInfo.questtype;
-						pkt.showone = true;
-						pkt.funcname = 'questfinish~' + this.taskInfo.taskid;
-						lcp.send(pkt)
-						break;
-					// 进行中
-					case EnumData.QUESTSTATUS.QUESTDOING:
-						for (let _ele of this.div_targetDes._childs) {
-							if (_ele.href) {
-								this.div_targetDes.event(Laya.Event.LINK, _ele.href)
-							}
-						}
-						break;
-				}
+				// // 任务进度
+				// switch (this.taskInfo.queststatus) {
+				// 	// 完成
+				// 	case EnumData.QUESTSTATUS.QUESTCOMPLETED:
+				// 	case EnumData.QUESTSTATUS.QUESTMALLCOMPLETED:
+				// 		let pkt = new ProtoCmd.SelectTalkOptionEncoder();
+				// 		pkt.questType = this.taskInfo.questtype;
+				// 		pkt.showone = true;
+				// 		pkt.funcname = 'questfinish~' + this.taskInfo.taskid;
+				// 		lcp.send(pkt)
+				// 		break;
+				// 	// 进行中
+				// 	case EnumData.QUESTSTATUS.QUESTDOING:
+				// 		for (let _ele of this.div_targetDes._childs) {
+				// 			if (_ele.href) {
+				// 				this.div_targetDes.event(Laya.Event.LINK, _ele.href)
+				// 			}
+				// 		}
+				// 		break;
+				// }
+				PanelManage.openFuBenMainPanel('juQing')
+				// PanelManage.JuQingMode.
 				this.close();
 			});
 			// 点击任务前往

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":80,
-    "selecteID":97,
+    "selectedBox":78,
+    "selecteID":75,
     "props":{"width":510,"sceneColor":"#ffffff","height":520},
     "nodeParent":-1,
     "label":"View",
@@ -337,16 +337,17 @@
                                     "props":{"y":17.5,"x":108,"var":"Max"},
                                     "nodeParent":33,
                                     "label":"Box(Max)",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":78,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"UIView",
                                             "source":"wuXue/WuXue_logoWithNameItem.ui",
-                                            "props":{"y":56.5,"x":149,"var":"ui_max","runtime":"view.wuXue.WuXue_logoWithNameItem"},
+                                            "props":{"y":-10,"x":83,"var":"ui_max","runtime":"view.wuXue.WuXue_logoWithNameItem"},
                                             "nodeParent":78,
                                             "label":"UIView(ui_max)",
                                             "isDirectory":false,
@@ -357,6 +358,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":114.5,"x":92,"width":118,"var":"lab_max_ZZ","text":"资质: 15","height":26,"fontSize":22,"font":"fzxk","color":"#000000","align":"center"},
                                             "nodeParent":78,
@@ -370,6 +372,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":144.5,"width":302,"text":"顶级武学，无需领悟","height":26,"fontSize":22,"font":"fzxk","color":"#bf8247","align":"center"},
                                             "nodeParent":78,

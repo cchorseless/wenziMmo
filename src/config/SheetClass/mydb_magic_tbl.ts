@@ -71,7 +71,7 @@ module SheetConfig {
          */
         public HIT_COEFFICIENT(configID): number { return this.data[configID][16] }
         /**
-         *  技能攻击类型
+         *  远程/近战
          */
         public ATK_TYPE(configID): number { return this.data[configID][17] }
         /**
@@ -103,7 +103,7 @@ module SheetConfig {
          */
         public MAXIMUM_RANGE(configID): number { return this.data[configID][24] }
         /**
-         *  技能的攻击类型
+         *  0物理/1魔法
          */
         public INJURY_TYPE(configID): number { return this.data[configID][25] }
         /**
@@ -231,11 +231,11 @@ module SheetConfig {
          */
         public ICONPATH(configID): number { return this.data[configID][56] }
         /**
-         *  暂时不用
+         *  0拳脚1刀剑2长枪3奇门
          */
         public SKILLTYPE(configID): number { return this.data[configID][57] }
         /**
-         *  技能属性,1拳脚2刀剑3长枪4奇门
+         *  技能属性,0拳脚1刀剑2长枪3奇门
          */
         public SKILLEXTRAPROP(configID): number { return this.data[configID][58] }
         /**
@@ -299,9 +299,9 @@ module SheetConfig {
          */
         public RETURN_DEBRIS(configID): number { return this.data[configID][73] }
         /**
-             * 获取技能数据
-             * @param skillID 技能编号
-             */
+         * 获取技能数据
+         * @param skillID 技能编号
+         */
         public getAllData(skillID: number): any {
             let base;
             for (let i in this.data) {
@@ -326,4 +326,8 @@ module SheetConfig {
             return num;
         }
     }
+
+
+
+
 }

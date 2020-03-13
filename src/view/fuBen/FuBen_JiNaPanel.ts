@@ -142,8 +142,8 @@ module view.fuBen {
 			this.update_yeWai(dangqian)
 		}
 		/**
-	 *更新缉盗悬赏(野外BOSS)
-	 */
+	 	 *更新缉盗悬赏(野外BOSS)
+	 	 */
 		public update_yeWai(num) {
 			let bossInfo: { data: ProtoCmd.itf_FB_JiDaoInfo, battle: number };
 			// 点击发光效果
