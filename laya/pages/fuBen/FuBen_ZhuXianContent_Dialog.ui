@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":21,
-    "selecteID":24,
+    "selectedBox":1,
+    "selecteID":59,
     "props":{"width":633,"sceneColor":"#000000","height":981},
     "nodeParent":-1,
     "label":"Dialog",
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":98,"x":88,"skin":"image/juQingMode/frame_name.png"},
+            "props":{"y":98,"x":121,"skin":"image/juQingMode/frame_name.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -54,7 +54,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":129,"x":115,"skin":"image/juQingMode/frame_zhanli.png"},
+            "props":{"y":129,"x":148,"skin":"image/juQingMode/frame_zhanli.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -79,7 +79,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":10,"x":44,"width":82,"var":"lab_Attack","text":"label","height":22,"fontSize":26,"font":"fzxk","color":"#b65b5b"},
+                    "props":{"y":10,"x":44,"width":105,"var":"lab_Attack","text":"label","height":25,"fontSize":26,"font":"fzxk","color":"#b65b5b"},
                     "nodeParent":4,
                     "label":"Label(lab_Attack)",
                     "isDirectory":false,
@@ -93,7 +93,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":94,"x":49,"width":76,"skin":"image/juQingMode/box_common_01.png","height":76},
+            "props":{"y":82,"x":44,"width":100,"skin":"image/juQingMode/box_common_01.png","height":100},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -224,27 +224,14 @@
         },
         {
             "x":15,
-            "type":"HBox",
-            "props":{"y":327,"x":88,"var":"hbox_1","space":40,"height":108},
+            "type":"List",
+            "props":{"y":327,"x":111,"width":411,"var":"list_bossSkill","spaceY":20,"spaceX":50,"repeatY":2,"repeatX":3,"height":229},
             "nodeParent":1,
-            "label":"HBox(hbox_1)",
+            "label":"List(list_bossSkill)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":19,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"HBox",
-            "props":{"y":448,"x":88,"var":"hbox_2","space":40,"height":108},
-            "nodeParent":1,
-            "label":"HBox(hbox_2)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":20,
+            "compId":59,
             "child":[
                 ]
         },
@@ -289,7 +276,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":-1,"x":177,"width":35,"skin":"image/common/img_exp_2.png","height":35},
+                    "props":{"y":-3,"x":178,"width":40,"skin":"image/common/img_exp_2.png","height":40},
                     "nodeParent":21,
                     "label":"Image",
                     "isDirectory":false,
@@ -315,7 +302,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":4,"x":362,"skin":"image/juQingMode/icon_tongqian.png","scaleY":0.3,"scaleX":0.3},
+                    "props":{"y":3,"x":362,"width":30,"skin":"image/juQingMode/icon_tongqian.png","height":30},
                     "nodeParent":21,
                     "label":"Image",
                     "isDirectory":false,
