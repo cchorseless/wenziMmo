@@ -30,8 +30,10 @@ module ProtoCmd {
     export const JQ_OPEN_JuQingEventDialog = 'JuQingEventDialog';
 
     /****************************NPC************************* */
-    //
-    export const clickNpc = "clickNpc";   //点击NPC
+    //化解仇恨
+    export const DeleteNpcEnmity = 'DeleteNpcEnmity'; // (_, npcid)
+    //点击NPC
+    export const clickNpc = "clickNpc";  // (npcid, enmityRmb)
     // 偷盗
     // export const stealNpcItem = 'stealNpcItem';
     // 切搓
@@ -75,6 +77,8 @@ module ProtoCmd {
     /*****************************帮派*********************** */
     // 号角信息
     export const BP_getHaoJaoInfo = 'getHaoJaoInfo';
+    //购买体力
+    export const buyTili = 'buyTili';//无参数
     // 购买号角
     export const BP_GouMaiCreateItem = 'GouMaiHaoJiao';
     // 帮会捐献信息
@@ -1033,7 +1037,7 @@ module ProtoCmd {
         maxxw: number//最大修为
         xw: number//当前修为
         xwlvl: number//修为等级
-        jmlvl:number//需要的经脉的等级和
+        jmlvl: number//需要的经脉的等级和
     }
     /**
      * 弟子散功修为面板

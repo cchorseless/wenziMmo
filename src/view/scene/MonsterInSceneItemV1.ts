@@ -90,19 +90,27 @@ module view.scene {
 			// GameApp.LListener.event(ProtoCmd.UPDATE_BOSSHP, { now: this.item.ability.nowHP, max: this.item.ability.nMaxHP })
 			// this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * 360)
 			// this.lab_hp.text = this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
+			let max;
+			let curHP
+			if (this.item.ability.nMaxHP < 10000) {
+				max = this.item.ability.nMaxHP;
+				curHP = this.item.ability.nowHP;
+				this.img_hp_cur.width = Math.ceil((curHP / max) * 360);
+				this.lab_hp.text = curHP + '/' + max;
+				this.lab_hp_ceng.text = "";
 
-			let max = 10000;
-			let ceng = Math.ceil(this.item.ability.nowHP /10000);
-			let curHP = this.item.ability.nowHP % 10000;
-			if(curHP == 0){
-				curHP =10000;
+			} else {
+				max = 10000;
+				let ceng = Math.ceil(this.item.ability.nowHP / 10000);
+				curHP = this.item.ability.nowHP % 10000;
+				if (curHP == 0) {
+					curHP = 10000;
+				}
+				this.lab_hp_ceng.text = "x" + ceng;
+
+				this.img_hp_cur.width = Math.ceil((curHP / max) * 360);
+				this.lab_hp.text = curHP + '/' + max;
 			}
-			this.lab_hp_ceng.text = "x"+ceng;
-
-			this.img_hp_cur.width = Math.ceil((curHP / max) * 360);
-			this.lab_hp.text = curHP + '/' + max;
-
-
 		}
 		public upDateDeBuff() {
 			this.hbox_debuff.x = this.hbox_buff.x + this.hbox_buff.numChildren * 30 + 10;

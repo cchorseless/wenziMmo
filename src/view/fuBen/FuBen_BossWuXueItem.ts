@@ -6,7 +6,7 @@ module view.fuBen{
 		}
 		public setData(skillID){
 			let icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillID);
-			let name = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(skillID);
+			let name = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(skillID).split('_')[0];
 			this.img_icon.skin = 'image/common/skill/skill_icon_' + icon+ '.png';
 			this.lab_name.text = name;
 		}

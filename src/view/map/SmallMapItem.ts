@@ -5,7 +5,7 @@ module view.map {
 			super();
 			this.addEvent();
 		}
-
+		
 
 		public updateUI(): void {
 			let mapInfo = GameApp.GameEngine.smallMapData;
@@ -102,6 +102,14 @@ module view.map {
 			EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, function () {
 				new view.dialog.TaskDialog().setData().popup();
 			})
+			this.btn_buy_Tili.on(Laya.UIEvent.CLICK,this,function(){
+				let o = new view.npc.Main_Npc_Huajie_Dialog();
+				o.setData(null, null,1);
+				o.show();
+			})
+			GameApp.LListener.on(view.main.Main_tanSuoItem.upDataTILI,this,function(){
+				this.upDateTiliShow()
+			})
 
 		}
 		/**
@@ -189,6 +197,9 @@ module view.map {
 					new view.map.SmallMap_FengDaoDialog().popup();
 					break;
 			}
+		}
+		public upDateTiliShow(){
+			this.lbl_now.text = '' + GameApp.MainPlayer.nTili;
 		}
 		public init_task(): void {
 			this.lbl_now.text = '' + GameApp.MainPlayer.nTili;

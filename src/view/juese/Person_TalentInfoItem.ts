@@ -156,7 +156,7 @@ module view.juese {
 				//悟性
 				case 0:
 					this.dangqianNum = EnumData.emTalentType.talent_wuXing;
-
+					this.img_talentcoin2.scaleX = this.img_talentcoin2.scaleY = 1;
 					this.img_talentcoin2.skin = 'image/juese/img_talent1.png';
 					// this.img_talentcoin1.width = this.img_talentcoin2.width = 49;
 					// this.img_talentcoin1.height = this.img_talentcoin2.height = 48;
@@ -166,6 +166,7 @@ module view.juese {
 				//根骨
 				case 1:
 					this.dangqianNum = EnumData.emTalentType.talent_genGu;
+					this.img_talentcoin2.scaleX = this.img_talentcoin2.scaleY = 0.8;
 					this.img_talentcoin2.skin = 'image/juese/img_talent3.png';
 					// this.img_talentcoin1.width = this.img_talentcoin2.width = 44;
 					// this.img_talentcoin1.height = this.img_talentcoin2.height = 45;
@@ -174,6 +175,7 @@ module view.juese {
 				//臂力
 				case 2:
 					this.dangqianNum = EnumData.emTalentType.talent_biLi;
+					this.img_talentcoin2.scaleX = this.img_talentcoin2.scaleY = 1;
 					this.img_talentcoin2.skin = 'image/juese/img_talent5.png';
 					// this.img_talentcoin1.width = this.img_talentcoin2.width = 50;
 					// this.img_talentcoin1.height = this.img_talentcoin2.height = 48;
@@ -182,6 +184,7 @@ module view.juese {
 				//身法
 				case 3:
 					this.dangqianNum = EnumData.emTalentType.talent_shenFa;
+					this.img_talentcoin2.scaleX = this.img_talentcoin2.scaleY = 0.8;
 					this.img_talentcoin2.skin = 'image/juese/img_talent4.png';
 					// this.img_talentcoin1.width = this.img_talentcoin2.width = 37;
 					// this.img_talentcoin1.height = this.img_talentcoin2.height = 48;
@@ -191,6 +194,7 @@ module view.juese {
 				//善缘
 				case 4:
 					this.dangqianNum = EnumData.emTalentType.talent_shanYuan;
+					this.img_talentcoin2.scaleX = this.img_talentcoin2.scaleY = 1;
 					this.img_talentcoin2.skin = 'image/juese/img_talent2.png';
 					// this.img_talentcoin1.width = this.img_talentcoin2.width = 50;
 					// this.img_talentcoin1.height = this.img_talentcoin2.height = 53;

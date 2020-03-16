@@ -6,6 +6,7 @@ module view.scene {
 		}
 		public place: number//1战斗界面0移动界面 2:辩论
 		public item: GameObject.Monster;
+		public static HP = 'hp';
 		public setData(item: GameObject.Monster, place): void {
 			this.place = place;
 			this.centerX = this.centerY = 0;
@@ -13,8 +14,10 @@ module view.scene {
 			this.item = item;
 			item.ui_item = this;
 			let name: string = this.item.objName.split("_")[0];
-			if (place == 2) {
+			if (GameApp.MainPlayer.curFuBenID ==400) {
 				this.img_Argue.visible = true;
+			}else{
+				this.img_Argue.visible = false;
 			}
 
 
@@ -44,6 +47,9 @@ module view.scene {
 			this.lab_Argue.text = '心理值:' + num;
 		}
 		public addEvent(): void {
+			GameApp.LListener.on(view.scene.MonsterInSceneItemV0.HP, this, function (res) {
+				this.changeHeartNum(res);
+			});
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
 				let player = GameApp.MainPlayer;
 				let job = player.job;

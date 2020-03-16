@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":29,
+    "selecteID":33,
     "props":{"width":640,"sceneColor":"#000000","height":378},
     "nodeParent":-1,
     "label":"View",
@@ -71,7 +71,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":208,"x":549,"width":59,"visible":true,"var":"btn_bag","stateNum":"2","skin":"image/common/fight/icon_beibao.png","labelSize":24,"labelPadding":"50","labelFont":"FZXK","labelColors":"#63491a,#63491a,#63491a","label":"背包","height":59},
+            "props":{"y":208,"x":549,"width":59,"visible":false,"var":"btn_bag","stateNum":"2","skin":"image/common/fight/icon_beibao.png","labelSize":24,"labelPadding":"50","labelFont":"FZXK","labelColors":"#63491a,#63491a,#63491a","label":"背包","height":59},
             "nodeParent":1,
             "label":"Button(btn_bag)",
             "isDirectory":false,
@@ -80,7 +80,7 @@
             "compId":33,
             "child":[
                 ],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,

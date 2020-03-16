@@ -12,8 +12,8 @@ module view.juese {
 			super();
 		}
 		public setData(data, id, status, dressID) {
-			this.iconID = data[5];
-			this.img_chenghao.skin = 'image/juese/chenghao/' + data[5] + '.png'
+			this.iconID = data[6];
+			this.img_chenghao.skin = 'image/juese/chenghao/' + data[6] + '.png'
 			this.dressID = dressID;
 			this.itemID = id;
 			if (this.itemID == 0) {

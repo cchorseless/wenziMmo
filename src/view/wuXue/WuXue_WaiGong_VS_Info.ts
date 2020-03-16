@@ -57,9 +57,11 @@ module view.wuXue {
 		}
 		public setData(id) {
 			if (id == GameApp.MainPlayer.defaultTaoLuID) {
-				this.btn_setTaolu.label = '默认出战套路'
+				this.btn_setTaolu.label = '已是出战套路'
+				this.btn_setTaolu.disabled = true;
 			} else {
 				this.btn_setTaolu.label = '设置出战套路'
+				this.btn_setTaolu.disabled = false;
 			}
 			let textArr = ['拳脚', '刀剑', '长兵', '奇门']
 			let str = '';

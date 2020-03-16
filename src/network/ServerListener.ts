@@ -189,8 +189,7 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretPkModel), this, this.changePkModel);
         // 更新BOSS归属
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretChangeName), this, this.updateCretChangeName);
-        //出牌  结算奖励
-        GameApp.LListener.on(ProtoCmd.argueAttackEnd, this, this.getArgueReward);
+
 
 
         // 初始化标记
@@ -473,12 +472,7 @@ class ServerListener extends SingletonClass {
         let btType = cbpkt.getValue('btType');// 0:正常，1: 英雄, 2:道士宠物, 3:英雄道士宠物, 4:怪物归属, 5:怪物队伍归属
         GameApp.LListener.event(ProtoCmd.BossBelong, szMasterName)
     }
-    /**
-     * NPC辩论  出牌结束奖励
-     */
-    public getArgueReward(data){
 
-    }
 
 
 
@@ -682,7 +676,7 @@ class ServerListener extends SingletonClass {
         let actmpid = msg.getValue('dwAcTmpID');
         let tartmpid = msg.getValue('dwTmpId');
         let tartmpType = msg.getValue('nDamageType');
-        
+
         let skillID = msg.getValue('wdMagicID');
         let player = GameApp.MainPlayer;
         // 攻击者
@@ -692,7 +686,7 @@ class ServerListener extends SingletonClass {
         if (targeter) {
             targeter.onAttack();
             targeter.changeHp(nowhp, maxhp);
-            targeter.showPower(npower,tartmpType)
+            targeter.showPower(npower, tartmpType)
             // TipsManage.showTxt('HP--' + npower);
         }
         else {
@@ -710,7 +704,7 @@ class ServerListener extends SingletonClass {
         let player = GameApp.MainPlayer;
         let base = player.findViewObj(GameApp.MainPlayer.tempId);
         base.changeBuff(msg);
-        
+
         console.log('有Buff')
         msg.clear();
         msg = null;

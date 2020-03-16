@@ -2,6 +2,7 @@
 module view.main {
 	export class Main_tanSuoItem extends ui.main.Main_tanSuoItemUI {
 		static self: Main_tanSuoItem;
+		public static upDataTILI = 'upDataTili'
 		public canLeave = false;
 		constructor() {
 			super();
@@ -22,6 +23,32 @@ module view.main {
 				this.isClick = !this.isClick;
 				this.init_shenSuo(this.isClick);
 			})
+			//辩论
+			//出牌  结算奖励
+			GameApp.LListener.on(ProtoCmd.argueAttackEnd, this, (jsonData) => {
+				console.log(jsonData);
+				// myhp    npchp     reward:Object     value
+				let data = jsonData;
+				GameApp.GameEngine.curFuBenMsg = null;
+				GameApp.GameEngine.curFuBenMsg = {
+					curNum: 1,
+					maxNum: 1,
+					fubenStr: '战胜辩论对手',
+					item: jsonData.reward
+				}
+				this.ui_Aegue.stopAuto();
+				if (jsonData.myhp >= jsonData.npchp) {
+					let p = new scene.BattleRewardInfoV0Item();
+					p.setData(0);
+					p.popup();
+				} else {
+					let p = new scene.BattleRewardInfoV0Item();
+					p.setData(1);
+					p.popup();
+				}
+
+
+			});
 			//主线
 			GameApp.LListener.on(ProtoCmd.FB_ChuMoRightPlane, this, (jsonData: ProtoCmd.itf_FB_MainFBjindu) => {
 				console.log('主线', jsonData, GameApp.MainPlayer.curFuBenID);
@@ -42,7 +69,6 @@ module view.main {
 					let p = new scene.BattleRewardInfoV0Item();
 					p.setData(0);
 					p.popup();
-					// GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
 				}
 
 				// this.ui_skill.html_need.innerHTML = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
@@ -131,7 +157,7 @@ module view.main {
 				scene.BattleFuBenInfoV3Item.self.isAuto = false;
 				this.leaveFuBen();
 			} else if (mode == 2) {
-
+				this.ui_Aegue.setData();
 			}
 			this.viw_bottom.selectedIndex = mode;
 		}
@@ -178,6 +204,9 @@ module view.main {
 					break;
 				// NPC辩论
 				case EnumData.emRoomType.NpcArgue:
+					view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+					GameApp.MainPlayer.curFuBenID = -1;
+					GameApp.MainPlayer.fubenMonsterPower = 0;
 					let pkt3 = new ProtoCmd.QuestClientData();
 					pkt3.setString(ProtoCmd.leaveNpcCopy);
 					lcp.send(pkt3);
@@ -319,13 +348,18 @@ module view.main {
 
 
 		public addCreatureObj(uiOBJ) {
-			for (let i = 0; i < 8; i++) {
-				let box = this['box_' + i] as Laya.Box
-				if (box.numChildren == 0) {
-					box.addChild(uiOBJ)
-					return
+			if (GameApp.MainPlayer.curFuBenID == 400) {
+				this.box_1.addChild(uiOBJ)
+			} else {
+				for (let i = 0; i < 8; i++) {
+					let box = this['box_' + i] as Laya.Box
+					if (box.numChildren == 0) {
+						box.addChild(uiOBJ)
+						return
+					}
 				}
 			}
+
 		}
 		public clearView() {
 			for (let i = 0; i < 8; i++) {

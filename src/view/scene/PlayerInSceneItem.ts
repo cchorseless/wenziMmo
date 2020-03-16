@@ -6,6 +6,7 @@ module view.scene {
 			this.addEvent()
 		}
 		public static ARGUE = 'argue';
+		public static HP = 'Myhp'
 		// public _skeGroup: SkeletonUtil.SkeletonGroup = new SkeletonUtil.SkeletonGroup();
 		public item: GameObject.Player;
 		public setData(item: GameObject.Player): void {
@@ -18,6 +19,12 @@ module view.scene {
 			}
 			else {
 				this.lab_name.fontSize = 18
+			}
+			if (GameApp.MainPlayer.curFuBenID == 400) {
+				this.img_Argue.visible = true;
+
+			} else {
+				this.img_Argue.visible = false;
 			}
 			//职业icon
 			this.img_job.skin = LangConfig.getPlayerJobIcon();
@@ -41,15 +48,21 @@ module view.scene {
 			this.img_job.skin = LangConfig.getPlayerJobIcon();
 
 		}
-
+		public changeHeartNum(num) {
+			console.log('我的血量' +num)
+			this.lab_Argue.text = '心理值:' + num;
+		}
 		public addEvent(): void {
 			// GameApp.LListener.on()
-			GameApp.LListener.on(view.scene.PlayerInSceneItem.ARGUE,this,function(res){
-				if(res == '1'){
+			GameApp.LListener.on(view.scene.PlayerInSceneItem.ARGUE, this, function (res) {
+				if (res == '1') {
 					this.img_Argue.visible = true;
-				}else{
+				} else {
 					this.img_Argue.visible = false;
 				}
+			});
+			GameApp.LListener.on(view.scene.PlayerInSceneItem.HP, this, function (res) {
+				this.changeHeartNum(res);
 			});
 			GameApp.LListener.on(ProtoCmd.UP_DATE_DRESS, this, function () {
 				let ch = GameApp.GameEngine.mainPlayer.feature.nTitleId;
@@ -141,9 +154,7 @@ module view.scene {
 		public updateZuoBiao(): void {
 			// this.lbl_hp.text = '' + this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
 		}
-		public changeHeartNum(num) {
-			this.lab_Argue.text = '心理值:' + num;
-		}
+
 		public showPower(num, type) {
 			this.fc_Num.alpha = 1;
 			this.fc_Num.visible = true;

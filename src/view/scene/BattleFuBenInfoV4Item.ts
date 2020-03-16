@@ -7,19 +7,41 @@ module view.scene {
 		}
 		public isAuto = false;
 		public setData() {
-
+			for (let i = 1; i < 4; i++) {
+				this['ui_skill' + i].setData(i);
+				// this.ui_skill1.setData
+			}
+			GameApp.LListener.event(view.scene.PlayerInSceneItem.HP, 100);
+			GameApp.LListener.event(view.npc.NpcIconItem.HP, 100);
 		}
 		public addEvent() {
 			//出牌监听
 			GameApp.LListener.on(ProtoCmd.argueAttack, this, function (res) {
 				console.log(res)
+				//myhp   myidx我出牌的ID   npchp  npcidx  NPC出牌的ID
 				res;
+				if (GameApp.MainPlayer.curFuBenID == 400) {
+					view.main.Main_tanSuoItem.self.ui_showPai.visible = true;
+				} else {
+					view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+				}
+				
+				
+				view.main.Main_tanSuoItem.self.ui_showPai.setData(res.myidx, res.npcidx)
+				GameApp.LListener.event(view.scene.PlayerInSceneItem.HP, res.myhp);
+				GameApp.LListener.event(view.npc.NpcIconItem.HP, res.npchp);
+
+
 			})
 			for (let i = 1; i < 4; i++) {
 				this.ui_skill1.btn_choose
 				this['ui_skill' + i].btn_choose.on(Laya.UIEvent.CLICK, this, function () {
 					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.argueAttack, [i]);
 					lcp.send(pkt)
+					for (let i = 1; i < 4; i++) {
+						this['ui_skill' + i].showCD();
+						// this.ui_skill1.showCD
+					}
 				})
 			}
 			this.btn_exit.on(Laya.UIEvent.CLICK, this, function () {
@@ -28,15 +50,25 @@ module view.scene {
 			this.btn_Auto.on(Laya.UIEvent.CLICK, this, function () {
 				this.isAuto = !this.isAuto;
 				if (this.isAuto) {
-					this.btn_auto.label = '手动';
+					this.btn_Auto.label = '手动';
 
 				} else {
-					this.btn_auto.label = '自动';
+					this.btn_Auto.label = '自动';
 				}
 				this.autoFight();
 			})
 
 
+		}
+		public stopAuto() {
+			this.isAuto = false;
+			if (this.isAuto) {
+				this.btn_Auto.label = '手动';
+
+			} else {
+				this.btn_Auto.label = '自动';
+			}
+			this.autoFight();
 		}
 
 		public autoFight() {
@@ -55,6 +87,11 @@ module view.scene {
 			let cost = GameUtil.numberRandInt(1, 3);
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.argueAttack, [cost]);
 			pkt.send();
+			for (let i = 1; i < 4; i++) {
+				this['ui_skill' + i].showCD();
+				// this.ui_skill1.showCD
+			}
+
 		}
 	}
 }
