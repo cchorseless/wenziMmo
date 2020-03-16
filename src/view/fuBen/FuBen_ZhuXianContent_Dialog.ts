@@ -11,8 +11,6 @@ module view.fuBen {
 		}
 		public setData(stageData, data) {
 			this.cengID = stageData.ceng;
-			this.hbox_1.removeChildren();
-			this.hbox_2.removeChildren();
 			this.panel_reward1.removeChildren();
 			this.panel_reward2.removeChildren();
 			this.hasGet = stageData.star > 0;
@@ -38,7 +36,6 @@ module view.fuBen {
 			let attack = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT(stageData.monsterid)
 			let desc = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTERDES(stageData.monsterid)
 			// let exp = SheetConfig.mydb_monster_tbl.getInstance(null).EMPIRICAL_VALUE(stageData.monsterid)
-			let monsterSkillID = SheetConfig.mydb_monster_tbl.getInstance(null).SKILL_NUMBER(stageData.monsterid)
 			let iconID = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE(stageData.monsterid)
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME(stageData.monsterid)
 			this.lab_BossName.text = name;
@@ -46,16 +43,22 @@ module view.fuBen {
 			this.img_Icon.skin = 'image/common/npc/npc_icon_' + iconID + '.png';
 			// this.lab_exp.text = exp + '';
 			this.lab_desc.text = desc;
-			let skillArr = monsterSkillID.split(',');
-			if (skillArr.length > 1) {
-				this.showSkill(skillArr);
-			} else if (skillArr.length == 1) {
-				let base = monsterSkillID.split('/');
+			// 武学技能
+			let monsterSkillID = SheetConfig.mydb_monster_tbl.getInstance(null).SKILL_NUMBER(stageData.monsterid)
+			let skillIdArr = [];
+			let skillArr = monsterSkillID.split('|');
+			for (let _skillArr of skillArr) {
+				let base = _skillArr.split('/');
+				Log.trace(base);
 				let skillID = parseInt(base[0]) * 100 + parseInt(base[1])
-				let o = new FuBen_BossWuXueItem();
-				o.setData(skillID)
-				this.hbox_1.addChild(o);
+				skillIdArr.push(skillID);
 			}
+			Log.trace(skillIdArr, monsterSkillID);
+			this.list_bossSkill.dataSource = skillIdArr;
+			this.list_bossSkill.itemRender = FuBen_BossWuXueItem;
+			this.list_bossSkill.renderHandler = Laya.Handler.create(this, (item: FuBen_BossWuXueItem, index) => {
+				item.setData(skillIdArr[index])
+			}, null, false);
 			let firstReward = SheetConfig.Thread_sweep_tbl.getInstance(null).FIRST_AWARD(this.cengID);
 			let dropReward = SheetConfig.Thread_sweep_tbl.getInstance(null).SWEEPING_AWARD(this.cengID);
 			let item;
@@ -120,18 +123,6 @@ module view.fuBen {
 				// TODO
 			})
 		}
-		public showSkill(skillArr) {
-			for (let i = 0; i < skillArr.length; i++) {
-				let base = skillArr[i].split('/')
-				let skillID = parseInt(base[0]) * 100 + parseInt(base[1])
-				let o = new FuBen_BossWuXueItem();
-				o.setData(skillID)
-				if (i < 3) {
-					this.hbox_1.addChild(o);
-				} else {
-					this.hbox_2.addChild(o);
-				}
-			}
-		}
+
 	}
 }

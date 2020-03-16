@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":47,
-    "selecteID":62,
-    "props":{"width":640,"sceneColor":"#ffffff","height":988},
+    "selectedBox":1,
+    "selecteID":1,
+    "props":{"x":0,"width":640,"sceneColor":"#ffffff","height":988},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -123,14 +123,13 @@
             "props":{"x":0,"width":640,"var":"box_firstPage","top":0,"bottom":0},
             "nodeParent":1,
             "label":"Box(box_firstPage)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":21,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"x":0,"var":"img_firstPage","top":0,"skin":"image/juQingMode/bg_xs_04.png","bottom":0},
                     "nodeParent":21,
@@ -145,7 +144,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":313,"x":183,"width":116,"var":"lab_chapter","text":"第二章","height":36,"fontSize":36,"font":"fzxk","color":"#000000","align":"left"},
                     "nodeParent":21,
@@ -158,7 +156,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":164,"x":151,"skin":"image/juQingMode/img_xs_01.png"},
                     "nodeParent":21,
@@ -171,7 +168,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":183,"x":238,"var":"img_volume","skin":"image/juQingMode/juqing1001.png"},
                     "nodeParent":21,
@@ -184,7 +180,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":366,"x":157,"width":324,"skin":"image/juQingMode/line_xs_01.png","sizeGrid":"0,18,0,17","height":6},
                     "nodeParent":21,
@@ -197,7 +192,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":295,"x":157,"width":324,"skin":"image/juQingMode/line_xs_01.png","sizeGrid":"0,18,0,17","height":6},
                     "nodeParent":21,
@@ -210,7 +204,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":313,"x":319,"width":165,"var":"lab_charpterName","text":"华山内乱","height":36,"fontSize":36,"font":"fzxk","color":"#79393a","align":"left"},
                     "nodeParent":21,
@@ -223,7 +216,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":384,"x":491,"wordWrap":true,"width":30,"var":"lab_content0","text":"令狐冲令狐冲令狐冲令狐冲令狐冲令狐冲","height":561,"fontSize":30,"font":"fzxk","color":"#000000"},
                     "nodeParent":21,
@@ -236,7 +228,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":384,"x":417,"wordWrap":true,"width":30,"var":"lab_content1","text":"令狐冲令狐冲令狐冲令狐冲令狐冲令狐冲","height":561,"fontSize":30,"font":"fzxk","color":"#000000"},
                     "nodeParent":21,
@@ -249,7 +240,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":384,"x":343,"wordWrap":true,"width":30,"var":"lab_content2","text":"令狐冲令狐冲令狐冲令狐冲令狐冲令狐冲","height":561,"fontSize":30,"font":"fzxk","color":"#000000"},
                     "nodeParent":21,
@@ -262,7 +252,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":384,"x":268,"wordWrap":true,"width":30,"var":"lab_content3","text":"令狐冲令狐冲令狐冲令狐冲令狐冲令狐冲","height":561,"fontSize":30,"font":"fzxk","color":"#000000"},
                     "nodeParent":21,
@@ -275,7 +264,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":384,"x":194,"wordWrap":true,"width":30,"var":"lab_content4","text":"令狐冲令狐冲令狐冲令狐冲令狐冲令狐冲","height":561,"fontSize":30,"font":"fzxk","color":"#000000"},
                     "nodeParent":21,
@@ -288,7 +276,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":384,"x":120,"wordWrap":true,"width":30,"var":"lab_content5","text":"令狐冲令狐冲令狐冲令狐冲令狐冲令狐冲","height":561,"fontSize":30,"font":"fzxk","color":"#000000"},
                     "nodeParent":21,
@@ -309,14 +296,13 @@
             "props":{"x":0,"width":640,"var":"box_finishPage","top":0,"bottom":0},
             "nodeParent":1,
             "label":"Box(box_finishPage)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":47,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"x":0,"top":0,"skin":"image/juQingMode/bg_xs_04.png","bottom":0},
                     "nodeParent":47,
@@ -331,7 +317,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":164,"x":151,"skin":"image/juQingMode/img_xs_01.png"},
                     "nodeParent":47,
@@ -344,7 +329,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":183,"x":238,"var":"img_volume1","skin":"image/juQingMode/juqing1001.png"},
                     "nodeParent":47,
@@ -357,7 +341,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":469,"x":221,"width":226,"text":"剧情结束","height":64,"fontSize":50,"font":"fzxk","color":"#79393a","align":"left"},
                     "nodeParent":47,
@@ -370,7 +353,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":653,"x":144,"width":371,"text":"通关本章副本\\n解锁下一章剧情","height":64,"fontSize":50,"font":"fzxk","color":"#79393a","align":"center"},
                     "nodeParent":47,
@@ -383,7 +365,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":323,"x":193,"width":116,"var":"lab_chapter1","text":"第二章","height":36,"fontSize":36,"font":"fzxk","color":"#000000","align":"left"},
                     "nodeParent":47,
@@ -396,7 +377,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":376,"x":167,"width":324,"skin":"image/juQingMode/line_xs_01.png","sizeGrid":"0,18,0,17","height":6},
                     "nodeParent":47,
@@ -409,7 +389,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":305,"x":167,"width":324,"skin":"image/juQingMode/line_xs_01.png","sizeGrid":"0,18,0,17","height":6},
                     "nodeParent":47,
@@ -422,7 +401,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":323,"x":329,"width":165,"var":"lab_charpterName1","text":"华山内乱","height":36,"fontSize":36,"font":"fzxk","color":"#79393a","align":"left"},
                     "nodeParent":47,

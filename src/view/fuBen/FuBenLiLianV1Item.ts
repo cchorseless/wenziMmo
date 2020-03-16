@@ -26,10 +26,7 @@ module view.fuBen {
 			return this;
 		}
 		public addEvent(): void {
-			this.btn_selected.on(Laya.UIEvent.CLICK, this, () => {
-				this.btn_selected.selected = !this.btn_selected.selected;
-				PanelManage.FuBenLiLian.update_bossHome(this.data, this.i, this.key);
-			})
+
 		}
 		// public getBossInfo(key): void {
 		// 	let pkt = new ProtoCmd.QuestClientData();

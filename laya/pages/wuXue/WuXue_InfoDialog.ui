@@ -2,9 +2,9 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":255,
+    "selecteID":1,
     "referenceLines":null,
-    "props":{"width":569,"sceneColor":"#000000","name":"skillinfoDialog","height":900},
+    "props":{"width":569,"sceneColor":"#000000","name":"skillinfoDialog","height":800},
     "nodeParent":-1,
     "label":"Dialog(skillinfoDialog)",
     "isOpen":true,
@@ -16,7 +16,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":569,"skin":"image/common/wuxue/bottom_tanchuang_04.png","height":900},
+            "props":{"y":0,"x":0,"width":569,"skin":"image/common/wuxue/bottom_tanchuang_04.png","height":800},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -30,7 +30,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":61,"x":31,"width":507,"skin":"image/common/wuxue/shadow_yeqian.png","height":44},
+            "props":{"y":53,"x":31,"width":507,"skin":"image/common/wuxue/shadow_yeqian.png","height":44},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":44,"x":524,"var":"btn_close","stateNum":"2","skin":"image/juQingMode/icon_close.png"},
+            "props":{"y":36,"x":524,"var":"btn_close","stateNum":"2","skin":"image/juQingMode/icon_close.png"},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
@@ -58,7 +58,7 @@
         {
             "x":15,
             "type":"Tab",
-            "props":{"y":61,"x":41,"var":"tab_info","stateNum":2,"space":15,"skin":"image/common/wuxue/bookmark_01.png","selectedIndex":0,"labels":"详情,升级,升阶,领悟,遗忘","labelSize":26,"labelFont":"fzxk","labelColors":"#51473d,#903f14,#903f14"},
+            "props":{"y":53,"x":41,"var":"tab_info","stateNum":2,"space":15,"skin":"image/common/wuxue/bookmark_01.png","selectedIndex":0,"labels":"详情,升级,升阶,领悟,遗忘","labelSize":26,"labelFont":"fzxk","labelColors":"#51473d,#903f14,#903f14"},
             "nodeParent":1,
             "label":"Tab(tab_info)",
             "isDirectory":false,
@@ -71,7 +71,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":121,"x":37,"width":495,"skin":"image/common/wuxue/frame_xiangqing.png","height":86},
+            "props":{"y":113,"x":37,"width":495,"skin":"image/common/wuxue/frame_xiangqing.png","height":86},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -84,7 +84,7 @@
         {
             "x":15,
             "type":"HBox",
-            "props":{"y":216,"x":154,"width":370,"var":"hbox_eff","space":15,"height":35},
+            "props":{"y":208,"x":154,"width":370,"var":"hbox_eff","space":15,"height":35},
             "nodeParent":1,
             "label":"HBox(hbox_eff)",
             "isDirectory":false,
@@ -97,7 +97,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":218,"x":41,"width":107,"text":"属性加成:","strokeColor":"#000000","stroke":0,"height":28,"fontSize":26,"font":"FZXK","color":"#000000"},
+            "props":{"y":210,"x":41,"width":107,"text":"属性加成:","strokeColor":"#000000","stroke":0,"height":28,"fontSize":26,"font":"FZXK","color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isOpen":true,
@@ -111,7 +111,7 @@
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":152,"x":129,"width":202,"var":"html_lv","innerHTML":"htmlText","height":24},
+            "props":{"y":144,"x":129,"width":202,"var":"html_lv","innerHTML":"htmlText","height":24},
             "nodeParent":1,
             "label":"HTMLDivElement(html_lv)",
             "isDirectory":false,
@@ -124,7 +124,7 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"y":257,"x":29,"width":510,"var":"VS_view","height":595},
+            "props":{"y":245,"x":29,"width":510,"var":"VS_view","height":524},
             "nodeParent":1,
             "label":"ViewStack(VS_view)",
             "isDirectory":false,
@@ -138,7 +138,7 @@
             "x":15,
             "type":"UIView",
             "source":"wuXue/WuXue_logoItem.ui",
-            "props":{"y":125,"x":31,"var":"ui_skill","runtime":"view.wuXue.WuXue_logoItem"},
+            "props":{"y":112,"x":27,"var":"ui_skill","runtime":"view.wuXue.WuXue_logoItem"},
             "nodeParent":1,
             "label":"UIView(ui_skill)",
             "isDirectory":false,
@@ -151,7 +151,7 @@
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":126,"x":129,"width":200,"var":"html_skillName","innerHTML":"htmlText","height":24},
+            "props":{"y":118,"x":129,"width":200,"var":"html_skillName","innerHTML":"htmlText","height":24},
             "nodeParent":1,
             "label":"HTMLDivElement(html_skillName)",
             "isDirectory":false,
@@ -164,7 +164,7 @@
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":178,"x":129,"width":199,"var":"html_power","innerHTML":"htmlText","height":24},
+            "props":{"y":170,"x":129,"width":199,"var":"html_power","innerHTML":"htmlText","height":24},
             "nodeParent":1,
             "label":"HTMLDivElement(html_power)",
             "isDirectory":false,
@@ -177,7 +177,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":166,"x":447,"width":130,"var":"btn_getFrom","stateNum":2,"skin":"image/common/button_qianwang_red.png","pivotY":29.5,"pivotX":73,"labelStrokeColor":"#a9643b","labelSize":28,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"获取途径","height":55},
+            "props":{"y":158,"x":447,"width":130,"var":"btn_getFrom","stateNum":2,"skin":"image/common/button_qianwang_red.png","pivotY":29.5,"pivotX":73,"labelStrokeColor":"#a9643b","labelSize":28,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"获取途径","height":55},
             "nodeParent":1,
             "label":"Button(btn_getFrom)",
             "isDirectory":false,

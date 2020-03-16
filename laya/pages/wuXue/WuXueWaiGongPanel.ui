@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":281,
-    "selecteID":330,
+    "selectedBox":320,
+    "selecteID":331,
     "props":{"width":640,"sceneColor":"#e8e4e4","name":"waigong","height":1136},
     "nodeParent":-1,
     "label":"View(waigong)",
@@ -127,14 +127,13 @@
                     "props":{"y":963,"x":0,"width":640,"var":"box_bottom","height":64,"bottom":0},
                     "nodeParent":285,
                     "label":"Box(box_bottom)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":321,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"skin":"image/main/main_zonglan/bottom_mainicon.png"},
                             "nodeParent":321,
@@ -147,7 +146,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":590,"width":113,"var":"btn_back","stateNum":2,"skin":"image/main/icon_fanhui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":321,
@@ -162,7 +160,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":13,"x":78,"width":111,"visible":true,"var":"btn_waigong","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"功法","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":321,
@@ -177,7 +174,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":13,"x":203,"width":111,"visible":true,"var":"btn_miji","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"秘籍","hitTestPrior":true,"height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":321,

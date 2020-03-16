@@ -10,10 +10,10 @@ module view.wuXue {
 		public listData1;
 		public listData2;
 		public setData(): void {
-
 			this.btn_waigong.selected = true;
-			let tab;
-			let key = 400
+			let tab = 0;
+			// key=400是默认武学套路的标记
+			let key = 400;
 			if (GameApp.MainPlayer.skillShotButton[key]) {
 				tab = GameApp.MainPlayer.skillShotButton[key].i64Id.int64ToNumber();
 			} else {
@@ -21,7 +21,6 @@ module view.wuXue {
 			}
 			GameApp.MainPlayer.defaultTaoLuID = tab;
 			this.initTab();
-			// this.initUI();
 			this.addEvent();
 			for (let i = 0; i < 4; i++) {
 				let box = new Laya.Box();
@@ -29,9 +28,10 @@ module view.wuXue {
 				this.VS_show.addItem(box);
 			}
 			this.VS_show.selectedIndex = this.tab_wuxue.selectedIndex = tab;
-			GameApp.MainPlayer.taoluPageID = this.tab_wuxue.selectedIndex;
+			// GameApp.MainPlayer.taoluPageID = this.tab_wuxue.selectedIndex;
 			this.setInitView(tab)
 		}
+
 		public initTab() {
 			let tabStr = [];
 			let data1 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_SHOULDER);
@@ -62,36 +62,42 @@ module view.wuXue {
 			} else {
 				tabStr.push('奇门套路\nlv.0')
 			}
-
-
 			// tabStr += '拳脚套路\nlv.' + data1.dwLevel + ',' + '刀剑套路\nlv.' + data2.dwLevel + ',' + '长兵套路\nlv.' + data3.dwLevel + '奇门套路\nlv.' + data4.dwLevel;
 			let str = tabStr.join(",");
 			this.tab_wuxue.labels = str;
 		}
+
+
 		public setInitView(id) {
 			let box = this.VS_show.getChildAt(id);
 			if (box.numChildren <= 0) {
 				let o = new WuXue_WaiGong_VS_Info()
 				o.setData(id)
-				o.x = 28;
 				box.addChild(o);
 			}
 			this.VS_show.selectedIndex = id;
 		}
 
+		/**
+		 * 找到当前的
+		 */
+		public findCurWuXue_WaiGong_VS_Info(): WuXue_WaiGong_VS_Info {
+			// 外面有一层BOX
+			return this.VS_show.selection.getChildAt(0) as WuXue_WaiGong_VS_Info;
 
-
+		}
 
 		public Dispose(): void {
 			GameApp.LListener.offCaller(ProtoCmd.WX_upData_Hotkeys_waigong, this);
 			GameApp.LListener.offCaller(ProtoCmd.WX_upData_panel_waigong, this);
 			PopUpManager.Dispose(this);
 		}
-		public addEvent(): void {
 
+
+		public addEvent(): void {
 			this.tab_wuxue.on(Laya.UIEvent.CLICK, this, () => {
 				// this.VS_show.selectedIndex = this.tab_wuxue.selectedIndex;
-				GameApp.MainPlayer.taoluPageID = this.tab_wuxue.selectedIndex;
+				// GameApp.MainPlayer.taoluPageID = this.tab_wuxue.selectedIndex;
 				this.setInitView(this.tab_wuxue.selectedIndex);
 			})
 			this.btn_miji.on(Laya.UIEvent.CLICK, this, () => {
@@ -100,47 +106,6 @@ module view.wuXue {
 			this.btn_waigong.on(Laya.UIEvent.CLICK, this, () => {
 				return;
 			})
-			// this.btn_set.on(Laya.UIEvent.CLICK, this, () => {
-			// 	// let skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this.skillItem.configID)
-			// 	let pkt1 = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder();
-			// 	pkt1.setValue('oldcol', 0);
-			// 	pkt1.setValue('oldrow', 4);
-			// 	pkt1.shortcuts.emShortCuts = 1;
-			// 	let skill = 100 + GameApp.MainPlayer.taoluPageID;
-			// 	pkt1.shortcuts.i64Id = ProtoCmd.Int64.numberToInt64(GameApp.MainPlayer.taoluPageID)
-			// 	pkt1.shortcuts.btCol = 0;
-			// 	pkt1.shortcuts.btRow = 4;
-			// 	lcp.send(pkt1);
-			// })
-			//武学界面刷新  快捷键
-			GameApp.LListener.on(ProtoCmd.WX_upData_Hotkeys_waigong, this, function () {
-				let id = GameApp.MainPlayer.taoluPageID
-				let box = this.VS_show.getChildAt(id);
-				if (box.numChildren > 0) {
-					box.removeChildren()
-				}
-				let o = new WuXue_WaiGong_VS_Info()
-				o.setData(id)
-				box.addChild(o);
-				o.x = 28;
-				this.VS_show.selectedIndex = id;
-			})
-			// for (let i = 1; i < 7; i++) {
-			// 	this["ui_item" + i].on(Laya.UIEvent.CLICK, this, function () {
-			// 		for (let key in GameApp.MainPlayer.skillShotButton) {
-			// 			let basekey: number = parseInt(key);
-			// 			let skill_key;
-			// 			if (basekey == i) {
-			// 				this.changeWuxueInfoState(i)
-			// 				skill_key = (GameApp.MainPlayer.skillShotButton[key]).i64Id.int64ToNumber();
-			// 				let _skillBase = GameApp.MainPlayer.skillInfo[skill_key.toString()];
-			// 				let skillLV = _skillBase.level;
-			// 				let configID = _skillBase.configID;
-			// 				this.changeSkillInfo(configID, skillLV)
-			// 			}
-			// 		}
-			// 	})
-			// }
 			// 返回
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this)
@@ -151,67 +116,56 @@ module view.wuXue {
 
 			// });
 
-			// GameApp.LListener.on(ProtoCmd.WX_upData_panel_waigong, this, function () {
-			// 	// this.initUI();
-			// 	// for (let key in GameApp.MainPlayer.skillInfo) {
-			// 	// 	//ProtoCmd.stSkillLvlBase
-			// 	// 	let configid = GameApp.MainPlayer.skillInfo[key].configID
-			// 	// 	if (SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configid) == GameApp.GameEngine.wuxueDataID) {
-			// 	// 		GameApp.LListener.event(ProtoCmd.WX_upData_Dialog, GameApp.MainPlayer.skillInfo[key]);
-			// 	// 	}
-			// 	// }
-			// })
-
 		}
 
-		// public initUI(): void {
-		// 	for (let key in GameApp.MainPlayer.skillInfo) {
-		// 		let _skillBase = GameApp.MainPlayer.skillInfo[key];
-		// 		let configID = _skillBase.configID;
-		// 		let deleteID = SheetConfig.mydb_magic_tbl.getInstance(null).DELETED(configID);
-		// 		if (deleteID == 1) {
-		// 			return;
-		// 		}
-		// 		let skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID);
-		// 		switch (skillType) {
-		// 			// 英雄
-		// 			case EnumData.enSkillType.HeroSkill:
-		// 				break;
-		// 			// 招式
-		// 			case EnumData.enSkillType.ZhaoShi:
-		// 				this.list_0.array.push(_skillBase);
-		// 				break;
-		// 			// 身法
-		// 			case EnumData.enSkillType.ShenFa:
-		// 				this.list_1.array.push(_skillBase);
-		// 				break;
-		// 			// 招架
-		// 			case EnumData.enSkillType.ZhaoJia:
-		// 				this.list_2.array.push(_skillBase);
-		// 				break;
-		// 		}
-		// 	}
-		// 	this.listData0 = this.list_0.array;
-		// 	this.listData1 = this.list_1.array;
-		// 	this.listData2 = this.list_2.array;
-		// 	for (let i = 0; i < 3; i++) {
-		// 		(this['list_' + i] as Laya.List).renderHandler = Laya.Handler.create(this, (cell: view.wuXue.WuXue_InfoItem, index) => {
-		// 			cell.setData(cell.dataSource)
-		// 		}, null, false)
-		// 	}
-		// 	// 初始化已装备的技能
-		// 	let keys = Object.keys(GameApp.MainPlayer.skillShotButton);
-		// 	this.initSkillInfo(keys)
-		// 	if (keys.length > 0) {
-		// 		for (let key in GameApp.MainPlayer.skillShotButton) {
-		// 			let skill_key = (GameApp.MainPlayer.skillShotButton[key]).i64Id.int64ToNumber();
-		// 			this.updateSkilButton(parseInt(key), skill_key.toString());
-		// 		}
-		// 	}
-		// 	else {
-		// 		this.showDefaultSkillInfo();
-		// 	}
-		// }
+		public initUI(): void {
+			// for (let key in GameApp.MainPlayer.skillInfo) {
+			// 	let _skillBase = GameApp.MainPlayer.skillInfo[key];
+			// 	let configID = _skillBase.configID;
+			// 	let deleteID = SheetConfig.mydb_magic_tbl.getInstance(null).DELETED(configID);
+			// 	if (deleteID == 1) {
+			// 		return;
+			// 	}
+			// 	let skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID);
+			// 	switch (skillType) {
+			// 		// 英雄
+			// 		case EnumData.enSkillType.HeroSkill:
+			// 			break;
+			// 		// 招式
+			// 		case EnumData.enSkillType.ZhaoShi:
+			// 			this.list_0.array.push(_skillBase);
+			// 			break;
+			// 		// 身法
+			// 		case EnumData.enSkillType.ShenFa:
+			// 			this.list_1.array.push(_skillBase);
+			// 			break;
+			// 		// 招架
+			// 		case EnumData.enSkillType.ZhaoJia:
+			// 			this.list_2.array.push(_skillBase);
+			// 			break;
+			// 	}
+			// }
+			// this.listData0 = this.list_0.array;
+			// this.listData1 = this.list_1.array;
+			// this.listData2 = this.list_2.array;
+			// for (let i = 0; i < 3; i++) {
+			// 	(this['list_' + i] as Laya.List).renderHandler = Laya.Handler.create(this, (cell: view.wuXue.WuXue_InfoItem, index) => {
+			// 		cell.setData(cell.dataSource)
+			// 	}, null, false)
+			// }
+			// // 初始化已装备的技能
+			// let keys = Object.keys(GameApp.MainPlayer.skillShotButton);
+			// this.initSkillInfo(keys)
+			// if (keys.length > 0) {
+			// 	for (let key in GameApp.MainPlayer.skillShotButton) {
+			// 		let skill_key = (GameApp.MainPlayer.skillShotButton[key]).i64Id.int64ToNumber();
+			// 		this.updateSkilButton(parseInt(key), skill_key.toString());
+			// 	}
+			// }
+			// else {
+			// 	this.showDefaultSkillInfo();
+			// }
+		}
 		private initSkillInfo(keys) {
 			if (keys.length <= 0) {
 				return;
@@ -326,7 +280,7 @@ module view.wuXue {
 				case 0:
 					break;
 				case 1:
-					this.init_levelSort();
+					// this.init_levelSort();
 					break;
 				case 2:
 					break;
@@ -335,27 +289,27 @@ module view.wuXue {
 		/**
 		 * 按等级排序
 		 */
-		public init_levelSort(): void {
-			function compare(property) {
-				return function (a, b) {
-					var value1 = a[property];
-					var value2 = b[property];
-					return value1 - value2;
-				}
-			}
-			for (let i = 0; i <= 2; i++) {
-				if (this['listData' + i]) {
-					let skillArray = this['listData' + i];
-					let afterSort = [];
-					afterSort = skillArray.sort(compare('level'))
-					this['list_' + i].array = '';
-					this['list_' + i].array = afterSort;
-					this['list_' + i].itemRender = view.wuXue.WuXue_InfoItem;
-					(this['list_' + i] as Laya.List).renderHandler = Laya.Handler.create(this, (cell: view.wuXue.WuXue_InfoItem, index) => {
-						cell.setData(cell.dataSource)
-					}, null, false)
-				}
-			}
-		}
+		// public init_levelSort(): void {
+		// 	function compare(property) {
+		// 		return function (a, b) {
+		// 			var value1 = a[property];
+		// 			var value2 = b[property];
+		// 			return value1 - value2;
+		// 		}
+		// 	}
+		// 	for (let i = 0; i <= 2; i++) {
+		// 		if (this['listData' + i]) {
+		// 			let skillArray = this['listData' + i];
+		// 			let afterSort = [];
+		// 			afterSort = skillArray.sort(compare('level'))
+		// 			this['list_' + i].array = '';
+		// 			this['list_' + i].array = afterSort;
+		// 			this['list_' + i].itemRender = view.wuXue.WuXue_InfoItem;
+		// 			(this['list_' + i] as Laya.List).renderHandler = Laya.Handler.create(this, (cell: view.wuXue.WuXue_InfoItem, index) => {
+		// 				cell.setData(cell.dataSource)
+		// 			}, null, false)
+		// 		}
+		// 	}
+		// }
 	}
 }

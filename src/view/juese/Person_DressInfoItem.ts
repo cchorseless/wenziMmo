@@ -48,40 +48,35 @@ module view.juese {
 		public changeMySelfDress(type, id) {
 			if (type == 0) {
 				this.ui_show2.img_ch.skin = 'image/juese/chenghao/' + id + '.png'
-			} else {
+			}
+			else {
 				this.ui_show2.img_gangqi.skin = 'image/juese/gangqi/' + id + '.png'
 			}
-
-
-
 		}
 		public addEvent() {
-
-			let self = this;
-			GameApp.LListener.on(ProtoCmd.UP_DATE_DRESS, this, function () {
-				self.upDateView();
-				self.upDataMyselfDress()
+			GameApp.LListener.on(ProtoCmd.UP_DATE_DRESS, this,  ()=> {
+				this.upDateView();
+				this.upDataMyselfDress()
 			})
-			EventManage.onWithEffect(this.btn_fashion, Laya.UIEvent.CLICK, this, function () {
+			EventManage.onWithEffect(this.btn_fashion, Laya.UIEvent.CLICK, this,  ()=> {
 				this.touchID = 0;
 				this.showView_Stack(this.touchID);
 			})
-			EventManage.onWithEffect(this.btn_gangqi, Laya.UIEvent.CLICK, this, function () {
+			EventManage.onWithEffect(this.btn_gangqi, Laya.UIEvent.CLICK, this,  ()=> {
 				this.touchID = 1;
 				this.showView_Stack(this.touchID);
 			})
-			EventManage.onWithEffect(this.btn_Designation, Laya.UIEvent.CLICK, this, function () {
+			EventManage.onWithEffect(this.btn_Designation, Laya.UIEvent.CLICK, this,  ()=> {
 				this.touchID = 2;
 				this.showView_Stack(this.touchID);
 			})
-			EventManage.onWithEffect(this.btn_wear, Laya.UIEvent.CLICK, this, function () {
+			EventManage.onWithEffect(this.btn_wear, Laya.UIEvent.CLICK, this,  ()=> {
 				let sendData = [this.base[this.touchID][0], this.curItemId, this.isWear]
 				let pkt0 = new ProtoCmd.QuestClientData().setString(ProtoCmd.dressWearAndTakeoff, sendData)
 				lcp.send(pkt0);
 			})
 		}
 		public showView_Stack(type) {
-			let self = this;
 			if (type == 0) {
 				this.btn_fashion.selected = true;
 				this.btn_gangqi.selected = false;
@@ -97,7 +92,7 @@ module view.juese {
 			}
 			this.curBox = this.V_Show.getChildByName('item' + type);
 			if (this.curBox.numChildren <= 0) {
-				GameApp.LListener.on(ProtoCmd.dressPanel, self, (data) => {
+				GameApp.LListener.on(ProtoCmd.dressPanel, this, (data) => {
 					this.curBox.removeChildren();
 					//   status--永久：-1，未激活：0,期限-到期时间截: > 0
 					console.log("{{{{{{{{{{{{{{{{{", this.touchID)
@@ -107,21 +102,21 @@ module view.juese {
 							o.setData(data);
 							o.x = 22
 							this.curBox.addChild(o);
-							GameApp.LListener.offCaller(ProtoCmd.dressPanel, self)
+							GameApp.LListener.offCaller(ProtoCmd.dressPanel, this)
 							break;
 						case 1:
 							let p = new Person_Dress_VS_GangQiItem();
 							p.setData(data);
 							p.x = 22
 							this.curBox.addChild(p);
-							GameApp.LListener.offCaller(ProtoCmd.dressPanel, self)
+							GameApp.LListener.offCaller(ProtoCmd.dressPanel, this)
 							break;
 						case 2:
 							let q = new Person_Dress_VS_DesignationItem();
 							q.setData(data);
 							q.x = 22
 							this.curBox.addChild(q);
-							GameApp.LListener.offCaller(ProtoCmd.dressPanel, self)
+							GameApp.LListener.offCaller(ProtoCmd.dressPanel, this)
 							break;
 					}
 				})
@@ -160,12 +155,12 @@ module view.juese {
 		}
 		public upDateView() {
 			this.curBox.removeChildren();
-			this.upDateiew(this.curBox,this.V_Show.selectedIndex)
+			this.upDateiew(this.curBox, this.V_Show.selectedIndex)
 			// }
 		}
-		public upDateiew(box: Laya.Box,selectedID) {
+		public upDateiew(box: Laya.Box, selectedID) {
 			if (box.numChildren <= 0) {
-				GameApp.LListener.on(ProtoCmd.dressPanel, self, (data) => {
+				GameApp.LListener.on(ProtoCmd.dressPanel, this, (data) => {
 					//   status--永久：-1，未激活：0,期限-到期时间截: > 0
 					console.log("{{{{{{{{{{{{{{{{{", this.touchID)
 					switch (this.touchID) {
@@ -174,21 +169,21 @@ module view.juese {
 							o.setData(data);
 							o.x = 22
 							this.curBox.addChild(o);
-							GameApp.LListener.offCaller(ProtoCmd.dressPanel, self)
+							GameApp.LListener.offCaller(ProtoCmd.dressPanel, this)
 							break;
 						case 1:
 							let p = new Person_Dress_VS_GangQiItem();
 							p.setData(data);
 							p.x = 22
 							this.curBox.addChild(p);
-							GameApp.LListener.offCaller(ProtoCmd.dressPanel, self)
+							GameApp.LListener.offCaller(ProtoCmd.dressPanel, this)
 							break;
 						case 2:
 							let q = new Person_Dress_VS_DesignationItem();
 							q.setData(data);
 							q.x = 22
 							this.curBox.addChild(q);
-							GameApp.LListener.offCaller(ProtoCmd.dressPanel, self)
+							GameApp.LListener.offCaller(ProtoCmd.dressPanel, this)
 							break;
 					}
 				})

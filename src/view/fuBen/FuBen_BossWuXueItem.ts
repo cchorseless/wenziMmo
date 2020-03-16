@@ -1,14 +1,19 @@
 /**Created by the LayaAirIDE*/
-module view.fuBen{
-	export class FuBen_BossWuXueItem extends ui.fuBen.FuBen_BossWuXueItemUI{
-		constructor(){
+module view.fuBen {
+	export class FuBen_BossWuXueItem extends ui.fuBen.FuBen_BossWuXueItemUI {
+		constructor() {
 			super();
 		}
-		public setData(skillID){
+		public setData(skillID) {
+			Log.trace(skillID);
 			let icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillID);
-			let name = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(skillID).split('_')[0];
-			this.img_icon.skin = 'image/common/skill/skill_icon_' + icon+ '.png';
-			this.lab_name.text = name;
+			let name = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(skillID);
+			this.img_icon.skin = 'image/common/skill/skill_icon_' + icon + '.png';
+			this.lab_name.text = name.split('_')[0];
+		}
+
+		public addEvent() {
+
 		}
 	}
 }

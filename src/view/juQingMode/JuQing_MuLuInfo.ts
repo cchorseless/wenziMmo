@@ -72,8 +72,9 @@ module view.juQingMode {
 
 			}
 			this.dealCharpterInfo()
-
 		}
+
+
 
 		public dealCharpterInfo() {
 			// 已解锁

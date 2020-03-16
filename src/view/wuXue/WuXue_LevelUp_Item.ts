@@ -75,7 +75,9 @@ module view.wuXue {
 				this.box_lvUp.visible = true;
 				this.btn_max.visible = false;
 				this.box_max.visible = false;
-				this.lab_tips.text = this.textArr[GameApp.MainPlayer.taoluPageID] + '等级需要达到' + stage * 15 + '级';
+
+				let SKILLEXTRAPROP = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEXTRAPROP(parseInt(configID));
+				this.lab_tips.text = this.textArr[SKILLEXTRAPROP] + '等级需要达到' + stage * 15 + '级';
 				this.html_powe.innerHTML = "<span style='color:#000000;fontFamily:STXingkai;'>【&nbsp;&nbsp;&nbsp;" + '战力：' + '</span>'
 					+ "<span style='color:#bf4747;fontFamily:STXingkai;'>" + power + '</span>'
 					+ "<span style='color:#38ad32'>+" + span + '</span>'

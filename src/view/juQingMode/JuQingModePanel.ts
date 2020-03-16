@@ -97,6 +97,16 @@ module view.juQingMode {
 			this.muluItem.visible = false;
 		}
 
+		/**
+		 * 关闭目录
+		 */
+		public closeMuLu() {
+			this.muluShow = !this.muluShow
+			Laya.Tween.to(this.muluItem, { x: -1 * this.muluItem.width }, 300, null, Laya.Handler.create(this, () => {
+				this.muluItem.visible = this.muluShow;
+			}))
+		}
+
 
 		public addEvent(): void {
 			// 事件或奖励
@@ -131,7 +141,8 @@ module view.juQingMode {
 				if (this.muluShow) {
 					this.muluItem.visible = this.muluShow;
 					Laya.Tween.to(this.muluItem, { x: 0 }, 300)
-				} else {
+				}
+				else {
 					Laya.Tween.to(this.muluItem, { x: -1 * this.muluItem.width }, 300, null, Laya.Handler.create(this, () => {
 						this.muluItem.visible = this.muluShow;
 					}))
@@ -195,26 +206,30 @@ module view.juQingMode {
 			// 翻页获取奖励
 			GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_readJuQing, this, (jsonData) => {
 				// console.log(ProtoCmd.JQ_GET_JQ_readJuQing, jsonData);
-				// 奖励动画
-				this.box_jiangLi.visible = true;
-				Laya.Tween.to(this.box_jiangLi, { x: 334, y: 1100, scaleX: 0.3, scaleY: 0.3 }, 600, null,
-					Laya.Handler.create(this, () => {
-						this.box_jiangLi.visible = false;
-						this.box_jiangLi.pos(334, 914);
-						this.box_jiangLi.scale(1, 1);
-					})
-				);
 				// 翻页动画
 				// 下一页移动到位
 				Laya.Tween.to(this.curReadInfo, { x: -640 }, 250, null, Laya.Handler.create(this, () => {
-					this.box1.addChild(this.lastReadInfo);
-					this.box3.addChild(this.curReadInfo);
-					this.box2.addChild(this.nextReadInfo);
-					this.lastReadInfo.x = 0;
-					this.curReadInfo.x = 0;
-					this.nextReadInfo.x = 0;
-					// 更新下一页的信息
-					this.dealPageMsg(this.curReadInfo.chapterID, this.curReadInfo.pageID, 1);
+					Laya.timer.frameOnce(10, this, () => {
+						// 奖励动画
+						this.box_jiangLi.visible = true;
+						Laya.Tween.to(this.box_jiangLi, { x: 334, y: 1100, scaleX: 0.3, scaleY: 0.3 }, 600, null,
+							Laya.Handler.create(this, () => {
+								this.box_jiangLi.visible = false;
+								this.box_jiangLi.pos(334, 914);
+								this.box_jiangLi.scale(1, 1);
+							})
+						);
+						// 移动界面
+						this.box1.addChild(this.lastReadInfo);
+						this.box3.addChild(this.curReadInfo);
+						this.box2.addChild(this.nextReadInfo);
+						this.lastReadInfo.x = 0;
+						this.curReadInfo.x = 0;
+						this.nextReadInfo.x = 0;
+						// 更新下一页的信息
+						this.dealPageMsg(this.curReadInfo.chapterID, this.curReadInfo.pageID, 1);
+					})
+
 				}))
 			});
 			// 拉取剧情对白数据
@@ -238,8 +253,27 @@ module view.juQingMode {
 			this.box3.addChild(tmp3);
 			this.box1.addChild(tmp1);
 			this.box2.addChild(tmp2);
+			this.updateGuaJiInfo()
+			// 渲染界面
 			let charpterID = GameApp.MainPlayer.charpterID;
-			this.updateTalkInfo(charpterID);
+			this.updateTalkInfo(charpterID, Laya.Handler.create(this, () => {
+				if (this.curCharpterid == null) {
+					// 章节进度
+					let zjid = GameApp.MainPlayer.charpterID;
+					let pageID = this.countPage();
+					// console.log('===========', pageID);
+					// 渲染界面
+					this.dealPageMsg(zjid, pageID, -1);
+					this.dealPageMsg(zjid, pageID, 0);
+					this.dealPageMsg(zjid, pageID, 1);
+				}
+			}));
+		}
+
+		/**
+		 * 刷新挂机效率和事件
+		 */
+		public updateGuaJiInfo() {
 			// 判定是否有触发了剧情事件
 			if (this.isJuQing) {
 				this.btn_next.skin = 'image/juQingMode/icon_shijian.png'
@@ -249,21 +283,49 @@ module view.juQingMode {
 				this.btn_next.skin = 'image/common/icon_baoxiang3_close.png'
 				this.btn_next.label = '挂机'
 			}
+
+			// 掉落信息
+			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID];
+			if (charpterInfo) {
+				// 挂机效率
+				let itemsKeys = Object.keys(charpterInfo.items);
+				for (let key of itemsKeys) {
+					let itemInfo = charpterInfo.items[key];
+					switch (itemInfo.index) {
+						// 金币
+						case 20015:
+							this.lab_qingyi.text = itemInfo.num + '/小时';
+							break;
+						// 玩家经验
+						case EnumData.CoinType.COIN_TYPE_PLAYER_EXP:
+							this.lab_yueli.text = itemInfo.num + '/小时';
+							break;
+					}
+				}
+
+
+			}
 		}
 
 
-
+		public finishTalkInfoHandler: Laya.Handler = null;
 		/**
 		 * 拉取章节对白
 		 * @param charpterID 章节ID
 		 */
-		public updateTalkInfo(charpterID): void {
+		public updateTalkInfo(charpterID, finishHandler: Laya.Handler): void {
+			this.finishTalkInfoHandler = finishHandler;
 			// 有剧情就return
-			if (GameApp.MainPlayer.talkInfo[charpterID]) return;
+			if (GameApp.MainPlayer.talkInfo[charpterID]) {
+				this.finishTalkInfoHandler && this.finishTalkInfoHandler.run();
+				this.finishTalkInfoHandler = null;
+				return;
+			}
 			// 拉取章节所有剧情
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_JuQingInfo, [charpterID]);
 			lcp.send(pkt);
+
 		}
 
 		/**
@@ -282,17 +344,10 @@ module view.juQingMode {
 				if (jsonData.flag) {
 					// console.log(111111111, '剧情拉完了');
 					// 初始化工程
-					if (this.curCharpterid == null) {
-						// 章节进度
-						let zjid = GameApp.MainPlayer.charpterID;
-						let pageID = this.countPage();
-						// console.log('===========', pageID);
-						// 渲染界面
-						this.dealPageMsg(zjid, pageID, -1);
-						this.dealPageMsg(zjid, pageID, 0);
-						this.dealPageMsg(zjid, pageID, 1);
+					if (this.finishTalkInfoHandler) {
+						this.finishTalkInfoHandler.run();
+						this.finishTalkInfoHandler = null;
 					}
-
 				}
 			}
 			else {
@@ -359,6 +414,7 @@ module view.juQingMode {
 		 * @param index -1上一页，0当前，1下一页
 		 */
 		public dealPageMsg(charpterID, pageID, index) {
+			// console.log(charpterID, pageID, index)
 			let charpterInfo = GameApp.MainPlayer.allCharpterInfo[charpterID];
 			// 对白开始ID
 			let startTalkId = charpterInfo.startdbid;
@@ -379,20 +435,19 @@ module view.juQingMode {
 				let nextCharpterID = this.getNextCharpterID(charpterID);
 				// 保证 没有拉过
 				if (nextCharpterID && GameApp.MainPlayer.talkInfo[nextCharpterID] == null) {
-					this.updateTalkInfo(nextCharpterID);
+					this.updateTalkInfo(nextCharpterID, null);
 				}
 
 			}
 			// 第一页触发拉取上一章剧情
-			if (pageID == 1) {
+			else if (pageID == 1) {
 				// 拉取上一章剧情
 				let lastCharpterID = this.getLastCharpterID(charpterID);
 				// 保证 没有拉过
 				if (lastCharpterID && GameApp.MainPlayer.talkInfo[lastCharpterID] == null) {
-					this.updateTalkInfo(lastCharpterID);
+					this.updateTalkInfo(lastCharpterID, null);
 				}
 			}
-
 			let nextdata;
 			let lastdata;
 			if (index == 0) {
@@ -455,7 +510,6 @@ module view.juQingMode {
 
 				}
 			}
-
 			// 中间
 			else {
 				// 上一页
@@ -472,7 +526,6 @@ module view.juQingMode {
 				}
 			}
 		}
-
 
 
 		/**
@@ -574,7 +627,7 @@ module view.juQingMode {
 		public dealEventMouse(ev) {
 			let curX = this.getPosX(ev);
 			let span = curX - this.touchBeginX;
-			let checkDIS = 200;
+			let checkDIS = 140;
 			// 向右，上一页
 			if (span >= 0) {
 				// 判断是否是首章首页
@@ -586,21 +639,24 @@ module view.juQingMode {
 				if (span >= checkDIS) {
 					// 上一页移动到位
 					Laya.Tween.to(this.lastReadInfo, { x: 640 }, 250, null, Laya.Handler.create(this, () => {
-						this.box3.addChild(this.nextReadInfo);
-						this.box1.addChild(this.curReadInfo);
-						this.box2.addChild(this.lastReadInfo);
-						this.lastReadInfo.x = 0;
-						this.curReadInfo.x = 0;
-						this.nextReadInfo.x = 0;
-						// 更新上一页的信息
-						this.dealPageMsg(this.curReadInfo.chapterID, this.curReadInfo.pageID, -1);
+						// // 延时10帧要不然会卡顿
+						Laya.timer.frameOnce(10, this, () => {
+							this.box3.addChild(this.nextReadInfo);
+							this.box1.addChild(this.curReadInfo);
+							this.box2.addChild(this.lastReadInfo);
+							this.lastReadInfo.x = 0;
+							this.curReadInfo.x = 0;
+							this.nextReadInfo.x = 0;
+							// 更新上一页的信息
+							this.dealPageMsg(this.curReadInfo.chapterID, this.curReadInfo.pageID, -1);
+						})
+
 					}))
 
 				}
 				// 无效
 				else {
-					Laya.Tween.to(this.lastReadInfo, { x: 0 }, 250, null, Laya.Handler.create(this, () => {
-					}))
+					Laya.Tween.to(this.lastReadInfo, { x: 0 }, 250, )
 				}
 			}
 			// 向左，下一页
@@ -613,6 +669,7 @@ module view.juQingMode {
 						// 有剧情任务
 						if (this.isJuQing) {
 							Laya.Tween.to(this.curReadInfo, { x: 0 }, 250);
+							this.updateGuaJiInfo();
 							this.showJuQingEvent();
 							return
 						}
@@ -632,28 +689,40 @@ module view.juQingMode {
 					else {
 						// 下一页移动到位
 						Laya.Tween.to(this.curReadInfo, { x: -640 }, 250, null, Laya.Handler.create(this, () => {
-							this.box1.addChild(this.lastReadInfo);
-							this.box3.addChild(this.curReadInfo);
-							this.box2.addChild(this.nextReadInfo);
-							this.lastReadInfo.x = 0;
-							this.curReadInfo.x = 0;
-							this.nextReadInfo.x = 0;
-							// 更新下一页的信息
-							this.dealPageMsg(this.curReadInfo.chapterID, this.curReadInfo.pageID, 1);
+							// 延时10帧要不然会卡顿
+							Laya.timer.frameOnce(10, this, () => {
+								this.box1.addChild(this.lastReadInfo);
+								this.box3.addChild(this.curReadInfo);
+								this.box2.addChild(this.nextReadInfo);
+								this.lastReadInfo.x = 0;
+								this.curReadInfo.x = 0;
+								this.nextReadInfo.x = 0;
+								// 更新下一页的信息
+								this.dealPageMsg(this.curReadInfo.chapterID, this.curReadInfo.pageID, 1);
+							})
 						}))
 					}
 
 				}
 				// 无效
 				else {
-					Laya.Tween.to(this.curReadInfo, { x: 0 }, 250, null, Laya.Handler.create(this, () => {
-					}))
+					Laya.Tween.to(this.curReadInfo, { x: 0 }, 250, )
 				}
 			}
 		}
 
 
+		/**
+		 * 切换章节
+		 * @param v 章节ID
+		 */
 		public changeCharpter(v) {
+			this.updateTalkInfo(v, Laya.Handler.create(this, () => {
+				this.dealPageMsg(v, 0, -1);
+				this.dealPageMsg(v, 0, 0);
+				this.dealPageMsg(v, 0, 1);
+				this.closeMuLu();
+			}))
 
 		}
 

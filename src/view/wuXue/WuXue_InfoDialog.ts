@@ -13,8 +13,6 @@ module view.wuXue {
 		constructor() {
 			super();
 			WuXue_InfoDialog.self = this;
-			// this.panel_skillDes.vScrollBarSkin = '';
-			// this.panel_skillEffDes.vScrollBarSkin = "";
 		}
 		public item: ProtoCmd.stSkillLvlBase;
 		public setData(s: ProtoCmd.stSkillLvlBase, tabid = 0, isRefrash = true) {
@@ -121,6 +119,7 @@ module view.wuXue {
 			this.tab_info.selectedIndex = tabid;
 			this.showVS_Show(tabid, !isRefrash)
 			this.addEvent();
+			
 		}
 		/**
 		 * 

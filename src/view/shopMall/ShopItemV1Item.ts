@@ -20,6 +20,7 @@ module view.shopMall {
 			this.img_coin.skin = 'image/main/icon_coin_' + item.pricetype + '.png';
 			// 道具数量
 			this.ui_item.lbl_count.text = '' + item.num;
+			console.log('=========',item.itemid)
 			// 道具ICON
 			this.ui_item.img_item.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID('' + item.itemid) + '.png';
 			// 是否绑定

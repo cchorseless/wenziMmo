@@ -189,7 +189,8 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretPkModel), this, this.changePkModel);
         // 更新BOSS归属
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretChangeName), this, this.updateCretChangeName);
-
+        //出牌  结算奖励
+        GameApp.LListener.on(ProtoCmd.argueAttackEnd, this, this.getArgueReward);
 
 
         // 初始化标记
@@ -261,7 +262,7 @@ class ServerListener extends SingletonClass {
                 tradeId: GameApp.GameEngine.tradeid
             },
             (res) => {
-                // console.log('post json response=', res);
+                // Log.trace('post json response=', res);
             });
     }
 
@@ -302,7 +303,7 @@ class ServerListener extends SingletonClass {
     public showTips(data): void {
         let cbpkt = new ProtoCmd.TipMsg(data);
         TipsManage.showTxt(cbpkt.tipmsg);
-        console.log(cbpkt.tipmsg)
+        Log.trace(cbpkt.tipmsg)
         cbpkt.clear();
         cbpkt = null;
     }
@@ -370,8 +371,8 @@ class ServerListener extends SingletonClass {
         player.createTime = msgData.getValue('dwPlayerCreateTime');
         // 清空视野
         player.clearViewObj();
-        console.log('=====已经改变了地图ID======');
-        console.log('===isFirstCreate===', msgData.getValue('isFirstCreate'))
+        Log.trace('=====已经改变了地图ID======');
+        Log.trace('===isFirstCreate===', msgData.getValue('isFirstCreate'))
         // 首次创建角色
         let isFirstCreate = msgData.getValue('isFirstCreate');
         // 非首次创建角色  且  首次切换地图的情况下，打开主界面。
@@ -472,7 +473,12 @@ class ServerListener extends SingletonClass {
         let btType = cbpkt.getValue('btType');// 0:正常，1: 英雄, 2:道士宠物, 3:英雄道士宠物, 4:怪物归属, 5:怪物队伍归属
         GameApp.LListener.event(ProtoCmd.BossBelong, szMasterName)
     }
+    /**
+     * NPC辩论  出牌结束奖励
+     */
+    public getArgueReward(data){
 
+    }
 
 
 
@@ -523,7 +529,7 @@ class ServerListener extends SingletonClass {
         // 只会调用一次，创建自己的角色。
         // 这里可以拉取数据
         if (player.isMainPlayer) {
-            console.log('====自己进入了地图====');
+            Log.trace('====自己进入了地图====');
         }
         // 其他玩家进入地图，添加到玩家视野中,不包括自己
         else {
@@ -553,7 +559,7 @@ class ServerListener extends SingletonClass {
         let msgData = new ProtoCmd.MapRemoveCret(data);
         let dwTmpId = msgData.getValue('dwTmpId');
         let btCretType = msgData.getValue('btCretType');
-        console.log(dwTmpId, btCretType, '离开地图');
+        Log.trace(dwTmpId, btCretType, '离开地图');
         GameApp.MainPlayer.removeViewObj(dwTmpId, btCretType);
         msgData.clear();
     }
@@ -705,7 +711,7 @@ class ServerListener extends SingletonClass {
         let base = player.findViewObj(GameApp.MainPlayer.tempId);
         base.changeBuff(msg);
 
-        console.log('有Buff')
+        Log.trace('有Buff')
         msg.clear();
         msg = null;
     }
@@ -720,7 +726,7 @@ class ServerListener extends SingletonClass {
         let dwTempID = msg.getValue('dwTempID');
         let lifestate = msg.getValue('curLifeState');
         let targeter = GameApp.MainPlayer.findViewObj(dwTempID);
-        console.log('' + dwTempID + '死亡了');
+        Log.trace('' + dwTempID + '死亡了');
         switch (lifestate) {
             // 复活
             case 0:
@@ -748,7 +754,7 @@ class ServerListener extends SingletonClass {
         let nMagicId = cbpkt.getValue('nMagicId');
         // 花费时间
         let dwActionTick = cbpkt.getValue('dwActionTick');
-        console.log()
+        Log.trace()
         let atker = GameApp.MainPlayer.findViewObj(dwTempId);
         // atker && atker.showSkill(dwTargetId, nMagicId, dwActionTick);
         // if( dwTempId == 16043){
@@ -770,7 +776,7 @@ class ServerListener extends SingletonClass {
      * 更新技能列表
      */
     public updateSkillList(data): void {
-        console.log('更新技能列表')
+        Log.trace('更新技能列表')
         let cbpkt = new ProtoCmd.AvatarAllSkillsDecoderRet(data);
         for (let skillInfo of cbpkt.skills) {
             let skill = new ProtoCmd.stSkillLvlBase();
@@ -836,33 +842,21 @@ class ServerListener extends SingletonClass {
     public addSkillShortButton(data): void {
         let cbpkt = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder(data);
         if (cbpkt.getValue('ErrorCode') == 0) {
-            // console.log('===========',cbpkt);
+            // Log.trace('===========',cbpkt);
             let shot = new ProtoCmd.stShortCuts();
             shot.clone(cbpkt.shortcuts.data);
             // 存储技能快捷键
             //key  行数*100 + 列数
             let key = shot.btRow * 100 + shot.btCol;
             GameApp.MainPlayer.skillShotButton[key] = shot;
-            let panelName = PopUpManager.curPanel.name;
-            switch (panelName) {
-                case "waigong":
-                    GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_waigong); //外功
-                    break;
-                case "neigong":
-                    // GameApp.LListener.event(ProtoCmd.WX_upData_panel_MiJi); //内功
-                    break;
-                case "hedao":
-                    break;
-                case "biguan":
-                    break;
-            }
-            if (view.main.Main_tanSuoItem.self.viw_bottom.selectedIndex == 1) {
-                GameApp.LListener.event(view.scene.BattleFuBenInfoV3Item.CHANGETAOLU)
-            }
-            // PanelManage.Main.ui_battleSkill.init_skillView();
+            let skill = shot.i64Id.int64ToNumber();
+            let skillBase = GameApp.MainPlayer.skillInfo[(skill + '')];
+            Log.trace(view.wuXue.WuXue_Skill_Circle.skillAdd + shot.btRow + shot.btCol)
+            GameApp.LListener.event(view.wuXue.WuXue_Skill_Circle.skillAdd + shot.btRow + shot.btCol, skillBase)
         }
         else {
             TipsManage.showTips('技能快捷键失败');
+
         }
         cbpkt.clear();
     }
@@ -875,21 +869,11 @@ class ServerListener extends SingletonClass {
         let cbpkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder(data);
         if (cbpkt.getValue('ErrorCode') == 0) {
             let key = cbpkt.shortcuts.btRow * 100 + cbpkt.shortcuts.btCol
+            let shot = GameApp.MainPlayer.skillShotButton[key];
+            let skill = shot.i64Id.int64ToNumber();
+            let skillBase = GameApp.MainPlayer.skillInfo[(skill + '')];
+            GameApp.LListener.event(view.wuXue.WuXue_Skill_Circle.skillRemove + shot.btRow + shot.btCol, skillBase)
             delete GameApp.MainPlayer.skillShotButton[key];
-            let panelName = PopUpManager.curPanel.name;
-            switch (panelName) {
-                case "waigong":
-                    GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_waigong); //外功
-                    break;
-                case "neigong":
-                    // GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_neigong); //内功
-                    break;
-                case "hedao":
-                    break;
-                case "biguan":
-                    break;
-            }
-            // PanelManage.Main.ui_battleSkill.init_skillView();
         }
         else {
             TipsManage.showTips('删除失败')
@@ -904,8 +888,6 @@ class ServerListener extends SingletonClass {
         if (cbpkt.getValue('nNeiGongExp') > 0) {
             if (PopUpManager.curPanel.name == "neigong") {
                 let aa: number = cbpkt.getValue('nNeiGongExp')
-
-                view.wuXue.WuXueNeiGongPanel.self.neigongIncrease(aa);
             } else {
                 return;
             }
@@ -999,7 +981,7 @@ class ServerListener extends SingletonClass {
         let msg = new ProtoCmd.CretGoldLockChange(data);
         let player = GameApp.MainPlayer;
         player.changeGold_lock(msg.getValue('dwBindGold'));
-        console.log('========>绑定金币', msg.getValue('dwBindGold'));
+        Log.trace('========>绑定金币', msg.getValue('dwBindGold'));
         TipsManage.showTxt('绑定金币改变了' + msg.getValue('nChanged'));
         if (msg.getValue('boMax')) {
             TipsManage.showTips('绑定金币达到上限');
@@ -1084,7 +1066,7 @@ class ServerListener extends SingletonClass {
                 break;
             //颜值
             case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_PRETTY:
-                console.log('颜值改变了' + nowExp);
+                Log.trace('颜值改变了' + nowExp);
                 GameApp.MainPlayer.changenYanZhi(nowExp);
                 break;
             //心情
@@ -1851,7 +1833,7 @@ class ServerListener extends SingletonClass {
      */
     public updateTaskInfo(data): void {
         let cbpket = new ProtoCmd.stQuestLoginRet(data);
-        console.log('同步了任务信息' + cbpket.questinfos.length);
+        Log.trace('同步了任务信息' + cbpket.questinfos.length);
         for (let task of cbpket.questinfos) {
             let _item = new ProtoCmd.stQuestInfoBase();
             _item.clone(task.data);
@@ -1880,7 +1862,7 @@ class ServerListener extends SingletonClass {
         let cbpket = new ProtoCmd.stQuestCreateRet(data);
         let _item = new ProtoCmd.stQuestInfoBase();
         _item.clone(cbpket.info.data);
-        console.log('新增了任务信息：' + _item.taskid);
+        Log.trace('新增了任务信息：' + _item.taskid);
         if (GameApp.GameEngine.taskInfo[_item.questtype] == null) {
             GameApp.GameEngine.taskInfo[_item.questtype] = {};
         }
@@ -1906,7 +1888,7 @@ class ServerListener extends SingletonClass {
         let cbpket = new ProtoCmd.stQuestSendQuestInfoRet(data);
         let _item = new ProtoCmd.stQuestInfoBase();
         _item.clone(cbpket.info.data);
-        console.log('新增了任务信息：' + _item.taskid);
+        Log.trace('新增了任务信息：' + _item.taskid);
         if (GameApp.GameEngine.taskInfo[_item.questtype] == null) {
             GameApp.GameEngine.taskInfo[_item.questtype] = {};
         }
@@ -1930,7 +1912,7 @@ class ServerListener extends SingletonClass {
             let taskGroup = GameApp.GameEngine.taskInfo[key];
             let taskInfo: ProtoCmd.stQuestInfoBase = taskGroup[taskid];
             if (taskInfo) {
-                console.log('更新了任务' + taskid);
+                Log.trace('更新了任务' + taskid);
                 let queststatus = cbpket.getValue('queststatus')
                 taskInfo.targetdes = cbpket.targetDes;
                 taskInfo.des = cbpket.des;
@@ -1967,7 +1949,7 @@ class ServerListener extends SingletonClass {
             let taskGroup = GameApp.GameEngine.taskInfo[key];
             let taskInfo: ProtoCmd.stQuestInfoBase = taskGroup[cbpket.getValue('taskid')];
             if (taskInfo) {
-                console.log('更新了任务状态' + cbpket.getValue('taskid'));
+                Log.trace('更新了任务状态' + cbpket.getValue('taskid'));
                 if (cbpket.getValue('queststatus') == 3) {
                     delete taskGroup[cbpket.getValue('taskid')];
 
@@ -2011,7 +1993,7 @@ class ServerListener extends SingletonClass {
         let infoType = strArr[0];// 大类标识
         let funcName = strArr[1];// 调用的函数名称
         let msgID = 0;// 函数内小协议包
-        // console.log(strArr);
+        // Log.trace(strArr);
         // TODO
         try {
             let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
