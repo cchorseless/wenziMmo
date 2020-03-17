@@ -7,6 +7,7 @@ module view.juese {
 			this.panel_left.vScrollBarSkin = '';
 		}
 		public dialog:Person_zhuansheng_Talent_Dialog = null;
+		public buyDialog:Person_BuyAndUseDialog;
 		private hasInit = false;// 初始化自己
 		//拉取天赋信息类型
 		private talent;
@@ -101,7 +102,9 @@ module view.juese {
 			//购买
 			this.btn_buy.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.iteminfo.length > 0) {
-					new view.juese.Person_BuyAndUseDialog().setData(this.iteminfo, 1).show();
+					// new view.juese.Person_BuyAndUseDialog().setData(this.iteminfo, 1).show();
+					this.buyDialog = new Person_BuyAndUseDialog;
+					this.buyDialog.setData(this.iteminfo, 1).popup();
 				}
 			})
 		}
