@@ -5,6 +5,8 @@ module view.dialog {
 		constructor() {
 			super();
 			this.setData();
+			// todo:暂时隐藏设置
+			this.btn_set.visible = false;
 		}
 
 		// 频道类型
@@ -21,9 +23,32 @@ module view.dialog {
 				this.box_send.visible = (index > 1);
 				this.lab_cantSend.visible = !this.box_send.visible;
 				switch (index) {
+					// // 当前
+					// case 0:
+					// case 5:
+					// 	this.curChatType = EnumData.ChatType.CHAT_TYPE_REFMSG;
+					// 	break;
+					// // 世界
+					// case 2:
+					// 	this.curChatType = EnumData.ChatType.CHAT_TYPE_WORLD;
+					// 	break;
+					// // 系统
+					// case 1:
+					// 	this.curChatType = EnumData.ChatType.CHAT_TYPE_SYSTEM;
+					// 	break;
+					// // 帮派
+					// case 3:
+					// 	this.curChatType = EnumData.ChatType.CHAT_TYPE_CLAN;
+					// 	break;
+					// // 组队
+					// case 4:
+					// 	this.curChatType = EnumData.ChatType.CHAT_TYPE_GROUP;
+					// 	break;
+
+					// todo:暂时隐藏掉帮派和组队
 					// 当前
 					case 0:
-					case 5:
+					case 3:
 						this.curChatType = EnumData.ChatType.CHAT_TYPE_REFMSG;
 						break;
 					// 世界
@@ -33,14 +58,6 @@ module view.dialog {
 					// 系统
 					case 1:
 						this.curChatType = EnumData.ChatType.CHAT_TYPE_SYSTEM;
-						break;
-					// 帮派
-					case 3:
-						this.curChatType = EnumData.ChatType.CHAT_TYPE_CLAN;
-						break;
-					// 组队
-					case 4:
-						this.curChatType = EnumData.ChatType.CHAT_TYPE_GROUP;
 						break;
 				}
 
@@ -95,11 +112,13 @@ module view.dialog {
 					_curIndex = 5;
 					all_txt = new compart.ChatInfo();
 					all_txt.setData(str, senderName, _curIndex, send_VIPLv, lv, zslv, path)
-					this["vbox_big" + _curIndex].addChild(all_txt);
+					// this["vbox_big" + _curIndex].addChild(all_txt);
+					// todo:暂时隐藏掉帮派和组队，所以这里先改成"vbox_big" + 3，后续加帮派和组队时，改成"vbox_big" + _curIndex
+					this["vbox_big" + 3].addChild(all_txt);	
 					let base5 = new compart.ChatInfo();
 					base5.setData(str, senderName, _curIndex, send_VIPLv, lv, zslv, path)
 					this["vbox_big" + 0].addChild(base5);
-					break;
+					break;					
 
 				// 系统消息
 				case EnumData.ChatType.CHAT_TYPE_SYSTEM:
@@ -124,27 +143,27 @@ module view.dialog {
 					this["vbox_big" + 0].addChild(base2);
 					break;
 
-				// 帮会聊天
-				case EnumData.ChatType.CHAT_TYPE_CLAN:
-					_curIndex = 3;
-					all_txt = new compart.ChatInfo();
-					all_txt.setData(str, senderName, _curIndex, send_VIPLv, lv, zslv, path)
-					this["vbox_big" + _curIndex].addChild(all_txt);
-					let base3 = new compart.ChatInfo();
-					base3.setData(str, senderName, _curIndex, send_VIPLv, lv, zslv, path)
-					this["vbox_big" + 0].addChild(base3);
-					break;
+				// // 帮会聊天
+				// case EnumData.ChatType.CHAT_TYPE_CLAN:
+				// 	_curIndex = 3;
+				// 	all_txt = new compart.ChatInfo();
+				// 	all_txt.setData(str, senderName, _curIndex, send_VIPLv, lv, zslv, path)
+				// 	this["vbox_big" + _curIndex].addChild(all_txt);
+				// 	let base3 = new compart.ChatInfo();
+				// 	base3.setData(str, senderName, _curIndex, send_VIPLv, lv, zslv, path)
+				// 	this["vbox_big" + 0].addChild(base3);
+				// 	break;
 
-				// 队伍聊天
-				case EnumData.ChatType.CHAT_TYPE_GROUP:
-					_curIndex = 4;
-					all_txt = new compart.ChatInfo();
-					all_txt.setData(str, senderName, _curIndex, send_VIPLv, lv, zslv, path)
-					this["vbox_big" + _curIndex].addChild(all_txt);
-					let base4 = new compart.ChatInfo();
-					base4.setData(str, senderName, _curIndex, send_VIPLv, lv, zslv, path)
-					this["vbox_big" + 0].addChild(base4);
-					break;
+				// // 队伍聊天
+				// case EnumData.ChatType.CHAT_TYPE_GROUP:
+				// 	_curIndex = 4;
+				// 	all_txt = new compart.ChatInfo();
+				// 	all_txt.setData(str, senderName, _curIndex, send_VIPLv, lv, zslv, path)
+				// 	this["vbox_big" + _curIndex].addChild(all_txt);
+				// 	let base4 = new compart.ChatInfo();
+				// 	base4.setData(str, senderName, _curIndex, send_VIPLv, lv, zslv, path)
+				// 	this["vbox_big" + 0].addChild(base4);
+				// 	break;
 
 			}
 
