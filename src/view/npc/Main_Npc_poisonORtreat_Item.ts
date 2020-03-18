@@ -53,7 +53,7 @@ module view.npc {
 			}
 
 		}
-		public showResult() {
+		public showLight() {
 			for (let i = 0; i < 9; i++) {
 				this['ui_medicine' + i].setLight(false);
 			}
@@ -85,11 +85,42 @@ module view.npc {
 				this.lab_huandu_add.text = str;
 			}
 		}
+
+		public dealTouch() {
+			let span = this.endTime - this.startTime;
+			if (span < 1000) {
+				this.showLight();
+			} else {
+				this['ui_medicine' + this.touchID].ui_daoju.ui_item.clickEvent();
+				this.showLight();
+			}
+			this.isTouch = false;
+		}
+		public startTime;
+		public isTouch = false;
+		public endTime;
 		public addEvent() {
 			for (let i = 0; i < 9; i++) {
-				this['ui_medicine' + i].on(Laya.UIEvent.CLICK, this, function () {
+				// this['ui_medicine' + i].on(Laya.UIEvent.CLICK, this, function () {
+				// 	this.touchID = i;
+				// 	this.showResult();
+				// })
+				this['ui_medicine' + i].on(Laya.UIEvent.MOUSE_DOWN, this, function () {
 					this.touchID = i;
-					this.showResult();
+					this.isTouch = true;
+					this.startTime = Date.now();
+				})
+				this['ui_medicine' + i].on(Laya.UIEvent.MOUSE_UP, this, function () {
+					if (this.isTouch) {
+						this.endTime = Date.now();
+						this.dealTouch();
+					}
+				})
+				this['ui_medicine' + i].on(Laya.UIEvent.MOUSE_OUT, this, function () {
+					if (this.isTouch) {
+						this.endTime = Date.now();
+						this.dealTouch();
+					}
 				})
 			}
 			this.btn_leave.on(Laya.UIEvent.CLICK, this, function () {
@@ -101,32 +132,42 @@ module view.npc {
 					return;
 				}
 				let itemID = this.itemIDArr[this.type][this.touchID];
-				let cmdArr = [ProtoCmd.poisonToNpc, ProtoCmd.treatNpc]
-				let cmd = cmdArr[this.type]
-				let pkt = new ProtoCmd.QuestClientData().setString(cmd, [this.npcID, itemID, this.ceng], 0, this
-					, function (res) {
-						console.log('下毒或者治疗回调' + res)
-						//ret  0 成功 1 失败
-						this.parentUI.view_npc.selectedIndex = 0;
-						let typeString = ['下毒', '治疗'][this.type]
-						let str = '';
-						this.parentUI.curExp = res.likeValue;
-						this.parentUI.lvl = res.lvl;
-						this.parentUI.updataHaoGan();
-						if (res.ret == 0) {
-							str = typeString + '成功';
-							if(this.type == 0){
-								this.parentUI.medicine[this.ceng] +=1;
-							}else{
-								this.parentUI.medicine[this.ceng] -=1;
+				let progerUI = new view.npc.NpcProgressItem();
+				progerUI.setData('交互中~', 1500);
+				progerUI.closeHandler = Laya.Handler.create(this, () => {
+					let cmdArr = [ProtoCmd.poisonToNpc, ProtoCmd.treatNpc]
+					let cmd = cmdArr[this.type]
+					let pkt = new ProtoCmd.QuestClientData().setString(cmd, [this.npcID, itemID, this.ceng], 0, this
+						, function (res) {
+							console.log('下毒或者治疗回调' + res)
+							//ret  0 成功 1 失败
+							this.parentUI.view_npc.selectedIndex = 0;
+							let typeString = ['下毒', '治疗'][this.type]
+							let str = '';
+							this.parentUI.curExp = res.likeValue;
+							this.parentUI.lvl = res.lvl;
+							this.parentUI.updataHaoGan();
+							if (res.ret == 0) {
+								str = typeString + '成功';
+								if (this.type == 0) {
+									this.parentUI.medicine[this.ceng] += 1;
+								} else {
+									this.parentUI.medicine[this.ceng] -= 1;
+								}
+
+							} else {
+								str = typeString + '失败!'
 							}
-							 
-						} else {
-							str = typeString + '失败!'
-						}
-						GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
-					})
-				lcp.send(pkt);
+							GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
+						})
+					lcp.send(pkt);
+				})
+				progerUI.centerX = progerUI.centerY = 0;
+				this.parentUI.addChild(progerUI);
+				// })
+
+
+
 			})
 
 		}

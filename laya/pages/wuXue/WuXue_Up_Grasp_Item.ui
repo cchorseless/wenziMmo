@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":78,
-    "selecteID":75,
+    "selectedBox":74,
+    "selecteID":73,
     "props":{"width":510,"sceneColor":"#ffffff","height":520},
     "nodeParent":-1,
     "label":"View",
@@ -172,13 +172,14 @@
                                     "props":{"y":8.5,"x":17,"var":"box_NotFull"},
                                     "nodeParent":33,
                                     "label":"Box(box_NotFull)",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":74,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":121.5,"x":21,"skin":"image/common/wuxue/line_01.png"},
                                             "nodeParent":74,
@@ -191,6 +192,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":156,"x":0},
                                             "nodeParent":74,
@@ -202,6 +204,7 @@
                                             "compId":62,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"width":205,"text":"解锁新的羁绊组合","height":20,"fontSize":22,"font":"fzxk","color":"#63491a","align":"center"},
                                                     "nodeParent":62,
@@ -215,6 +218,7 @@
                                                     "$HIDDEN":false
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"x":270,"width":205,"text":"解锁新的武学天赋","height":20,"fontSize":22,"font":"fzxk","color":"#63491a","align":"center"},
                                                     "nodeParent":62,
@@ -229,6 +233,7 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":126,"x":113},
                                             "nodeParent":74,
@@ -240,6 +245,7 @@
                                             "compId":68,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":0,"x":56,"width":71,"var":"lab_lastZZ","text":"15","height":26,"fontSize":22,"font":"fzxk","color":"#000000","align":"right"},
                                                     "nodeParent":68,
@@ -253,6 +259,7 @@
                                                     "$HIDDEN":false
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":0,"x":177,"width":71,"var":"lab_nextZZ","text":"17","height":26,"fontSize":22,"font":"fzxk","color":"#38ad32","align":"left"},
                                                     "nodeParent":68,
@@ -266,6 +273,7 @@
                                                     "$HIDDEN":false
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"y":5,"x":142,"skin":"image/common/wuxue/jiantou_02.png"},
                                                     "nodeParent":68,
@@ -278,6 +286,7 @@
                                                         ]
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":0,"x":35,"width":71,"text":"资质：","height":26,"fontSize":22,"font":"fzxk","color":"#000000","align":"right"},
                                                     "nodeParent":68,
@@ -292,9 +301,10 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"UIView",
                                             "source":"wuXue/WuXue_logoWithNameItem.ui",
-                                            "props":{"y":56.5,"x":133,"var":"ui_skill0","runtime":"view.wuXue.WuXue_logoWithNameItem"},
+                                            "props":{"y":2,"x":60,"var":"ui_skill0","runtime":"view.wuXue.WuXue_logoWithNameItem"},
                                             "nodeParent":74,
                                             "label":"UIView(ui_skill0)",
                                             "isDirectory":false,
@@ -305,9 +315,10 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"UIView",
                                             "source":"wuXue/WuXue_logoWithNameItem.ui",
-                                            "props":{"y":56.5,"x":329,"var":"ui_skill1","runtime":"view.wuXue.WuXue_logoWithNameItem"},
+                                            "props":{"y":2,"x":278,"var":"ui_skill1","runtime":"view.wuXue.WuXue_logoWithNameItem"},
                                             "nodeParent":74,
                                             "label":"UIView(ui_skill1)",
                                             "isDirectory":false,
@@ -318,8 +329,9 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":21.5,"x":202,"skin":"image/juese/arrow02_common.png"},
+                                            "props":{"y":21.5,"x":208,"skin":"image/juese/arrow02_common.png"},
                                             "nodeParent":74,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -329,7 +341,7 @@
                                             "child":[
                                                 ]
                                         }],
-                                    "$HIDDEN":true
+                                    "$HIDDEN":false
                                 },
                                 {
                                     "x":60,
@@ -337,14 +349,13 @@
                                     "props":{"y":17.5,"x":108,"var":"Max"},
                                     "nodeParent":33,
                                     "label":"Box(Max)",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":78,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"UIView",
                                             "source":"wuXue/WuXue_logoWithNameItem.ui",
                                             "props":{"y":-10,"x":83,"var":"ui_max","runtime":"view.wuXue.WuXue_logoWithNameItem"},
@@ -358,7 +369,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":114.5,"x":92,"width":118,"var":"lab_max_ZZ","text":"资质: 15","height":26,"fontSize":22,"font":"fzxk","color":"#000000","align":"center"},
                                             "nodeParent":78,
@@ -372,7 +382,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":144.5,"width":302,"text":"顶级武学，无需领悟","height":26,"fontSize":22,"font":"fzxk","color":"#bf8247","align":"center"},
                                             "nodeParent":78,
@@ -385,7 +394,7 @@
                                                 ],
                                             "$HIDDEN":false
                                         }],
-                                    "$HIDDEN":false
+                                    "$HIDDEN":true
                                 }]
                         },
                         {
@@ -581,7 +590,8 @@
                             "$HIDDEN":false
                         }],
                     "$HIDDEN":false
-                }]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

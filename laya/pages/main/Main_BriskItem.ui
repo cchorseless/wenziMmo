@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":8,
-    "props":{"width":522,"sceneColor":"#ffffff","height":97},
+    "selecteID":4,
+    "props":{"width":531,"sceneColor":"#ffffff","height":108},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":522,"skin":"image/menu/bottom_list.png","sizeGrid":"30,139,48,21","height":97},
+            "props":{"width":531,"skin":"image/task/huoyue.png","sizeGrid":"30,139,48,21","height":108},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -24,36 +24,6 @@
             "hasChild":true,
             "compId":2,
             "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":4,"x":3,"width":306,"skin":"image/menu/bottom_jisheng.png","sizeGrid":"0,88,0,6","height":42},
-                    "nodeParent":2,
-                    "label":"Image",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":3,
-                    "child":[
-                        ],
-                    "$LOCKED":false,
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":11,"x":4,"width":236,"var":"lbl_taskName","text":"消费礼券（0/1）","stroke":3,"height":32,"fontSize":28,"font":"FZHL","color":"#ffeeb1","align":"center"},
-                    "nodeParent":2,
-                    "label":"Label(lbl_taskName)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
                 {
                     "x":30,
                     "type":"Label",
@@ -71,7 +41,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":10,"x":402,"var":"lbl_huoyuedu","valign":"middle","text":"30活跃度","stroke":0.5,"fontSize":22,"font":"FZHL","color":"#63491a","align":"left"},
+                    "props":{"y":10,"x":402,"var":"lbl_huoyuedu","valign":"middle","text":"30活跃度","stroke":0.5,"fontSize":22,"font":"fzxk","color":"#63491a","align":"left"},
                     "nodeParent":2,
                     "label":"Label(lbl_huoyuedu)",
                     "isDirectory":false,
@@ -85,7 +55,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":36,"x":414,"var":"lbl_finish","valign":"middle","text":"已完成","stroke":0.5,"fontSize":24,"font":"FZHL","color":"#179a0d","align":"left"},
+                    "props":{"y":54,"x":414,"var":"lbl_finish","valign":"middle","text":"已完成","stroke":0.5,"fontSize":24,"font":"FZHL","color":"#179a0d","align":"left"},
                     "nodeParent":2,
                     "label":"Label(lbl_finish)",
                     "isDirectory":false,
@@ -99,7 +69,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":60,"x":448,"width":102,"var":"btn_get","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#9a681d","labelSize":28,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"前往","height":50,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":65,"x":448,"width":102,"var":"btn_get","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#9a681d","labelSize":28,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"前往","height":50,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":2,
                     "label":"Button(btn_get)",
                     "isDirectory":false,
@@ -109,7 +79,21 @@
                     "child":[
                         ],
                     "$HIDDEN":false
-                }]
+                },
+                {
+                    "x":30,
+                    "type":"HTMLDivElement",
+                    "props":{"y":11,"x":25,"width":308,"var":"html_titleName","innerHTML":"htmlText","height":32},
+                    "nodeParent":2,
+                    "label":"HTMLDivElement(html_titleName)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":9,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

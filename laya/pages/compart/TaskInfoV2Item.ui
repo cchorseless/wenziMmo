@@ -1,8 +1,7 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":10,
+    "selectedBox":1,
     "props":{"width":522,"sceneColor":"#ffffff","height":173},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +14,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":522,"skin":"image/menu/bottom_list.png","sizeGrid":"30,139,48,21","height":173},
+            "props":{"width":522,"skin":"image/task/frame_guaka_liebiao.png","sizeGrid":"30,139,48,21","height":173},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -27,7 +26,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":132,"x":0,"width":522,"skin":"image/common/frame_list_zhaojia.png","sizeGrid":"17,17,17,20","height":42},
+                    "props":{"y":132,"x":0,"width":522,"visible":false,"skin":"image/common/frame_list_zhaojia.png","sizeGrid":"17,17,17,20","height":42},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
@@ -36,26 +35,26 @@
                     "compId":3,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":13,"x":1,"width":80,"var":"img_taskTypeBg","skin":"image/main/img_task02.png"},
+                    "props":{"y":17,"x":20,"width":61,"var":"img_taskTypeBg","skin":"image/task/frame_0.png","height":27},
                     "nodeParent":2,
                     "label":"Image(img_taskTypeBg)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":4,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
-                            "props":{"y":2,"x":14,"width":52,"var":"lbl_taskType","text":"每日","strokeColor":"#4595b1","stroke":4,"height":26,"fontSize":26,"font":"FZHL","color":"#f8f8f8","align":"center"},
+                            "props":{"y":-1,"x":5,"width":52,"var":"lbl_taskType","text":"每日","strokeColor":"#4595b1","stroke":4,"height":26,"fontSize":26,"font":"FZHL","color":"#f8f8f8","align":"center"},
                             "nodeParent":4,
                             "label":"Label(lbl_taskType)",
+                            "isOpen":false,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -69,7 +68,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":16,"x":87,"width":318,"var":"lbl_taskName","text":"任务名称六字","strokeColor":"#603d22","stroke":4,"height":32,"fontSize":28,"font":"FZHL","color":"#ffeeb1","align":"left"},
+                    "props":{"y":20,"x":88,"width":179,"var":"lbl_taskName","text":"任务名称六字","strokeColor":"#603d22","height":22,"fontSize":22,"font":"fzxk","color":"#000000","align":"center"},
                     "nodeParent":2,
                     "label":"Label(lbl_taskName)",
                     "isDirectory":false,
@@ -98,7 +97,7 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"y":51,"x":10,"width":322,"var":"panel_reward","height":80},
+                    "props":{"y":65,"x":51,"width":322,"var":"panel_reward","height":80},
                     "nodeParent":2,
                     "label":"Panel(panel_reward)",
                     "isOpen":true,
@@ -125,7 +124,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":92,"x":450,"width":84,"var":"btn_go","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#977213","labelSize":26,"labelFont":"fzhl","labelColors":"#764a1a,#55310b","label":"前往","height":42,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":105,"x":450,"width":84,"var":"btn_go","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#977213","labelSize":26,"labelFont":"fzhl","labelColors":"#764a1a,#55310b","label":"前往","height":42,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":2,
                     "label":"Button(btn_go)",
                     "isDirectory":false,
@@ -139,7 +138,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":143,"x":20,"width":493,"var":"lbl_introduce","text":"任务名称六字","height":22,"fontSize":22,"font":"FZHL","color":"#63491a","align":"left"},
+                    "props":{"y":20,"x":288,"width":220,"var":"lbl_introduce","text":"任务名称六字","height":22,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
                     "nodeParent":2,
                     "label":"Label(lbl_introduce)",
                     "isDirectory":false,
@@ -217,7 +216,7 @@
                             "$LOCKED":false,
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }],
             "$HIDDEN":false
         }],

@@ -59,7 +59,7 @@ module view.juese {
 
 			//任务成就
 			this.btn_taskAchieve.on(Laya.UIEvent.CLICK, this, () => {
-				new view.juese.Task_ChengJiuDialog().setData().popup(true);
+				// new view.juese.Task_ChengJiuDialog().setData().popup(true);
 			})
 			//生辰八字
 			this.btn_birthEnter.on(Laya.UIEvent.CLICK, this, () => {

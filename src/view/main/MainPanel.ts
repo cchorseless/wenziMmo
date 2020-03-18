@@ -858,7 +858,6 @@ module view.main {
 				default:
 					progerUI.setData('东看看,西看看...', 3000);
 					break;
-
 			}
 			progerUI.closeHandler = closerHander;
 			// 添加读条界面

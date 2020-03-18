@@ -35,10 +35,14 @@ module view.juese {
 				let attribute2 = shuxing2.des;
 				let battle2 = shuxing2.battle[job];
 				this.lab_add.text = '+' + (battle2 - battle1);
-				this.box_add.x = this.lab_power.x + this.lab_power.width +5;
+				this.box_add.x = this.lab_power.x + this.lab_power.width + 5;
 				this.vbox_left.removeChildren();
 				for (let key in attribute1) {
-					this.vbox_left.addChild(new view.juese.Person_jingmai_item_shuxingInfo().setData(attribute1[key], attribute2[key]))
+					if (attribute1[key].label == '没有极品:') {
+						continue;
+					} else {
+						this.vbox_left.addChild(new view.juese.Person_jingmai_item_shuxingInfo().setData(attribute1[key], attribute2[key]))
+					}
 				}
 			} else {
 				//当前转生等级是最大转生等级
@@ -46,7 +50,11 @@ module view.juese {
 				this.lab_add.text = '';
 				this.vbox_left.removeChildren();
 				for (let key in attribute1) {
-					this.vbox_left.addChild(new view.juese.Person_attributeItem().setData(attribute1[key], null, 1))
+					if (attribute1[key].label == '没有极品:') {
+						continue;
+					} else {
+						this.vbox_left.addChild(new view.juese.Person_attributeItem().setData(attribute1[key], null, 1))
+					}
 				}
 			}
 			this.needJMLV(curJmlvl, data.jmlvl);
@@ -98,16 +106,15 @@ module view.juese {
 			}
 		}
 		public addEvent() {
-			// this.btn_buy.on(Laya.UIEvent.CLICK, this, () => {
-			// 	if (this.iteminfo.length > 0) {
-			// 		new view.juese.Person_BuyAndUseDialog().setData(this.data., 1).show();
-			// 	}
-			// })
+			this.btn_buy.on(Laya.UIEvent.CLICK, this, () => {
+				new view.juese.Person_BuyAndUseDialog().setData([20003], 1).show();
+
+			})
 			this.btn_confirm.on(Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.Hero_zhuanSheng, [0])
 				lcp.send(pkt);
-				
+
 
 			})
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {

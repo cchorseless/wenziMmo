@@ -86,7 +86,7 @@ module view.npc {
 			//化解仇恨
 			this.btn_huajie.on(Laya.UIEvent.CLICK, this, function () {
 				let o = new Main_Npc_Huajie_Dialog();
-				o.setData(this.item.feature.dwCretTypeId, Main_TanSuoV1Dialog.self,0);
+				o.setData(this.item.feature.dwCretTypeId, Main_TanSuoV1Dialog.self, 0);
 				o.show();
 			})
 			//治疗
@@ -127,23 +127,30 @@ module view.npc {
 			//暗杀
 			this.btn_Kill.on(Laya.UIEvent.CLICK, this, function () {
 				// this.stealFromNpc();
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.killNpc, [this.item.feature.dwCretTypeId], 0, this
-					, function (res) {
-						console.log('暗杀回调', res)
-						this.curExp = res.likeValue;
-						this.lvl = res.lvl;
-						this.updataHaoGan();
-						let str = '';
-						if (res.ret == 0) {
-							str = '暗杀成功！'
-						} else {
-							str = '暗杀失败!'
-						}
-						GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str);
-						this.close();
-						// this.parentUI.view_npc.selectedIndex = 0;
-					})
-				lcp.send(pkt);
+				let progerUI = new view.npc.NpcProgressItem();
+				progerUI.setData('交互中~', 1500);
+				progerUI.closeHandler = Laya.Handler.create(this, () => {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.killNpc, [this.item.feature.dwCretTypeId], 0, this
+						, function (res) {
+							console.log('暗杀回调', res)
+							this.curExp = res.likeValue;
+							this.lvl = res.lvl;
+							this.updataHaoGan();
+							let str = '';
+							if (res.ret == 0) {
+								str = '暗杀成功！'
+							} else {
+								str = '暗杀失败!'
+							}
+							GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str);
+							this.close();
+							// this.parentUI.view_npc.selectedIndex = 0;
+						})
+					lcp.send(pkt);
+				})
+				progerUI.centerX = progerUI.centerY = 0;
+				this.addChild(progerUI);
+
 			})
 		}
 		public sendGiftToNpc() {

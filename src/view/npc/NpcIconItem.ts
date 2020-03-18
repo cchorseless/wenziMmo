@@ -63,7 +63,8 @@ module view.npc {
 		}
 
 		public initUI(): void {
-			this.lbl_npcName.text = '' + this.item.objName.split("_")[0];
+			// this.lbl_npcName.text = '' + this.item.objName.split("_")[0];
+			this.lbl_npcName.text = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(this.item.feature.dwCretTypeId).split("_")[0];
 
 			// 任务状态
 			switch (this.item.taskState) {

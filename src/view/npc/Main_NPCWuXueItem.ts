@@ -39,8 +39,8 @@ module view.npc {
 						ui_item.ui_item.visible = true;
 						ui_item.setData(parseInt(id));
 						this.box_skill.addChild(ui_item);
-						ui_item.y = 55;
-						ui_item.x = ui_item.width * shu + 40;
+						// ui_item.y = 55;
+						ui_item.x = ui_item.width * shu;
 						shu += 1;
 					}
 				}

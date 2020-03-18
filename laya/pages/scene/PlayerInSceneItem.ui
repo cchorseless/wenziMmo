@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":82,
-    "selecteID":83,
+    "selectedBox":55,
+    "selecteID":77,
     "props":{"y":0,"x":0,"width":145,"sceneColor":"#ffffff","height":156},
     "nodeParent":-1,
     "label":"View",
@@ -30,14 +30,13 @@
                     "props":{"y":41,"x":20,"width":100,"skin":"image/common/frame_wanjia.png","height":100},
                     "nodeParent":55,
                     "label":"Image",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":78,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":20,"x":15,"width":72,"var":"img_playerAva","skin":"image/common/icon_nv01.png","height":72},
                             "nodeParent":78,
@@ -53,7 +52,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":17,"x":5,"width":92,"visible":false,"var":"img_mask","skin":"image/common/fight/mask.png","height":82,"alpha":0.6},
                             "nodeParent":78,
@@ -70,7 +68,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":28,"x":17,"width":109,"var":"lbl_guildName","text":"天下第一公会","strokeColor":"#000000","stroke":3,"height":20,"fontSize":18,"font":"fzhl","color":"#ffffff","align":"center"},
+                    "props":{"y":28,"x":17,"width":109,"visible":false,"var":"lbl_guildName","text":"天下第一公会","strokeColor":"#000000","stroke":3,"height":20,"fontSize":18,"font":"fzhl","color":"#ffffff","align":"center"},
                     "nodeParent":55,
                     "label":"Label(lbl_guildName)",
                     "isDirectory":false,
@@ -126,14 +124,13 @@
                     "props":{"y":130,"x":16,"width":126,"skin":"image/main/main_tansuo/frame_mingzi.png","height":24},
                     "nodeParent":55,
                     "label":"Image",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":73,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":3,"x":11,"width":110,"var":"lab_name","text":"猫妖猫猫","strokeColor":"#000000","stroke":2,"height":18,"fontSize":18,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":73,
@@ -147,7 +144,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":-3,"x":-15,"skin":"image/main/frame_zhandou_logo.png"},
                             "nodeParent":73,
@@ -159,7 +155,6 @@
                             "compId":75,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":1,"x":3,"var":"img_job","skin":"image/common/img_job01.png"},
                                     "nodeParent":75,
@@ -176,7 +171,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":-1,"x":12,"var":"img_chenghao","skin":"image/juese/chenghao/chenghao001.png","scaleY":0.35,"scaleX":0.35},
+                    "props":{"y":29,"x":12,"var":"img_chenghao","skin":"image/juese/chenghao/chenghao001.png","scaleY":0.35,"scaleX":0.35},
                     "nodeParent":55,
                     "label":"Image(img_chenghao)",
                     "isDirectory":false,
@@ -191,7 +186,7 @@
         {
             "x":15,
             "type":"FontClip",
-            "props":{"y":-27,"x":21,"width":100,"visible":false,"var":"fc_Num","value":"9","skin":"image/common/number/shuzi_baoji.png","sheet":"0123456789","align":"center"},
+            "props":{"y":2,"x":21,"width":100,"visible":false,"var":"fc_Num","value":"9","skin":"image/common/number/shuzi_baoji.png","sheet":"0123456789","align":"center"},
             "nodeParent":1,
             "label":"FontClip(fc_Num)",
             "isDirectory":false,

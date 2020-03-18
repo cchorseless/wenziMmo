@@ -9,13 +9,36 @@ module view.dialog {
 			this.panel_task.vScrollBarSkin = '';
 			this.vbox_task['sortItem'] = (items) => { };
 			this.addEvent();
-			this.init_taskList();
+			this.showContent(0)
 			return this;
 		}
 		public addEvent(): void {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			})
+			this.tab_task.on(Laya.UIEvent.CLICK, this, function () {
+				this.vs_show.selectedIndex = this.tab_task.selectedIndex;
+				this.img_title.skin = 'image/task/font_' + this.tab_task.selectedIndex + '.png'
+				this.showContent(this.tab_task.selectedIndex);
+			})
+			// this.tab_task.selectHandler = Laya.Handler.create(this, (index) => {
+
+			// })
+		}
+		public showContent(id) {
+			// this.img_title.skin = 'image/task/font_'+id+'.png'
+			switch (id) {
+				case 0:
+					this.init_taskList();
+					break;
+				case 1:
+					this.ui_action.setData();
+					break;
+				case 2:
+					this.ui_chengjiu.setData();
+					break;
+			}
+
 		}
 		/**
 		 * 任务列表
