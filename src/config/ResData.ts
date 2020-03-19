@@ -198,6 +198,20 @@ module ResData {
 
     };
     /**
+     * 游戏Dialog资源
+     */
+    export class FileRes{
+        public static Res = {
+            Mail:[{ url: "res/atlas/image/mail.atlas", type: Laya.Loader.ATLAS }],
+        }
+    }
+    export class DialogRes{
+        public static clsRes = {
+            MailDialog:ResData.FileRes.Res.Mail,
+            MailGetDialog:ResData.FileRes.Res.Mail,
+        }
+    }    
+    /**
      * 游戏音效资源
      */
     export class SoundRes {

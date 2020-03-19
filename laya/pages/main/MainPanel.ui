@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":253,
-    "selecteID":254,
+    "selectedBox":1,
+    "selecteID":253,
     "referenceLines":[
         {
             "value":1127,
@@ -41,14 +41,13 @@
                     "props":{"y":0,"x":0,"var":"box_mainTop","top":0,"right":0,"left":0},
                     "nodeParent":257,
                     "label":"Box(box_mainTop)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":129,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":0,"width":640,"skin":"image/main/frame_liaotin.png","height":40},
                             "nodeParent":129,
@@ -63,7 +62,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":40,"x":0,"skin":"image/main/frame_juesexinxi.png"},
                             "nodeParent":129,
@@ -77,7 +75,6 @@
                             "$LOCKED":true
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":37,"x":111,"skin":"image/common/zi_zongzhanli.png"},
                             "nodeParent":129,
@@ -91,7 +88,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"FontClip",
                             "props":{"y":40,"x":193,"width":107,"var":"clip_power","value":"199720","skin":"image/common/number/font_zhanli.png","sheet":"0123456789","height":21},
                             "nodeParent":129,
@@ -105,7 +101,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":5,"x":175,"width":465,"height":29},
                             "nodeParent":129,
@@ -315,7 +310,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":31,"x":106,"width":158,"var":"img_expBg","skin":"image/main/fram_common_03.png","height":6},
                             "nodeParent":129,
@@ -355,7 +349,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":0,"x":-8},
                             "nodeParent":129,
@@ -484,7 +477,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":69,"x":102,"var":"btn_time","skin":"image/main/bnt_daxueweishi.png"},
                             "nodeParent":129,
@@ -521,7 +513,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":69,"x":186,"skin":"image/main/bnt_daxueweishi.png"},
                             "nodeParent":129,
@@ -533,7 +524,6 @@
                             "compId":210,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":2,"x":19,"text":"全体","strokeColor":"#835934","stroke":2,"fontSize":18,"font":"fzhl","color":"#f7ce99"},
                                     "nodeParent":210,
@@ -799,7 +789,7 @@
                                 ],
                             "$HIDDEN":true
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -807,14 +797,13 @@
                     "props":{"y":34,"x":293,"width":347,"var":"box_menu","right":0,"height":86},
                     "nodeParent":257,
                     "label":"Box(box_menu)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":253,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":47,"x":276,"var":"btn_menu","stateNum":"2","skin":"image/menu/icon_zhenbaoge.png","labelStrokeColor":"#441409","labelStroke":2,"labelSize":24,"labelPadding":"58","labelFont":"华文行楷","labelColors":"#f2f2f2,#f2f2f2","label":"珍宝阁","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":253,

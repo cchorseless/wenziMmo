@@ -3,6 +3,7 @@ module view.dialog {
 	export class MailGetDialog extends ui.dialog.MailGetDialogUI {
 		constructor() {
 			super();
+			this.name = 'MailGetDialog';
 		}
 		// 读取邮件信息
 		public mailID;
@@ -62,7 +63,7 @@ module view.dialog {
 		}
 		public addEvent(): void {
 			this.btn_mailGetClose.on(Laya.UIEvent.CLICK, this, () => {
-				this.close();
+				DialogManage.closeDialog(this);
 			});
 			// 删除邮件
 			this.btn_delete.on(Laya.UIEvent.CLICK, this, () => {
@@ -71,7 +72,7 @@ module view.dialog {
 			// 领取附件
 			this.btn_getDaoju.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_get();
-				this.close();
+				DialogManage.closeDialog(this);
 			})
 		}
 		/**
@@ -81,7 +82,7 @@ module view.dialog {
 			let pkt = new ProtoCmd.stMailDeleteMailEncoder();
 			pkt.setValue('dwMailIDs0', this.mailID);
 			lcp.send(pkt, this, (data) => {
-				this.close();
+				DialogManage.closeDialog(this);
 				let MailDialog: view.dialog.MailDialog = Laya.Dialog.getDialogsByGroup('MailDialog')[0];
 				MailDialog && MailDialog.updateUI(data);
 			})

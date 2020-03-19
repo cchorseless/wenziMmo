@@ -30,26 +30,27 @@ module view.compart {
 		public addEvent(): void {
 			// 查看详情
 			this.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.MailGetDialog().setData(this.mailItem.dwMailID).popup(false);
+				// new view.dialog.MailGetDialog().setData(this.mailItem.dwMailID).popup(false);
+				DialogManage.popDialog<view.dialog.MailGetDialog>(view.dialog.MailGetDialog,[this.mailItem.dwMailID]);
 			})
 		}
 		public updateUI(): void {
 			// todo 有无附件应该区分，是否阅读应该区分
 			// 有附件
 			if (this.mailItem.boAccessory == 1 && this.mailItem.boRead == 0) {
-				this.btn_mailIcon.skin = 'image/main/icon_mailGift.png';
+				this.btn_mailIcon.skin = 'image/mail/icon_mailGift.png';
 
 			}
 			if (this.mailItem.boAccessory == 1 && this.mailItem.boRead == 1) {
-				this.btn_mailIcon.skin = 'image/main/icon_mailGiftOpen.png';
+				this.btn_mailIcon.skin = 'image/mail/icon_mailGiftOpen.png';
 
 			}
 			if (this.mailItem.boAccessory == 0 && this.mailItem.boRead == 0) {
-				this.btn_mailIcon.skin = 'image/main/icon_mail.png';
+				this.btn_mailIcon.skin = 'image/mail/icon_mail.png';
 
 			}
 			if (this.mailItem.boAccessory == 0 && this.mailItem.boRead == 1) {
-				this.btn_mailIcon.skin = 'image/main/icon_mailOpen.png';
+				this.btn_mailIcon.skin = 'image/mail/icon_mailOpen.png';
 			}
 		}
 		/**
