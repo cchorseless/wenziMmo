@@ -198,6 +198,24 @@ module ResData {
 
     };
     /**
+     * 游戏Dialog资源(一个功能模块一个文件夹,在DialogRes类中可能多个对应FileRes.Res中的一个)
+     */
+    export class FileRes{
+        public static Res = {
+            Mail:[{ url: "res/atlas/image/mail.atlas", type: Laya.Loader.ATLAS }],
+            Blessing:[{ url: "res/atlas/image/blessing.atlas", type: Laya.Loader.ATLAS },
+            { url: "res/atlas/image/frameAni/blessing_goldbox_open.atlas", type: Laya.Loader.ATLAS },
+            { url: "res/atlas/image/frameAni/blessing_liquanbox_open.atlas", type: Laya.Loader.ATLAS }],
+        }
+    }
+    export class DialogRes{
+        public static clsRes = {
+            MailDialog:ResData.FileRes.Res.Mail,
+            MailGetDialog:ResData.FileRes.Res.Mail,
+            Menu_BlessingDialog:ResData.FileRes.Res.Blessing,
+        }
+    }
+    /**
      * 游戏音效资源
      */
     export class SoundRes {
