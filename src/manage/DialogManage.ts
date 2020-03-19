@@ -6,6 +6,10 @@ module DialogManage {
     export let resCount = {};
     /**
      * 打开Dialog(类里如果有setData方法，会在new之后自动调用一次)
+     * @param cls 类名 如view.dialog.MailDialog
+     * @param data setData方法的参数
+     * @param closeOther 是否关闭其它的对话框。若值为true则关闭其它对话框。
+     * @param showEffect 是否显示弹出效果
      */
     export function popDialog<T extends Dialog>(cls:any,data:Array<any> = [],closeOther?: boolean, showEffect?: boolean){
         if(!dialogs[cls.name] || dialogs[cls.name] == null){
@@ -18,7 +22,7 @@ module DialogManage {
                         dialogs[cls.name].setData(data);
                     }
                 }
-                (dialogs[cls.name] as Dialog).popup();
+                (dialogs[cls.name] as Dialog).popup(closeOther,showEffect);
                 if(!resCount[cls.name]){
                     resCount[cls.name] = 0;
                 }
@@ -28,6 +32,7 @@ module DialogManage {
     }
     /**
      * 关闭Dialog
+     * @param cls 如果参数填this,需要在当前类构造中设置this.name = 类名，比如：this.name = 'MailDialog',参数也可以填 如：view.dialog.MailDialog
      */
     export function closeDialog(cls:any):void{
         if(dialogs[cls.name]){
