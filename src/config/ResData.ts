@@ -198,7 +198,7 @@ module ResData {
 
     };
     /**
-     * 游戏Dialog资源
+     * 游戏Dialog资源(一个功能模块一个文件夹,在DialogRes类中可能多个对应FileRes.Res中的一个)
      */
     export class FileRes{
         public static Res = {

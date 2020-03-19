@@ -21,7 +21,7 @@ module view.dialog {
 			this.tab_big.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_big.selectedIndex = index;
 				this.box_send.visible = (index > 1);
-				this.lab_cantSend.visible = !this.box_send.visible;
+				this.img_cantSend.visible = !this.box_send.visible;
 				switch (index) {
 					// // 当前
 					// case 0:
