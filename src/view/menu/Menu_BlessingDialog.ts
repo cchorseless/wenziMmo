@@ -73,13 +73,15 @@ module view.menu {
 				this.lbl_maxGoldnum.text = jsonData.GoldMaxCnt.toString();
 				this.maxgoldNum = jsonData.GoldMaxCnt;
 				//金币宝箱显示状态和金币祈福按钮显示状态
-				if(this.goldNum >= this.maxgoldNum){
-					this.ani_godbox.gotoAndStop(this.ani_godbox.count - 1);
-					this.btn_gold.disabled = true;
-				} else {
-					this.ani_godbox.gotoAndStop(0);
-					this.btn_gold.disabled = false;
-				}				
+				if(!this.ani_godbox.isPlaying){
+					if(this.goldNum >= this.maxgoldNum){
+						this.ani_godbox.gotoAndStop(this.ani_godbox.count - 1);
+						this.btn_gold.disabled = true;
+					} else {
+						this.ani_godbox.gotoAndStop(0);
+						this.btn_gold.disabled = false;
+					}
+				}
 				//今日获得礼券总数
 				this.lbl_get2.text = jsonData.LiJuanNum.toString();
 				//今日礼券祈福暴击倍数
@@ -100,12 +102,14 @@ module view.menu {
 				this.lbl_maxLiQuannum.text = jsonData.LiJuanMaxCnt.toString();
 				this.maxliquanNum = jsonData.LiJuanMaxCnt;
 				//礼券宝箱显示状态和礼券祈福按钮显示状态
-				if(this.liquanNum >= this.maxliquanNum){
-					this.ani_liquanbox.gotoAndStop(this.ani_liquanbox.count - 1);
-					this.btn_liquan.disabled = true;
-				} else {
-					this.ani_liquanbox.gotoAndStop(0);
-					this.btn_liquan.disabled = false;
+				if(!this.ani_liquanbox.isPlaying){
+					if(this.liquanNum >= this.maxliquanNum){
+						this.ani_liquanbox.gotoAndStop(this.ani_liquanbox.count - 1);
+						this.btn_liquan.disabled = true;
+					} else {
+						this.ani_liquanbox.gotoAndStop(0);
+						this.btn_liquan.disabled = false;
+					}
 				}
 			})
 		}
