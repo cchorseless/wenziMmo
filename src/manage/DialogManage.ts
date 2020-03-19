@@ -13,6 +13,13 @@ module DialogManage {
      */
     export function popDialog<T extends Dialog>(cls:any,data:Array<any> = [],closeOther?: boolean, showEffect?: boolean){
         if(!dialogs[cls.name] || dialogs[cls.name] == null){
+            if(closeOther){
+                for (var key in dialogs) {
+                    if(dialogs[key] != null){
+                        DialogManage.closeDialog(dialogs[key])
+                    }
+                }
+            }
             ResManage.loadResource(ResData.DialogRes.clsRes[cls.name],() =>{
                 dialogs[cls.name] = new cls;
                 if(dialogs[cls.name]['setData']){
@@ -22,7 +29,7 @@ module DialogManage {
                         dialogs[cls.name].setData(data);
                     }
                 }
-                (dialogs[cls.name] as Dialog).popup(closeOther,showEffect);
+                (dialogs[cls.name] as Dialog).popup(false,showEffect);
                 if(!resCount[cls.name]){
                     resCount[cls.name] = 0;
                 }
