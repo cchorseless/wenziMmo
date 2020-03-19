@@ -3,7 +3,7 @@ module view.menu {
 	export class Menu_BlessingDialog extends ui.menu.Menu_BlessingDialogUI {
 		constructor() {
 			super();
-			this.setData();
+			this.name = 'Menu_BlessingDialog';
 		}
 		//金币祈福当前次数
 		private goldNum;
@@ -24,19 +24,26 @@ module view.menu {
 			//金币祈福
 			this.btn_gold.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.goldNum < this.maxgoldNum) {
-					let id = 1;
-					this.init_blessGet(id);
+					this.ani_godbox.play(0,false,'ani_goldbox_open');
+					this.btn_gold.disabled = true;
+					this.ani_godbox.once(Laya.Event.COMPLETE,this,function(){
+						let id = 1;
+						this.init_blessGet(id);
+					}.bind(this));
 				}
 				else {
 					TipsManage.showTips('今日金币祈福次数已满')
 				}
-
 			})
 			//礼券祈福
 			this.btn_liquan.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.liquanNum < this.maxliquanNum) {
-					let id = 2;
-					this.init_blessGet(id);
+					this.ani_liquanbox.play(0,false,'ani_liquanbox_open');
+					this.btn_liquan.disabled = true;
+					this.ani_liquanbox.once(Laya.Event.COMPLETE,this,function(){
+						let id = 2;
+						this.init_blessGet(id);
+					}.bind(this));					
 				}
 				else {
 					TipsManage.showTips('今日礼券祈福次数已满')
@@ -48,53 +55,63 @@ module view.menu {
 			GameApp.LListener.on(ProtoCmd.Menu_QiFuClientOpen, this, (jsonData: ProtoCmd.itf_Menu_blessInfo) => {
 				console.log('====》菜单祈福', jsonData)
 				//今日获得金币总数
-				this.lbl_get1.text = '' + jsonData.GoldNum;
+				this.lbl_get1.text = jsonData.GoldNum.toString();
 				//今日金币祈福暴击倍数
-				this.lbl_crit1.text = jsonData.GoldCritLeftNum + '倍暴击';
+				this.lbl_crit1.text = jsonData.GoldCritLeftNum + '倍';
 				//金币祈福所需元宝
 				if (jsonData.GoldNeedYuanBao == 0) {
 					this.lbl_yuanbao1.text = '免费祈福';
 				} else {
-					this.lbl_yuanbao1.text = '' + jsonData.GoldNeedYuanBao;
+					this.lbl_yuanbao1.text = jsonData.GoldNeedYuanBao.toString();
 				}
 				//祈福后可获得金币
-				this.lbl_jinbi.text = '' + jsonData.GetGoldNum;
+				this.lbl_jinbi.text = jsonData.GetGoldNum.toString();
 				//当前金币祈福次数
-				this.lbl_currentGoldnum.text = '' + jsonData.GoldCnt;
+				this.lbl_currentGoldnum.text = jsonData.GoldCnt.toString();
 				this.goldNum = jsonData.GoldCnt;
 				//金币祈福最大次数
-				this.lbl_maxGoldnum.text = '/ ' + jsonData.GoldMaxCnt;
+				this.lbl_maxGoldnum.text = jsonData.GoldMaxCnt.toString();
 				this.maxgoldNum = jsonData.GoldMaxCnt;
-				if (this.goldNum == this.maxgoldNum) {
-					this.img_goldiBless.skin = 'image/common/icon_bigbaoxiang_4open.png'
-				}
+				//金币宝箱显示状态和金币祈福按钮显示状态
+				if(this.goldNum >= this.maxgoldNum){
+					this.ani_godbox.gotoAndStop(this.ani_godbox.count - 1);
+					this.btn_gold.disabled = true;
+				} else {
+					this.ani_godbox.gotoAndStop(0);
+					this.btn_gold.disabled = false;
+				}				
 				//今日获得礼券总数
-				this.lbl_get2.text = '' + jsonData.LiJuanNum;
+				this.lbl_get2.text = jsonData.LiJuanNum.toString();
 				//今日礼券祈福暴击倍数
-				this.lbl_crit2.text = jsonData.LiJuanCritLeftNum + '倍暴击';
+				this.lbl_crit2.text = jsonData.LiJuanCritLeftNum + '倍';
 				//礼券祈福所需元宝
 				if (jsonData.LiJuanNeedYuanBao == 0) {
 					this.lbl_yuanbao2.text = '免费祈福';
 				}
 				else {
-					this.lbl_yuanbao2.text = '' + jsonData.LiJuanNeedYuanBao;
+					this.lbl_yuanbao2.text = jsonData.LiJuanNeedYuanBao.toString();
 				}
 				//祈福后可获得礼券
-				this.lbl_liquan.text = '' + jsonData.GetLiJuanNum;
+				this.lbl_liquan.text = jsonData.GetLiJuanNum.toString();
 				//当前礼券祈福次数
-				this.lbl_currentLiQuannum.text = '' + jsonData.LiJuanCnt;
+				this.lbl_currentLiQuannum.text = jsonData.LiJuanCnt.toString();
 				this.liquanNum = jsonData.LiJuanCnt;
 				//礼券祈福最大次数
-				this.lbl_maxLiQuannum.text = '/ ' + jsonData.LiJuanMaxCnt;
+				this.lbl_maxLiQuannum.text = jsonData.LiJuanMaxCnt.toString();
 				this.maxliquanNum = jsonData.LiJuanMaxCnt;
-				if (this.liquanNum == this.maxliquanNum) {
-					this.img_liquanBless.skin = 'image/common/icon_bigbaoxiang_4open.png'
+				//礼券宝箱显示状态和礼券祈福按钮显示状态
+				if(this.liquanNum >= this.maxliquanNum){
+					this.ani_liquanbox.gotoAndStop(this.ani_liquanbox.count - 1);
+					this.btn_liquan.disabled = true;
+				} else {
+					this.ani_liquanbox.gotoAndStop(0);
+					this.btn_liquan.disabled = false;
 				}
 			})
 		}
 		public onclose(): void {
 			GameApp.LListener.offCaller(ProtoCmd.Menu_QiFuClientOpen, this);
-			this.close();
+			DialogManage.closeDialog(this);
 		}
 		/**
 		 * 祈福面板发协议
