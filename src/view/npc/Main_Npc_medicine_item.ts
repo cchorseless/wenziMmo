@@ -18,7 +18,7 @@ module view.npc{
 			itembase.dwBaseID = itemID;
 			itembase.dwCount =  GameUtil.findItemInBag(itemID, GameApp.GameEngine.bagItemDB)
 			this.ui_daoju.setData(itembase);
-			this.lab_probability.text = probability + '%';
+			this.lab_probability.text ='成功率:'+ probability + '%';
 			this.lab_probability.color = this.color[type];
 			this.setLight(false)
 		}

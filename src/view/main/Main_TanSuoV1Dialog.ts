@@ -16,6 +16,11 @@ module view.npc {
 
 		//技能是否第一次学
 		public skillFirst;
+		public jiaohuType = [
+
+		]
+		public NpcState = 1;
+		public NpcAttitude = 1;
 		public setData(obj: GameObject.Npc): Main_TanSuoV1Dialog {
 			this.btn_jiaoyi.visible = false;
 			let jiaoyiData = SheetConfig.mydb_npcsell_tbl.getInstance(null).data;
@@ -27,27 +32,39 @@ module view.npc {
 			this.panel_jiaohu.vScrollBarSkin = '';
 			this.vbox_jiaohu['sortItem'] = (items) => { };
 			this.item = obj;
+			this.NpcAttitude = [1, 2, 3][SheetConfig.mydb_npcgen_tbl.getInstance(null).ATTITUDE('' + obj.feature.dwCretTypeId)]
 			//NPC姓名
-			this.lbl_name.text = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME('' + obj.feature.dwCretTypeId);
+			this.lbl_name.text = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME('' + obj.feature.dwCretTypeId).split("_")[0];
 			//造型图
 			let icon = SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER('' + obj.feature.dwCretTypeId);
 			this.img_npc.skin = 'image/common/npc/npc_half_' + icon + '.png';
 			this.init_haoganEvent();
 
 			this.addEvent();
-			this.init_npcTalk();
+			// this.init_npcTalk();
 			return this;
 		}
+		public postNpcTalk(type,state) {
+			this.NpcState = state;
+			let conID = type * 100 + this.NpcState * 10 + this.NpcAttitude;
+			let name = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(this.item.feature.dwCretTypeId).split('_')[0];
+			let str = name + SheetConfig.NPC_specialtalkInfoSheet.getInstance(null).TALKINFO(conID)
+			GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str);
+		}
+
 		public addEvent(): void {
+			//好感度弹窗
 			this.btn_haogan.on(Laya.UIEvent.CLICK, this, function () {
 				let o = new Main_Npc_HaoGanDialog();
 				o.show();
 			})
+			//npc详情
 			this.btn_info.on(Laya.UIEvent.CLICK, this, function () {
 				let o = new Main_Npc_Detail_Dialog();
 				o.setData(this.item, this.curExp, this.lvl);
 				o.popup(true);
 			})
+			//显示NPC交互文字
 			GameApp.LListener.on(Main_TanSuoV1Dialog.UPDATE_DETAIL, this, function (string) {
 				let lab = new Laya.Label();
 				lab.width = 305;
@@ -58,6 +75,7 @@ module view.npc {
 				lab.text = string;
 				this.vbox_jiaohu.addChild(lab);
 			})
+			//关闭弹窗
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			})
@@ -65,26 +83,31 @@ module view.npc {
 			this.btn_wuxue.on(Laya.UIEvent.CLICK, this, () => {
 				this.view_npc.selectedIndex = 1;
 			})
-			//辩论
+			//辩论  101
 			this.btb_Argue.on(Laya.UIEvent.CLICK, this, function () {
+				
 				this.ui_argue.setData(this.item.feature.dwCretTypeId, Main_TanSuoV1Dialog.self)
 				this.view_npc.selectedIndex = 4;
 			})
 			//偷窃
 			this.btn_Steal.on(Laya.UIEvent.CLICK, this, function () {
+				// this.postNpcTalk(105,1);
 				this.stealFromNpc();
 			})
 			//送礼
 			this.btn_sendGift.on(Laya.UIEvent.CLICK, this, function () {
+				
 				this.sendGiftToNpc();
 			})
 			//下毒
 			this.btn_Poison.on(Laya.UIEvent.CLICK, this, function () {
+				// this.postNpcTalk(107,1);
 				this.ui_poison.setData(this.item.feature.dwCretTypeId, Main_TanSuoV1Dialog.self, 0)
 				this.view_npc.selectedIndex = 5;
 			})
 			//化解仇恨
 			this.btn_huajie.on(Laya.UIEvent.CLICK, this, function () {
+				
 				let o = new Main_Npc_Huajie_Dialog();
 				o.setData(this.item.feature.dwCretTypeId, Main_TanSuoV1Dialog.self, 0);
 				o.show();
@@ -101,6 +124,7 @@ module view.npc {
 			})
 			//结拜
 			this.btn_jiebai.on(Laya.UIEvent.CLICK, this, function () {
+				this.postNpcTalk(109,2);
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.swearNpc, [this.item.feature.dwCretTypeId], 0, this
 					, function (res) {
 						console.log('结拜回调', res)
@@ -114,6 +138,7 @@ module view.npc {
 
 			//表白
 			this.btn_marry.on(Laya.UIEvent.CLICK, this, function () {
+				this.postNpcTalk(110,2);
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.declareNpc, [this.item.feature.dwCretTypeId], 0, this
 					, function (res) {
 						console.log('表白回调', res)
@@ -126,6 +151,7 @@ module view.npc {
 			})
 			//暗杀
 			this.btn_Kill.on(Laya.UIEvent.CLICK, this, function () {
+				
 				// this.stealFromNpc();
 				let progerUI = new view.npc.NpcProgressItem();
 				progerUI.setData('交互中~', 1500);
@@ -138,8 +164,10 @@ module view.npc {
 							this.updataHaoGan();
 							let str = '';
 							if (res.ret == 0) {
+								this.postNpcTalk(108,2);
 								str = '暗杀成功！'
 							} else {
+								this.postNpcTalk(108,3);
 								str = '暗杀失败!'
 							}
 							GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str);

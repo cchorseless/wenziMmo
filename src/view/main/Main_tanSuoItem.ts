@@ -3,6 +3,8 @@ module view.main {
 	export class Main_tanSuoItem extends ui.main.Main_tanSuoItemUI {
 		static self: Main_tanSuoItem;
 		public static upDataTILI = 'upDataTili'
+		public static UpDateDes = 'UpDateDes'
+		public static Collect = 'Collect'
 		public canLeave = false;
 		constructor() {
 			super();
@@ -19,6 +21,49 @@ module view.main {
 		public intoInfo = [];
 		public mode = 0;
 		public addEvent() {
+			GameApp.LListener.on(Main_tanSuoItem.Collect, this, function (id) {
+				let tempID = parseInt(id)
+				let progerUI = new view.npc.NpcProgressItem();
+				progerUI.setData('采集中', 1500, false);
+				progerUI.closeHandler = Laya.Handler.create(this, () => {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.collectItem, [tempID], 0, this
+						, function (res) {
+						})
+					lcp.send(pkt);
+
+				})
+				progerUI.centerX = progerUI.centerY = 0;
+				this.addChild(progerUI);
+
+			})
+			GameApp.LListener.on(view.main.Main_tanSuoItem.UpDateDes, this, function (jsonData: string) {
+				let str = '';
+				let paiArr = ['', '铁证', '诡辩', '反驳'];
+
+				let base = jsonData.split(',');
+				let data = [];
+				for (let i = 0; i < base.length; i++) {
+					data.push(parseInt(base[i]))
+				}
+				str = '你采取' + paiArr[data[0]] + "，NPC用" + paiArr[data[1]] + '应对';
+				if (data[2] == 0 && data[3] > 0) {
+					str += '\nNPC心理值下降' + data[3] + '点。'
+				} else if (data[3] == 0 && data[2] > 0) {
+					str += '\n你的心理值下降' + data[2] + '点。'
+				} else if (data[2] > 0 && data[3] > 0) {
+					str += '\n你的心理值下降' + data[2] + '点，NPC心理值下降' + data[3] + '点。'
+				}
+				let label1 = new Laya.Label;
+				label1.width = 590;
+				label1.color = '#63491a';
+				label1.font = 'FZXK';
+				label1.fontSize = 22;
+				label1.wordWrap = true;
+				label1.text = str;
+				// label1.text = SheetConfig.mapRoomSheet.getInstance(null).ROOMDES('14018');
+				this.init_updataHieght(label1);
+
+			})
 			this.box_button.on(Laya.UIEvent.CLICK, this, () => {
 				this.isClick = !this.isClick;
 				this.init_shenSuo(this.isClick);
@@ -37,11 +82,14 @@ module view.main {
 					item: jsonData.reward
 				}
 				this.ui_Aegue.stopAuto();
+				this.leaveFuBen();
 				if (jsonData.myhp >= jsonData.npchp) {
+
 					let p = new scene.BattleRewardInfoV0Item();
 					p.setData(0);
 					p.popup();
 				} else {
+					// this.leaveFuBen();
 					let p = new scene.BattleRewardInfoV0Item();
 					p.setData(1);
 					p.popup();

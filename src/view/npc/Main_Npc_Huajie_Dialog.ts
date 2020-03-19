@@ -62,15 +62,17 @@ module view.npc {
 					let str = '';
 					let npcName = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(this.npcID)
 					if (res.ret == 0) {
+						this.parentUI.postNpcTalk(114,2);
 						str = '化解仇恨成功'
 
 					} else {
 						str = '化解仇恨失败'
 					}
-					GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
+					// GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
 					this.close();
 				})
 			lcp.send(pkt);
+			this.parentUI.postNpcTalk(114,1);
 		}
 	}
 }

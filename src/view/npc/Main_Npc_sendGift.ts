@@ -110,25 +110,36 @@ module view.npc {
 					return;
 				}
 				let itemID = this['ui_daoju' + this.touchID].itemID;
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.giveGiftToNpc, [this.npcID, itemID], 0, this
-					, function (res) {
-						console.log('送礼回调' + res)
-						this.parentUI.curExp = res.likeValue;
-						this.parentUI.lvl = res.lvl;
-						this.parentUI.updataHaoGan();
-						this.parentUI.view_npc.selectedIndex = 0;
-						let itemName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(itemID)
-						let str = '';
-						if (res.ret == 0) {
-							str = '送礼成功！'
-						} else {
-							str = '送礼失败!'
-						}
-						GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
-					})
-				lcp.send(pkt);
+				this.parentUI.postNpcTalk(102, 1);
+				let progerUI = new view.npc.NpcProgressItem();
+				progerUI.setData('交互中~', 1500);
+				progerUI.closeHandler = Laya.Handler.create(this, () => {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.giveGiftToNpc, [this.npcID, itemID], 0, this
+						, function (res) {
+							console.log('送礼回调' + res)
+							this.parentUI.curExp = res.likeValue;
+							this.parentUI.lvl = res.lvl;
+							this.parentUI.updataHaoGan();
+							this.parentUI.view_npc.selectedIndex = 0;
+							let itemName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(itemID)
+							let str = '';
+							if (res.ret == 0) {
+								str = 'NPC好感度上升了20点'
+								this.parentUI.postNpcTalk(103, 2);
+							} else {
+								// str = '送礼失败!'
+								this.parentUI.postNpcTalk(103, 3);
+							}
+							GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
+						})
+					lcp.send(pkt);
+				})
 
+				
+				progerUI.centerX = progerUI.centerY = 0;
+				this.parentUI.addChild(progerUI);
 			})
+
 		}
 	}
 }

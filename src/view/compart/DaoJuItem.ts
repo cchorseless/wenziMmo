@@ -205,10 +205,7 @@ module view.compart {
 			// 穿戴位置
 			let pos = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION('' + this.item.dwBaseID);
 			let index_hero = [
-				pos,
-				pos + EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS,
-				pos + EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS,
-				pos + EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS];
+				pos,];
 			// 穿戴职业
 			let canJob = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB('' + this.item.dwBaseID);
 			// 穿戴性别
@@ -222,13 +219,20 @@ module view.compart {
 				// 分数小于本装备
 				if (itemInfo) {
 					if (itemInfo.battleScore[index_player] < this.item.battleScore[index_player]) {
+						this.btn_isStronger.skin = 'image/common/up_2.png';
 						this.btn_isStronger.visible = true;
-						this.btn_isStronger.selected = Boolean(i);
+
+						// this.btn_isStronger.selected = Boolean(i);
 						return
+					}
+					else{
+						this.btn_isStronger.skin = 'image/common/up_1.png';
+						this.btn_isStronger.visible = true;
 					}
 				}
 				// 没有装备
 				else {
+					this.btn_isStronger.skin = 'image/common/up_1.png';
 					this.btn_isStronger.visible = true;
 					this.btn_isStronger.selected = Boolean(i);
 					return

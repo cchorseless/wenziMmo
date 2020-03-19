@@ -34,7 +34,7 @@ module view.npc {
 			this.type = type;
 			switch (type) {
 				case 0:
-					this.lab_num.text = num + '%';
+					this.lab_num.text ='成功率:'+ num + '%';
 					break;
 				case 1:
 					this.lab_num.text = num + '';

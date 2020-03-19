@@ -22,6 +22,7 @@ module view.npc {
 		 * @param type   类型 ：0 下毒  1：治疗
 		 */
 		public setData(npcid, uiParent, type) {
+			this.lab_haogan.text = GameApp.MainPlayer.nTili + '';
 			this.npcID = npcid;
 			this.parentUI = uiParent;
 			this.type = type;
@@ -84,6 +85,21 @@ module view.npc {
 				this.lab_huandu_add.visible = true;
 				this.lab_huandu_add.text = str;
 			}
+			let showState = true;
+			if (GameApp.MainPlayer.nTili < 3) {
+				showState = false;
+			}
+			let itemID = this.itemIDArr[this.type][this.touchID];
+			if (GameUtil.findItemInBag(itemID) <= 0) {
+				showState = false;
+			}
+			let base = this.parentUI.medicine[this.ceng]
+			if (this.type == 1){
+				if(base == 0){
+					showState = false;
+				}
+			}
+			this.btn_poison.disabled = !showState;
 		}
 
 		public dealTouch() {
@@ -101,10 +117,6 @@ module view.npc {
 		public endTime;
 		public addEvent() {
 			for (let i = 0; i < 9; i++) {
-				// this['ui_medicine' + i].on(Laya.UIEvent.CLICK, this, function () {
-				// 	this.touchID = i;
-				// 	this.showResult();
-				// })
 				this['ui_medicine' + i].on(Laya.UIEvent.MOUSE_DOWN, this, function () {
 					this.touchID = i;
 					this.isTouch = true;
@@ -133,6 +145,10 @@ module view.npc {
 				}
 				let itemID = this.itemIDArr[this.type][this.touchID];
 				let progerUI = new view.npc.NpcProgressItem();
+				let jiaohuType = [107, 103]
+				if (this.type == 1) {
+					this.parentUI.postNpcTalk(jiaohuType[this.type], 1);
+				}
 				progerUI.setData('交互中~', 1500);
 				progerUI.closeHandler = Laya.Handler.create(this, () => {
 					let cmdArr = [ProtoCmd.poisonToNpc, ProtoCmd.treatNpc]
@@ -149,6 +165,7 @@ module view.npc {
 							this.parentUI.updataHaoGan();
 							if (res.ret == 0) {
 								str = typeString + '成功';
+								this.parentUI.postNpcTalk(jiaohuType[this.type], 2);
 								if (this.type == 0) {
 									this.parentUI.medicine[this.ceng] += 1;
 								} else {
@@ -156,11 +173,14 @@ module view.npc {
 								}
 
 							} else {
+								this.parentUI.postNpcTalk(jiaohuType[this.type], 3);
 								str = typeString + '失败!'
 							}
-							GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
+							// GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
 						})
 					lcp.send(pkt);
+
+
 				})
 				progerUI.centerX = progerUI.centerY = 0;
 				this.parentUI.addChild(progerUI);

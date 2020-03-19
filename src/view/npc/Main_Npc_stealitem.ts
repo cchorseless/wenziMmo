@@ -27,6 +27,7 @@ module view.npc {
 			let itemlist = itemMsg.split('|');
 			for (let i = 0; i < 10; i++) {
 				this['ui_steal' + i].initView();
+				this['ui_steal' + i].visible = false;
 			}
 			for (let i = 0; i < itemlist.length; i++) {
 				//物品品质
@@ -34,6 +35,7 @@ module view.npc {
 				let lv = GameApp.MainPlayer.skillInfo['400002'].subLevel;//偷窃技能等级
 				let haoganExp = Main_TanSuoV1Dialog.self.curExp;//好感度
 				let k = (0.5 + 0.05 * lv + - 0.01 * quality - 0.01 * quality) * 100;
+				this['ui_steal' + i].visible = true;
 				this['ui_steal' + i].setData(itemlist[i], k, 0, i);
 			}
 		}
@@ -60,6 +62,7 @@ module view.npc {
 					return;
 				}
 				let itemID = parseInt(this['ui_steal' + this.touchID].itemID);
+				// this.parentUI.postNpcTalk(105, 1);
 				let progerUI = new view.npc.NpcProgressItem();
 				progerUI.setData('交互中~', 1500);
 				progerUI.closeHandler = Laya.Handler.create(this, () => {
@@ -72,18 +75,20 @@ module view.npc {
 							this.parentUI.view_npc.selectedIndex = 0;
 							let itemName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(res.itemid)
 							let str = '';
+							
 							let npcName = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(this.npcID)
 							if (res.ret == 0) {
-								str = npcName + '说道：“你一来，我就发现少了件东西”' +
-									'\n偷窃成功，NPC好感度降低50点，你获得' + itemName + '，窃术熟练度上升100点。';
+								this.parentUI.postNpcTalk(105, 2);
+								str = '偷窃成功，NPC好感度降低50点，你获得' + itemName + '，窃术熟练度上升100点。';
 
 							} else {
-								str = npcName + '说道：“这是怎么一回事，为何拿我的东西”' +
-									'\n偷窃失败，NPC好感度降低500点，你的名誉降低5点。';
+								this.parentUI.postNpcTalk(105, 3);
+								str = '偷窃失败，NPC好感度降低500点，你的名誉降低5点。';
 							}
 							GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
 						})
 					lcp.send(pkt);
+					
 				})
 				progerUI.centerX = progerUI.centerY = 0;
 				this.parentUI.addChild(progerUI);

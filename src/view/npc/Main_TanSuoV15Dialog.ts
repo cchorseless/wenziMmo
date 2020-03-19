@@ -25,7 +25,7 @@ module view.npc {
 			return this;
 		}
 		public showDrop(items: Array<number>) {
-			let str = ['高概率','中概率','低概率']
+			let str = ['高概率', '中概率', '低概率']
 			for (let i = 0; i < items.length; i++) {
 				this['img_bg' + i].skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(items[i]) + '.png';
 				this['img_icon' + i].skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(items[i]) + '.png';
@@ -46,14 +46,11 @@ module view.npc {
 						tempID = key;
 					}
 				}
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.collectItem, [tempID], 0, this
-					, function (res) {
-						console.log(res);
-						this.close();
-					})
-				lcp.send(pkt);
-
+				GameApp.LListener.event(view.main.Main_tanSuoItem.Collect,tempID);
+				this.close();
 			})
+
+
 		}
 	}
 }

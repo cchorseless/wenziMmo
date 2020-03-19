@@ -5,7 +5,8 @@ module view.npc {
 			super();
 		}
 		public closeHandler: Laya.Handler;
-		public setData(title: string, time: number): NpcProgressItem {
+		public setData(title: string, time: number,isShow = true): NpcProgressItem {
+			this.img_bg.visible = isShow;
 			this.lbl_title.text = title;
 			this.img_jinDu.width = 100;
 			Laya.Tween.to(this.img_jinDu, { width: 500 }, time, Laya.Ease.sineInOut, Laya.Handler.create(
