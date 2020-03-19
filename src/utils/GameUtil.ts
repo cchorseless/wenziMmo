@@ -210,6 +210,12 @@ module GameUtil {
         }
         return chnStr;
     }
+
+
+
+
+
+
     /**
      * 秒数倒计时
      */

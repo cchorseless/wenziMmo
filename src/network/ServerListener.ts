@@ -191,8 +191,6 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretChangeName), this, this.updateCretChangeName);
         //出牌  结算奖励
         GameApp.LListener.on(ProtoCmd.argueAttackEnd, this, this.getArgueReward);
-
-
         // 初始化标记
         this.hasInit = true;
 
@@ -476,7 +474,7 @@ class ServerListener extends SingletonClass {
     /**
      * NPC辩论  出牌结束奖励
      */
-    public getArgueReward(data){
+    public getArgueReward(data) {
 
     }
 
@@ -555,7 +553,6 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public mapRemoveCret(data: any): void {
-
         let msgData = new ProtoCmd.MapRemoveCret(data);
         let dwTmpId = msgData.getValue('dwTmpId');
         let btCretType = msgData.getValue('btCretType');
@@ -591,78 +588,64 @@ class ServerListener extends SingletonClass {
     public cretAttackRet(data: any): void {
         let msgData = new ProtoCmd.CretAttackRet(data);
         let player = GameApp.MainPlayer;
-        let atker: GameObject.Monster = player.findViewObj(msgData.dwTempId);
+        let atker = player.findViewObj(msgData.dwTempId);
+        let errString;
         if (atker) {
             switch (msgData.btErrorCode) {
                 // 检查攻击动作，释放攻击动作,检查CD
                 case EnumData.BattleResult.SUCCESS:
-                    atker.startAttack();
-                    let dwTempId = msgData.getValue('dwTempId')
-                    let skillid = msgData.getValue('nMagicId')
-                    if (GameApp.GameEngine.mainPlayer.tempId == dwTempId) {
-                        // PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
-                        view.scene.BattleFuBenInfoV3Item.self.allSkillCD()
-                        view.main.Main_tanSuoItem.self.showSkillName(skillid)
-
-                    }
-
                     break;
-                default:
-                    let errString;
-                    switch (msgData.btErrorCode) {
-                        case EnumData.BattleResult.CRET_MAGICFAIL_CASTNOTSUCCESS:
-                            errString = '释放不成功'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_CASTNOTSUCCESS:
-                            errString = '魔法不足'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_NOTINSCENE:
-                            errString = '不在场景中'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_BOUND:
-                            errString = '自己被束缚'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_PETRIFACTION:
-                            errString = '自己被石化'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_IMPRISONMENT:
-                            errString = '自己被禁锢'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_SLEEP:
-                            errString = '自己被昏睡'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_PARALYSIS:
-                            errString = '自己被麻痹'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_FROZEN:
-                            errString = '自己被冰冻'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_DEAD:
-                            errString = '自己死亡'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_TARGET:
-                            errString = '目标无效'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_LACKITEM:
-                            errString = '缺少物品'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_DELETEITEMFAIL:
-                            errString = '删除物品失败'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_NOCOOLING:
-                            errString = '技能冷却未完成'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_NORANGE:
-                            errString = '目标不在范围内'
-                            break;
-                        case EnumData.BattleResult.CRET_MAGICFAIL_NEEDLIFENUM:
-                            errString = '没有足够的寿命值'
-                            break;
-
-                    }
-                    TipsManage.showTips(errString);
+                case EnumData.BattleResult.CRET_MAGICFAIL_CASTNOTSUCCESS:
+                    errString = '释放不成功'
                     break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_CASTNOTSUCCESS:
+                    errString = '魔法不足'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_NOTINSCENE:
+                    errString = '不在场景中'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_BOUND:
+                    errString = '自己被束缚'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_PETRIFACTION:
+                    errString = '自己被石化'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_IMPRISONMENT:
+                    errString = '自己被禁锢'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_SLEEP:
+                    errString = '自己被昏睡'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_PARALYSIS:
+                    errString = '自己被麻痹'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_FROZEN:
+                    errString = '自己被冰冻'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_DEAD:
+                    errString = '自己死亡'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_TARGET:
+                    errString = '目标无效'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_LACKITEM:
+                    errString = '缺少物品'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_DELETEITEMFAIL:
+                    errString = '删除物品失败'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_NOCOOLING:
+                    errString = '技能冷却未完成'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_NORANGE:
+                    errString = '目标不在范围内'
+                    break;
+                case EnumData.BattleResult.CRET_MAGICFAIL_NEEDLIFENUM:
+                    errString = '没有足够的寿命值'
+                    break;
+
             }
+            if (errString) TipsManage.showTips(errString);
         }
         else {
             TipsManage.showTips('攻击失败' + '没有找到目标');
@@ -671,9 +654,37 @@ class ServerListener extends SingletonClass {
         msgData = null;
     }
 
+    /**
+     * 技能飞行动作
+     * @param data 
+     */
+    public AvatorSpellDecoderRet(data: Laya.Byte): void {
+        let cbpkt = new ProtoCmd.AvatorSpellDecoderRet(data);
+        // 施法者
+        let dwTempId = cbpkt.getValue('dwTempId');
+        // 受击者
+        let dwTargetId = cbpkt.getValue('dwTargetId');
+        // 技能ID
+        let nMagicId = cbpkt.getValue('nMagicId');
+        // 花费时间
+        let dwActionTick = cbpkt.getValue('dwActionTick');
+        let atker = GameApp.MainPlayer.findViewObj(dwTempId);
+        let dwTargeter = GameApp.MainPlayer.findViewObj(dwTargetId);
+        // 播放飞行弹道
+        if (atker && dwTargeter && atker.ui_item && dwTargeter.ui_item) {
+            EffectManage.playBattleEffect(atker.ui_item, dwTargeter.ui_item, nMagicId, dwActionTick);
+        }
+        cbpkt.clear();
+        cbpkt = null;
+    }
+
 
     // 0x0297
     // 同屏内怪物掉血
+    /**
+     * 受击表现
+     * @param data 
+     */
     public cretStruck(data: any): void {
         let msg = new ProtoCmd.CretStruck(data);
         let npower = msg.getValue('npower');
@@ -682,7 +693,6 @@ class ServerListener extends SingletonClass {
         let actmpid = msg.getValue('dwAcTmpID');
         let tartmpid = msg.getValue('dwTmpId');
         let tartmpType = msg.getValue('nDamageType');
-
         let skillID = msg.getValue('wdMagicID');
         let player = GameApp.MainPlayer;
         // 攻击者
@@ -701,6 +711,7 @@ class ServerListener extends SingletonClass {
         msg.clear();
         msg = null;
     }
+
     //自己的Buff
     public cretMonsterBuff(data: any) {
         let msg = new ProtoCmd.stCretBuffState(data);
@@ -710,7 +721,6 @@ class ServerListener extends SingletonClass {
         let player = GameApp.MainPlayer;
         let base = player.findViewObj(GameApp.MainPlayer.tempId);
         base.changeBuff(msg);
-
         Log.trace('有Buff')
         msg.clear();
         msg = null;
@@ -740,35 +750,7 @@ class ServerListener extends SingletonClass {
         msg = null;
     }
 
-    /**
-     * 技能飞行动作
-     * @param data 
-     */
-    public AvatorSpellDecoderRet(data: Laya.Byte): void {
-        let cbpkt = new ProtoCmd.AvatorSpellDecoderRet(data);
-        // 施法者
-        let dwTempId = cbpkt.getValue('dwTempId');
-        // 受击者
-        let dwTargetId = cbpkt.getValue('dwTargetId');
-        // 技能ID
-        let nMagicId = cbpkt.getValue('nMagicId');
-        // 花费时间
-        let dwActionTick = cbpkt.getValue('dwActionTick');
-        Log.trace()
-        let atker = GameApp.MainPlayer.findViewObj(dwTempId);
-        // atker && atker.showSkill(dwTargetId, nMagicId, dwActionTick);
-        // if( dwTempId == 16043){
-        //     console.error("大中了")
-        //     return;
-        // }
-        if (view.main.Main_tanSuoItem.self.viw_bottom.selectedIndex == 1) {
-            // PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
-            view.main.Main_tanSuoItem.self.playFightAni(dwTempId, dwTargetId, nMagicId, dwActionTick)
-        }
 
-        cbpkt.clear();
-        cbpkt = null;
-    }
 
     /*************************************同步技能状态************************************ */
 
@@ -786,6 +768,7 @@ class ServerListener extends SingletonClass {
         cbpkt.clear();
         cbpkt = null;
     }
+
     /**
      * 更新技能冷却
      * @param data 
@@ -793,6 +776,7 @@ class ServerListener extends SingletonClass {
     public updateSkillCold(data): void {
         let cbpket = new ProtoCmd.AvatarMagicColdRet(data);
     }
+
     /**
      * 更新技能状态
      * @param data 
@@ -816,6 +800,7 @@ class ServerListener extends SingletonClass {
         cbpkt.clear();
         cbpkt = null;
     }
+
     /**
      * 删除技能
      * @param data 
@@ -851,15 +836,17 @@ class ServerListener extends SingletonClass {
             GameApp.MainPlayer.skillShotButton[key] = shot;
             let skill = shot.i64Id.int64ToNumber();
             let skillBase = GameApp.MainPlayer.skillInfo[(skill + '')];
-            Log.trace(view.wuXue.WuXue_Skill_Circle.skillAdd + shot.btRow + shot.btCol)
+            Log.trace(view.wuXue.WuXue_Skill_Circle.skillAdd + shot.btRow + shot.btCol);
+            // 添加技能快捷键
             GameApp.LListener.event(view.wuXue.WuXue_Skill_Circle.skillAdd + shot.btRow + shot.btCol, skillBase)
         }
         else {
             TipsManage.showTips('技能快捷键失败');
-
         }
         cbpkt.clear();
     }
+
+
 
     /**
      * 删除技能快捷键
@@ -880,6 +867,7 @@ class ServerListener extends SingletonClass {
         }
         cbpkt.clear();
     }
+    
     /**
      * 增加的内功经验值
      */
@@ -1788,8 +1776,8 @@ class ServerListener extends SingletonClass {
         }
     }
     /**
-*队长踢出队伍
-*/
+     *队长踢出队伍
+     */
     public outedTeam(data: Laya.Byte): void {
         let msg = new ProtoCmd.TeamKickoutDecoder(data);
         PanelManage.Team.myTeam();
@@ -2055,7 +2043,6 @@ class ServerListener extends SingletonClass {
 
     public recvTypeKeyValue(data: any): void {
         let msg = new ProtoCmd.RecvTypeKeyValue(data);
-
         msg.clear();
     }
 

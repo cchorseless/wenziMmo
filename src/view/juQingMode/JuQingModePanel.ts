@@ -686,6 +686,10 @@ module view.juQingMode {
 							lcp.send(pkt);
 						}
 					}
+					// todo 判断最后一个页拉剧情成功
+					// else if (this.curpageID == -1 && GameApp.MainPlayer.c   ){
+
+					// }
 					else {
 						// 下一页移动到位
 						Laya.Tween.to(this.curReadInfo, { x: -640 }, 250, null, Laya.Handler.create(this, () => {

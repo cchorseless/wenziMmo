@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":29,
+    "selecteID":54,
     "props":{"width":640,"sceneColor":"#000000","height":378},
     "nodeParent":-1,
     "label":"View",
@@ -26,33 +26,6 @@
             "child":[
                 ],
             "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":61,"x":105,"visible":false,"stateNum":"2","skin":"image/main/main_tansuo/icon_zhandou.png"},
-            "nodeParent":1,
-            "label":"Button",
-            "isOpen":null,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":30,
-            "child":[
-                {
-                    "type":"Label",
-                    "props":{"y":31,"x":-1,"text":"任务","fontSize":24,"font":"FZXK","color":"#63491a"},
-                    "nodeParent":30,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":31,
-                    "child":[
-                        ]
-                }],
-            "$LOCKED":true,
-            "$HIDDEN":true
         },
         {
             "x":15,
@@ -85,84 +58,10 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":76,"x":200,"visible":false},
-            "nodeParent":1,
-            "label":"Box",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":38,
-            "child":[
-                {
-                    "type":"Label",
-                    "props":{"text":"前往","fontSize":20,"font":"FZXK","color":"#63491a"},
-                    "nodeParent":38,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":39,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Label",
-                    "props":{"x":40,"width":100,"text":"襄阳城中心","height":20,"fontSize":20,"font":"FZXK","color":"#bf4747","align":"center"},
-                    "nodeParent":38,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":40,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Label",
-                    "props":{"x":140,"text":"和","fontSize":20,"font":"FZXK","color":"#63491a"},
-                    "nodeParent":38,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":41,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Label",
-                    "props":{"y":1,"x":160,"width":60,"text":"说书人","height":20,"fontSize":20,"font":"FZXK","color":"#a343bb","align":"center"},
-                    "nodeParent":38,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":42,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Label",
-                    "props":{"y":1,"x":220,"text":"谈谈吧","fontSize":20,"font":"FZXK","color":"#63491a"},
-                    "nodeParent":38,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":43,
-                    "child":[
-                        ]
-                }],
-            "$HIDDEN":true
-        },
-        {
-            "x":15,
-            "type":"Box",
             "props":{"y":74,"x":127,"var":"box_finishNeed"},
             "nodeParent":1,
             "label":"Box(box_finishNeed)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,

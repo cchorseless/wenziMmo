@@ -65,7 +65,6 @@ module GameObject {
         public talkInfo = {};// 所有对白信息
         public allCharpterInfo = {};//所有章节信息
         public allPianZhangInfo = null//篇章信息 {index:{id,name,charpterInfo}
-        // public allFuBenInfo = {};// 主线副本信息
         public curFuBenMainID = 1;   //是否通关当前章节的所有主线副本
 
         public pianZhangID: number;// 篇章ID
@@ -81,7 +80,18 @@ module GameObject {
         public skillShotButton: { [btRow: string]: ProtoCmd.stShortCuts } = {};// 所有技能快捷键信息
         public skillInfo: { [x: string]: ProtoCmd.stSkillLvlBase } = {};// 所有技能信息
         public upGraspSkillID: number;  //升品技能ID
-        public defaultTaoLuID: number;//默认设置的套路ID
+
+        //默认设置的套路ID
+        public get defaultTaoLuID(): number {
+            let key = 400;
+            let tab;
+            if (GameApp.MainPlayer.skillShotButton[key]) {
+                tab = GameApp.MainPlayer.skillShotButton[key].i64Id.int64ToNumber();
+            } else {
+                tab = 0;
+            }
+            return tab;
+        }
 
         //副本ID
         public curFuBenID = 0;
@@ -325,28 +335,6 @@ module GameObject {
         }
         /*******************************************************************get************************************* */
 
-        public _skeBoneRes;
-        /**
-         * 获取角色龙骨资源
-         */
-        public get skeBoneRes(): string {
-            if (this._skeBoneRes) {
-                return this._skeBoneRes;
-            }
-            // 令狐冲
-            if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
-                return 'sk/player/1_1.sk'
-            }
-            // 任盈盈
-            else {
-                return 'sk/player/1_2.sk'
-            }
-            // return 'sk/player/' + this.job + '_' + this.sex + '.sk';
-        }
-
-        public set skeBoneRes(srcID: string) {
-            this._skeBoneRes = srcID;
-        }
 
         public _tmpHeroList = {};
         /**
@@ -574,16 +562,18 @@ module GameObject {
         public tryAttack(target: Creature, skillID: number = 999): void {
             this.atkTargetTempId = target.tempId;
             Log.trace('当前目标:', this.atkTargetTempId);
-
+            // 攻击者坐标
+            let a = this.ui_item.localToGlobal(new Laya.Point(0, 0));
+            // 受击者坐标
+            let b = target.ui_item.localToGlobal(new Laya.Point(0, 0));
             let pkt = new ProtoCmd.CretAttack();
             pkt.dwTempId = this.tempId;
             pkt.nMagicId = skillID;
             pkt.dwTargetId = target.tempId;
             pkt.nX = target.location.ncurx;
             pkt.nY = target.location.ncury;
-            pkt.distance = 6;
+            pkt.distance = Math.ceil(Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2)) / 45);
             lcp.send(pkt);
-
 
         }
 
@@ -615,8 +605,6 @@ module GameObject {
                     }
                 }
                 // 没有攻击目标,所有的怪物位置最靠左的
-
-
                 TipsManage.showTips('无怪物');
             }, null, false);
             // 攻击一次
@@ -633,40 +621,29 @@ module GameObject {
             this.completeAtkHandle = null;
         }
 
+
         /**
          * 手动攻击
          * @param target 
          * @param skillID 
          */
-        public startHandAtk0(target: Creature, skillID: number = 999): void {
+        public startHandAtk(target: Creature, skillID: number = 999): void {
             // this.stopAutoAtk();
             this.tryAttack(target, skillID)
         }
+
+
+        /**
+         * 更改BUFF状态
+         * @param data 
+         */
         public changeBuff(data): void {
             // this.stopAutoAtk();
             if (this.ui_item) {
                 this.ui_item.changeBuff(data)
             }
-
         }
 
-        /**
-         * 播放攻击动作
-         */
-        public startAttack(): void {
-            this.ui_item.playAni();
-            if (this.ui_item) {
-                // this.ui_item.stopPlayAni();
-                // 自动攻击
-                if (this.completeAtkHandle) {
-                    // this.ui_item.playAni(0, false, true, this.completeAtkHandle);
-                }
-                // 手动攻击
-                else {
-                    // this.ui_item.playAni();
-                }
-            }
-        }
 
 
 
@@ -675,7 +652,6 @@ module GameObject {
          */
         public onAttack(): void {
             this.ui_item.onAttack(1)
-
         }
 
         /**
@@ -704,8 +680,5 @@ module GameObject {
             }
             // this.ui_item && this.ui_item.playAni(3, false)
         }
-
-
-
     }
 }

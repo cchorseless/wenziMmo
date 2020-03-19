@@ -141,7 +141,6 @@ module view.wuXue {
 			})
 			// 设置默认武学套路
 			this.btn_setTaolu.on(Laya.UIEvent.CLICK, this, () => {
-				// let skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this.skillItem.configID)
 				let pkt1 = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder();
 				// 第四行第一个标记
 				pkt1.setValue('oldcol', 0);

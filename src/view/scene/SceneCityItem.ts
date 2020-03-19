@@ -156,12 +156,8 @@ module view.scene {
 		 * @param obj 
 		 */
 		public addPlayer(obj): void {
-			let playerUI: view.scene.PlayerAndHeroInSceneV0Item = new view.scene.PlayerAndHeroInSceneV0Item();
-			playerUI.setMaster(obj);
-			this.hbox_player.addChild(playerUI);
-			if (obj.curHero) {
-				GameApp.SceneManager.addHero(obj.curHero)
-			}
+			let playerUI: view.scene.PlayerInSceneItem = new view.scene.PlayerInSceneItem();
+
 		}
 
 
@@ -174,30 +170,7 @@ module view.scene {
 		public addDaoJu(obj){
 
 		}
-		// public addDaoJu(obj: ProtoCmd.ItemBase): void {
-		// 	let itemUI = new view.compart.DaoJuWithNameItem();
-		// 	itemUI.setData(obj, EnumData.ItemInfoModel.SHOW_NONE);
-		// 	for (let _ui of this.hbox_monster._childs) {
-		// 		// 添加成功
-		// 		if ((_ui as view.scene.MonsterGroupInSceneV1Item).addItem(itemUI)) {
-		// 			// 拾取物品
-		// 			itemUI.on(Laya.UIEvent.CLICK, this, () => {
-		// 				let pkt = new ProtoCmd.MapItemEventPick();
-		// 				pkt.setValue('i64ItemID', obj.i64ItemID);
-		// 				pkt.setValue('wX', obj.mapX);
-		// 				pkt.setValue('wY', obj.mapY);
-		// 				lcp.send(pkt, this, (data) => {
-		// 					let cbpkt = new ProtoCmd.MapItemEventPick(data);
-		// 					if (cbpkt.getValue('btErrorCode') == 0) {
-		// 						TipsManage.showTips('拾取道具成功');
-		// 						itemUI.lbl_itemName.text = '';
-		// 					}
-		// 				})
-		// 			});
-		// 			return
-		// 		}
-		// 	}
-		// }
+
 
 		/**
 		 * 更新地图信息

@@ -79,6 +79,7 @@ class SceneManager extends SingletonClass {
             lcp.send(pkt);
         }
     }
+
     /**
      * 切换完大地图后发送
      */
@@ -100,6 +101,7 @@ class SceneManager extends SingletonClass {
             GameApp.GameEngine.isReady = true;
         });
     }
+
 
     /**
      * 更新主场景ui_scene
@@ -159,6 +161,7 @@ class SceneManager extends SingletonClass {
         this.ui_scene.updateUI();
     }
 
+
 	/**
 	 * 初始化角色
 	 */
@@ -179,6 +182,7 @@ class SceneManager extends SingletonClass {
         }
     }
 
+
 	/**
   	 * 初始化弟子
   	 */
@@ -197,7 +201,6 @@ class SceneManager extends SingletonClass {
             selfHeroUI.centerX = selfHeroUI.centerY = 0;
             scene.box_diZi.addChild(selfHeroUI);
         }
-
     }
 
     /**
@@ -239,32 +242,10 @@ class SceneManager extends SingletonClass {
      * @param state 
      */
     public updateNpcState(npcID, state: EnumData.NPCSTATUS): void {
-        // for (let npcUI of this.vbox_npc._childs) {
-        //     let npcObject: GameObject.Npc = npcUI.item;
-        //     if (npcObject.feature.dwCretTypeId == npcID) {
-        //         npcObject.taskState = state;
-        //         break;
-        //     }
-        // }
+
     }
 
-    /**
-     * 添加英雄
-     */
-    public addHero(obj: GameObject.Hero): void {
-        let masterTempID = obj.feature.dwMasterTmpID;
-        // 判断是否是自己
-        if (masterTempID == GameApp.MainPlayer.tempId) {
-            this.updateDiziPlayer(this.ui_scene);
-        }
-        else {
-            // 找到主人
-            let masterObj = GameApp.MainPlayer.findViewObj(masterTempID, EnumData.CRET_TYPE.CRET_PLAYER);
-            if (masterObj && masterObj.ui_item) {
-                (masterObj.ui_item as view.scene.PlayerAndHeroInSceneV0Item).setHero(obj);
-            }
-        }
-    }
+
 
 
     /**

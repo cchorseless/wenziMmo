@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":257,
-    "selecteID":127,
+    "selectedBox":335,
+    "selecteID":335,
     "referenceLines":[
         {
             "value":1127,
@@ -754,13 +754,14 @@
                     "props":{"y":0,"x":0,"var":"view_scene","top":0,"selectedIndex":0,"right":0,"left":0,"bottom":0},
                     "nodeParent":257,
                     "label":"ViewStack(view_scene)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":161,
                     "child":[
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"main/Main_JuQingItem.ui",
                             "props":{"x":0,"runtime":"view.main.Main_JuQingItem","name":"item0","bottom":0},
@@ -773,9 +774,10 @@
                             "compId":334,
                             "child":[
                                 ],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"main/Main_tanSuoItem.ui",
                             "props":{"x":0,"runtime":"view.main.Main_tanSuoItem","name":"item1","bottom":0},
@@ -787,7 +789,7 @@
                             "compId":335,
                             "child":[
                                 ],
-                            "$HIDDEN":true
+                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 },

@@ -5,36 +5,27 @@ module view.scene {
 		public static self: BattleFuBenInfoV3Item;
 		public curTouchTaoLuID;
 		public unlockNeed = 30;
-
 		public isAuto = false;
-
 		public skillDes: Skill_DesDialog = null;
-
 
 		public costMPArr = {};
 		constructor() {
 			super();
 			BattleFuBenInfoV3Item.self = this;
 			this.addEvent();
+		}
 
-		}
 		public showNeed(str: string) {
-			console.log('showwwww' + str)
 			this.html_need.innerHTML = str;
-			console.log('needddddddddddd' + this.html_need.innerHTML)
 		}
+
 		public setData() {
 			this.img_cantSkill.visible = false;
-			let key = 400
-			if (GameApp.MainPlayer.skillShotButton[key]) {
-				GameApp.MainPlayer.defaultTaoLuID = GameApp.MainPlayer.skillShotButton[key].i64Id.int64ToNumber();
-			} else {
-				GameApp.MainPlayer.defaultTaoLuID = 0;
-			}
 			this.curTouchTaoLuID = GameApp.MainPlayer.defaultTaoLuID;
-
 			this.setView();
 		}
+
+
 		public setView() {
 			for (let i = 0; i < 4; i++) {
 				// this.ui_cut0.setData(i)
@@ -60,6 +51,11 @@ module view.scene {
 			}
 			this.changeMP(GameApp.MainPlayer.ability.nowMP, GameApp.MainPlayer.ability.nMaxMP)
 		}
+		/**
+		 * 更改耗蓝
+		 * @param curMP 
+		 * @param maxMP 
+		 */
 		public changeMP(curMP, maxMP) {
 			this.html_MP.style.fontFamily = 'STkaiti';
 			this.html_MP.style.fontSize = 26;
@@ -73,7 +69,9 @@ module view.scene {
 		}
 
 		public addEvent(): void {
-			let self = this;
+			/**
+			 * 离开副本
+			 */
 			EventManage.onWithEffect(this.btn_exit, Laya.UIEvent.CLICK, this, () => {
 				if (main.Main_tanSuoItem.self.canLeave) {
 					if (GameApp.MainPlayer.curFuBenID > 0) {
@@ -84,12 +82,9 @@ module view.scene {
 				else {
 					TipsManage.showTips('暂时不可退出副本')
 				}
-
-
-
 			})
 			for (let i = 0; i < 4; i++) {
-				this['ui_cut' + i].on(Laya.UIEvent.CLICK, this, function () {
+				this['ui_cut' + i].on(Laya.UIEvent.CLICK, this, () => {
 					if (this.isAuto) {
 						TipsManage.showTips('自动战斗中不能切换套路~');
 					} else {
@@ -103,60 +98,59 @@ module view.scene {
 			}
 			for (let i = 1; i < 7; i++) {
 				let touchBegin = false;
-				this['ui_skill' + i].on(Laya.UIEvent.MOUSE_DOWN, this, function () {
+				this['ui_skill' + i].on(Laya.UIEvent.MOUSE_DOWN, this, () => {
 					// touchBegin = Laya.Browser.now();
 					touchBegin = true;
-					Laya.timer.once(3000, self, function aa() {
+					Laya.timer.once(3000, this, function aa() {
 						if (!touchBegin) {
 							Laya.timer.clear(this, aa)
 							return;
 						}
-						self.skillDes = new Skill_DesDialog();
-						if (!self['ui_skill' + i].skillConfigID) {
+						this.skillDes = new Skill_DesDialog();
+						if (!this['ui_skill' + i].skillConfigID) {
 							return;
 						}
-						self.skillDes.setData(self['ui_skill' + i].skillConfigID);
-						self.addChild(self.skillDes);
-						self.skillDes.anchorX = self.skillDes.anchorY = 0.5;
-						let x1 = self['ui_skill' + i].x + self['ui_skill' + i].width * 0.5;
-						let y1 = self['ui_skill' + i].y - self.skillDes.height * 0.5 + 14;
-						self.skillDes.x = x1;
-						self.skillDes.y = y1
+						this.skillDes.setData(this['ui_skill' + i].skillConfigID);
+						this.addChild(this.skillDes);
+						this.skillDes.anchorX = this.skillDes.anchorY = 0.5;
+						let x1 = this['ui_skill' + i].x + this['ui_skill' + i].width * 0.5;
+						let y1 = this['ui_skill' + i].y - this.skillDes.height * 0.5 + 14;
+						this.skillDes.x = x1;
+						this.skillDes.y = y1
 
 					})
 				})
-				this['ui_skill' + i].on(Laya.UIEvent.MOUSE_OUT, this, function () {
+				this['ui_skill' + i].on(Laya.UIEvent.MOUSE_OUT, this, () => {
 					// touchBegin = Laya.Browser.now();
 					if (touchBegin) {
 						touchBegin = false;
-						if (self.skillDes != null) {
+						if (this.skillDes != null) {
 							// self.skillDes.parent.removeChild(self.skillDes);
-							self.skillDes.removeSelf();
-							self.skillDes = null;
+							this.skillDes.removeSelf();
+							this.skillDes = null;
 							return;
 						}
 					}
 				})
-				this.on(Laya.UIEvent.MOUSE_UP, this, function () {
+				this.on(Laya.UIEvent.MOUSE_UP, this, () => {
 					// touchBegin = Laya.Browser.now();
 					if (touchBegin) {
-
 						touchBegin = false
-						if (self.skillDes != null) {
-							self.skillDes.removeSelf();
-							self.skillDes = null;
+						if (this.skillDes != null) {
+							this.skillDes.removeSelf();
+							this.skillDes = null;
 							return;
 						}
 					}
 				})
 
-				this['ui_skill' + i].on(Laya.UIEvent.CLICK, this, function () {
+				this['ui_skill' + i].on(Laya.UIEvent.CLICK, this, () => {
 					if (touchBegin) {
 						touchBegin = false;
-						if (self.skillDes != null) {
+						if (this.skillDes != null) {
 							// self.skillDes.parent.removeChild(self.skillDes);
-							self.skillDes.removeSelf();
-							self.skillDes = null;
+							this.skillDes.removeSelf();
+							this.skillDes = null;
 							// return;
 						}
 					}
@@ -170,7 +164,7 @@ module view.scene {
 							let costMP = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(self['ui_skill' + i].skillConfigID);
 							if (costMP <= GameApp.MainPlayer.ability.nowMP) {
 								for (let o in GameApp.MainPlayer.allMonster) {
-									GameApp.MainPlayer.startHandAtk0(GameApp.MainPlayer.allMonster[o], self['ui_skill' + i].skillID);
+									GameApp.MainPlayer.startHandAtk(GameApp.MainPlayer.allMonster[o], self['ui_skill' + i].skillID);
 									return;
 								}
 							} else {
@@ -254,7 +248,7 @@ module view.scene {
 			let costNum = this.costMPArr[costID]
 			if (GameApp.MainPlayer.ability.nowMP > costNum) {
 				for (let o in GameApp.MainPlayer.allMonster) {
-					GameApp.MainPlayer.startHandAtk0(GameApp.MainPlayer.allMonster[o], self['ui_skill' + costID].skillID);
+					GameApp.MainPlayer.startHandAtk(GameApp.MainPlayer.allMonster[o], self['ui_skill' + costID].skillID);
 					return;
 				}
 			} else {
@@ -262,7 +256,7 @@ module view.scene {
 				delete this.costMPArr[costID];
 				if (Object.keys(this.costMPArr).length == 0) {
 					for (let o in GameApp.MainPlayer.allMonster) {
-						GameApp.MainPlayer.startHandAtk0(GameApp.MainPlayer.allMonster[o]);
+						GameApp.MainPlayer.startHandAtk(GameApp.MainPlayer.allMonster[o]);
 						return;
 					}
 				} else {

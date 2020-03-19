@@ -225,12 +225,7 @@ module view.main {
 		}
 
 		public addPlayer(obj): void {
-			let playerUI: view.scene.PlayerAndHeroInSceneV0Item = new view.scene.PlayerAndHeroInSceneV0Item();
-			playerUI.setMaster(obj);
-			this.addCreatureObj(playerUI);
-			// if (obj.curHero) {
-			// 	GameApp.SceneManager.addHero(obj.curHero)
-			// }
+
 		}
 
 

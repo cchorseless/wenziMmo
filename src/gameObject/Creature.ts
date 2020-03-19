@@ -304,8 +304,8 @@ module GameObject {
                 this.ui_item.updateHp();
             }
         }
-        public showPower(power: number,tartmpType:number) {
-            this.ui_item.showPower(power,tartmpType);
+        public showPower(power: number, tartmpType: number) {
+            this.ui_item.showPower(power, tartmpType);
         }
 
 
@@ -416,13 +416,11 @@ module GameObject {
          * 尝试攻击，检查释放能攻击
          */
         public tryAttack(target: Creature, skillID: number = 1000): void {
+
         }
 
-        /**
-         * 攻击开始
-         */
-        public startAttack(): void {
-        }
+
+        public playFlyAni(dwTargetId, nMagicId, dwActionTick){}
 
         /**
          * 播放技能

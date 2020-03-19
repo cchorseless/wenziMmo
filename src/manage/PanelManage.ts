@@ -50,6 +50,7 @@ module PanelManage {
     /**********************************界面层************************************ */
     export let tipsLayer: Laya.Box;                                                      //文字气泡提示
     export let euiLayer: Laya.Box;                                                       //界面弹窗提示
+    export let effectLayer: Laya.Box;                                                      // 特效界面层
     export let StartLoading: view.common.StartLoadingPanel                               //开始游戏加载界面
     export let netLoading: view.common.NetLoadingPanel;                                  //服务器网络数据加载界面
     export let resloading: view.common.ResLoadingPanel;                                  //游戏中加载资源切换场景界面
@@ -623,7 +624,7 @@ module PanelManage {
     }
 
 
-  
+
 
 
 

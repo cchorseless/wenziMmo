@@ -1,7 +1,7 @@
 
 class GameEngine extends SingletonClass {
 
-    public IsDebug = false;      //tru 日志打印 false 去日志打印
+    public IsDebug = true;      //tru 日志打印 false 去日志打印
     /*********************用户基础信息**********************/
     public userInfo: any;                                                         //第三方登陆数据
     public name: string;                                                          //昵称
