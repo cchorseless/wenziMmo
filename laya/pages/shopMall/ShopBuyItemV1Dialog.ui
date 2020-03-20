@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":75,
+    "selectedBox":91,
+    "selecteID":93,
     "props":{"width":555,"sceneColor":"#663130","height":700},
     "nodeParent":-1,
     "label":"Dialog",
@@ -213,13 +213,14 @@
                     "props":{"y":84,"x":27,"var":"box_danJia"},
                     "nodeParent":102,
                     "label":"Box(box_danJia)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":83,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":3,"x":41,"width":57,"text":"单价：","height":28,"fontSize":22,"font":"fzxk","color":"#63491a","align":"center"},
                             "nodeParent":83,
@@ -232,6 +233,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":3,"x":105,"width":182,"skin":"image/fuben/shadow_fanye.png","height":31},
                             "nodeParent":83,
@@ -243,8 +245,9 @@
                             "compId":85,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":-7,"x":4,"width":51,"var":"img_coinPic1","skin":"image/main/icon_common_yuanbao01.png","height":42},
+                                    "props":{"y":-7,"x":4,"width":51,"var":"img_coinPic1","skin":"image/main/icon_coin_1.png","height":42},
                                     "nodeParent":85,
                                     "label":"Image(img_coinPic1)",
                                     "isDirectory":false,
@@ -255,6 +258,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":4,"x":59,"width":105,"var":"lbl_price","text":"12364","strokeColor":"#404040","height":29,"fontSize":22,"font":"fzxk","color":"#000000","align":"left"},
                                     "nodeParent":85,
@@ -336,7 +340,7 @@
                                         {
                                             "x":75,
                                             "type":"Image",
-                                            "props":{"y":-4,"x":4,"width":46,"var":"img_coinPic","skin":"image/main/icon_common_yuanbao01.png","height":38},
+                                            "props":{"y":-7,"x":4,"width":51,"var":"img_coinPic","skin":"image/main/icon_coin_1.png","height":42},
                                             "nodeParent":91,
                                             "label":"Image(img_coinPic)",
                                             "isOpen":true,

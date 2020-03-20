@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":2,
+    "selectedBox":45,
+    "selecteID":30,
     "props":{"width":555,"sceneColor":"#e7908f","height":625},
     "nodeParent":-1,
     "label":"Dialog",
@@ -126,13 +126,14 @@
                     "props":{"y":84,"x":5,"var":"box_danJia"},
                     "nodeParent":78,
                     "label":"Box(box_danJia)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":59,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":3,"x":41,"width":57,"text":"单价：","height":28,"fontSize":22,"font":"fzxk","color":"#63491a","align":"center"},
                             "nodeParent":59,
@@ -145,6 +146,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":3,"x":105,"width":182,"skin":"image/fuben/shadow_fanye.png","height":31},
                             "nodeParent":59,
@@ -156,8 +158,9 @@
                             "compId":54,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":-7,"x":4,"width":51,"var":"img_coinPic1","skin":"image/main/icon_common_yuanbao01.png","height":42},
+                                    "props":{"y":-7,"x":4,"width":51,"var":"img_coinPic1","skin":"image/main/icon_coin_1.png","height":42},
                                     "nodeParent":54,
                                     "label":"Image(img_coinPic1)",
                                     "isDirectory":false,
@@ -168,6 +171,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":4,"x":59,"width":105,"var":"lbl_price","text":"12364","strokeColor":"#404040","height":29,"fontSize":22,"font":"fzxk","color":"#000000","align":"left"},
                                     "nodeParent":54,
@@ -189,13 +193,14 @@
                     "props":{"x":9,"width":361,"var":"box_count","height":61},
                     "nodeParent":78,
                     "label":"Box(box_count)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":55,
                     "child":[
                         {
+                            "x":45,
                             "type":"HScrollBar",
                             "props":{"y":7,"x":45,"width":270,"var":"hsbar_count","skin":"image/common/bag_hscroll.png","height":50},
                             "nodeParent":55,
@@ -209,6 +214,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":-10,"x":84},
                             "nodeParent":55,
@@ -220,6 +226,7 @@
                             "compId":75,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":6,"width":162,"text":"购买数量:","height":28,"fontSize":22,"font":"fzxk","color":"#000000","align":"center"},
                                     "nodeParent":75,
@@ -232,6 +239,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":2,"x":138,"width":60,"var":"lbl_countDes","text":"999","height":28,"fontSize":18,"font":"fzxk","color":"#c43939","align":"left"},
                                     "nodeParent":75,
@@ -244,6 +252,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":53,"x":-4,"width":200,"var":"lab_isMax","text":"数量已达到最大","height":28,"fontSize":20,"font":"fzxk","color":"#c43939","align":"center"},
                                     "nodeParent":75,
@@ -265,13 +274,14 @@
                     "props":{"y":119,"x":48,"var":"box_cost"},
                     "nodeParent":78,
                     "label":"Box(box_cost)",
-                    "isOpen":null,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":79,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":58,"x":68,"var":"btn_buy","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#a9643b","labelSize":30,"labelFont":"fzxk","labelColors":"#63491a,#63491a,#63491a","label":"购 买"},
                             "nodeParent":79,
@@ -285,17 +295,19 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{},
                             "nodeParent":79,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":60,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":9,"x":-48,"width":107,"var":"lbl_coinDes","text":"消耗元宝:","height":28,"fontSize":22,"font":"fzxk","color":"#63491a","align":"center"},
                                     "nodeParent":60,
@@ -308,6 +320,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":8,"x":62,"width":182,"skin":"image/fuben/shadow_fanye.png","height":31},
                                     "nodeParent":60,
@@ -319,6 +332,7 @@
                                     "compId":45,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":6,"x":59,"width":113,"var":"lbl_coinPrice","text":"12364","strokeColor":"#404040","height":29,"fontSize":22,"font":"FZXK","color":"#000000","align":"left"},
                                             "nodeParent":45,
@@ -332,8 +346,9 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":-4,"x":4,"width":46,"var":"img_coinPic","skin":"image/main/icon_common_yuanbao01.png","height":38},
+                                            "props":{"y":-7,"x":4,"width":51,"var":"img_coinPic","skin":"image/main/icon_coin_1.png","height":42},
                                             "nodeParent":45,
                                             "label":"Image(img_coinPic)",
                                             "isOpen":true,

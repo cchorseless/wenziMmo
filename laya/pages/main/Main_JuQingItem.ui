@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":49,
-    "selecteID":106,
+    "selectedBox":24,
+    "selecteID":26,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -169,13 +169,14 @@
             "props":{"y":415,"x":153,"width":263,"skin":"image/main/main_zonglan/bottom_guaji.png","height":95},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":24,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":0,"x":-1,"width":86,"var":"btn_guaji","stateNum":"1","skin":"image/common/icon_baoxiang3_close.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffd08d","label":"挂机","height":86},
                     "nodeParent":24,
@@ -189,8 +190,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":12,"x":98,"width":37,"skin":"image/common/img_exp_2.png","height":40},
+                    "props":{"y":16,"x":92,"skin":"image/main/icon_exp.png","scaleY":0.7,"scaleX":0.7},
                     "nodeParent":24,
                     "label":"Image",
                     "isDirectory":false,
@@ -201,6 +203,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":19,"x":144,"var":"lbl_exp","text":"10000/h","fontSize":22,"font":"FZXK","color":"#63491a"},
                     "nodeParent":24,
@@ -214,8 +217,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":54,"x":92,"width":40,"skin":"image/main/icon_tongqian.png","height":33},
+                    "props":{"y":54,"x":92,"skin":"image/main/icon_coin_3.png","scaleY":0.7,"scaleX":0.7},
                     "nodeParent":24,
                     "label":"Image",
                     "isDirectory":false,
@@ -227,6 +231,7 @@
                     "$LOCKED":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":57,"x":144,"var":"lbl_jinbi","text":"10000/h","fontSize":22,"font":"FZXK","color":"#63491a"},
                     "nodeParent":24,

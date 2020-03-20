@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":11,
-    "selecteID":25,
+    "selectedBox":7,
+    "selecteID":8,
     "props":{"width":597,"sceneColor":"#ffffff","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -89,15 +89,16 @@
             "props":{"y":143,"x":124,"width":349,"skin":"image/bag/img_lianhulu.png","height":378},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":7,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":111,"x":110,"skin":"image/common/img_exp_2.png","scaleY":1.3,"scaleX":1.3},
+                    "props":{"y":113,"x":102,"skin":"image/common/img_exp_2.png","scaleY":2,"scaleX":2},
                     "nodeParent":7,
                     "label":"Image",
                     "isDirectory":false,
@@ -230,7 +231,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":112,"x":60,"skin":"image/main/icon_yuanbao.png"},
+                    "props":{"y":114,"x":61,"skin":"image/main/icon_coin_1.png","scaleY":0.7,"scaleX":0.7},
                     "nodeParent":10,
                     "label":"Image",
                     "isDirectory":false,
@@ -335,7 +336,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":112,"x":60,"skin":"image/main/icon_yuanbao.png"},
+                    "props":{"y":114,"x":61,"skin":"image/main/icon_coin_1.png","scaleY":0.7,"scaleX":0.7},
                     "nodeParent":11,
                     "label":"Image",
                     "isDirectory":false,

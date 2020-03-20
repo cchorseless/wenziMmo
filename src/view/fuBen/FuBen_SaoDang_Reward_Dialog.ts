@@ -33,7 +33,7 @@ module view.fuBen {
 					this.lbl_exp.text = LangConfig.getBigNumberDes(jiangli[i].num);
 				}
 			}
-			this.img_jinbi.visible = haveJinBi;
+			this.box_jinbi.visible = haveJinBi;
 			this.lbl_now.text = '' + PanelManage.FuBenRes.now;
 			this.lbl_max.text = '/' + PanelManage.FuBenRes.max;
 			this.addEvent();
