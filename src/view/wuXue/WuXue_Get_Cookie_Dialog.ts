@@ -18,7 +18,7 @@ module view.wuXue {
 			} else if (skillType == 4) {
 				this.lab_type.text = '内功';
 			}
-			this.img_bg.skin = "image/common/daoju/quality_5.png";
+			this.img_bg.skin = PathUtil.getItemQualityFramePath(5);
 			this.img_icon.skin = PathUtil.getItemIconPath(SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(configID));
 			let getFrom = SheetConfig.mydb_item_base_tbl.getInstance(null).ACCESS_WAY(configID);
 			let getFromArr = getFrom.split('|');

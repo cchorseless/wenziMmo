@@ -6,7 +6,7 @@ module view.wuXue {
 		}
 		public setData(id, num) {
 			let itemname = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(id);
-			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(id) + '.png';
+			this.img_bg.skin = PathUtil.getItemQualityFramePath(SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(id));
 			let icon = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(id);
 			this.img_icon.skin = PathUtil.getItemIconPath(icon);
 			this.lab_name.text = itemname;

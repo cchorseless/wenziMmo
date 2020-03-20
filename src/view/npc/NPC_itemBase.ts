@@ -29,7 +29,7 @@ module view.npc {
 			// 物品ICON
 			this.img_icon.skin = PathUtil.getItemIconPath(SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(itemID));
 			// 底图
-			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(itemID) + '.png';
+			this.img_bg.skin = PathUtil.getItemQualityFramePath(SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(itemID));
 
 			this.type = type;
 			switch (type) {

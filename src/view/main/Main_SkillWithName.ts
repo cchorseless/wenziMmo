@@ -19,7 +19,7 @@ module view.main {
 			this.html_name.style.align = 'center'; 
 			switch (quality) {
 				case 1:
-					this.img_skill_bg.skin = 'image/common/daoju/quality_1.png';
+					this.img_skill_bg.skin = PathUtil.getItemQualityFramePath(1);
 					if ((stage - 1) == 0) {
 						this.html_name.innerHTML = "<span style='color:#4b674b;'>" + name + "</span>";
 					} else {
@@ -28,7 +28,7 @@ module view.main {
 					}
 					break;
 				case 2:
-					this.img_skill_bg.skin = 'image/common/daoju/quality_2.png';
+					this.img_skill_bg.skin = PathUtil.getItemQualityFramePath(2);
 					if ((stage - 1) == 0) {
 						this.html_name.innerHTML = "<span style='color:#4f5575;'>" + name + "</span>";
 					} else {
@@ -37,7 +37,7 @@ module view.main {
 					}
 					break;
 				case 3:
-					this.img_skill_bg.skin = 'image/common/daoju/quality_3.png';
+					this.img_skill_bg.skin = PathUtil.getItemQualityFramePath(3);
 					if ((stage - 1) == 0) {
 						this.html_name.innerHTML = "<span style='color:#6e4b70;'>" + name + "</span>";
 					} else {
@@ -46,7 +46,7 @@ module view.main {
 					}
 					break;
 				case 4:
-					this.img_skill_bg.skin = 'image/common/daoju/quality_4.png';
+					this.img_skill_bg.skin = PathUtil.getItemQualityFramePath(4);
 					if ((stage - 1) == 0) {
 						this.html_name.innerHTML = "<span style='color:#9f6b39;'>" + name + "</span>";
 					} else {
@@ -55,7 +55,7 @@ module view.main {
 					}
 					break;
 				case 5:
-					this.img_skill_bg.skin = 'image/common/daoju/quality_6.png';
+					this.img_skill_bg.skin = PathUtil.getItemQualityFramePath(6);
 					if ((stage - 1) == 0) {
 						this.html_name.innerHTML = "<span style='color:#8f3535;'>" + name + "</span>";
 					} else {

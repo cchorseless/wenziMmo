@@ -10,7 +10,7 @@ module view.wuXue {
 			// 物品ICON
 			this.img_icon.skin = PathUtil.getItemIconPath(SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(id));
 			// 底图
-			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(id) + '.png';
+			this.img_bg.skin = PathUtil.getItemQualityFramePath(SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(id));
 
 			let span = hasNum - needNum;
 			if (span >= 0) {

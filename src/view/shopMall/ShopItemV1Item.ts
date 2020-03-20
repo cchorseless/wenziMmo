@@ -26,7 +26,7 @@ module view.shopMall {
 			// 是否绑定
 			this.ui_item.img_lock.visible = Boolean(item.binding);
 			// 道具底图
-			this.ui_item.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.itemid) + '.png';
+			this.ui_item.img_bg.skin = PathUtil.getItemQualityFramePath(SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.itemid));
 			// 是否可以购买
 			// this.disabled = (item.limitcnt <= item.curcnt);
 			this.hasSale.visible = !(item.limitcnt <= item.curcnt);

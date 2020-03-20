@@ -23,7 +23,7 @@ module view.compart {
 			// 物品ICON
 			this.img_item.skin = PathUtil.getItemIconPath(SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(dwBaseID));
 			// 底图
-			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(dwBaseID) + '.png';
+			this.img_bg.skin = PathUtil.getItemQualityFramePath(SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(dwBaseID));
 			if (costStatus) {
 				this.lab_cost.color = '#63491a';
 				// this.lab_cost.

@@ -45,5 +45,12 @@ module PathUtil{
     export function getItemIconBgPath(id:number):string{
         let path = 'image/common/daoju/itemicon_bg' + id + '.png';
         return path;
-    }    
+    }
+    /**
+     * 获取道具品质框路径
+     */
+     export function getItemQualityFramePath(id:number):string{
+        let path = PathUtil.getItemQualityFramePath(id);
+        return path;
+     }
 }
