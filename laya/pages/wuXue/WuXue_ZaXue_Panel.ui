@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":280,
+    "selectedBox":285,
+    "selecteID":332,
     "props":{"width":640,"sceneColor":"#e8e4e4","name":"waigong","height":1136},
     "nodeParent":-1,
     "label":"View(waigong)",
@@ -67,7 +67,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":42,"x":75,"width":129,"text":"功法","stroke":4,"height":33,"fontSize":40,"font":"HWXK","color":"#ffffff"},
+                            "props":{"y":42,"x":75,"width":129,"text":"杂学","stroke":4,"height":33,"fontSize":40,"font":"HWXK","color":"#ffffff"},
                             "nodeParent":281,
                             "label":"Label",
                             "isDirectory":false,
@@ -96,28 +96,14 @@
                 },
                 {
                     "x":30,
-                    "type":"Tab",
-                    "props":{"y":121,"x":15,"width":610,"var":"tab_wuxue","stateNum":2,"space":3,"skin":"image/fuben/img_yeqian.png","selectedIndex":0,"scaleY":1,"scaleX":1,"labelSize":22,"labelPadding":"0","labelFont":"fzxk","labelColors":"#52473d,#903f14,#903f14","height":73},
+                    "type":"VBox",
+                    "props":{"var":"vbox_show","top":160,"right":0,"left":0},
                     "nodeParent":285,
-                    "label":"Tab(tab_wuxue)",
+                    "label":"VBox(vbox_show)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":280,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"ViewStack",
-                    "props":{"y":210,"x":0,"width":640,"var":"VS_show","height":814},
-                    "nodeParent":285,
-                    "label":"ViewStack(VS_show)",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":320,
+                    "compId":332,
                     "child":[
                         ]
                 },
