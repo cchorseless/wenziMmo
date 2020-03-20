@@ -14,8 +14,8 @@ module PathUtil{
     /**
      * 获取技能Icon的框路径
      */
-    export function getSkillIconFramePath(id:string):string{
-        let path = 'image/common/skill/skill_icon_' + id + '.png';
+    export function getSkillIconFramePath(quality:number):string{
+        let path = 'image/common/fight/frame_jineng_' + quality + '.png';
         return path;
     }
     /**
