@@ -62,7 +62,7 @@ module view.wuXue {
 				let itemname = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(costItemID);
 				this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(costItemID) + '.png';
 				let icon = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(costItemID);
-				this.img_icon.skin = 'image/common/daoju/itemicon_' + icon + '.png';
+				this.img_icon.skin = PathUtil.getItemIconPath(icon);
 				this.lab_cookieName.text = itemname;
 				this.html_cookie_Num.style.fontFamily = 'STKaiti';
 				this.html_cookie_Num.style.fontSize = 20;

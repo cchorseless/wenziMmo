@@ -52,7 +52,6 @@ module view.juese {
 			this.talent = this.eventList[0]
 			this.upLevelType = this.UpEventList[0];
 			this.dangqianNum = 1;
-			// this.img_type.skin = 'image/common/daoju/itemicon_123001.png';
 			this.btn_top0.selected = true;
 			// this.img_xiaoguo0.visible = true;
 			let pkt = new ProtoCmd.QuestClientData();
@@ -113,19 +112,19 @@ module view.juese {
 			// for (let pos = EnumData.emEquipPosition.EQUIP_MEDAL; pos < EnumData.emEquipPosition.EQUIP_HERO_DRAGONHEART; pos++) {
 			// 	let data = GameUtil.findEquipInPlayer(pos);
 			// 	if (pos == EnumData.emEquipPosition.EQUIP_DRAGONSOUL && data) {
-			// 		this.img_talent0.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
+			// 		this.img_talent0.skin = PathUtil.getItemIconPath(data.dwBaseID);
 			// 	}
 			// 	if (pos == EnumData.emEquipPosition.EQUIP_SHIELD && data) {
-			// 		this.img_talent1.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
+			// 		this.img_talent1.skin = PathUtil.getItemIconPath(data.dwBaseID);
 			// 	}
 			// 	if (pos == EnumData.emEquipPosition.EQUIP_OFFICIALSEAL && data) {
-			// 		this.img_talent2.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
+			// 		this.img_talent2.skin = PathUtil.getItemIconPath(data.dwBaseID);
 			// 	}
 			// 	if (pos == EnumData.emEquipPosition.EQUIP_BLOODJADE && data) {
-			// 		this.img_talent3.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
+			// 		this.img_talent3.skin = PathUtil.getItemIconPath(data.dwBaseID);
 			// 	}
 			// 	if (pos == EnumData.emEquipPosition.EQUIP_MEDAL && data) {
-			// 		this.img_talent4.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
+			// 		this.img_talent4.skin = PathUtil.getItemIconPath(data.dwBaseID);
 			// 	}
 			// }
 		}
@@ -292,7 +291,7 @@ module view.juese {
 			this.img_add.visible = this.img_battle.visible = true;
 			//天赋名称
 			// this.lbl_name.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + data.dwBaseID);
-			// this.img_type.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
+			// this.img_type.skin = PathUtil.getItemIconPath(data.dwBaseID);
 			let lvl;
 			if (this.dangqianNum == EnumData.emTalentType.talent_genGu) {
 				lvl = (data.dwBaseID - 160001) * 10 + data.dwLevel;

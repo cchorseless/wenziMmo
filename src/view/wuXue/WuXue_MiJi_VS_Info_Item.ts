@@ -30,7 +30,7 @@ module view.wuXue {
 			this.img_skillType.skin = this.img_skillType.skin = "image/common/wuxue/img_" + skillType + ".png"
 			let needNum = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSTORE(configID);
 			this.img_bg.skin = "image/common/daoju/quality_5.png";
-			this.img_icon.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(configID) + '.png';
+			this.img_icon.skin = PathUtil.getItemIconPath(SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(configID));
 			this.lab_name.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(configID);
 			for (let i in GameApp.MainPlayer.skillInfo) {
 				for (let j = 0; j < excludeArr.length; j++) {

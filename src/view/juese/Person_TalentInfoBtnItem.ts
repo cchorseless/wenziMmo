@@ -8,7 +8,7 @@ module view.juese {
 		public setData(id): Person_TalentInfoBtnItem {
 			this.id = id;
 			//天赋效果
-			this.btn_talent.skin = 'image/common/daoju/itemicon_' + id + '.png';
+			this.btn_talent.skin = PathUtil.getItemIconPath(id);
 			this.addEvent();
 			return this;
 		}

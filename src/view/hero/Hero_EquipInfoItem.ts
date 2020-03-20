@@ -122,7 +122,7 @@ module view.hero {
 		public getEquipBackground(): void {
 			for (let i = 0; i < 10; i++) {
 				this['ui_item' + i].img_bg.visible = true;
-				this['ui_item' + i].img_bg.skin = 'image/common/daoju/itemicon_bg_' + (i + 10) + '.png';
+				this['ui_item' + i].img_bg.skin = PathUtil.getItemIconBgPath(i + 10);
 			}
 		}
 		//切换弟子

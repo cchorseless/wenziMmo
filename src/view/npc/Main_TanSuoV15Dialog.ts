@@ -28,7 +28,7 @@ module view.npc {
 			let str = ['高概率', '中概率', '低概率']
 			for (let i = 0; i < items.length; i++) {
 				this['img_bg' + i].skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(items[i]) + '.png';
-				this['img_icon' + i].skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(items[i]) + '.png';
+				this['img_icon' + i].skin = PathUtil.getItemIconPath(SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(items[i]));
 				this['lab_name' + i].text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(items[i]);
 				this['lab_jilv' + i].text = str[i];
 			}

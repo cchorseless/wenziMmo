@@ -147,7 +147,7 @@ module view.compart {
 			// 是否绑定
 			this.img_lock.visible = Boolean(item.dwBinding);
 			// 物品ICON
-			this.img_item.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(dwBaseID) + '.png';
+			this.img_item.skin = PathUtil.getItemIconPath(SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(dwBaseID));
 			// 底图
 			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(dwBaseID) + '.png';
 			// 物品数量

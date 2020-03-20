@@ -25,4 +25,25 @@ module PathUtil{
         let path = 'image/common/skill/icon_wx_' + wuxing + '.png';
         return path;
     }
+    /**
+     * 获取iconbuff路径
+     */
+    export function getIconBuffPath(id:number):string {
+        let path = 'image/common/iconbuff/buff_'+ id +'.png';
+        return path;
+    }
+    /**
+     * 获取道具icon路径
+     */
+    export function getItemIconPath(id:number):string{
+        let path = 'image/common/daoju/itemicon_' + id + '.png';
+        return path;
+    }
+    /**
+     * 获取道具icon背景路径
+     */
+    export function getItemIconBgPath(id:number):string{
+        let path = 'image/common/daoju/itemicon_bg' + id + '.png';
+        return path;
+    }    
 }

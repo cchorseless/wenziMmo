@@ -8,7 +8,7 @@ module view.wuXue {
 			let itemname = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(id);
 			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(id) + '.png';
 			let icon = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(id);
-			this.img_icon.skin = 'image/common/daoju/itemicon_' + icon + '.png';
+			this.img_icon.skin = PathUtil.getItemIconPath(icon);
 			this.lab_name.text = itemname;
 			this.lab_num.text = LangConfig.getBigNumberDes(num);
 		}

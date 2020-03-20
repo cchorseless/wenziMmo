@@ -22,7 +22,7 @@ module view.shopMall {
 			this.ui_item.lbl_count.text = '' + item.num;
 			console.log('=========',item.itemid)
 			// 道具ICON
-			this.ui_item.img_item.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID('' + item.itemid) + '.png';
+			this.ui_item.img_item.skin = PathUtil.getItemIconPath(SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID('' + item.itemid));
 			// 是否绑定
 			this.ui_item.img_lock.visible = Boolean(item.binding);
 			// 道具底图
