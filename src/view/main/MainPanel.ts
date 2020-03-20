@@ -248,7 +248,7 @@ module view.main {
 				new view.friend.FriendListDialog().popup();
 			})
 			this.btn_email.on(Laya.UIEvent.CLICK, this, function () {
-				new view.dialog.MailDialog().popup(true);
+				DialogManage.popDialog(view.dialog.MailDialog,null,true);
 			})
 			this.btn_chat.on(Laya.UIEvent.CLICK, this, function () {
 				this.ui_chatBigDialog.visible = true;
@@ -858,7 +858,6 @@ module view.main {
 				default:
 					progerUI.setData('东看看,西看看...', 3000);
 					break;
-
 			}
 			progerUI.closeHandler = closerHander;
 			// 添加读条界面

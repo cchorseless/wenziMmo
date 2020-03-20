@@ -40,7 +40,7 @@ module view.juese {
 				}
 			});
 			this.btn_achieve.on(Laya.UIEvent.CLICK, this, () => {
-				new view.juese.Task_ChengJiuDialog().setData().popup(true);
+				// new view.juese.Task_ChengJiuDialog().setData().popup(true);
 			})
 			this.btn_weiwang.on(Laya.UIEvent.CLICK, this, () => {
 				new view.juese.Person_shengwangDialog().show()

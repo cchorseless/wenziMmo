@@ -60,27 +60,34 @@ module view.npc {
 					return;
 				}
 				let itemID = parseInt(this['ui_steal' + this.touchID].itemID);
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.stealNpcItem, [this.npcID, itemID], 0, this
-					, function (res) {
-						console.log('偷窃回调' + res)
-						this.parentUI.curExp = res.likeValue;
-						this.parentUI.lvl = res.lvl;
-						this.parentUI.updataHaoGan();
-						this.parentUI.view_npc.selectedIndex = 0;
-						let itemName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(res.itemid)
-						let str = '';
-						let npcName = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(this.npcID)
-						if (res.ret == 0) {
-							str = npcName + '说道：“你一来，我就发现少了件东西”' +
-								'\n偷窃成功，NPC好感度降低50点，你获得' + itemName + '，窃术熟练度上升100点。';
+				let progerUI = new view.npc.NpcProgressItem();
+				progerUI.setData('交互中~', 1500);
+				progerUI.closeHandler = Laya.Handler.create(this, () => {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.stealNpcItem, [this.npcID, itemID], 0, this
+						, function (res) {
+							console.log('偷窃回调' + res)
+							this.parentUI.curExp = res.likeValue;
+							this.parentUI.lvl = res.lvl;
+							this.parentUI.updataHaoGan();
+							this.parentUI.view_npc.selectedIndex = 0;
+							let itemName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(res.itemid)
+							let str = '';
+							let npcName = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(this.npcID)
+							if (res.ret == 0) {
+								str = npcName + '说道：“你一来，我就发现少了件东西”' +
+									'\n偷窃成功，NPC好感度降低50点，你获得' + itemName + '，窃术熟练度上升100点。';
 
-						} else {
-							str = npcName + '说道：“这是怎么一回事，为何拿我的东西”' +
-								'\n偷窃失败，NPC好感度降低500点，你的名誉降低5点。';
-						}
-						GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
-					})
-				lcp.send(pkt);
+							} else {
+								str = npcName + '说道：“这是怎么一回事，为何拿我的东西”' +
+									'\n偷窃失败，NPC好感度降低500点，你的名誉降低5点。';
+							}
+							GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str)
+						})
+					lcp.send(pkt);
+				})
+				progerUI.centerX = progerUI.centerY = 0;
+				this.parentUI.addChild(progerUI);
+
 
 			})
 		}

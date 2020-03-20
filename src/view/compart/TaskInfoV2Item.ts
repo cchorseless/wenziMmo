@@ -35,36 +35,32 @@ module view.compart {
 			})
 		}
 		public init_taskInfo(): void {
-			this.img_taskTypeBg.width = 80;
+			// this.img_taskTypeBg.width = 80;
 			//任务类型
+			this.img_taskTypeBg.skin = 'image/task/frame_'+this.type+'.png.png';
 			switch (this.type) {
 				//主线任务
 				case 0:
-					this.img_taskTypeBg.skin = 'image/main/img_task01.png';
 					this.lbl_taskType.text = '主线';
-					this.lbl_taskType.strokeColor = '#be7e16';
+					this.lbl_taskType.strokeColor = '#a;81a1a'
 					break;
 				//每日任务
 				case 1:
-					this.img_taskTypeBg.skin = 'image/main/img_task04.png';
 					this.lbl_taskType.text = '每日';
-					this.lbl_taskType.strokeColor = '#4595b1';
+					this.lbl_taskType.strokeColor = '#9a2459';
 					break;
 				//历练||支线任务
 				case 2:
-					this.img_taskTypeBg.skin = 'image/main/img_task03.png';
 					this.lbl_taskType.text = '支线';
-					this.lbl_taskType.strokeColor = '#7e41b6';
+					this.lbl_taskType.strokeColor = '#c55031';
 					break;
 				//剧情任务
 				case 4:
-					this.img_taskTypeBg.skin = 'image/main/img_task02.png';
 					this.lbl_taskType.text = '剧情';
-					this.lbl_taskType.strokeColor = '#b65c41';
+					this.lbl_taskType.strokeColor = '#b37a1e';
 					break;
 				//威望任务
 				// case 5:
-				// 	this.img_taskTypeBg.skin = 'image/main/img_task05.png';
 				// 	this.lbl_taskType.text = '威望';
 				// 	this.lbl_taskType.strokeColor = '#4fb145';
 				// 	break;(遇到颜色和字对不上的就是威望任务)
@@ -127,6 +123,7 @@ module view.compart {
 			this.achieveInfo = [index, data];
 			//成就类型
 			this.img_taskTypeBg.width = 140;
+			// this.img_taskTypeBg.skin = 'image/task/frame_'+this.type+'.png.png';
 			switch (parseInt(index)) {
 				//传奇生涯
 				case 1:

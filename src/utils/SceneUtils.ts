@@ -115,28 +115,32 @@ class SceneManager extends SingletonClass {
                 GameApp.MainPlayer.fubenMonsterPower = 0
                 GameApp.MainPlayer.curFuBenID = 100
                 this.ui_scene.changeMode(1);
-                GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE,'0');
+                view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+                GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE, '0');
                 break;
             // 除魔副本
             case EnumData.emRoomType.chuMoFuBen:
                 GameApp.MainPlayer.fubenMonsterPower = 0
                 GameApp.MainPlayer.curFuBenID = 101
                 this.ui_scene.changeMode(1);
-                GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE,'0');
+                view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+                GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE, '0');
                 break;
             // 资源副本
             case EnumData.emRoomType.resourceFuBen:
                 GameApp.MainPlayer.fubenMonsterPower = 0
                 GameApp.MainPlayer.curFuBenID = 102
                 this.ui_scene.changeMode(1);
-                GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE,'0');
+                view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+                GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE, '0');
                 break;
             // 多人副本   只有boss的野外地图
             case EnumData.emRoomType.publicFuBen:
                 GameApp.MainPlayer.fubenMonsterPower = 0
                 GameApp.MainPlayer.curFuBenID = 200
                 this.ui_scene.changeMode(1);
-                GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE,'0');
+                view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+                GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE, '0');
                 break;
             // ---------------野外------------------
             // 有怪物的野外地图  小怪
@@ -144,16 +148,18 @@ class SceneManager extends SingletonClass {
             // 主城
             case EnumData.emRoomType.publicZhuCheng:
                 // 更新小地图
+                view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
                 this.ui_smallMap.updateUI();
                 this.ui_scene.changeMode(0);
-                GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE,'0');
+                GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE, '0');
                 break;
             // NPC辩论
             case EnumData.emRoomType.NpcArgue:
                 GameApp.MainPlayer.fubenMonsterPower = 0
                 GameApp.MainPlayer.curFuBenID = 400
                 this.ui_scene.changeMode(2);
-                GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE,'1');
+                GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE, '1');
+
                 break;
 
         }

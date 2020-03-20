@@ -4,22 +4,41 @@ module view.npc {
 		constructor() {
 			super();
 		}
+		public static HP = 'NPChp'
 		//npc好感度
 		public haogan;
 		//npc信息
 		public item: GameObject.Npc;
 		public setData(obj): NpcIconItem {
+			if (GameApp.MainPlayer.curFuBenID == 400) {
+				this.img_Argue.visible = true;
+				let monsterID;
+				monsterID = SheetConfig.mydb_npcgen_tbl.getInstance(null).MONSTERID('' + obj.feature.dwCretTypeId)
+				GameApp.MainPlayer.fubenMonsterPower += SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT(monsterID)
+			} else {
+				this.img_Argue.visible = false;
+			}
 			this.item = obj;
 			this.item.ui_item = this;
 			this.centerX = this.centerY = 0
+
 			this.haogan = SheetConfig.mydb_npcgen_tbl.getInstance(null).FAVORABLE_COEFFICIENT('' + obj.feature.dwCretTypeId)
 			this.initUI();
 			this.addEvent();
 			return this;
 		}
-
+		public changeHeartNum(num) {
+			console.log('npc血量' + num)
+			this.lab_Argue.text = '心理值:' + num;
+		}
 		public addEvent(): void {
+			GameApp.LListener.on(view.npc.NpcIconItem.HP, this, function (res) {
+				this.changeHeartNum(res);
+			});
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
+				if (GameApp.MainPlayer.curFuBenID == 400) {
+					return;
+				}
 				if (this.haogan == 0) {
 					//无好感度NPC弹窗
 					new view.npc.Main_TanSuoV0Dialog().setData(this.item, 2).popup();
@@ -44,7 +63,8 @@ module view.npc {
 		}
 
 		public initUI(): void {
-			this.lbl_npcName.text = '' + this.item.objName.split("_")[0];
+			// this.lbl_npcName.text = '' + this.item.objName.split("_")[0];
+			this.lbl_npcName.text = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(this.item.feature.dwCretTypeId).split("_")[0];
 
 			// 任务状态
 			switch (this.item.taskState) {

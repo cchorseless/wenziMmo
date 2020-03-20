@@ -33,10 +33,10 @@ module view.compart {
 					this.lab_tabType.text = "当前"
 					break;
 			}
-			this.lab_LV.text = '' +lv;
+			this.lab_LV.text = lv+"级";
+			this.lab_zhuanshengLV.text = zhuansheng+"转";
 			this.lab_name.text = name;
 			this.lab_vipLV.text = "" + vip_LV;
-			this.lab_zhuanshengLV.text = "" + zhuansheng;
 			this.img_head.skin = "image/common/" + headPic + ".png"
 		}
 		public addEvent() {

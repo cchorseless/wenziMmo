@@ -6,7 +6,7 @@ module view.juese {
 			this.setData();
 			this.panel_left.vScrollBarSkin = '';
 		}
-		public dialog:Person_zhuansheng_Talent_Dialog = null;
+		public dialog: Person_zhuansheng_Talent_Dialog = null;
 		private hasInit = false;// 初始化自己
 		//拉取天赋信息类型
 		private talent;
@@ -65,15 +65,15 @@ module view.juese {
 		}
 		public addEvent(): void {
 			//转生界面打开
-			this.btn_shoot.on(Laya.UIEvent.CLICK,this,function(){
+			this.btn_shoot.on(Laya.UIEvent.CLICK, this, function () {
 				let total = 0;
 				for (let index in this.posList) {
-				let pos = this.posList[index]
-				let data = GameUtil.findEquipInPlayer(pos);
-				total+= data.dwLevel;
+					let pos = this.posList[index]
+					let data = GameUtil.findEquipInPlayer(pos);
+					total += data.dwLevel;
 				}
 				this.dialog = new Person_zhuansheng_Talent_Dialog();
-				this.dialog.setData(this.zsData,total)
+				this.dialog.setData(this.zsData, total)
 				this.dialog.popup();
 			})
 			//天赋切换
@@ -156,7 +156,7 @@ module view.juese {
 				//悟性
 				case 0:
 					this.dangqianNum = EnumData.emTalentType.talent_wuXing;
-
+					this.img_talentcoin2.scaleX = this.img_talentcoin2.scaleY = 1;
 					this.img_talentcoin2.skin = 'image/juese/img_talent1.png';
 					// this.img_talentcoin1.width = this.img_talentcoin2.width = 49;
 					// this.img_talentcoin1.height = this.img_talentcoin2.height = 48;
@@ -166,6 +166,7 @@ module view.juese {
 				//根骨
 				case 1:
 					this.dangqianNum = EnumData.emTalentType.talent_genGu;
+					this.img_talentcoin2.scaleX = this.img_talentcoin2.scaleY = 0.8;
 					this.img_talentcoin2.skin = 'image/juese/img_talent3.png';
 					// this.img_talentcoin1.width = this.img_talentcoin2.width = 44;
 					// this.img_talentcoin1.height = this.img_talentcoin2.height = 45;
@@ -174,6 +175,7 @@ module view.juese {
 				//臂力
 				case 2:
 					this.dangqianNum = EnumData.emTalentType.talent_biLi;
+					this.img_talentcoin2.scaleX = this.img_talentcoin2.scaleY = 1;
 					this.img_talentcoin2.skin = 'image/juese/img_talent5.png';
 					// this.img_talentcoin1.width = this.img_talentcoin2.width = 50;
 					// this.img_talentcoin1.height = this.img_talentcoin2.height = 48;
@@ -182,6 +184,7 @@ module view.juese {
 				//身法
 				case 3:
 					this.dangqianNum = EnumData.emTalentType.talent_shenFa;
+					this.img_talentcoin2.scaleX = this.img_talentcoin2.scaleY = 0.8;
 					this.img_talentcoin2.skin = 'image/juese/img_talent4.png';
 					// this.img_talentcoin1.width = this.img_talentcoin2.width = 37;
 					// this.img_talentcoin1.height = this.img_talentcoin2.height = 48;
@@ -191,6 +194,7 @@ module view.juese {
 				//善缘
 				case 4:
 					this.dangqianNum = EnumData.emTalentType.talent_shanYuan;
+					this.img_talentcoin2.scaleX = this.img_talentcoin2.scaleY = 1;
 					this.img_talentcoin2.skin = 'image/juese/img_talent2.png';
 					// this.img_talentcoin1.width = this.img_talentcoin2.width = 50;
 					// this.img_talentcoin1.height = this.img_talentcoin2.height = 53;
@@ -240,7 +244,7 @@ module view.juese {
 					this.zsData = jsonData;
 					this.zsLvTotal = jsonData.jmlvl;
 					this.lab_needLV.text = '' + this.zsLvTotal;
-					if(this.dialog){
+					if (this.dialog) {
 						this.dialog.close();
 						this.dialog = null;
 						this.setData();
@@ -303,7 +307,7 @@ module view.juese {
 			this.lbl_battle.text = '' + battle;
 			//当前天赋未满级显示下级属性变化
 			let power = GameApp.MainPlayer.ability.nFight;
-			this.lab_curPower.text =LangConfig.getBigNumberDes(power);
+			this.lab_curPower.text = LangConfig.getBigNumberDes(power);
 			if (lvl < 60) {
 				this.lbl_nextLevel.text = '' + (lvl + 1);
 				this.lbl_nextLevel.visible = true;
@@ -316,7 +320,12 @@ module view.juese {
 				let nextBattle = nextAttribute.battle[this.job];
 				this.vbox_left.removeChildren();
 				for (let i in des) {
-					this.vbox_left.addChild(new view.juese.Person_jingmai_item_shuxingInfo().setData(des[i], nextdes[i]))
+					if (des[i].label == '没有极品:') {
+						continue;
+					} else {
+						this.vbox_left.addChild(new view.juese.Person_jingmai_item_shuxingInfo().setData(des[i], nextdes[i]))
+
+					}
 					// this.vbox_left.addChild(new view.juese.Person_attributeItem().setData(des[i], nextdes[i], 1))
 				}
 				//升到下阶战力增加

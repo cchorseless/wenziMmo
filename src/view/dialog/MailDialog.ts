@@ -4,7 +4,7 @@ module view.dialog {
 		constructor() {
 			super();
 			this.group = 'MailDialog';
-			this.setData();
+			this.name = 'MailDialog';
 		}
 		public data;
 		public setData(): void {
@@ -15,7 +15,7 @@ module view.dialog {
 			this.addEvent();
 		}
 		public addEvent(): void {
-			this.btn_mailClose.on(Laya.UIEvent.CLICK, this, () => { this.close() });
+			this.btn_mailClose.on(Laya.UIEvent.CLICK, this, () => { DialogManage.closeDialog(this)});
 			// 一键领取
 			this.btn_allGet.on(Laya.UIEvent.CLICK, this, () => {
 				for (let mailUI of this.vbox_mail._childs) {

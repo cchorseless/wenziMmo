@@ -344,7 +344,8 @@ module view.menu {
 			// })
 			//祈福
 			this.btn_Blessing.on(Laya.UIEvent.CLICK, this, () => {
-				new view.menu.Menu_BlessingDialog().popup(true);
+				// new view.menu.Menu_BlessingDialog().popup(true);
+				DialogManage.popDialog(view.menu.Menu_BlessingDialog,null,true);
 			})
 			//膜拜城主
 			this.btn_mobai.on(Laya.UIEvent.CLICK, this, () => {

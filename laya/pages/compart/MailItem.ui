@@ -2,14 +2,10 @@
     "x":0,
     "type":"View",
     "selectedBox":10,
-    "selecteID":13,
+    "selecteID":7,
     "referenceLines":[
-        {
-            "value":50,
-            "type":1,
-            "id":1
-        }],
-    "props":{"width":495,"sceneColor":"#000000","height":87},
+        ],
+    "props":{"width":533,"sceneColor":"#000000","height":102},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -21,7 +17,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":495,"skin":"image/common/fram_common_11.png","sizeGrid":"10,21,9,21","height":87},
+            "props":{"x":10,"width":513,"skin":"image/main/main_zonglan/bottom_guaji.png","sizeGrid":"20,20,20,20","height":102},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -33,7 +29,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":1,"x":16,"width":85,"var":"btn_mailIcon","stateNum":"1","skin":"image/main/icon_mail.png","height":85},
+                    "props":{"y":7,"x":16,"width":85,"var":"btn_mailIcon","stateNum":"1","skin":"image/mail/icon_mail.png","height":85},
                     "nodeParent":10,
                     "label":"Button(btn_mailIcon)",
                     "isDirectory":false,
@@ -46,7 +42,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":43,"x":88,"width":195,"var":"lbl_mailTitle","text":"热更新邮件","height":30,"fontSize":24,"font":"FZXK","color":"#000000","align":"center"},
+                    "props":{"y":43,"x":88,"width":195,"var":"lbl_mailTitle","text":"热更新邮件","height":30,"fontSize":24,"font":"LiSu","color":"#4e3429","align":"center"},
                     "nodeParent":10,
                     "label":"Label(lbl_mailTitle)",
                     "isDirectory":false,
@@ -59,7 +55,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":31,"x":370,"width":94.359375,"var":"lbl_timeLeft","text":"51分钟前","height":25,"fontSize":22,"font":"FZHL","color":"#404040"},
+                    "props":{"y":46,"x":370,"var":"lbl_timeLeft","text":"51分钟前","fontSize":20,"font":"LiSu","color":"#404040"},
                     "nodeParent":10,
                     "label":"Label(lbl_timeLeft)",
                     "isDirectory":false,
@@ -72,7 +68,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":16,"x":119,"width":144,"var":"lbl_from","text":"来自远方的你","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZXK","color":"#ffffff"},
+                    "props":{"y":16,"x":119,"var":"lbl_from","text":"来自远方的你","fontSize":26,"font":"STXingkai","color":"#000000"},
                     "nodeParent":10,
                     "label":"Label(lbl_from)",
                     "isDirectory":false,

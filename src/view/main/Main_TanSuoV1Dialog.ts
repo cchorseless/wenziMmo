@@ -19,8 +19,8 @@ module view.npc {
 		public setData(obj: GameObject.Npc): Main_TanSuoV1Dialog {
 			this.btn_jiaoyi.visible = false;
 			let jiaoyiData = SheetConfig.mydb_npcsell_tbl.getInstance(null).data;
-			for(let i in jiaoyiData){
-				if(parseInt(i) == obj.feature.dwCretTypeId){
+			for (let i in jiaoyiData) {
+				if (parseInt(i) == obj.feature.dwCretTypeId) {
 					this.btn_jiaoyi.visible = true;
 				}
 			}
@@ -39,13 +39,13 @@ module view.npc {
 			return this;
 		}
 		public addEvent(): void {
-			this.btn_haogan.on(Laya.UIEvent.CLICK,this,function(){
-				let o  = new Main_Npc_HaoGanDialog();
+			this.btn_haogan.on(Laya.UIEvent.CLICK, this, function () {
+				let o = new Main_Npc_HaoGanDialog();
 				o.show();
 			})
-			this.btn_info.on(Laya.UIEvent.CLICK,this,function(){
-				let o  = new Main_Npc_Detail_Dialog();
-				o.setData(this.item,this.curExp,this.lvl);
+			this.btn_info.on(Laya.UIEvent.CLICK, this, function () {
+				let o = new Main_Npc_Detail_Dialog();
+				o.setData(this.item, this.curExp, this.lvl);
 				o.popup(true);
 			})
 			GameApp.LListener.on(Main_TanSuoV1Dialog.UPDATE_DETAIL, this, function (string) {
@@ -82,6 +82,12 @@ module view.npc {
 			this.btn_Poison.on(Laya.UIEvent.CLICK, this, function () {
 				this.ui_poison.setData(this.item.feature.dwCretTypeId, Main_TanSuoV1Dialog.self, 0)
 				this.view_npc.selectedIndex = 5;
+			})
+			//化解仇恨
+			this.btn_huajie.on(Laya.UIEvent.CLICK, this, function () {
+				let o = new Main_Npc_Huajie_Dialog();
+				o.setData(this.item.feature.dwCretTypeId, Main_TanSuoV1Dialog.self, 0);
+				o.show();
 			})
 			//治疗
 			this.btn_treat.on(Laya.UIEvent.CLICK, this, function () {
@@ -121,23 +127,30 @@ module view.npc {
 			//暗杀
 			this.btn_Kill.on(Laya.UIEvent.CLICK, this, function () {
 				// this.stealFromNpc();
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.killNpc, [this.item.feature.dwCretTypeId], 0, this
-					, function (res) {
-						console.log('暗杀回调', res)
-						this.curExp = res.likeValue;
-						this.lvl = res.lvl;
-						this.updataHaoGan();
-						let str = '';
-						if (res.ret == 0) {
-							str = '暗杀成功！'
-						} else {
-							str = '暗杀失败!'
-						}
-						GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str);
-						this.close();
-						// this.parentUI.view_npc.selectedIndex = 0;
-					})
-				lcp.send(pkt);
+				let progerUI = new view.npc.NpcProgressItem();
+				progerUI.setData('交互中~', 1500);
+				progerUI.closeHandler = Laya.Handler.create(this, () => {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.killNpc, [this.item.feature.dwCretTypeId], 0, this
+						, function (res) {
+							console.log('暗杀回调', res)
+							this.curExp = res.likeValue;
+							this.lvl = res.lvl;
+							this.updataHaoGan();
+							let str = '';
+							if (res.ret == 0) {
+								str = '暗杀成功！'
+							} else {
+								str = '暗杀失败!'
+							}
+							GameApp.LListener.event(Main_TanSuoV1Dialog.UPDATE_DETAIL, str);
+							this.close();
+							// this.parentUI.view_npc.selectedIndex = 0;
+						})
+					lcp.send(pkt);
+				})
+				progerUI.centerX = progerUI.centerY = 0;
+				this.addChild(progerUI);
+
 			})
 		}
 		public sendGiftToNpc() {
@@ -153,11 +166,16 @@ module view.npc {
 			// this.lbl_now.text = this.curExp + '';
 			let haogan = LangConfig.RELATIONSHIP_TYPEDES(this.lvl);
 			this.lbl_haogan.text = haogan[0] + '' + this.curExp;
+			if (this.lvl <= 2) {
+				this.btn_huajie.disabled = false;
+			} else {
+				this.btn_huajie.disabled = true;
+			}
 			this.btn_State()
 		}
 		public init_haoganEvent(): void {
 			let pkID = this.item.feature.dwCretTypeId
-			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.clickNpc, [pkID], 0, this,
+			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.clickNpc, [pkID, 200], 0, this,
 				function (data: ProtoCmd.itf_NPC_HaoGanInfo) {
 					this.lvl = data.lvl;
 					this.curExp = data.curexp;
@@ -185,6 +203,11 @@ module view.npc {
 					// 	this.img_relation3.disabled = true;
 					// 	this.img_relation4.disabled = true;
 					// }
+					if (this.lvl <= 2) {
+						this.btn_huajie.disabled = false;
+					} else {
+						this.btn_huajie.disabled = true;
+					}
 					this.btn_State()
 					this.ui_wuxue.setData(this.item, this);
 					// new view.npc.NpcInfoV1Dialog().setData(this.item).popup(true);

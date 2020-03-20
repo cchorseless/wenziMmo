@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":14,
-    "selecteID":15,
+    "selectedBox":1,
+    "selecteID":35,
     "props":{"width":491,"sceneColor":"#f4efef","height":452},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":7,"x":6,"skin":"image/common/bottom_smalltitle.png","sizeGrid":"0,32,0,32"},
+            "props":{"y":23,"x":6,"skin":"image/common/bottom_smalltitle.png","sizeGrid":"0,32,0,32"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -57,7 +57,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":27,"x":304,"width":94,"skin":"image/common/frame_chat.png","height":29},
+            "props":{"y":27,"x":276,"width":94,"skin":"image/common/frame_chat.png","height":29},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -97,7 +97,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":3,"x":307,"width":61,"text":"收入：","strokeColor":"#000000","height":25,"fontSize":22,"font":"fzxk","color":"#63491a","bold":true,"align":"left"},
+            "props":{"y":3,"x":279,"width":61,"text":"收入：","strokeColor":"#000000","height":25,"fontSize":22,"font":"fzxk","color":"#63491a","bold":true,"align":"left"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -110,7 +110,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":103,"x":365,"width":122,"skin":"image/common/bottom_touming.png","sizeGrid":"0,8,0,0","height":210,"alpha":0.6},
+            "props":{"y":103,"x":364,"width":122,"skin":"image/common/bottom_touming.png","sizeGrid":"0,8,0,0","height":210,"alpha":0.6},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -149,7 +149,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":93,"x":27,"var":"lab_sellLog","text":"暂无交易记录","height":24,"fontSize":20,"font":"FZHL","color":"#4c3101","alpha":0.6},
+                    "props":{"y":93,"x":0,"var":"lab_sellLog","text":"暂无交易记录","height":24,"fontSize":20,"font":"FZHL","color":"#4c3101","alpha":0.6},
                     "nodeParent":42,
                     "label":"Label(lab_sellLog)",
                     "isDirectory":false,
@@ -187,7 +187,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":3,"x":3.5,"width":355,"var":"vbox_sell","space":3,"align":"left"},
+                            "props":{"y":3,"x":3.5,"width":348,"var":"vbox_sell","space":3,"align":"left"},
                             "nodeParent":14,
                             "label":"VBox(vbox_sell)",
                             "isOpen":true,
@@ -244,7 +244,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":12,"x":417,"width":94,"var":"btn_lingQu","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#e25548","labelSize":30,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"领取","height":45},
+            "props":{"y":12,"x":389,"width":94,"var":"btn_lingQu","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#e25548","labelSize":30,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"领取","height":45},
             "nodeParent":1,
             "label":"Button(btn_lingQu)",
             "isDirectory":false,
@@ -258,7 +258,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":322,"x":366,"width":125,"var":"btn_jiaoYiHang","stateNum":"2","skin":"image/common/frame_biaoqian.png","labelStrokeColor":"4e2a2a","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"交易行","height":63},
+            "props":{"y":322,"x":362,"width":125,"var":"btn_jiaoYiHang","stateNum":"2","skin":"image/common/frame_biaoqian.png","labelStrokeColor":"4e2a2a","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"交易行","height":63},
             "nodeParent":1,
             "label":"Button(btn_jiaoYiHang)",
             "isDirectory":false,

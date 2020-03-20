@@ -89,27 +89,18 @@ module view.npc {
 					this.touchID = i;
 					this.isTouch = true;
 					this.startTime = Date.now();
-					// this.showLight();
-					// this.ui_daoju0.ui_item.clickEvent();
 				})
 				this['box' + i].on(Laya.UIEvent.MOUSE_UP, this, function () {
 					if (this.isTouch) {
 						this.endTime = Date.now();
 						this.dealTouch();
 					}
-
-					// this.touchID = i;
-					// this.showLight();
-					// this.ui_daoju0.ui_item.clickEvent();
 				})
 				this['box' + i].on(Laya.UIEvent.MOUSE_OUT, this, function () {
 					if (this.isTouch) {
 						this.endTime = Date.now();
 						this.dealTouch();
 					}
-					// this.touchID = i;
-					// this.showLight();
-					// this.ui_daoju0.ui_item.clickEvent();
 				})
 			}
 			this.btn_send.on(Laya.UIEvent.CLICK, this, function () {

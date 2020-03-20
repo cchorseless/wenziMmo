@@ -15,6 +15,12 @@ module view.shopMall {
 			_itemBase.dwCount = item.num;
 			_itemBase.dwBinding = item.binding;
 			this.ui_item.setData(_itemBase);
+			//物品描述
+			this.html_des.style.fontSize = 25;
+			this.html_des.style.wordWrap = true;
+			// this.html_des.style.
+			this.html_des.innerHTML = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMDES(item.itemid);
+			// this.img_bg.height = this.html_des.y + this.html_des.contextHeight + 5;
 			// 道具ID
 			let dwBaseID = '' + item.itemid;
 			// 消耗货币描述
@@ -40,7 +46,8 @@ module view.shopMall {
 					if (item.limitcnt <= 0) {
 						this.box_count.visible = this.box_danJia.visible = true;
 						// 最大购买数量
-						this.hsbar_count.max = 999;
+						// this.hsbar_count.max = 999;
+						this.hsbar_count.max = Math.floor(GameApp.MainPlayer.wealth.gold / Math.ceil(item.price * item.discount / 10))
 					}
 					// 限购
 					else {
@@ -51,7 +58,12 @@ module view.shopMall {
 					this.lbl_price.text = '' + Math.ceil(item.price * item.discount / 10);
 					// 滑竿数量
 					this.hsbar_count.changeHandler = Laya.Handler.create(this, (value) => {
-						this.lbl_countDes.text = '购买数量:' + value;
+						if (value == this.hsbar_count.max) {
+							this.lab_isMax.visible = true;
+						}else{
+							this.lab_isMax.visible = false;
+						}
+						this.lbl_countDes.text = value;
 						// 更新总价格
 						this.lbl_coinPrice.text = '' + Math.ceil(item.price * item.discount / 10) * value;
 					}, null, false);

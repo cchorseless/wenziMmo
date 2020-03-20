@@ -3,12 +3,17 @@ module view.juese {
 	export class Task_ChengJiuDialog extends ui.juese.Task_ChengJiuDialogUI {
 		constructor() {
 			super();
+			for (let i = 0; i < 9; i++) {
+				this['panel_achieve' + i].vScrollBarSkin = '';
+				this['vbox_achieve' + i]['sortItem'] = (items) => { };
+			}
+			this.panel_tab.hScrollBarSkin = '';
 		}
 		public stateData = [];
 		public taskdata;
 		public setData(): Task_ChengJiuDialog {
-			this.panel_achieve.vScrollBarSkin = '';
-			this.vbox_achieve['sortItem'] = (items) => { };
+			// this.panel_achieve.vScrollBarSkin = '';
+			// this.vbox_achieve['sortItem'] = (items) => { };
 			let data: ProtoCmd.itf_JS_ShengWangInfo = GameApp.MainPlayer.fameInfo;
 			//声望名称
 			for (let i = 0; data.titletab[i]; i++) {
@@ -19,9 +24,20 @@ module view.juese {
 			//我的声望icon
 			this.img_prestige.skin = 'image/juese/icon_shengwang' + data.prestigeid + '.png';
 			//声望经验值进度条
-			this.img_jingyan.width = 280 * data.minexp / data.maxexp;
+			this.img_jingyan.width = 180 * data.minexp / data.maxexp;
 			//声望经验值
-			this.lbl_jingyan.text = data.minexp + '/' + data.maxexp;
+			// this.lbl_jingyan.text = data.minexp + '/' + data.maxexp;
+
+			this.html_jingyan.style.fontFamily = 'STKaiti';
+			this.html_jingyan.style.fontSize = 20;
+			// this.html_titleName.style.align = 'center'
+			if (data.minexp < data.maxexp) {
+				this.html_jingyan.innerHTML = "<span style='color:#cd3735;'>" + data.minexp + "</span>"
+					+ "<span style='color:#000000;'>/" + data.maxexp + "</span>"
+			} else {
+				this.html_jingyan.innerHTML = "<span style='color:#000000;'>" + data.minexp + "</span>"
+					+ "<span style='color:#000000;'>/" + data.maxexp + "</span>"
+			}
 			//当前战力
 			let battle = GameUtil.parseEffectidToObj(['' + data.effid]).battle[GameApp.MainPlayer.job];
 			this.lbl_battle.text = '' + battle;
@@ -31,26 +47,37 @@ module view.juese {
 			let min = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_MINDC('' + data.effid);
 			let max = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_MAXDC('' + data.effid);
 			this.lbl_phKill.text = min + '-' + max;
+			this.VS_show.selectedIndex = 0;
 			this.addEvent();
 			this.init_getReward();
 			this.init_taskInfo();
 			this.init_taskState();
+			
 			return this;
 		}
+		
 		public addEvent(): void {
-			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				this.close();
+			// this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
+			// 	this.close();
+			// })
+			this.tab_showType.selectHandler = Laya.Handler.create(this,function(index){
+				
+			})
+			this.tab_showType.on(Laya.UIEvent.CLICK,this,function(){
+				this.VS_show.selectedIndex = this.tab_showType.selectedIndex;
+				this.init_sort(this.VS_show.selectedIndex)
 			})
 		}
 		/**
 		 * 成就任务状态
 		 */
 		public init_taskState(): void {
+			
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.TASK_achievementPanel, [1], null, this, (jsonData) => {
 				this.stateData = jsonData;
 				if (this.taskdata != undefined) {
-					this.init_sort();
+					this.init_sort(this.VS_show.selectedIndex);
 				}
 			})
 			lcp.send(pkt);
@@ -89,12 +116,12 @@ module view.juese {
 		// 		}
 		// 	}
 		// }
-		public init_sort(): void {
+		public init_sort(key): void {
 			let keys = Object.keys(this.taskdata);
-			this.vbox_achieve.removeChildren();
-			for (let key of keys) {
+			this['vbox_achieve'+key].removeChildren();
+			// for (let key of keys) {
 				let achiveArray = [];
-				let data = this.taskdata[key];
+				let data = this.taskdata[(key+1).toString()];
 				let keys1 = Object.keys(data)
 				let taskArray = [];
 				for (let key1 of keys1) {
@@ -104,16 +131,16 @@ module view.juese {
 				let array = taskArray.sort(function (a, b) {
 					return (a.type * 100 + a.id) - (b.type * 100 + b.id)
 				});
-				if (this.stateData[key]) {
+				if (this.stateData[(key+1).toString()]) {
 					//根据奖励领取的状态排序
 					for (let single of array) {
-						if (this.stateData[key][single.id].s == 1) {
+						if (this.stateData[(key+1).toString()][single.id].s == 1) {
 							achiveArray.push(single);
 						}
-						if (this.stateData[key][single.id].s == 0) {
+						if (this.stateData[(key+1).toString()][single.id].s == 0) {
 							achiveArray.push(single);
 						}
-						if (this.stateData[key][single.id].s == 2) {
+						if (this.stateData[(key+1).toString()][single.id].s == 2) {
 							achiveArray.push(single);
 						}
 					}
@@ -121,9 +148,9 @@ module view.juese {
 				//根据同类型的成就取第一个形成数组
 				let taskFinal = this.first(achiveArray);
 				for (let part of taskFinal) {
-					this.vbox_achieve.addChild(new view.compart.TaskInfoV2Item().init_taskAchieve(key, part, this.stateData[key][part.id]));
+					this['vbox_achieve'+key].addChild(new view.compart.TaskInfoV1Item().init_taskAchieve(key+1, part, this.stateData[(key+1).toString()][part.id]));
 				}
-			}
+			// }
 		}
 		/**
 		 * 

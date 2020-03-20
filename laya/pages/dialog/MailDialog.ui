@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":78,
-    "selecteID":82,
-    "props":{"width":618,"sceneColor":"#000000","height":932},
+    "selectedBox":84,
+    "selecteID":87,
+    "props":{"width":633,"sceneColor":"#000000","height":981},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":618,"skin":"image/common/bottom_tanchuang_big.png","height":932},
+            "props":{"y":0,"x":0,"width":633,"skin":"image/common/frame_big.png","height":981},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -27,34 +27,20 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":20,"x":153,"skin":"image/common/bottom_title1.png"},
+                    "props":{"y":32,"skin":"image/mail/zi_youjian.png","centerX":0},
                     "nodeParent":78,
                     "label":"Image",
-                    "isOpen":true,
-                    "isDirectory":true,
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":79,
+                    "hasChild":false,
+                    "compId":88,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":10,"x":99,"text":"邮 件","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffeeb1"},
-                            "nodeParent":79,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":80,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
+                        ]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":121,"x":54,"width":510,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"20,15,20,24","height":699},
+                    "props":{"y":102,"x":45,"width":533,"skin":"image/common/fram_common_bg_02.png","sizeGrid":"20,15,20,24","height":728},
                     "nodeParent":78,
                     "label":"Image",
                     "isDirectory":false,
@@ -67,21 +53,8 @@
                 },
                 {
                     "x":30,
-                    "type":"Button",
-                    "props":{"y":-4,"x":516,"var":"btn_mailClose","stateNum":"2","skin":"image/common/icon_close.png"},
-                    "nodeParent":78,
-                    "label":"Button(btn_mailClose)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":6,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Panel",
-                    "props":{"y":128,"x":59,"width":500,"var":"panel_mail","height":683},
+                    "props":{"y":109,"x":45,"width":533,"var":"panel_mail","height":712},
                     "nodeParent":78,
                     "label":"Panel(panel_mail)",
                     "isOpen":true,
@@ -93,7 +66,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":1,"var":"vbox_mail","space":5,"right":0,"left":0},
+                            "props":{"y":1,"var":"vbox_mail","space":1,"right":0,"left":0},
                             "nodeParent":72,
                             "label":"VBox(vbox_mail)",
                             "isOpen":true,
@@ -102,14 +75,15 @@
                             "hasChild":false,
                             "compId":73,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":830,"x":247,"width":145,"var":"btn_deleteRead","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":28,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a","label":"删除已读","height":58},
+                    "props":{"y":855,"x":247,"width":145,"var":"btn_deleteRead","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":28,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a","label":"删除已读","height":58},
                     "nodeParent":78,
                     "label":"Button(btn_deleteRead)",
                     "isDirectory":false,
@@ -122,7 +96,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":830,"x":402,"width":145,"var":"btn_allGet","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":28,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"一键领取","height":58},
+                    "props":{"y":855,"x":402,"width":145,"var":"btn_allGet","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":28,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"一键领取","height":58},
                     "nodeParent":78,
                     "label":"Button(btn_allGet)",
                     "isDirectory":false,
@@ -136,7 +110,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":831,"x":103,"text":"邮件数量","fontSize":20,"font":"FZHL","color":"#000000"},
+                    "props":{"y":856,"x":103,"width":88,"text":"邮件数量","fontSize":22,"font":"LiSu","color":"#000000"},
                     "nodeParent":78,
                     "label":"Label",
                     "isDirectory":false,
@@ -149,7 +123,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":857,"x":88,"width":114,"skin":"image/common/bottom_gouyu.png","height":29},
+                    "props":{"y":882,"x":88,"width":114,"skin":"image/common/bottom_gouyu.png","height":29},
                     "nodeParent":78,
                     "label":"Image",
                     "isDirectory":false,
@@ -163,7 +137,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":858,"x":109,"var":"lbl_mailCount","text":"10/200","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                    "props":{"y":886,"x":103,"width":88,"var":"lbl_mailCount","text":"10/200","fontSize":20,"font":"LiSu","color":"#ffffff","align":"center"},
                     "nodeParent":78,
                     "label":"Label(lbl_mailCount)",
                     "isDirectory":false,
@@ -176,16 +150,17 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":412,"x":194,"visible":false,"var":"box_null"},
+                    "props":{"y":393,"x":197,"visible":false,"var":"box_null"},
                     "nodeParent":78,
                     "label":"Box(box_null)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":84,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":36,"x":69,"width":161,"skin":"image/common/img_duihuakuang.png","height":67},
                             "nodeParent":84,
@@ -197,6 +172,7 @@
                             "compId":85,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":23,"wordWrap":true,"width":135,"text":"当前没有邮件喵~","height":42,"fontSize":22,"font":"FZHL","color":"#55453e"},
                                     "nodeParent":85,
@@ -211,8 +187,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"width":94,"skin":"image/common/img_cat.png","height":92},
+                            "props":{"y":0,"x":-16,"width":94,"skin":"image/common/img_cat.png","height":92},
                             "nodeParent":84,
                             "label":"Image",
                             "isDirectory":false,
@@ -223,6 +200,19 @@
                                 ]
                         }],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":30,"x":572,"var":"btn_mailClose","stateNum":"2","skin":"image/common/icon_denglongclose.png"},
+                    "nodeParent":78,
+                    "label":"Button(btn_mailClose)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":6,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         }],

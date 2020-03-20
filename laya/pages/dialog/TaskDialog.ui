@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":38,
-    "selecteID":40,
-    "props":{"width":618,"sceneColor":"#ffffff","height":932},
+    "selectedBox":1,
+    "selecteID":47,
+    "props":{"width":633,"sceneColor":"#ffffff","height":981},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -15,92 +15,137 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":19,"skin":"image/common/bottom_tanchuang_big.png"},
+            "props":{"y":0,"x":0,"width":633,"skin":"image/fuben/bottom_tanchuang_02.png","height":981},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
-            "isDirectory":true,
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
+            "hasChild":false,
             "compId":2,
             "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":20,"x":153,"skin":"image/common/bottom_title1.png"},
-                    "nodeParent":2,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":3,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":10,"x":50,"width":211,"text":"任务列表","strokeColor":"#000000","stroke":4,"height":45,"fontSize":45,"font":"FZXK","color":"#ffeeb1","align":"center"},
-                            "nodeParent":3,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":4,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                }],
+                ],
             "$HIDDEN":false
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":106,"x":53,"width":532,"skin":"image/common/login/fram_common_bg_02a.png","sizeGrid":"13,19,13,9","height":798},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":39,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Panel",
-            "props":{"y":110,"x":57,"width":522,"var":"panel_task","height":789},
-            "nodeParent":1,
-            "label":"Panel(panel_task)",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":38,
-            "child":[
-                {
-                    "x":30,
-                    "type":"VBox",
-                    "props":{"var":"vbox_task","right":0,"left":0},
-                    "nodeParent":38,
-                    "label":"VBox(vbox_task)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":40,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
             "type":"Button",
-            "props":{"y":-6,"x":522,"var":"btn_close","stateNum":"2","skin":"image/common/icon_close.png"},
+            "props":{"y":26,"x":572,"var":"btn_close","stateNum":"2","skin":"image/juQingMode/icon_close.png"},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":5,
+            "compId":41,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":168,"x":47,"width":532,"skin":"image/common/login/fram_common_bg_02a.png","sizeGrid":"13,19,13,9","height":770},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":39,
+            "child":[
+                {
+                    "x":30,
+                    "type":"ViewStack",
+                    "props":{"y":16,"x":-4,"width":522,"var":"vs_show","height":770},
+                    "nodeParent":39,
+                    "label":"ViewStack(vs_show)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":44,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Panel",
+                            "props":{"y":-12,"x":8,"width":522,"var":"panel_task","name":"item0","height":770},
+                            "nodeParent":44,
+                            "label":"Panel(panel_task)",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":38,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"VBox",
+                                    "props":{"var":"vbox_task","space":8,"right":0,"left":0},
+                                    "nodeParent":38,
+                                    "label":"VBox(vbox_task)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":40,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"main/Main_BriskDialog.ui",
+                            "props":{"y":-12,"x":4,"var":"ui_action","runtime":"view.main.Main_BriskDialog","name":"item1"},
+                            "nodeParent":44,
+                            "label":"UIView(ui_action)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":45,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"juese/Task_ChengJiuDialog.ui",
+                            "props":{"y":-12,"x":4,"var":"ui_chengjiu","runtime":"view.juese.Task_ChengJiuDialog","name":"item2"},
+                            "nodeParent":44,
+                            "label":"UIView(ui_chengjiu)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":46,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }]
+                }],
+            "$LOCKED":true
+        },
+        {
+            "x":15,
+            "type":"Tab",
+            "props":{"y":96,"x":47,"var":"tab_task","stateNum":2,"space":0,"skin":"image/fuben/img_yeqian.png","selectedIndex":0,"scaleY":0.9,"scaleX":0.9,"labels":"任务,活跃,成就","labelSize":35,"labelPadding":"-5","labelFont":"fzxk","labelColors":"#52473d,#903f14,#903f14"},
+            "nodeParent":1,
+            "label":"Tab(tab_task)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":42,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":32,"x":232,"var":"img_title","skin":"image/task/font_0.png"},
+            "nodeParent":1,
+            "label":"Image(img_title)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":43,
             "child":[
                 ]
         }],

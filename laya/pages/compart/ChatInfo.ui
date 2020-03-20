@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":9,
-    "props":{"width":528,"sceneColor":"#ffffff","height":130},
+    "selecteID":12,
+    "props":{"width":528,"sceneColor":"#ffffff","height":124},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,47 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":9,"x":12,"skin":"image/common/frame_touxinag.png"},
+            "props":{"top":0,"skin":"image/common/box_common_05.png","sizeGrid":"20,20,20,20","right":0,"left":0,"bottom":0},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":21,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":3,"x":3,"skin":"image/main/img_zs_01.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":18,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":3,"x":13,"skin":"image/main/frame_liaotian_mingzi.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":19,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":-4,"x":8,"skin":"image/common/frame_npc.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -31,7 +71,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":11,"x":13,"width":84,"var":"img_head","skin":"image/common/npc/npc_icon_1402.png","height":84},
+            "props":{"y":12,"x":19,"width":84,"var":"img_head","skin":"image/common/icon_nan01.png","height":84},
             "nodeParent":1,
             "label":"Image(img_head)",
             "isDirectory":false,
@@ -46,9 +86,10 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":69,"x":3,"width":35,"skin":"image/common/frame_zili.png","height":35,"alpha":0.8},
+            "props":{"y":92,"x":8,"width":107,"skin":"image/common/box_common_04.png","sizeGrid":"23,20,20,26","height":26},
             "nodeParent":1,
             "label":"Image",
+            "isOpen":false,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -59,20 +100,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":3,"x":3,"width":35,"skin":"image/common/frame_zili.png","height":35,"alpha":0.8},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":7,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":2,"x":84,"skin":"image/main/img_vip.png"},
+            "props":{"y":1,"x":4,"skin":"image/common/icon_vip.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -84,35 +112,21 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":47,"x":83,"width":444,"var":"img_labCircle","skin":"image/main/img_liaotianbaobao_01.png","sizeGrid":"9,6,10,35","height":77},
+            "type":"Label",
+            "props":{"wordWrap":true,"var":"lab_chatContent","top":40,"text":"label","right":5,"left":120,"height":114,"fontSize":20,"font":"LiSu","color":"#623e24","bottom":5},
             "nodeParent":1,
-            "label":"Image(img_labCircle)",
-            "isOpen":true,
-            "isDirectory":true,
+            "label":"Label(lab_chatContent)",
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":9,
+            "hasChild":false,
+            "compId":15,
             "child":[
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"wordWrap":true,"var":"lab_chatContent","top":5,"text":"label","right":5,"left":29,"fontSize":20,"font":"fzhl","color":"#623e24","bottom":5},
-                    "nodeParent":9,
-                    "label":"Label(lab_chatContent)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":15,
-                    "child":[
-                        ]
-                }],
-            "$HIDDEN":false
+                ]
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":6,"x":127,"var":"img_tabType","skin":"image/main/tab_diangqian_04.png","sizeGrid":"0,35,0,16"},
+            "props":{"y":7,"x":119,"var":"img_tabType","skin":"image/main/tab_diangqian_04.png","sizeGrid":"0,35,0,16"},
             "nodeParent":1,
             "label":"Image(img_tabType)",
             "isOpen":true,
@@ -124,7 +138,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":0,"x":6,"var":"lab_tabType","text":"世界","strokeColor":"#000000","stroke":4,"fontSize":28,"font":"fzhl","color":"#f8f8f8"},
+                    "props":{"y":1,"x":3,"var":"lab_tabType","text":"世界","fontSize":22,"font":"LiSu","color":"#f8f8f8"},
                     "nodeParent":10,
                     "label":"Label(lab_tabType)",
                     "isDirectory":false,
@@ -138,7 +152,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":0,"x":88,"width":27.0703125,"var":"lab_vipLV","text":"12","strokeColor":"#435866","stroke":3,"height":21,"fontSize":21,"font":"fzhl","color":"#ffffff","align":"center"},
+            "props":{"y":5,"x":12,"width":27.0703125,"var":"lab_vipLV","text":"12","strokeColor":"#903f14","stroke":2,"height":22,"fontSize":22,"font":"LiSu","color":"#ffffff","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_vipLV)",
             "isDirectory":false,
@@ -151,7 +165,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":7,"x":6,"var":"lab_zhuanshengLV","text":"2转","strokeColor":"#000000","stroke":3,"fontSize":21,"font":"fzhl","color":"#ffffff","align":"center"},
+            "props":{"y":95,"x":22,"var":"lab_zhuanshengLV","text":"2转","fontSize":20,"font":"LiSu","color":"#ffffff","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_zhuanshengLV)",
             "isDirectory":false,
@@ -164,7 +178,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":73,"x":0,"width":40.60546875,"var":"lab_LV","text":"150","strokeColor":"#000000","stroke":3,"height":21,"fontSize":21,"font":"fzhl","color":"#ffffff","align":"center"},
+            "props":{"y":95,"x":51,"width":49,"var":"lab_LV","text":"150级","height":21,"fontSize":20,"font":"LiSu","color":"#ffffff","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_LV)",
             "isDirectory":false,
@@ -177,7 +191,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":9,"x":211,"width":159,"var":"lab_name","text":"好名字六个字","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"fzhl","color":"#f9e596"},
+            "props":{"y":9,"x":188,"width":159,"var":"lab_name","text":"好名字六个字","height":24,"fontSize":24,"font":"STXingkai","color":"#000000"},
             "nodeParent":1,
             "label":"Label(lab_name)",
             "isDirectory":false,

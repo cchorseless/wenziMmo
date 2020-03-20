@@ -3,7 +3,7 @@ module view.main {
 	export class Main_BriskDialog extends ui.main.Main_BriskDialogUI {
 		constructor() {
 			super();
-			this.setData();
+			// this.setData();
 		}
 		//宝箱奖励信息
 		public prize;
@@ -15,9 +15,9 @@ module view.main {
 		}
 		public addEvent(): void {
 			//关闭弹窗
-			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				this.close();
-			})
+			// this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
+			// 	this.close();
+			// })
 			//监听宝箱奖励
 			for (let i = 1; i < 5; i++) {
 				this['img_baoxiang' + i].on(Laya.UIEvent.CLICK, this, () => {

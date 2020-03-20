@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":31,
-    "selecteID":23,
+    "selecteID":28,
     "props":{"y":0,"x":0,"width":141,"sceneColor":"#827171","height":96},
     "nodeParent":-1,
     "label":"View",
@@ -112,7 +112,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":69,"x":15,"width":126,"skin":"image/main/main_tansuo/frame_mingzi.png","height":24},
+                    "props":{"y":69,"x":9,"width":126,"skin":"image/main/main_tansuo/frame_mingzi.png","height":24},
                     "nodeParent":31,
                     "label":"Image",
                     "isOpen":true,
@@ -141,7 +141,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":66,"skin":"image/common/skill/icon_wx_1.png"},
+                    "props":{"y":66,"visible":false,"skin":"image/common/skill/icon_wx_1.png"},
                     "nodeParent":31,
                     "label":"Image",
                     "isDirectory":false,
@@ -149,7 +149,36 @@
                     "hasChild":false,
                     "compId":30,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":46,"x":4,"visible":false,"var":"img_Argue","skin":"image/npc_jiaohu/frame_xinlizhi.png"},
+                    "nodeParent":31,
+                    "label":"Image(img_Argue)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":32,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":3,"x":6,"width":120,"var":"lab_Argue","text":"心理值:100","strokeColor":"#000000","height":18,"fontSize":20,"font":"FZXK","color":"#4f230f","align":"center"},
+                            "nodeParent":32,
+                            "label":"Label(lab_Argue)",
+                            "isOpen":false,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":33,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
                 }]
         }],
     "animations":[
