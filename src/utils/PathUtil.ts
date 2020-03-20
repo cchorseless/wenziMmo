@@ -61,7 +61,13 @@ module PathUtil{
      * 获取道具品质框路径
      */
      export function getItemQualityFramePath(id:number):string{
-        let path = 'image/common/daoju/quality_' + id + '.png'
+        let path = 'image/common/daoju/quality_' + id + '.png';
+        return path;
+     }
+
+     /**获取NPC Icon路径 */
+     export function getNpcIconPath(id:number):string{
+        let path = 'image/common/npc/npc_icon_' + id + '.png';
         return path;
      }
 }

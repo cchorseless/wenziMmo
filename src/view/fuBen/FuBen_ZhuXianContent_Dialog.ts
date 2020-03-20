@@ -40,7 +40,7 @@ module view.fuBen {
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME(stageData.monsterid)
 			this.lab_BossName.text = name;
 			this.lab_Attack.text = attack + '';
-			this.img_Icon.skin = 'image/common/npc/npc_icon_' + iconID + '.png';
+			this.img_Icon.skin = PathUtil.getNpcIconPath(iconID);
 			// this.lab_exp.text = exp + '';
 			this.lab_desc.text = desc;
 			// 武学技能

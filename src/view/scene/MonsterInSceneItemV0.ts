@@ -36,7 +36,7 @@ module view.scene {
 			let wuxing = SheetConfig.mydb_monster_tbl.getInstance(null).WUXINGPROPS(configID)
 			this.img_wx.skin = PathUtil.getWuXingIconPath(wuxing);
 			skePath = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + configID);
-			this.img_icon.skin = 'image/common/npc/npc_icon_' + skePath + '.png'
+			this.img_icon.skin = PathUtil.getNpcIconPath(skePath);
 			GameApp.MainPlayer.fubenMonsterPower += SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT(configID)
 			this.addEvent();
 
