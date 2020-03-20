@@ -65,7 +65,7 @@ module view.zhiNan {
 			this.lab_Name.text = data[0];
 			this.lab_Detail.text = data[8];
 
-			this.item_reward.img_item.skin = 'image/common/daoju/itemicon_' + data[6] + '.png';
+			this.item_reward.img_item.skin = PathUtil.getItemIconPath(data[6]);
 			this.item_reward.lbl_count.text = data[7].toString()
 			this.item_reward.img_lock.visible = false;
 			if (islock == 1) {

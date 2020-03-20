@@ -95,6 +95,7 @@ module view.fuBen {
 				this.now = resData.leftcnt;
 				this.lbl_fuben.text = name +'副本挑战次数:'+ resData.leftcnt;
 				this.lbl_name.text=name;
+				this.img_fb_icon.skin = PathUtil.ResFubenIcon[num];
 				if (this.isSuccess) {
 					new view.fuBen.FuBen_SaoDang_Reward_Dialog().setData(this.saodangData).popup(true);
 					this.isSuccess = false;

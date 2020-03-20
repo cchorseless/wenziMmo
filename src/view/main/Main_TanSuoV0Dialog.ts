@@ -20,7 +20,7 @@ module view.npc {
 			if (type == 0) {
 				//采集物頭像图
 				let head = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + data.feature.dwCretTypeId);
-				this.img_tu.skin = 'image/common/npc/npc_icon_' + head + '.png';
+				this.img_tu.skin = PathUtil.getNpcIconPath(head);
 
 			} else if (type == 1) {
 				this.img_battle.visible = true;

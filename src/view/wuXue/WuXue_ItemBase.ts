@@ -8,7 +8,7 @@ module view.wuXue {
 			let icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(configID);
 			let quality = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLQUALITY(configID);
 			this.img_bg.skin = "image/common/skill/icon_jnzd_xiao" + quality + ".png"
-			this.img_icon.skin = "image/common/skill/skill_icon_" + icon + ".png"
+			this.img_icon.skin = PathUtil.getSkillIconPath(icon);
 		}
 	}
 }

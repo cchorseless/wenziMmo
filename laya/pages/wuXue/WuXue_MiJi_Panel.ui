@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":20,
-    "selecteID":21,
+    "selectedBox":8,
+    "selecteID":23,
     "props":{"width":640,"sceneColor":"#ffffff","name":"miji","height":1136},
     "nodeParent":-1,
     "label":"View(miji)",
@@ -159,6 +159,21 @@
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":12,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":11,"x":328,"width":111,"visible":true,"var":"btn_zaxue","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"秘籍","height":86,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":8,
+                            "label":"Button(btn_zaxue)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":23,
                             "child":[
                                 ],
                             "$HIDDEN":false

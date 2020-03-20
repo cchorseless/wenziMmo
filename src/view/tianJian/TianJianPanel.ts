@@ -92,7 +92,7 @@ module view.tianJian {
 			this.nowSkillID = skillKey;
 			effKey = arr.effid + "";
 			// this.lab_term.text = arr.condition;//根据questID去获取说明
-			this.img_shuxingIcon.skin = "image/common/skill/skill_icon_" + SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillKey) + '.png';
+			this.img_shuxingIcon.skin = PathUtil.getSkillIconPath(SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillKey));
 			let nameStr: string = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(skillKey);
 			let indexOf = nameStr.indexOf('_');
 			nameStr = nameStr.slice(0, indexOf);

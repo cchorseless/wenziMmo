@@ -21,31 +21,11 @@ module view.fuBen {
 			this.difficult = i;
 			this.item = data;
 			this.resData = resFubenInfo.infotab[index];
-			this.img_bg1.skin = 'image/fuben/img_ziyuan' + i + '.png';
-			this.img_bg2.skin = 'image/fuben/img_ziyuanbg' + i + '.png'
+			this.img_bg1.skin = PathUtil.ResFubenDifficultyBg[i];
+			this.img_bg2.skin = PathUtil.ResFubenDifficultyNameBg[i];
 			//副本难度
-			switch (i) {
-				case 1:
-					this.lbl_difficult.text = '普通';
-					this.lbl_difficult.color = '#757575'
-					break;
-				case 2:
-					this.lbl_difficult.text = '困难';
-					this.lbl_difficult.color = '#547554'
-					break;
-				case 3:
-					this.lbl_difficult.text = '精英';
-					this.lbl_difficult.color = '#547275'
-					break;
-				case 4:
-					this.lbl_difficult.text = '史诗';
-					this.lbl_difficult.color = '#655475'
-					break;
-				case 5:
-					this.lbl_difficult.text = '噩梦';
-					this.lbl_difficult.color = '#b2462d'
-					break;
-			}
+			this.lbl_difficult.text = PathUtil.ResFubenDifficultyName[i];
+			this.lbl_difficult.color = PathUtil.ResFubenDifficultyNameColor[i];
 			//判断是否能进入副本
 			if (GameApp.MainPlayer.ability.nFight >= resFubenInfo.zhanlitab[i].Combat && data.leftcnt > 0) {
 				this.box_open.visible = true;

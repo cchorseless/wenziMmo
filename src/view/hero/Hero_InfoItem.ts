@@ -100,7 +100,7 @@ module view.hero {
 				let rune = GameUtil.findEquipInPlayer(i);
 				if (rune) {
 					this['img_rune' + index].visible = true;
-					this['img_rune' + index].skin = 'image/common/daoju/itemicon_' + rune.dwBaseID + '.png'
+					this['img_rune' + index].skin = PathUtil.getItemIconPath(rune.dwBaseID);
 					let array = rune.stNpPropertyString;
 					for (let j = 0; rune.stNpPropertyString[j]; j++) {
 						runeArray.push(rune.stNpPropertyString[j]);

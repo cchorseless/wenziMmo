@@ -18,8 +18,8 @@ module view.wuXue {
 			let lv = SheetConfig.mydb_magic_tbl.getInstance(null).LEVEL(configID);
 			this.lab_lv.text = lv + '';
 			let quality = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLQUALITY(configID);
-			this.img_skill_bg.skin = 'image/common/fight/frane_jineng_' + quality + '.png'
-			this.img_skill_Icon.skin = "image/common/skill/skill_icon_" + icon + ".png"
+			this.img_skill_bg.skin = PathUtil.getSkillIconFramePath(quality);
+			this.img_skill_Icon.skin = PathUtil.getSkillIconPath(icon);
 			let type = SheetConfig.mydb_magic_tbl.getInstance(null).INJURY_TYPE(configID);
 			// 技能 伤害类型
 			this.img_skillType.skin = "image/common/wuxue/img_" + type + ".png";

@@ -21,7 +21,7 @@ module view.npc {
 			this.lab_npckoucai.text = '口才：' + npcKouCai;
 			this.img_my.skin = LangConfig.getPlayerIconSkin();
 			let icon = SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_ICON_NUMBER(this.npcID);
-			this.img_npc.skin = 'image/common/npc/npc_icon_' + icon + '.png';
+			this.img_npc.skin = PathUtil.getNpcIconPath(icon);
 		}
 		public addEvent() {
 			this.btn_leave.on(Laya.UIEvent.CLICK, this, function () {

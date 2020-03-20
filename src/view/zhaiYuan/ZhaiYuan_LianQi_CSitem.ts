@@ -62,7 +62,7 @@ module view.zhaiYuan {
 			let arr = ["强化", "觉醒", "升阶", "进阶", "获取"]
 			for (let i = 0; i < 10; i++) {
 				// this["ui_equip" + i].btn_icon.gray = false;
-				this["ui_equip" + i].img_icon.skin = "image/common/daoju/itemicon_bg_" + (i + 10) + ".png";
+				this["ui_equip" + i].img_icon.skin = PathUtil.getItemIconBgPath(i + 10);
 				this['ui_equip' + i].lab_name.text = this.equipNameArr[i];
 			}
 			this.curHasActive = false;
@@ -105,7 +105,7 @@ module view.zhaiYuan {
 				if (this.curHasActive) {
 					this.curStatus = 2;
 					this.btn_intensify.label = arr[3];
-					this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
+					this.img_chuanshi_equip.img_icon.skin = PathUtil.getItemIconBgPath(this.TouchID + 10);
 					this.img_chuanshi_equip.btn_icon.gray = false;
 					this.img_chuanshi_equip.img_lock.visible = false;
 					this.img_chuanshi_equip.lab_name.text = this.equipNameArr[this.TouchID];
@@ -135,7 +135,7 @@ module view.zhaiYuan {
 
 
 					this.btn_intensify.label = arr[1];
-					this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
+					this.img_chuanshi_equip.img_icon.skin = PathUtil.getItemIconBgPath(this.TouchID + 10);
 					this.img_chuanshi_equip.btn_icon.gray = true;
 					this.img_chuanshi_equip.lab_name.text = this.equipNameArr[this.TouchID];
 					this.img_chuanshi_equip.img_lock.visible = true;
@@ -144,7 +144,7 @@ module view.zhaiYuan {
 					this.box_up0.visible = true;
 					let weaponID = equipArr[baseArr[this.TouchID]]
 					let equipskinID = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(weaponID + '');
-					// this.img_icon0.skin = "image/common/daoju/itemicon_" + equipskinID + ".png";
+					// this.img_icon0.skin = PathUtil.getItemIconPath(equipskinID);
 					// this.lab_cost_Text0.text = 1 + " / " + 1;
 					this.lab_cost_forge0.text = '觉醒消耗'
 
@@ -162,7 +162,7 @@ module view.zhaiYuan {
 				this.box_level.visible = false;
 
 				this.btn_intensify.label = arr[4];
-				this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
+				this.img_chuanshi_equip.img_icon.skin = PathUtil.getItemIconBgPath(this.TouchID + 10);
 				this.img_chuanshi_equip.btn_icon.gray = true;
 				this.img_chuanshi_equip.img_lock.visible = true;
 				this.img_chuanshi_equip.img_lv_mask.visible = false;
@@ -173,7 +173,7 @@ module view.zhaiYuan {
 				this.box_up0.visible = true;
 				let weaponID = equipArr[baseArr[this.TouchID]];
 				let equipskinID = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(weaponID + '');
-				// this.img_icon0.skin = "image/common/daoju/itemicon_" + equipskinID + ".png";
+				// this.img_icon0.skin = PathUtil.getItemIconPath(equipskinID);
 				let itemBase = new ProtoCmd.ItemBase();
 				itemBase.dwBaseID = weaponID;
 				let costStr2 = 0 + " / " + 1;
@@ -482,7 +482,7 @@ module view.zhaiYuan {
 					this.lab_cost_forge0.visible = true;
 					this.lab_cost_forge0.text = "进阶消耗";
 					// this.lab_cost_Text0.text = costCount + " / " + curCostNum;
-					// this.img_icon0.skin = 'image/common/daoju/itemicon_' + skinID0 + '.png';
+					// this.img_icon0.skin = PathUtil.getItemIconPath(skinID0);
 					let itemBase = new ProtoCmd.ItemBase();
 					itemBase.dwBaseID = this.msgData.drillid;
 					let o = new compart.DaoJuCostItem();

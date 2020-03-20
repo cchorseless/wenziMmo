@@ -161,7 +161,7 @@ module view.scene {
 				// 切换成BOSS模式
 				this.box_bossInfo.visible = true;
 				let iconID = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + configID);
-				this.ui_Boss.img_icon.skin = 'image/common/npc/npc_icon_' + iconID + '.png';
+				this.ui_Boss.img_icon.skin = PathUtil.getNpcIconPath(iconID);
 				this.viw_0.selectedIndex = isBoss;
 				this.lbl_guiShu.text = obj.feature.dwMasterTmpID;;
 				this.lbl_xuetiaoCount.text = 'x1'

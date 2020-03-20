@@ -53,7 +53,9 @@ module view.wuXue {
 			})
 			this.btn_waigong.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWuXueWaiGongPanel();
-
+			})
+			this.btn_zaxue.on(Laya.UIEvent.CLICK,this,() => {
+				PanelManage.openWuXueZaXuePanel();
 			})
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this)
