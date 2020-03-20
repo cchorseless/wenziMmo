@@ -7,10 +7,10 @@ module view.wuXue{
 			super();
 			this.addEvent();
 		}
-		private skillId:string;
+		private skillId:number;
 		private configId:string;
 		private maxProgressLength:number = 255;
-		public setData(skillId:string){
+		public setData(skillId:number){
 			this.skillId = skillId;
 			this.configId = GameApp.MainPlayer.skillInfo[this.skillId].configID;
 			this.maxProgressLength = this.img_progress.width;

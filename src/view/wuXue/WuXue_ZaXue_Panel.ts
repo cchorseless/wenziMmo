@@ -13,7 +13,7 @@ module view.wuXue{
 		private createItems(){
 			for (var i = 0; i < 5; i++) {
 				let item = new WuXue_ZaXue_VS_Info_Item;
-				let itemSkillId = (this.baseSkillId + i).toString();
+				let itemSkillId = (this.baseSkillId + i);
 				item.setData(itemSkillId);
 				this.vbox_show.addChild(item);
 			}

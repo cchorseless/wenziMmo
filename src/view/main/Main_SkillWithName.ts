@@ -66,7 +66,7 @@ module view.main {
 			}
 
 
-			this.img_skill_Icon.skin = "image/common/skill/skill_icon_" + icon + ".png"
+			this.img_skill_Icon.skin = PathUtil.getSkillIconPath(icon);
 			let type = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID);
 			this.img_skillType.skin = "image/common/wuxue/img_" + type + ".png"
 			if (wuXing > 0) {

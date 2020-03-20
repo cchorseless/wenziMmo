@@ -34,7 +34,7 @@ module view.scene {
 			// this.addMonster(monsterObj);
 			// this.img_bg.skin = 'image/main/frame_boss_03.png'
 			let wuxing = SheetConfig.mydb_monster_tbl.getInstance(null).WUXINGPROPS(configID)
-			this.img_wx.skin = "image/common/skill/icon_wx_" + wuxing + ".png"
+			this.img_wx.skin = PathUtil.getWuXingIconPath(wuxing);
 			skePath = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + configID);
 			this.img_icon.skin = 'image/common/npc/npc_icon_' + skePath + '.png'
 			GameApp.MainPlayer.fubenMonsterPower += SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT(configID)

@@ -8,7 +8,7 @@ module view.fuBen {
 			Log.trace(skillID);
 			let icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillID);
 			let name = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(skillID);
-			this.img_icon.skin = 'image/common/skill/skill_icon_' + icon + '.png';
+			this.img_icon.skin = PathUtil.getSkillIconPath(icon);
 			this.lab_name.text = name.split('_')[0];
 		}
 
