@@ -32,7 +32,7 @@ module view.npc {
 			if (itemlist.length == 1) {
 				let likeValue = SheetConfig.mydb_item_base_tbl.getInstance(null).LIKEVALUE(itemlist[0]);
 				// this.lab_haogan
-				this['lab_haogan' + 1].text = '+' + likeValue;
+				this['lab_haogan' + 1].text = '好感度+' + likeValue;
 				let item = new ProtoCmd.ItemBase();
 				item.dwBaseID = parseInt(itemlist[0])
 				let num: number = GameUtil.findItemInBag(item.dwBaseID)
@@ -48,7 +48,7 @@ module view.npc {
 				for (let i = 0; i < itemlist.length; i++) {
 					let likeValue = SheetConfig.mydb_item_base_tbl.getInstance(null).LIKEVALUE(itemlist[i]);
 					// this.lab_haogan
-					this['lab_haogan' + i].text = '+' + likeValue;
+					this['lab_haogan' + 1].text = '好感度+' + likeValue;
 					let item = new ProtoCmd.ItemBase();
 					item.dwBaseID = parseInt(itemlist[i])
 					let num: number = GameUtil.findItemInBag(item.dwBaseID)

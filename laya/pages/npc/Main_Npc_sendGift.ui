@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":37,
-    "selecteID":51,
+    "selectedBox":49,
+    "selecteID":32,
     "props":{"width":515,"sceneColor":"#ffffff","height":544},
     "nodeParent":-1,
     "label":"View",
@@ -206,15 +206,16 @@
                             "props":{"y":0,"x":10,"var":"box_value0"},
                             "nodeParent":28,
                             "label":"Box(box_value0)",
-                            "isOpen":null,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":49,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"skin":"image/npc_jiaohu/frame_cengshu.png"},
+                                    "props":{"y":0,"x":0,"width":89,"skin":"image/npc_jiaohu/frame_cengshu.png","height":22},
                                     "nodeParent":49,
                                     "label":"Image",
                                     "isOpen":true,
@@ -226,8 +227,9 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"x":6,"width":77,"var":"lab_haogan0","text":"+22","height":22,"fontSize":22,"font":"fzxk","color":"#000000","align":"center"},
+                                    "props":{"y":2,"x":0,"width":89,"var":"lab_haogan0","text":"好感度+20","height":22,"fontSize":18,"font":"fzxk","color":"#000000","align":"center"},
                                     "nodeParent":49,
                                     "label":"Label(lab_haogan0)",
                                     "isDirectory":false,
@@ -284,13 +286,14 @@
                             "props":{"y":0,"x":10,"var":"box_value1"},
                             "nodeParent":33,
                             "label":"Box(box_value1)",
-                            "isOpen":null,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":50,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"image/npc_jiaohu/frame_cengshu.png"},
                                     "nodeParent":50,
@@ -304,8 +307,9 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"x":6,"width":77,"var":"lab_haogan1","text":"+22","height":22,"fontSize":22,"font":"fzxk","color":"#000000","align":"center"},
+                                    "props":{"y":2,"x":0,"width":89,"var":"lab_haogan1","text":"+22","height":22,"fontSize":18,"font":"fzxk","color":"#000000","align":"center"},
                                     "nodeParent":50,
                                     "label":"Label(lab_haogan1)",
                                     "isDirectory":false,
@@ -362,13 +366,14 @@
                             "props":{"y":0,"x":10,"var":"box_value2"},
                             "nodeParent":37,
                             "label":"Box(box_value2)",
-                            "isOpen":null,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":51,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"image/npc_jiaohu/frame_cengshu.png"},
                                     "nodeParent":51,
@@ -382,8 +387,9 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"x":6,"width":77,"var":"lab_haogan2","text":"+22","height":22,"fontSize":22,"font":"fzxk","color":"#000000","align":"center"},
+                                    "props":{"y":2,"x":0,"width":89,"var":"lab_haogan2","text":"+22","height":22,"fontSize":18,"font":"fzxk","color":"#000000","align":"center"},
                                     "nodeParent":51,
                                     "label":"Label(lab_haogan2)",
                                     "isDirectory":false,

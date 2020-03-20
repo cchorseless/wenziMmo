@@ -20,7 +20,7 @@ module view.dialog {
 			})
 		}
 		public init_time(): void {
-			let timeData = SheetConfig.Solarterms.getInstance(null).GETDATALIST(2);
+			let timeData =GameConfigFunc.SolartermsGETDATALIST(2);
 			let keys = Object.keys(timeData);
 			let data = null;
 			let num = null;
@@ -36,7 +36,7 @@ module view.dialog {
 			this.img_time.skin = 'image/main/img_time' + num + '.png'
 		}
 		public init_season(): void {
-			let seasonData = SheetConfig.Solarterms.getInstance(null).GETDATALIST(1);
+			let seasonData = GameConfigFunc.SolartermsGETDATALIST(1);
 			let keys = Object.keys(seasonData);
 			let data = null;
 			let num = null;

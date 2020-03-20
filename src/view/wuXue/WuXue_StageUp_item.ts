@@ -19,7 +19,7 @@ module view.wuXue {
 			let skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configID);
 			this.skillID = skillID;
 			//当前品质下有几个阶段
-			let stageNum = SheetConfig.mydb_magic_tbl.getInstance(null).getNumOfSkillID(skillID);
+			let stageNum = GameConfigFunc.getNumOfSkillID(skillID);
 			//单个技能base
 			let skillBaes = GameApp.MainPlayer.skillInfo[skillID];
 			this.skillBase = skillBaes;

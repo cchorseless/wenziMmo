@@ -25,7 +25,7 @@ module view.npc {
 		public showStealItem() {
 			let itemMsg = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_BAOWU(this.npcID);
 			let itemlist = itemMsg.split('|');
-			for (let i = 0; i < 10; i++) {
+			for (let i = 0; i < 6; i++) {
 				this['ui_steal' + i].initView();
 				this['ui_steal' + i].visible = false;
 			}
@@ -36,7 +36,7 @@ module view.npc {
 				let haoganExp = Main_TanSuoV1Dialog.self.curExp;//好感度
 				let k = (0.5 + 0.05 * lv + - 0.01 * quality - 0.01 * quality) * 100;
 				this['ui_steal' + i].visible = true;
-				this['ui_steal' + i].setData(itemlist[i], k, 0, i);
+				this['ui_steal' + i].setData(itemlist[i], k, 2);
 			}
 		}
 		public showLight() {
@@ -49,7 +49,7 @@ module view.npc {
 			this.btn_leave.on(Laya.UIEvent.CLICK, this, function () {
 				this.parentUI.view_npc.selectedIndex = 0;
 			})
-			for (let i = 0; i < 10; i++) {
+			for (let i = 0; i < 6; i++) {
 				this['ui_steal' + i].on(Laya.UIEvent.CLICK, this, function () {
 					this.touchID = i;
 					this.showLight();

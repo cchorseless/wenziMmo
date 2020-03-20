@@ -81,7 +81,7 @@ module view.juese {
 			pkt.setString(ProtoCmd.TASK_achievementPanel, [1], null, this, (jsonData) => {
 				this.stateData = jsonData;
 				if (this.taskdata != undefined) {
-					// this.init_sort(this.VS_show.selectedIndex);
+					this.init_sort(this.VS_show.selectedIndex);
 				}
 			})
 			lcp.send(pkt);
@@ -138,7 +138,7 @@ module view.juese {
 				let taskArray = [];
 				for (let key1 of keys1) {
 					for (let g = 0; g < curType.length; g++) {
-						if (data[key1].type.spilt('-')[0] == curType[g]) {
+						if (data[key1].type.split('-')[0] == curType[g]) {
 							taskArray.push(data[key1]);
 						}
 					}

@@ -59,7 +59,7 @@ module view.wuXue {
 		public showTalent(configID) {
 			let Lv = SheetConfig.mydb_magic_tbl.getInstance(null).LEVEL(configID)
 			let skill = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configID)
-			let num = SheetConfig.mydb_magic_tbl.getInstance(null).getNumOfSkillID(skill);
+			let num = GameConfigFunc.getNumOfSkillID(skill);
 			let newBaseConfigID = skill * 100 + num;
 
 			let talentID = SheetConfig.mydb_magic_tbl.getInstance(null).TALENTID(newBaseConfigID);

@@ -13,7 +13,7 @@ module view.fuBen {
 
 			this.pzID = pzID;
 
-			let dataArr = SheetConfig.Thread_sweep_tbl.getInstance(null).GetPZMsg(pzID);
+			let dataArr = GameConfigFunc.GetPZMsg(pzID);
 			let result = [];
 			for (var i = 0; i < dataArr.length; i += 3) {
 				result.push(dataArr.slice(i, i + 3));

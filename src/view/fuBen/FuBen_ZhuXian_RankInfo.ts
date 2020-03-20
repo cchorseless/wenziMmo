@@ -28,7 +28,7 @@ module view.fuBen {
 				this.img_menpai.visible = false;
 			} else {
 				this.img_menpai.visible = true;
-				let menpaiID = SheetConfig.BaseMenPaiSheet.getInstance(null).GetIDByName(menpai);
+				let menpaiID = GameConfigFunc.GetIDByName(menpai);
 				if(menpaiID>0){
 					let icon = SheetConfig.BaseMenPaiSheet.getInstance(null).ICON(menpaiID);
 					this.img_menpai.skin = 'image/fuben/icon_' + icon + '.png'

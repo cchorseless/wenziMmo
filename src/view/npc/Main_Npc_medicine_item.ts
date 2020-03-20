@@ -1,28 +1,32 @@
 /**Created by the LayaAirIDE*/
-module view.npc{
-	export class Main_Npc_medicine_item extends ui.npc.Main_Npc_medicine_itemUI{
+module view.npc {
+	export class Main_Npc_medicine_item extends ui.npc.Main_Npc_medicine_itemUI {
 		// public 
-		constructor(){
+		constructor() {
 			super();
 
 		}
-		public color = ['#c43939', '#38ad32'];
+		public initView() {
+			this.visible = false;
+		}
+		public color = ['#c43939', '#38ad32', '#63491a'];
 		/**
 		 * 
 		 * @param itemID      道具ID
 		 * @param probability  成功率
 		 * @param type         类型
 		 */
-		public setData(itemID,probability,type){
+		public setData(itemID, probability, type) {
+			this.visible = true;
 			let itembase = new ProtoCmd.ItemBase();
 			itembase.dwBaseID = itemID;
-			itembase.dwCount =  GameUtil.findItemInBag(itemID, GameApp.GameEngine.bagItemDB)
+			itembase.dwCount = GameUtil.findItemInBag(itemID, GameApp.GameEngine.bagItemDB)
 			this.ui_daoju.setData(itembase);
-			this.lab_probability.text ='成功率:'+ probability + '%';
+			this.lab_probability.text = '成功率:' + probability + '%';
 			this.lab_probability.color = this.color[type];
 			this.setLight(false)
 		}
-		public setLight(boo:boolean){
+		public setLight(boo: boolean) {
 			this.img_light.visible = boo;
 		}
 	}

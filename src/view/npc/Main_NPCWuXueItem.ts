@@ -22,7 +22,7 @@ module view.npc {
 			for (let i in skillArray) {
 				if (parseInt(skillArray[i]) > 0) {
 					let ui_item = new view.wuXue.WuXue_logoWithNameItem();
-					let id = SheetConfig.mydb_magic_tbl.getInstance(null).getAllData(parseInt(skillArray[i]))[0];
+					let id = GameConfigFunc.getAllData(parseInt(skillArray[i]))[0];
 					if (id) {
 						//武学等级
 						let idArray = skillArray[i].split('');

@@ -82,7 +82,7 @@ module view.rank {
 					ui_rank_box = this.vbox_8;
 					break;
 			}
-			let rankData=SheetConfig.Ranking_List.getInstance(null).GETALLDATA(btType);
+			let rankData=GameConfigFunc.GETALLDATA(btType);
 			let keys=Object.keys(rankData);
 			ui_rank_box.removeChildren();
 			for(let key of keys){

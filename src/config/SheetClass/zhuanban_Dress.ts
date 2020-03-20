@@ -26,12 +26,6 @@ module SheetConfig {
          *  物品Icon，效果美术资源
          */
         public RESOURCES(configID): string { return this.data[configID][5] }
-        /**
-       * 根据ID返回数据
-       */
-        public GETDATABYID(configID: string): any {
-            let base = this.data[configID];
-            return base;
-        }
+       
     }
 }

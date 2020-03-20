@@ -18,7 +18,7 @@ module view.zhiNan {
 			});
 		}
 		public setData() {
-			this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(6);
+			this.data = GameConfigFunc.GETDATALIST(6);
 			this.list_shuxing.vScrollBarSkin = "";
 			this.list_shuxing.itemRender = view.zhiNan.ZhiNan_listshuxingItem;
 			this.list_shuxing.array = this.data;

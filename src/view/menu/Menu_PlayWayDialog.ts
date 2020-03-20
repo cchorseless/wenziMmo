@@ -37,7 +37,7 @@ module view.menu {
 			}
 		}
 		public init_getData(): void {
-			let listArray = SheetConfig.Strategy.getInstance(null).GETDATALIST(this.index);
+			let listArray = GameConfigFunc.StrategyGETDATALIST(this.index);
 			let keys = Object.keys(listArray);
 			this.vbox_play.removeChildren();
 			for (let key of keys) {

@@ -75,7 +75,7 @@ module view.npc {
 			this.lab_xihao.text = xihaoStr.join('-');
 
 			let mingyu = SheetConfig.mydb_npcgen_tbl.getInstance(null).REPUTATION(this.npcID);
-			this.lab_mingyu.text = SheetConfig.reputation.getInstance(null).getNameByNum(mingyu)
+			this.lab_mingyu.text = GameConfigFunc.getNameByNum(mingyu)
 			let menpaiID = SheetConfig.mydb_npcgen_tbl.getInstance(null).SECTS(this.npcID);
 
 			this.lab_lishu.text = SheetConfig.BaseMenPaiSheet.getInstance(null).NAME(menpaiID);
