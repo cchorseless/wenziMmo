@@ -34,9 +34,9 @@ module view.scene {
 				let npcSpan = this.npchp - res.npchp;
 				this.myhp = res.myhp;
 				this.npchp = res.npchp;
-				let sendData:string = [res.myidx, res.npcidx, mySpan, npcSpan].join(',')
-				
-				GameApp.LListener.event(view.main.Main_tanSuoItem.UpDateDes,sendData );
+				let sendData: string = [res.myidx, res.npcidx, mySpan, npcSpan].join(',')
+
+				GameApp.LListener.event(view.main.Main_tanSuoItem.UpDateDes, sendData);
 
 				view.main.Main_tanSuoItem.self.ui_showPai.setData(res.myidx, res.npcidx)
 				GameApp.LListener.event(view.scene.PlayerInSceneItem.HP, res.myhp);
@@ -56,7 +56,9 @@ module view.scene {
 				})
 			}
 			this.btn_exit.on(Laya.UIEvent.CLICK, this, function () {
-				main.Main_tanSuoItem.self.leaveFuBen();
+				// main.Main_tanSuoItem.self.leaveFuBen();
+				let o = new main.Main_BattleExit_Dialog();
+				o.popup();
 			})
 			this.btn_Auto.on(Laya.UIEvent.CLICK, this, function () {
 				this.isAuto = !this.isAuto;

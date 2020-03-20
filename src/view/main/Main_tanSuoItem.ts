@@ -196,11 +196,11 @@ module view.main {
 			if (mode == 1) {
 				this.canLeave = false;
 				this.ui_skill.setData();
-				this.ui_skill.btn_exit.gray = true;
-				Laya.timer.once(10000, this, function () {
-					this.ui_skill.btn_exit.gray = false;
-					this.canLeave = true;
-				})
+				// this.ui_skill.btn_exit.gray = true;
+				// Laya.timer.once(10000, this, function () {
+				// 	this.ui_skill.btn_exit.gray = false;
+				// 	this.canLeave = true;
+				// })
 			} else if (mode == 0) {
 				scene.BattleFuBenInfoV3Item.self.isAuto = false;
 				this.leaveFuBen();

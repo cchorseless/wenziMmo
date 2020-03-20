@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":12,
-    "selecteID":8,
+    "selectedBox":1,
+    "selecteID":11,
     "props":{"width":555,"sceneColor":"#000000","height":450},
     "nodeParent":-1,
     "label":"Dialog",
@@ -28,26 +28,13 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":141,"x":85,"width":384,"var":"lab_detail","text":"好感度从敌意及以上阶段恢复到初见","height":24,"fontSize":24,"font":"fzhl","color":"#63491a","bold":false,"align":"center"},
+            "props":{"y":141,"x":85,"width":384,"var":"lab_detail","text":"好感度从敌意及以上阶段恢复到初见","height":24,"fontSize":24,"font":"fzxk","color":"#63491a","bold":false,"align":"center"},
             "nodeParent":1,
             "label":"Label(lab_detail)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":3,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":295,"x":197,"var":"btn_confirm","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelSize":40,"labelFont":"fzxk","labelColors":"#477682,#477682,#477682,","label":"确认"},
-            "nodeParent":1,
-            "label":"Button(btn_confirm)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":11,
             "child":[
                 ]
         },
@@ -144,6 +131,19 @@
                         ]
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":295,"x":197,"var":"btn_confirm","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#95d9b8","labelStroke":2,"labelSize":40,"labelFont":"fzxk","labelColors":"#27665c,#27665c,#27665c","label":"确认"},
+            "nodeParent":1,
+            "label":"Button(btn_confirm)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":16,
+            "child":[
+                ]
         }],
     "animations":[
         {

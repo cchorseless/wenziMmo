@@ -75,18 +75,17 @@ module view.scene {
 		public addEvent(): void {
 			let self = this;
 			EventManage.onWithEffect(this.btn_exit, Laya.UIEvent.CLICK, this, () => {
-				if (main.Main_tanSuoItem.self.canLeave) {
-					if (GameApp.MainPlayer.curFuBenID > 0) {
-						main.Main_tanSuoItem.self.leaveFuBen();
-					}
-					PanelManage.Main.changeMode(0);
-				}
-				else {
-					TipsManage.showTips('暂时不可退出副本')
-				}
-
-
-
+				// if (main.Main_tanSuoItem.self.canLeave) {
+				// 	if (GameApp.MainPlayer.curFuBenID > 0) {
+				// 		main.Main_tanSuoItem.self.leaveFuBen();
+				// 	}
+				// 	PanelManage.Main.changeMode(0);
+				// }
+				// else {
+				// 	TipsManage.showTips('暂时不可退出副本')
+				// }
+				let o = new main.Main_BattleExit_Dialog();
+				o.popup();
 			})
 			for (let i = 0; i < 4; i++) {
 				this['ui_cut' + i].on(Laya.UIEvent.CLICK, this, function () {
