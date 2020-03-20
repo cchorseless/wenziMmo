@@ -3,6 +3,17 @@
 */
 module PathUtil{
 
+    /**资源副本icon路径 */
+    export const ResFubenIcon = [null,'image/fuben/img_fb_01.png','image/fuben/img_fb_02.png','image/fuben/img_fb_03.png','image/fuben/img_fb_04.png'];
+    /**资源副本品质背景 */
+    export const ResFubenDifficultyBg = [null,'image/fuben/img_ziyuan1.png','image/fuben/img_ziyuan2.png','image/fuben/img_ziyuan3.png','image/fuben/img_ziyuan4.png','image/fuben/img_ziyuan5.png'];
+    /**资源副本品质名字背景 */
+    export const ResFubenDifficultyNameBg = [null,'image/fuben/img_ziyuanbg1.png','image/fuben/img_ziyuanbg2.png','image/fuben/img_ziyuanbg3.png','image/fuben/img_ziyuanbg4.png','image/fuben/img_ziyuanbg5.png'];
+    /**资源副本难度名字颜色 */
+    export const ResFubenDifficultyNameColor = ['#ffffff','#757575','#547554','#547275','#655475','#b2462d'];
+    /**资源副本难度名字 */
+    export const ResFubenDifficultyName = [null,'普通','困难','精英','史诗','噩梦'];
+
     /**
      * 获取技能Icon路径
      * @param skillId 技能编号 如:400500
