@@ -15,7 +15,7 @@ module view.npc {
 			this.lvl = lvl;
 			this.npcObj = obj;
 			this.npcID = obj.feature.dwCretTypeId;
-			this.img_npc.skin = 'image/common/npc/npc_half_' + SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_ICON_NUMBER(this.npcID) + '.png'
+			this.img_npc.skin = PathUtil.getNpcHalfPath(SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_ICON_NUMBER(this.npcID));
 			this.lab_name.text = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(this.npcID)
 			this.lab_des.text = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_DES1(this.npcID)
 			this.init_Detail(0)

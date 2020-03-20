@@ -37,7 +37,7 @@ module view.npc {
 			this.lbl_name.text = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME('' + obj.feature.dwCretTypeId).split("_")[0];
 			//造型图
 			let icon = SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER('' + obj.feature.dwCretTypeId);
-			this.img_npc.skin = 'image/common/npc/npc_half_' + icon + '.png';
+			this.img_npc.skin = PathUtil.getNpcHalfPath(icon);
 			this.init_haoganEvent();
 
 			this.addEvent();

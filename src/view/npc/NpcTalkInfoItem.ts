@@ -27,7 +27,7 @@ module view.npc {
 					}
 					else {
 						// 半身像
-						this.img_npcHalf.skin = 'image/common/npc/npc_half_' + SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER(npcID) + '.png';
+						this.img_npcHalf.skin = PathUtil.getNpcHalfPath(SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER(npcID));
 						// 名字
 						this.lbl_npcName.text = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(npcID);
 						this.box_selfAvatar.visible = false;

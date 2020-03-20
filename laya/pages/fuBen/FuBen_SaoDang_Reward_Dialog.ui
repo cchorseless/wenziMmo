@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":21,
-    "selecteID":14,
+    "selectedBox":22,
+    "selecteID":13,
     "props":{"width":640,"sceneColor":"#efd9d9","height":514},
     "nodeParent":-1,
     "label":"Dialog",
@@ -107,46 +107,74 @@
                 },
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":197,"x":293,"width":90,"var":"lbl_exp","text":"12345","height":26,"fontSize":24,"font":"FZXK","color":"#ffffff"},
+                    "type":"Box",
+                    "props":{"y":196,"x":249,"var":"box_exp"},
                     "nodeParent":21,
-                    "label":"Label(lbl_exp)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":11,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":190,"x":249,"width":37,"skin":"image/common/img_exp_2.png","height":41},
-                    "nodeParent":21,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":12,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":194,"x":388,"width":39,"var":"img_jinbi","skin":"image/main/icon_coin_3.png","height":32},
-                    "nodeParent":21,
-                    "label":"Image(img_jinbi)",
-                    "isOpen":null,
+                    "label":"Box(box_exp)",
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":14,
+                    "compId":23,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":3,"x":48,"width":90,"var":"lbl_jinbi","text":"12345","height":26,"fontSize":24,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":14,
+                            "props":{"y":3,"x":44,"width":90,"var":"lbl_exp","text":"12345","height":26,"fontSize":24,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":23,
+                            "label":"Label(lbl_exp)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":11,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"skin":"image/main/icon_exp.png","scaleY":0.7,"scaleX":0.7},
+                            "nodeParent":23,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":12,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":196,"x":388,"var":"box_jinbi"},
+                    "nodeParent":21,
+                    "label":"Box(box_jinbi)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":22,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"var":"img_jinbi","skin":"image/main/icon_coin_3.png","scaleY":0.7,"scaleX":0.7},
+                            "nodeParent":22,
+                            "label":"Image(img_jinbi)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":14,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":3,"x":34,"width":90,"var":"lbl_jinbi","text":"12345","height":26,"fontSize":24,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":22,
                             "label":"Label(lbl_jinbi)",
                             "isDirectory":false,
                             "isAniNode":true,

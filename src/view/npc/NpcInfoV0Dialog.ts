@@ -15,7 +15,7 @@ module view.npc {
 				this['hbox_' + i]['sortItem'] = (items) => { };
 			};
 			let iconID = SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER(configId)
-			this.img_npcPic.skin = 'image/common/npc/npc_half_' + iconID + '.png';
+			this.img_npcPic.skin = PathUtil.getNpcHalfPath(iconID);
 			this.lbl_npcDes0.text = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_DES1(configId);
 			this.lbl_npcDes1.text = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_DES2(configId);
 			let nickName = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_NICKNAME(configId);
