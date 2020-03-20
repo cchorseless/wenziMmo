@@ -50,7 +50,7 @@ module PathUtil{
      * 获取道具品质框路径
      */
      export function getItemQualityFramePath(id:number):string{
-        let path = PathUtil.getItemQualityFramePath(id);
+        let path = 'image/common/daoju/quality_' + id + '.png'
         return path;
      }
 }
