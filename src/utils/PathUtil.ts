@@ -54,7 +54,7 @@ module PathUtil{
      * 获取道具icon背景路径
      */
     export function getItemIconBgPath(id:number):string{
-        let path = 'image/common/daoju/itemicon_bg' + id + '.png';
+        let path = 'image/common/daoju/itemicon_bg_' + id + '.png';
         return path;
     }
     /**
