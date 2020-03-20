@@ -24,7 +24,7 @@ module view.scene {
 			if (this.type == EnumData.emMonsterType._MON_TYPE_COLLECT_) {
 				this.img_type.visible = true;
 			}
-			this.img_icon.skin = 'image/common/npc/npc_half_' + skePath + '.png'
+			this.img_icon.skin = PathUtil.getNpcHalfPath(skePath);
 			this.addEvent();
 		}
 		public clickHander: Laya.Handler;// 采集物Hander

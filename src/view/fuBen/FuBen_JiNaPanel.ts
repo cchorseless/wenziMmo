@@ -160,7 +160,7 @@ module view.fuBen {
 			this.lbl_des.text = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTERDES('' + bossInfo.data.monid);
 			//BOSS半身像
 			let bossicon = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + bossInfo.data.monid);
-			this.img_boss.skin = 'image/common/npc/npc_half_' + bossicon + '.png';
+			this.img_boss.skin = PathUtil.getNpcHalfPath(bossicon);
 			//boss名称
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + bossInfo.data.monid).split("_");
 			this.lbl_bossName.text = this.lbl_name.text = '' + name[0];

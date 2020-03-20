@@ -76,7 +76,7 @@ module view.fuBen {
 			let iconID = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE(jsonData.monsterid)
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME(jsonData.monsterid)
 			// BOSS形象
-			img_icon.skin = this.img_icon1.skin = 'image/common/npc/npc_half_' + iconID + '.png';
+			img_icon.skin = this.img_icon1.skin = PathUtil.getNpcHalfPath(iconID);
 			// BOSS名称
 			lab_BossName.text = name;
 			// 关卡名称

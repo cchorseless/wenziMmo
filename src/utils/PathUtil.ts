@@ -70,4 +70,9 @@ module PathUtil{
         let path = 'image/common/npc/npc_icon_' + id + '.png';
         return path;
      }
+     /**获取NPC半身像路径 */
+     export function getNpcHalfPath(id:number):string{
+        let path = 'image/common/npc/npc_half_' + id + '.png';
+        return path;
+     }
 }
