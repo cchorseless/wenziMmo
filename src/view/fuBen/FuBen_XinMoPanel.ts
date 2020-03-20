@@ -116,6 +116,7 @@ module view.fuBen {
 			if (index == 4 && vipLvl == 0) {
 				this.btn_battle.gray = true;
 			}
+
 			let lvl = '';
 			if (data.minzslv && myzslvl < data.minzslv || data.maxzslv && mylvl > data.maxzslv) {
 				this.btn_battle.gray = true;
@@ -137,6 +138,27 @@ module view.fuBen {
 			this.lbl_coin1.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).EMPIRICAL_VALUE('' + data.monsterid);
 			//击败心魔可获得金币
 			this.lbl_coin2.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).GOLD_NUMBER('' + data.monsterid);
+			//心魔头像
+			this.img_avatarPic.skin = 'image/common/npc/npc_icon_' + SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + data.monsterid) + '.png'
+			//心魔名称
+			this.lab_name.text = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + data.monsterid);
+			//心魔等级
+			this.lab_level.text = lvl;
+			this.lab_neePower.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT('' + data.monsterid);
+			this.lab_level.text = LangConfig.getLevelDes(GameApp.MainPlayer.zslevel, GameApp.MainPlayer.level);
+			this.html_times.style.align = 'center';
+			this.html_times.style.fontFamily = 'STKaiti';
+			this.html_times.style.fontSize = 24;
+			if ((data.maxcnt - data.flag) >= data.maxcnt) {
+				this.html_times.innerHTML = "<span style='color:#000000;'>挑战次数" + (data.maxcnt - data.flag) + "</span>"
+					+ "<span style='color:#000000;'>/" + data.maxcnt + "</span>"
+			} else {
+				this.html_times.innerHTML = "<span style='color:#000000;'>挑战次数</span>"
+					+ "<span style='color:#cd3735;'>/" + (data.maxcnt - data.flag) + "</span>"
+					+ "<span style='color:#000000;'>/" + data.maxcnt + "</span>";
+			}
+
+
 		}
 
 	}

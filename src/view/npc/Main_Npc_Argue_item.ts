@@ -29,9 +29,9 @@ module view.npc {
 			})
 			this.btn_Argue.on(Laya.UIEvent.CLICK, this, function () {
 				this.parentUI.postNpcTalk(101, 1);
-				let progerUI = new view.npc.NpcProgressItem();
-				progerUI.setData('交互中~', 1500);
-				progerUI.closeHandler = Laya.Handler.create(this, () => {
+				// let progerUI = new view.npc.NpcProgressItem();
+				// progerUI.setData('交互中~', 1500);
+				// progerUI.closeHandler = Laya.Handler.create(this, () => {
 					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.argueWithNpc, [this.npcID], 0, this
 						, function (res) {
 							console.log('辩论回调' + res)
@@ -44,9 +44,9 @@ module view.npc {
 							//打开辩论界面
 						})
 					lcp.send(pkt);
-				})
-				progerUI.centerX = progerUI.centerY = 0;
-				this.parentUI.addChild(progerUI);
+				// })
+				// progerUI.centerX = progerUI.centerY = 0;
+				// this.parentUI.addChild(progerUI);
 
 				// this.uiParent.close();
 			})

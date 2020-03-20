@@ -6,16 +6,36 @@ module view.friend {
 			this.setData();
 		}
 		public setData(): void {
-			this.panel_all.vScrollBarSkin = '';
-			this.vbox_friend1['sortItem'] = (items) => { };
-			this.vbox_friend2['sortItem'] = (items) => { };
-			this.vbox_friend3['sortItem'] = (items) => { };
-			this.init_friendList();
+			// this.panel_all.vScrollBarSkin = '';
+			// this.vbox_friend1['sortItem'] = (items) => { };
+			// this.vbox_friend2['sortItem'] = (items) => { };
+			// this.vbox_friend3['sortItem'] = (items) => { };
+			// this.vbox_friend4['sortItem'] = (items) => { };
+			for (let i = 1; i < 4; i++) {
+				this.panel_friend1
+				this['panel_friend' + i].vScrollBarSkin = '';
+				this['vbox_friend' + i]['sortItem'] = (items) => { };
+			}
+
 			this.addLcpEvent();
+			this.setListShow(0)
+			this.init_friendList();
 			this.init_Tips();
 			this.addEvent();
+			this.VS_show.selectedIndex
+		}
+		public setListShow(index) {
+			this.VS_show.selectedIndex = index;
+			if(index == 3){
+
+			}
+
 		}
 		public addEvent(): void {
+			this.tab_show.on(Laya.UIEvent.CLICK, this, function () {
+
+				this.setListShow(this.tab_show.selectedIndex);
+			})
 			//好友展开||收起
 			for (let i = 1; i < 4; i++) {
 				this['btn_friend' + i].on(Laya.UIEvent.CLICK, this, () => {
@@ -54,9 +74,9 @@ module view.friend {
 					friend_UI.init_friendList(friendItem, parseInt(key));
 					this['vbox_friend' + j].addChild(friend_UI);
 				}
-				this['lbl_num' + j].text = '(' + online + '/' + data.length + ')';
+				// this['lbl_num' + j].text = '(' + online + '/' + data.length + ')';
 				// this['img_bg'+j].height=this['vbox_friend' + j].height * this['vbox_friend' +j]._childs.length;
-				this.init_InitializationPos(j);
+				// this.init_InitializationPos(j);
 			}
 		}
 		/**
@@ -80,7 +100,7 @@ module view.friend {
 		 */
 		public init_InitializationPos(index): void {
 			this.img_bg1.y = this.btn_friend1.y + this.btn_friend1.height;
-			this['img_bg'+ index].height=this['vbox_friend' + index].height* this['vbox_friend' +index]._childs.length+10;
+			this['img_bg' + index].height = this['vbox_friend' + index].height * this['vbox_friend' + index]._childs.length + 10;
 			if (index != 1) {
 				let height = this['btn_friend' + (index - 1)].y + this['btn_friend' + (index - 1)].height;
 				//好友列表位置
@@ -101,7 +121,7 @@ module view.friend {
 			let height1 = this['btn_friend' + index].y + this['btn_friend' + index].height;
 			if (select) {
 				Laya.Tween.to(this['btn_arrow' + index], { rotation: 90, x: 42, y: 22 }, 300);
-				Laya.Tween.to(this['img_bg'+ index], { scaleY: 1 }, 200);
+				Laya.Tween.to(this['img_bg' + index], { scaleY: 1 }, 200);
 				switch (index) {
 					case 1:
 						this.btn_friend2.y = height1 + this.img_bg1.height;
@@ -120,11 +140,11 @@ module view.friend {
 			}
 			else {
 				Laya.Tween.to(this['btn_arrow' + index], { rotation: 0, x: 17, y: 15 }, 300);
-				Laya.Tween.to(this['img_bg'+ index], { scaleY: 0 }, 200);
+				Laya.Tween.to(this['img_bg' + index], { scaleY: 0 }, 200);
 				switch (index) {
 					case 1:
 						this.btn_friend2.y = height1;
-						this.img_bg2.y= this.btn_friend2.y + this.btn_friend2.height;
+						this.img_bg2.y = this.btn_friend2.y + this.btn_friend2.height;
 						let height31 = this.btn_friend2.y + this.btn_friend2.height;
 						if (this.img_bg2.scaleY == 0) {
 							this.btn_friend3.y = height31;
@@ -141,8 +161,8 @@ module view.friend {
 			this.init_vbox();
 		}
 		public init_vbox(): void {
-			for (let i = 1; i <=3; i++) {
-				this['img_bg'+ i].y= this['btn_friend' + i].y + this['btn_friend' + i].height;
+			for (let i = 1; i <= 3; i++) {
+				this['img_bg' + i].y = this['btn_friend' + i].y + this['btn_friend' + i].height;
 			}
 		}
 		public init_Tips(): void {
