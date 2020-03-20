@@ -672,7 +672,7 @@ class ServerListener extends SingletonClass {
         let dwTargeter = GameApp.MainPlayer.findViewObj(dwTargetId);
         // 播放飞行弹道
         if (atker && dwTargeter && atker.ui_item && dwTargeter.ui_item) {
-            EffectManage.playBattleEffect(atker.ui_item, dwTargeter.ui_item, nMagicId, dwActionTick);
+            BattletManage.playBattleEffect(atker.ui_item, dwTargeter.ui_item, nMagicId, dwActionTick);
         }
         cbpkt.clear();
         cbpkt = null;
@@ -700,10 +700,9 @@ class ServerListener extends SingletonClass {
         // 受伤者
         let targeter = player.findViewObj(tartmpid);
         if (targeter) {
-            targeter.onAttack();
             targeter.changeHp(nowhp, maxhp);
-            targeter.showPower(npower, tartmpType)
-            // TipsManage.showTxt('HP--' + npower);
+            // 伤害表现
+            targeter.ui_item && BattletManage.showDamageEffect( targeter.ui_item, npower, tartmpType);
         }
         else {
             TipsManage.showTips('没有找到受击对象')
@@ -838,7 +837,7 @@ class ServerListener extends SingletonClass {
             let skillBase = GameApp.MainPlayer.skillInfo[(skill + '')];
             Log.trace(view.wuXue.WuXue_Skill_Circle.skillAdd + shot.btRow + shot.btCol);
             // 添加技能快捷键
-            GameApp.LListener.event(view.wuXue.WuXue_Skill_Circle.skillAdd + shot.btRow + shot.btCol, skillBase)
+            GameApp.LListener.event(view.wuXue.WuXue_Skill_Circle.skillAdd + shot.btRow + shot.btCol, skillBase);
         }
         else {
             TipsManage.showTips('技能快捷键失败');
@@ -867,7 +866,7 @@ class ServerListener extends SingletonClass {
         }
         cbpkt.clear();
     }
-    
+
     /**
      * 增加的内功经验值
      */

@@ -65,25 +65,11 @@ module view.scene {
 		public updateUI(): void {
 			// this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
 		}
-		/**
-		 * 
-		 * @param type   1:受击  2:眩晕  3：石化
-		 */
-		public playAni(type: number) {
-			let self = this;
-			switch (type) {
-				case 1:
-					// this.mask.alpha = 0.6
-					break;
-			}
-		}
+
 		/**
 		 * 更新血条
 		 */
 		public updateHp(): void {
-			// GameApp.LListener.event(ProtoCmd.UPDATE_BOSSHP, { now: this.item.ability.nowHP, max: this.item.ability.nMaxHP })
-			// this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * 360)
-			// this.lab_hp.text = this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
 			let max = 10000;
 			let ceng = Math.ceil(this.item.ability.nowHP / 10000);
 			let curHP = this.item.ability.nowHP % 10000;
@@ -100,7 +86,12 @@ module view.scene {
 			this.hbox_debuff.x = this.hbox_buff.x + this.hbox_buff.numChildren * 30 + 10;
 
 		}
-		public showPower(num, type) {
+		/**
+		 * 
+		 * @param num 
+		 * @param type 
+		 */
+		public showDamageEffect(num, type) {
 			this.fc_Num.alpha = 1;
 			this.fc_Num.visible = true;
 			this.fc_Num.value = num + '';
@@ -117,15 +108,5 @@ module view.scene {
 			}));
 		}
 
-		/**
-		 * 播放攻击动画
-		 * @param dwTargeterUI 
-		 * @param nMagicId 
-		 * @param dwActionTick 
-		 */
-		public playFlyAni(dwTargeterUI, nMagicId, dwActionTick){
-			
-			console.log()
-		}
 	}
 }

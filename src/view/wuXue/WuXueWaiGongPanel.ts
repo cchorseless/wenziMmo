@@ -54,7 +54,6 @@ module view.wuXue {
 			} else {
 				tabStr.push('奇门套路\nlv.0')
 			}
-			// tabStr += '拳脚套路\nlv.' + data1.dwLevel + ',' + '刀剑套路\nlv.' + data2.dwLevel + ',' + '长兵套路\nlv.' + data3.dwLevel + '奇门套路\nlv.' + data4.dwLevel;
 			let str = tabStr.join(",");
 			this.tab_wuxue.labels = str;
 		}

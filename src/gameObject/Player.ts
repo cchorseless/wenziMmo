@@ -559,9 +559,8 @@ module GameObject {
         /**
          * 尝试攻击，检查释放能攻击
          */
-        public tryAttack(target: Creature, skillID: number = 999): void {
-            this.atkTargetTempId = target.tempId;
-            Log.trace('当前目标:', this.atkTargetTempId);
+        public tryAttack(target: Monster, skillID: number = 999): void {
+            this.atkTarget = target;
             // 攻击者坐标
             let a = this.ui_item.localToGlobal(new Laya.Point(0, 0));
             // 受击者坐标
@@ -576,62 +575,34 @@ module GameObject {
             lcp.send(pkt);
 
         }
-
-        public completeAtkHandle: Laya.Handler = null;
-        // 攻击目标
-        public atkTargetTempId: number = null;
         /**
-         * 自动战斗
+         * 查找当前的攻击目标
          */
-        public startAutoAtk(): void {
-            this.completeAtkHandle = Laya.Handler.create(this, () => {
-                // 有攻击目标找攻击目标 
-                if (this.atkTargetTempId) {
-                    let target = this.findViewObj(this.atkTargetTempId);
-                    if (target != undefined || target != null) {
-                        this.tryAttack(target);
-                        return
-                    }
-                }
-                // 先找BOSS
-                let allMonsterKeys = Object.keys(this.allMonster);
-                for (let key of allMonsterKeys) {
-                    let monsterObj: Monster = this.allMonster[key];
-                    let config = monsterObj.feature.dwCretTypeId;
-                    // 查表找到BOSS
-                    if (Boolean(SheetConfig.mydb_monster_tbl.getInstance(null).BOSS(config.toString()))) {
-                        this.tryAttack(monsterObj);
-                        return
-                    }
-                }
-                // 没有攻击目标,所有的怪物位置最靠左的
-                TipsManage.showTips('无怪物');
-            }, null, false);
-            // 攻击一次
-            this.completeAtkHandle.run();
-        }
-
-        /**
-         * 停止自动战斗
-         */
-        public stopAutoAtk(): void {
-            if (this.completeAtkHandle) {
-                this.completeAtkHandle.recover();
+        public findAttackTarget(): Monster {
+            if (this.atkTarget && this.atkTarget.checkSelfCanAtk()) {
+                return this.atkTarget
             }
-            this.completeAtkHandle = null;
+
+            let allMonsterKeys = Object.keys(this.allMonster);
+            for (let key of allMonsterKeys) {
+                let monsterObj: Monster = this.allMonster[key];
+                let config = monsterObj.feature.dwCretTypeId;
+                // 查表找到BOSS
+                if (monsterObj.checkSelfCanAtk() && Boolean(SheetConfig.mydb_monster_tbl.getInstance(null).BOSS(config.toString()))) {
+                    return monsterObj;
+                }
+            }
+            for (let key of allMonsterKeys) {
+                let monsterObj: Monster = this.allMonster[key];
+                // 或者的小怪
+                if (monsterObj.checkSelfCanAtk()) {
+                    return monsterObj;
+                }
+            }
         }
 
-
-        /**
-         * 手动攻击
-         * @param target 
-         * @param skillID 
-         */
-        public startHandAtk(target: Creature, skillID: number = 999): void {
-            // this.stopAutoAtk();
-            this.tryAttack(target, skillID)
-        }
-
+        // 攻击目标
+        public atkTarget: Monster = null;
 
         /**
          * 更改BUFF状态
@@ -645,13 +616,10 @@ module GameObject {
         }
 
 
-
-
         /**
          * 受击
          */
         public onAttack(): void {
-            this.ui_item.onAttack(1)
         }
 
         /**

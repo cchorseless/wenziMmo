@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":54,
+    "selecteID":82,
     "props":{"width":640,"sceneColor":"#000000","height":378},
     "nodeParent":-1,
     "label":"View",
@@ -68,7 +68,6 @@
             "compId":48,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":1,"x":0,"skin":"image/main/main_tansuo/frame_zhuxian_02.png"},
                     "nodeParent":48,
@@ -94,7 +93,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"HTMLDivElement",
                     "props":{"y":2,"x":69,"width":296,"visible":true,"var":"html_need","height":22},
                     "nodeParent":48,
@@ -126,8 +124,8 @@
         {
             "x":15,
             "type":"UIView",
-            "source":"main/Main_CutSkill_TaoLu_BtnItem.ui",
-            "props":{"y":42,"x":1,"var":"ui_cut0","runtime":"view.main.Main_CutSkill_TaoLu_BtnItem"},
+            "source":"scene/Battle_CutSkill_TaoLu_BtnItem.ui",
+            "props":{"y":42,"x":1,"var":"ui_cut0","runtime":"view.scene.Battle_CutSkill_TaoLu_BtnItem"},
             "nodeParent":1,
             "label":"UIView(ui_cut0)",
             "isDirectory":false,
@@ -140,8 +138,8 @@
         {
             "x":15,
             "type":"UIView",
-            "source":"main/Main_CutSkill_TaoLu_BtnItem.ui",
-            "props":{"y":119,"x":1,"var":"ui_cut1","runtime":"view.main.Main_CutSkill_TaoLu_BtnItem"},
+            "source":"scene/Battle_CutSkill_TaoLu_BtnItem.ui",
+            "props":{"y":119,"x":1,"var":"ui_cut1","runtime":"view.scene.Battle_CutSkill_TaoLu_BtnItem"},
             "nodeParent":1,
             "label":"UIView(ui_cut1)",
             "isDirectory":false,
@@ -154,8 +152,8 @@
         {
             "x":15,
             "type":"UIView",
-            "source":"main/Main_CutSkill_TaoLu_BtnItem.ui",
-            "props":{"y":196,"x":1,"var":"ui_cut2","runtime":"view.main.Main_CutSkill_TaoLu_BtnItem"},
+            "source":"scene/Battle_CutSkill_TaoLu_BtnItem.ui",
+            "props":{"y":196,"x":1,"var":"ui_cut2","runtime":"view.scene.Battle_CutSkill_TaoLu_BtnItem"},
             "nodeParent":1,
             "label":"UIView(ui_cut2)",
             "isDirectory":false,
@@ -168,100 +166,14 @@
         {
             "x":15,
             "type":"UIView",
-            "source":"main/Main_CutSkill_TaoLu_BtnItem.ui",
-            "props":{"y":273,"x":1,"var":"ui_cut3","runtime":"view.main.Main_CutSkill_TaoLu_BtnItem"},
+            "source":"scene/Battle_CutSkill_TaoLu_BtnItem.ui",
+            "props":{"y":273,"x":1,"var":"ui_cut3","runtime":"view.scene.Battle_CutSkill_TaoLu_BtnItem"},
             "nodeParent":1,
             "label":"UIView(ui_cut3)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":57,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"main/Main_Skill_Circle.ui",
-            "props":{"y":114,"x":127,"var":"ui_skill1","runtime":"view.main.Main_Skill_Circle"},
-            "nodeParent":1,
-            "label":"UIView(ui_skill1)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":58,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"main/Main_Skill_Circle.ui",
-            "props":{"y":114,"x":268,"var":"ui_skill2","runtime":"view.main.Main_Skill_Circle"},
-            "nodeParent":1,
-            "label":"UIView(ui_skill2)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":59,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"main/Main_Skill_Circle.ui",
-            "props":{"y":114,"x":409,"var":"ui_skill3","runtime":"view.main.Main_Skill_Circle"},
-            "nodeParent":1,
-            "label":"UIView(ui_skill3)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":60,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"main/Main_Skill_Circle.ui",
-            "props":{"y":235,"x":127,"var":"ui_skill4","runtime":"view.main.Main_Skill_Circle"},
-            "nodeParent":1,
-            "label":"UIView(ui_skill4)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":61,
-            "child":[
-                ],
-            "$LOCKED":true,
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"main/Main_Skill_Circle.ui",
-            "props":{"y":235,"x":268,"var":"ui_skill5","runtime":"view.main.Main_Skill_Circle"},
-            "nodeParent":1,
-            "label":"UIView(ui_skill5)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":62,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"main/Main_Skill_Circle.ui",
-            "props":{"y":235,"x":409,"var":"ui_skill6","runtime":"view.main.Main_Skill_Circle"},
-            "nodeParent":1,
-            "label":"UIView(ui_skill6)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":63,
             "child":[
                 ]
         },
@@ -301,6 +213,91 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":66,
+            "child":[
+                ],
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"scene/BattleSkillItem.ui",
+            "props":{"y":117,"x":125,"var":"ui_skill1","runtime":"view.scene.BattleSkillItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_skill1)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":77,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"scene/BattleSkillItem.ui",
+            "props":{"y":117,"x":257,"var":"ui_skill2","runtime":"view.scene.BattleSkillItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_skill2)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":78,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"scene/BattleSkillItem.ui",
+            "props":{"y":117,"x":389,"var":"ui_skill3","runtime":"view.scene.BattleSkillItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_skill3)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":79,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"scene/BattleSkillItem.ui",
+            "props":{"y":239,"x":125,"var":"ui_skill4","runtime":"view.scene.BattleSkillItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_skill4)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":80,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"scene/BattleSkillItem.ui",
+            "props":{"y":239,"x":257,"var":"ui_skill5","runtime":"view.scene.BattleSkillItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_skill5)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":81,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"scene/BattleSkillItem.ui",
+            "props":{"y":239,"x":389,"var":"ui_skill6","runtime":"view.scene.BattleSkillItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_skill6)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":82,
             "child":[
                 ]
         }],

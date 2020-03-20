@@ -9,7 +9,12 @@ module GameObject {
             this.feature = new ProtoCmd.AnimalFeature();
         }
 
-
+        /**
+         * 判断自己是否可以攻击
+         */
+        public checkSelfCanAtk() {
+            return this.ability.nowHP > 0;
+        }
 
 
         /***************************************战斗******************************************* */
@@ -41,7 +46,6 @@ module GameObject {
          * 受击
          */
         public onAttack(): void {
-            this.ui_item.playAni(1);
         }
 
         /**

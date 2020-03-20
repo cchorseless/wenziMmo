@@ -37,10 +37,6 @@ module view.scene {
 			// 刷新UI
 			this.updateUI();
 			this.img_job.skin = LangConfig.getPlayerJobIcon();
-			// 动画
-			this.ani.pos(this.width / 2, this.height / 2);
-			this.ani.interval = 120;
-			this.addChild(this.ani);
 		}
 
 		public addEvent(): void {

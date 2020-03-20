@@ -115,7 +115,7 @@ class SceneManager extends SingletonClass {
                 GameApp.MainPlayer.fubenMonsterPower = 0
                 GameApp.MainPlayer.curFuBenID = 100
                 this.ui_scene.changeMode(1);
-                view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+                // view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
                 GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE, '0');
                 break;
             // 除魔副本
@@ -123,7 +123,7 @@ class SceneManager extends SingletonClass {
                 GameApp.MainPlayer.fubenMonsterPower = 0
                 GameApp.MainPlayer.curFuBenID = 101
                 this.ui_scene.changeMode(1);
-                view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+                // view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
                 GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE, '0');
                 break;
             // 资源副本
@@ -131,7 +131,7 @@ class SceneManager extends SingletonClass {
                 GameApp.MainPlayer.fubenMonsterPower = 0
                 GameApp.MainPlayer.curFuBenID = 102
                 this.ui_scene.changeMode(1);
-                view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+                // view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
                 GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE, '0');
                 break;
             // 多人副本   只有boss的野外地图
@@ -139,7 +139,7 @@ class SceneManager extends SingletonClass {
                 GameApp.MainPlayer.fubenMonsterPower = 0
                 GameApp.MainPlayer.curFuBenID = 200
                 this.ui_scene.changeMode(1);
-                view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+                // view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
                 GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE, '0');
                 break;
             // ---------------野外------------------
@@ -148,7 +148,7 @@ class SceneManager extends SingletonClass {
             // 主城
             case EnumData.emRoomType.publicZhuCheng:
                 // 更新小地图
-                view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+                // view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
                 this.ui_smallMap.updateUI();
                 this.ui_scene.changeMode(0);
                 GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE, '0');
@@ -193,20 +193,20 @@ class SceneManager extends SingletonClass {
   	 * 初始化弟子
   	 */
     public updateDiziPlayer(scene): void {
-        let selfHero = GameApp.MainPlayer.curHero;
-        // 判断自己有没有英雄
-        if (selfHero) {
-            let selfHeroUI: view.scene.HeroInSceneItem = selfHero.ui_item;
-            if (selfHeroUI == null) {
-                selfHeroUI = new view.scene.HeroInSceneItem();
-                selfHeroUI.setData(selfHero);
-            }
-            else {
-                selfHeroUI.updateUI();
-            }
-            selfHeroUI.centerX = selfHeroUI.centerY = 0;
-            scene.box_diZi.addChild(selfHeroUI);
-        }
+        // let selfHero = GameApp.MainPlayer.curHero;
+        // // 判断自己有没有英雄
+        // if (selfHero) {
+        //     let selfHeroUI: view.scene.HeroInSceneItem = selfHero.ui_item;
+        //     if (selfHeroUI == null) {
+        //         selfHeroUI = new view.scene.HeroInSceneItem();
+        //         selfHeroUI.setData(selfHero);
+        //     }
+        //     else {
+        //         selfHeroUI.updateUI();
+        //     }
+        //     selfHeroUI.centerX = selfHeroUI.centerY = 0;
+        //     scene.box_diZi.addChild(selfHeroUI);
+        // }
     }
 
     /**

@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.main {
-	export class Main_SkillWithName extends ui.main.Main_SkillWithNameUI {
+module view.scene {
+	export class SkillWithNameItem extends ui.scene.SkillWithNameItemUI {
 		constructor() {
 			super();
 		}

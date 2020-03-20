@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.main{
-	export class Main_CutSkill_TaoLu_BtnItem extends ui.main.Main_CutSkill_TaoLu_BtnItemUI{
+module view.scene{
+	export class Battle_CutSkill_TaoLu_BtnItem extends ui.scene.Battle_CutSkill_TaoLu_BtnItemUI{
 		public taoluID = 0;
 		public labels = ['拳脚','刀剑','长兵','奇门']
 		constructor(){

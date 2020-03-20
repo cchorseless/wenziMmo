@@ -19,8 +19,6 @@ module view.scene {
 			}else{
 				this.img_Argue.visible = false;
 			}
-
-
 			if (name.length > 4) {
 				this.lbl_name.fontSize = 15
 			} else {
@@ -58,7 +56,7 @@ module view.scene {
 				} else if (this.place == 1) {
 					//攻击
 					// player["startHandAtk" + job](this.item);
-					player.startHandAtk(this.item);
+					// player.startHandAtk(this.item);
 				} else if (this.place == 2) {
 					// new view.npc.Main_TanSuoV1Dialog().setData(this.item).popup();
 				}

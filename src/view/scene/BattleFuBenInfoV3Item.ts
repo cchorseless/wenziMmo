@@ -1,10 +1,8 @@
 /**Created by the LayaAirIDE*/
 module view.scene {
 	export class BattleFuBenInfoV3Item extends ui.scene.BattleFuBenInfoV3ItemUI {
-		public static CHANGETAOLU = 'changetaolu';
 		public static self: BattleFuBenInfoV3Item;
-		public curTouchTaoLuID;
-		public unlockNeed = 30;
+		public curTouchTaoLuID;// 当前套路ID
 		public isAuto = false;
 		public skillDes: Skill_DesDialog = null;
 
@@ -15,42 +13,44 @@ module view.scene {
 			this.addEvent();
 		}
 
+		/**
+		 * 跟新任务条件
+		 */
 		public showNeed(str: string) {
 			this.html_need.innerHTML = str;
 		}
 
 		public setData() {
+			// 异常状态
 			this.img_cantSkill.visible = false;
-			this.curTouchTaoLuID = GameApp.MainPlayer.defaultTaoLuID;
 			this.setView();
 		}
 
 
 		public setView() {
+			let nowTaoLu = GameApp.MainPlayer.defaultTaoLuID;
+			this.curTouchTaoLuID = nowTaoLu;
+			// 套路切页
 			for (let i = 0; i < 4; i++) {
-				// this.ui_cut0.setData(i)
 				this['ui_cut' + i].setData(i);
-				this['ui_cut' + i].setButton(i == GameApp.MainPlayer.defaultTaoLuID)
+				this['ui_cut' + i].setButton(i == nowTaoLu)
 			}
-			let myLv = GameApp.MainPlayer.level;
-			// let unlockNum = Math.floor(myLv / this.unlockNeed);
-			let unlockNum = 6;
+			// 技能赋值
 			for (let i = 1; i < 7; i++) {
-				if (i <= unlockNum) {
-					let key = this.curTouchTaoLuID * 100 + i - 1
-					if (GameApp.MainPlayer.skillShotButton[key]) {
-						let skill = GameApp.MainPlayer.skillShotButton[key].i64Id.int64ToNumber();
-						let skillBase = GameApp.MainPlayer.skillInfo[(skill + '')];
-						this['ui_skill' + i].setData(true, i, skillBase)
-					} else {
-						this['ui_skill' + i].setData(true, i)
-					}
-				} else {
-					this['ui_skill' + i].setData(false, i)
+				let key = nowTaoLu * 100 + i - 1;
+				if (GameApp.MainPlayer.skillShotButton[key]) {
+					let skill = GameApp.MainPlayer.skillShotButton[key].i64Id.int64ToNumber();
+					let skillBase = GameApp.MainPlayer.skillInfo[skill + ''];
+					this['ui_skill' + i].setData(i, skillBase);
+				}
+				else {
+					this['ui_skill' + i].setData(i);
 				}
 			}
+
 			this.changeMP(GameApp.MainPlayer.ability.nowMP, GameApp.MainPlayer.ability.nMaxMP)
 		}
+
 		/**
 		 * 更改耗蓝
 		 * @param curMP 
@@ -83,220 +83,120 @@ module view.scene {
 					TipsManage.showTips('暂时不可退出副本')
 				}
 			})
+
+			// 切换套路
 			for (let i = 0; i < 4; i++) {
 				this['ui_cut' + i].on(Laya.UIEvent.CLICK, this, () => {
 					if (this.isAuto) {
 						TipsManage.showTips('自动战斗中不能切换套路~');
-					} else {
+					}
+					else {
 						if (i == this.curTouchTaoLuID) {
 							return;
 						}
 						this.changeTab(i);
 					}
-
 				})
 			}
-			for (let i = 1; i < 7; i++) {
-				let touchBegin = false;
-				this['ui_skill' + i].on(Laya.UIEvent.MOUSE_DOWN, this, () => {
-					// touchBegin = Laya.Browser.now();
-					touchBegin = true;
-					Laya.timer.once(3000, this, function aa() {
-						if (!touchBegin) {
-							Laya.timer.clear(this, aa)
-							return;
-						}
-						this.skillDes = new Skill_DesDialog();
-						if (!this['ui_skill' + i].skillConfigID) {
-							return;
-						}
-						this.skillDes.setData(this['ui_skill' + i].skillConfigID);
-						this.addChild(this.skillDes);
-						this.skillDes.anchorX = this.skillDes.anchorY = 0.5;
-						let x1 = this['ui_skill' + i].x + this['ui_skill' + i].width * 0.5;
-						let y1 = this['ui_skill' + i].y - this.skillDes.height * 0.5 + 14;
-						this.skillDes.x = x1;
-						this.skillDes.y = y1
 
-					})
-				})
-				this['ui_skill' + i].on(Laya.UIEvent.MOUSE_OUT, this, () => {
-					// touchBegin = Laya.Browser.now();
-					if (touchBegin) {
-						touchBegin = false;
-						if (this.skillDes != null) {
-							// self.skillDes.parent.removeChild(self.skillDes);
-							this.skillDes.removeSelf();
-							this.skillDes = null;
-							return;
-						}
-					}
-				})
-				this.on(Laya.UIEvent.MOUSE_UP, this, () => {
-					// touchBegin = Laya.Browser.now();
-					if (touchBegin) {
-						touchBegin = false
-						if (this.skillDes != null) {
-							this.skillDes.removeSelf();
-							this.skillDes = null;
-							return;
-						}
-					}
-				})
-
-				this['ui_skill' + i].on(Laya.UIEvent.CLICK, this, () => {
-					if (touchBegin) {
-						touchBegin = false;
-						if (this.skillDes != null) {
-							// self.skillDes.parent.removeChild(self.skillDes);
-							this.skillDes.removeSelf();
-							this.skillDes = null;
-							// return;
-						}
-					}
-					if (!this.isAuto) {
-						if (this['ui_skill' + i].isCD) {
-							TipsManage.showTips('技能CD中~');
-						} else {
-							if (!self['ui_skill' + i].skillConfigID) {
-								return;
-							}
-							let costMP = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(self['ui_skill' + i].skillConfigID);
-							if (costMP <= GameApp.MainPlayer.ability.nowMP) {
-								for (let o in GameApp.MainPlayer.allMonster) {
-									GameApp.MainPlayer.startHandAtk(GameApp.MainPlayer.allMonster[o], self['ui_skill' + i].skillID);
-									return;
-								}
-							} else {
-								TipsManage.showTips('能量值不足，无法释放~');
-							}
-
-						}
-					} else {
-						if (this['ui_skill' + i].isCD) {
-							TipsManage.showTips('技能CD中，无法释放~');
-						} else {
-							TipsManage.showTips('自动战斗中，无法主动释放~');
-						}
-					}
-				})
-			}
-			this.btn_auto.on(Laya.UIEvent.CLICK, this, function () {
+			// 自动战斗
+			this.btn_auto.on(Laya.UIEvent.CLICK, this, () => {
 				this.isAuto = !this.isAuto;
 				if (this.isAuto) {
 					this.btn_auto.label = '手动';
-
-				} else {
+					this.autoFight();
+					Laya.timer.frameLoop(64, this, this.autoFight)
+				}
+				else {
 					this.btn_auto.label = '自动';
 				}
-				this.autoFight();
-			})
-			GameApp.LListener.on(BattleFuBenInfoV3Item.CHANGETAOLU, this, function () {
+			});
+
+			// 监听切换套路
+			GameApp.LListener.on(view.wuXue.WuXue_Skill_Circle.skillAdd + '40', this, () => {
 				if (GameApp.MainPlayer.skillShotButton[400]) {
-					GameApp.MainPlayer.defaultTaoLuID = GameApp.MainPlayer.skillShotButton[400].i64Id.int64ToNumber();
-					this.curTouchTaoLuID = GameApp.MainPlayer.defaultTaoLuID;
 					this.setView()
 				}
-
-
 			})
-			//最大和当前蓝量
-			// GameApp.MainPlayer.ability.nMaxMP;
-			// GameApp.MainPlayer.ability.nowMP;
-		}
-		public stopAuto() {
-			this.isAuto = false;
-			if (this.isAuto) {
-				this.btn_auto.label = '手动';
 
-			} else {
-				this.btn_auto.label = '自动';
-			}
-			this.autoFight();
 		}
-		public startAuto() {
-			this.isAuto = true;
-			if (this.isAuto) {
-				this.btn_auto.label = '手动';
 
-			} else {
-				this.btn_auto.label = '自动';
-			}
-			this.autoFight();
+
+		public destroy(isbool = true) {
+			GameApp.LListener.offCaller(view.wuXue.WuXue_Skill_Circle.skillAdd + '40', this)
+			super.destroy(true);
 		}
+
+		/**
+		 * 自动战斗
+		 */
 		public autoFight() {
-			let self = this;
-			// let costMPArr = {};
-			Laya.timer.loop(1000, self, fight)
-			function fight() {
-				if (self.isAuto) {
-					// GameApp.MainPlayer.startHandAtk0(GameApp.MainPlayer.allMonster[o], self.useSkillID[self.skillState[i].id]);
-					for (let i = 1; i < 5; i++) {
-						if (self['ui_skill' + i].skillConfigID > 0) {
-							this.costMPArr[i] = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(self['ui_skill' + i].skillConfigID);
+			// 自动战斗
+			if (this.isAuto) {
+				let targeter = GameApp.MainPlayer.findAttackTarget();
+				if (targeter) {
+					// 找技能
+					let skillID = 999;
+					for (let i = 1; i < 7; i++) {
+						let ui_skill: BattleSkillItem = this['ui_skill' + i];
+						if (ui_skill.checkSelfCanUse()) {
+							skillID = ui_skill.skillItemBase.skillid;
+							this['ui_skill' + i].useSelf();
+							break
 						}
 					}
-					self.doFight();
-				} else {
-					Laya.timer.clear(self, fight)
+					// 公共CD
+					this.commonCd();
+					// 进行攻击
+					GameApp.MainPlayer.tryAttack(targeter, skillID)
 				}
 			}
-		}
-		public doFight() {
-			let self = this;
-			let costID = this.chooseSkillIDForFight();
-			let costNum = this.costMPArr[costID]
-			if (GameApp.MainPlayer.ability.nowMP > costNum) {
-				for (let o in GameApp.MainPlayer.allMonster) {
-					GameApp.MainPlayer.startHandAtk(GameApp.MainPlayer.allMonster[o], self['ui_skill' + costID].skillID);
-					return;
-				}
-			} else {
-				delete (this.costMPArr[costID])
-				delete this.costMPArr[costID];
-				if (Object.keys(this.costMPArr).length == 0) {
-					for (let o in GameApp.MainPlayer.allMonster) {
-						GameApp.MainPlayer.startHandAtk(GameApp.MainPlayer.allMonster[o]);
-						return;
-					}
-				} else {
-					this.doFight();
-				}
+			else {
+				Laya.timer.clear(this, this.autoFight)
 			}
 		}
-		public chooseSkillIDForFight() {
-			let keys = Object.keys(this.costMPArr);
-			let cost = GameUtil.numberRandInt(0, keys.length);
-			return keys[cost]
+
+		/**
+		 * 公共CD
+		 */
+		public commonCd() {
+			for (let i = 1; i < 7; i++) {
+				// 公共CD
+				this['ui_skill' + i].showCD();
+			}
 		}
+
+
+		/**
+		 * 切换套路
+		 * @param id 
+		 */
+
 		public changeTab(id) {
 			if (GameApp.MainPlayer.ability.nowMP >= 1) {
 				let pkt1 = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder();
 				pkt1.setValue('oldcol', 0);
 				pkt1.setValue('oldrow', 4);
 				pkt1.shortcuts.emShortCuts = 1;
-				let skill = 100 + id;
 				pkt1.shortcuts.i64Id = ProtoCmd.Int64.numberToInt64(id)
 				pkt1.shortcuts.btCol = 0;
 				pkt1.shortcuts.btRow = 4;
 				lcp.send(pkt1);
-			} else {
+			}
+			else {
 				TipsManage.showTips('当前能量不足，不能切换武学套路')
 			}
 		}
-		public allSkillCD() {
-			for (let i = 1; i < 7; i++) {
-				this['ui_skill' + i].showCD(1);
-			}
-		}
+
+
 		public deBuffCantPlaySkill(time: number) {
 			this.img_cantSkill.visible = true;
 			this.btn_auto.mouseEnabled = false;
-
 			Laya.timer.once(time * 1000, this, function () {
 				this.img_cantSkill.visible = false;
 				this.btn_auto.mouseEnabled = true;
 			})
 		}
+
 	}
 }

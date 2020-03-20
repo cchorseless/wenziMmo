@@ -304,8 +304,13 @@ module GameObject {
                 this.ui_item.updateHp();
             }
         }
-        public showPower(power: number, tartmpType: number) {
-            this.ui_item.showPower(power, tartmpType);
+        /**
+         * 伤害特效
+         * @param power 
+         * @param tartmpType 
+         */
+        public showDamageEffect(power: number, tartmpType: number) {
+            this.ui_item.showDamageEffect(power, tartmpType);
         }
 
 

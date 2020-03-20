@@ -21,13 +21,13 @@ module view.scene {
 				//myhp   myidx我出牌的ID   npchp  npcidx  NPC出牌的ID
 				res;
 				if (GameApp.MainPlayer.curFuBenID == 400) {
-					view.main.Main_tanSuoItem.self.ui_showPai.visible = true;
+					// view.main.Main_tanSuoItem.self.ui_showPai.visible = true;
 				} else {
-					view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+					// view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
 				}
 				
 				
-				view.main.Main_tanSuoItem.self.ui_showPai.setData(res.myidx, res.npcidx)
+				// view.main.Main_tanSuoItem.self.ui_showPai.setData(res.myidx, res.npcidx)
 				GameApp.LListener.event(view.scene.PlayerInSceneItem.HP, res.myhp);
 				GameApp.LListener.event(view.npc.NpcIconItem.HP, res.npchp);
 

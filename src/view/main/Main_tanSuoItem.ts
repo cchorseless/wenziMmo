@@ -62,10 +62,10 @@ module view.main {
 				}
 				let s = "<span style='color:#ffed8f'>" + jsonData.tiaojian + "</span>"
 					+ "<span style='color:#ffffff'>(" + jsonData.curcnt + "/" + jsonData.totalcnt + ")</span>";
-				this.ui_skill.showNeed(s);
-				this.ui_skill.startAuto();
+				// this.ui_skill.showNeed(s);
+				// this.ui_skill.startAuto();
 				if (jsonData.curcnt >= jsonData.totalcnt) {
-					this.ui_skill.stopAuto();
+					// this.ui_skill.stopAuto();
 					let p = new scene.BattleRewardInfoV0Item();
 					p.setData(0);
 					p.popup();
@@ -91,11 +91,11 @@ module view.main {
 					+ "<span style='color:#ffffff'>(" + jsonData.KILLCNT + "/" + jsonData.MAXCNT + ")</span>";
 				this.ui_skill.showNeed(s);
 				if (!this.ui_skill.isAuto) {
-					this.ui_skill.startAuto();
+					// this.ui_skill.startAuto();
 				}
 
 				if (jsonData.KILLCNT >= jsonData.MAXCNT) {
-					this.ui_skill.stopAuto();
+					// this.ui_skill.stopAuto();
 					let p = new scene.BattleRewardInfoV0Item();
 					p.setData(0);
 					p.popup();
@@ -116,8 +116,8 @@ module view.main {
 					}
 					let s = "<span style='color:#ffed8f'>" + GameApp.GameEngine.curFuBenMsg.fubenStr + "</span>"
 						+ "<span style='color:#ffffff'>(" + GameApp.GameEngine.curFuBenMsg.curNum + "/" + GameApp.GameEngine.curFuBenMsg.maxNum + ")</span>";
-					this.ui_skill.showNeed(s);
-					this.ui_skill.stopAuto();
+					// this.ui_skill.showNeed(s);
+					// this.ui_skill.stopAuto();
 					// this.ui_skill.html_need.innerHTML =
 					let p = new scene.BattleRewardInfoV0Item();
 					p.setData(0);
@@ -131,8 +131,8 @@ module view.main {
 					}
 					let s = "<span style='color:#ffed8f'>" + GameApp.GameEngine.curFuBenMsg.fubenStr + "</span>"
 						+ "<span style='color:#ffffff'>(" + GameApp.GameEngine.curFuBenMsg.curNum + "/" + GameApp.GameEngine.curFuBenMsg.maxNum + ")</span>";
-					this.ui_skill.showNeed(s);
-					this.ui_skill.startAuto();
+					// this.ui_skill.showNeed(s);
+					// this.ui_skill.startAuto();
 					// this.ui_skill.html_need.innerHTML = 
 				}
 
@@ -204,7 +204,7 @@ module view.main {
 					break;
 				// NPC辩论
 				case EnumData.emRoomType.NpcArgue:
-					view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+					// view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
 					GameApp.MainPlayer.curFuBenID = -1;
 					GameApp.MainPlayer.fubenMonsterPower = 0;
 					let pkt3 = new ProtoCmd.QuestClientData();
