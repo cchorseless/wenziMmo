@@ -250,13 +250,9 @@ module view.menu {
 			EventManage.onWithEffect(this.btn_FirstCharge, Laya.UIEvent.CLICK, this, function () {
 
 				if (this.rechargeActivityID) {
-					let o = new view.menu.Menu_FirstChargeDialog();
-					o.popup(true);
+					DialogManage.popDialog(view.menu.Menu_FirstChargeDialog,true);
 				} else if (!this.rechargeActivityID) {
-
-					let o = new view.menu.Menu_EveryDaySpecial();
-					o.popup(true);
-
+					DialogManage.popDialog(view.menu.Menu_EveryDaySpecial,true);
 				}
 			})
 			// tubiaofasong
@@ -328,11 +324,12 @@ module view.menu {
 			// })
 			//签到
 			this.btn_qiandao.on(Laya.UIEvent.CLICK, this, () => {
-				new view.menu.MenuQiandaoDialog().popup(true);
+				// new view.menu.MenuQiandaoDialog().popup(true);
+				DialogManage.popDialog(view.menu.MenuQiandaoDialog,true);
 			})
 			//邮件
 			this.btn_mail.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.MailDialog().popup(true);
+				DialogManage.popDialog(view.dialog.MailDialog,true);
 			})
 			// //排名
 			// this.btn_menuPaiming.on(Laya.UIEvent.CLICK, this, () => {
@@ -345,11 +342,12 @@ module view.menu {
 			//祈福
 			this.btn_Blessing.on(Laya.UIEvent.CLICK, this, () => {
 				// new view.menu.Menu_BlessingDialog().popup(true);
-				DialogManage.popDialog(view.menu.Menu_BlessingDialog,null,true);
+				DialogManage.popDialog(view.menu.Menu_BlessingDialog,true);
 			})
 			//膜拜城主
 			this.btn_mobai.on(Laya.UIEvent.CLICK, this, () => {
-				new view.menu.MenuMoBaiDialog().popup(true);
+				// new view.menu.MenuMoBaiDialog().popup(true);
+				DialogManage.popDialog(view.menu.MenuMoBaiDialog,true);
 			})
 			//抽奖
 			this.btn_luckDraw.on(Laya.UIEvent.CLICK, this, () => {

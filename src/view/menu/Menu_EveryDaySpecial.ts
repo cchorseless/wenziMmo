@@ -11,7 +11,7 @@ module view.menu {
 			let pkt33 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active33, null)
 			lcp.send(pkt33);
 		}
-		public setData(data) {
+		public renderUI(data) {
 			this.buttonBJ = data.state;
 			if (this.buttonBJ == 0) {
 				this.btn_get.label = "已领取";
@@ -45,11 +45,11 @@ module view.menu {
 				}
 			})
 			GameApp.LListener.on(ProtoCmd.Active33, this, (data) => {
-				this.setData(data);
+				this.renderUI(data);
 			})
 			this.btn_close.on(Laya.UIEvent.CLICK, this, function () {
 				GameApp.LListener.offCaller(ProtoCmd.Active33,this)
-				this.close();
+				DialogManage.closeDialog(this);
 			})
 		}
 	}

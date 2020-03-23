@@ -3,7 +3,7 @@ module view.menu {
 	export class MenuMoBaiDialog extends ui.menu.MenuMoBaiDialogUI {
 		constructor() {
 			super();
-			this.setData();
+			this.name = 'MenuMoBaiDialog';
 		}
 		private mobaiORbishi;
 		public setData(): void {
@@ -13,7 +13,7 @@ module view.menu {
 		public addEvent(): void {
 			//关闭弹窗
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				this.close();
+				DialogManage.closeDialog(this);
 			})
 			//城主特权
 			this.btn_tequan.on(Laya.UIEvent.CLICK, this, () => {

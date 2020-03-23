@@ -7,11 +7,11 @@ module DialogManage {
     /**
      * 打开Dialog(类里如果有setData方法，会在new之后自动调用一次)
      * @param cls 类名 如view.dialog.MailDialog
-     * @param data setData方法的参数
      * @param closeOther 是否关闭其它的对话框。若值为true则关闭其它对话框。
+     * @param data setData方法的参数
      * @param showEffect 是否显示弹出效果
      */
-    export function popDialog<T extends Dialog>(cls:any,data:Array<any> = [],closeOther?: boolean, showEffect?: boolean){
+    export function popDialog<T extends Dialog>(cls:any,closeOther?: boolean,data:Array<any> = [], showEffect?: boolean){
         if(!dialogs[cls.name] || dialogs[cls.name] == null){
             if(closeOther){
                 for (var key in dialogs) {
@@ -50,8 +50,10 @@ module DialogManage {
             resCount[cls.name] --;
             if(resCount[cls.name] <= 0 ){//没有用这个资源的界面了
                 let res = ResData.DialogRes.clsRes[cls.name];
-                for (var i = 0; i < res.length.length; i++) {
-                    Laya.loader.clearTextureRes(res.url);
+                if(res){
+                    for (var i = 0; i < res.length.length; i++) {
+                        Laya.loader.clearTextureRes(res.url);
+                    }
                 }
             }
             dialogs[cls.name] = null;

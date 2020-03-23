@@ -204,17 +204,28 @@ module ResData {
      */
     export class FileRes{
         public static Res = {
+            // 邮箱
             Mail:[{ url: "res/atlas/image/mail.atlas", type: Laya.Loader.ATLAS }],
+            // 祈福
             Blessing:[{ url: "res/atlas/image/blessing.atlas", type: Laya.Loader.ATLAS },
             { url: "res/atlas/image/frameAni/blessing_goldbox_open.atlas", type: Laya.Loader.ATLAS },
             { url: "res/atlas/image/frameAni/blessing_liquanbox_open.atlas", type: Laya.Loader.ATLAS }],
+            // 好友
+            Friend:[{ url: "res/atlas/image/friend.atlas", type: Laya.Loader.ATLAS }],
         }
     }
     export class DialogRes{
         public static clsRes = {
             MailDialog:ResData.FileRes.Res.Mail,
             MailGetDialog:ResData.FileRes.Res.Mail,
+
             Menu_BlessingDialog:ResData.FileRes.Res.Blessing,
+
+            Friend_OperationDialog:ResData.FileRes.Res.Friend,
+            FriendSearchDialog:ResData.FileRes.Res.Friend,
+            FriendListDialog:ResData.FileRes.Res.Friend,
+            FriendCheckDialog:ResData.FileRes.Res.Friend,
+            FriendApplyDialog:ResData.FileRes.Res.Friend,
         }
     }
     /**

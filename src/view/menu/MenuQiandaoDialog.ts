@@ -3,7 +3,7 @@ module view.menu {
 	export class MenuQiandaoDialog extends ui.menu.MenuQiandaoDialogUI {
 		constructor() {
 			super();
-			this.setData();
+			this.name = 'MenuQiandaoDialog';
 		}
 		//累计签到奖励组
 		public WupinArray;
@@ -69,7 +69,7 @@ module view.menu {
 		}
 		public onclose(): void {
 			GameApp.LListener.offCaller(ProtoCmd.Menu_QianDao_DaKai, this);
-			this.close();
+			DialogManage.closeDialog(this);
 		}
 		/**
 		 * 签到面板

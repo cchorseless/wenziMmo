@@ -248,7 +248,7 @@ module view.main {
 				new view.friend.FriendListDialog().popup();
 			})
 			this.btn_email.on(Laya.UIEvent.CLICK, this, function () {
-				DialogManage.popDialog(view.dialog.MailDialog,null,true);
+				DialogManage.popDialog(view.dialog.MailDialog,true);
 			})
 			this.btn_chat.on(Laya.UIEvent.CLICK, this, function () {
 				this.ui_chatBigDialog.visible = true;

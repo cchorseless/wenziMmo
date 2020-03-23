@@ -31,7 +31,7 @@ module view.compart {
 			// 查看详情
 			this.on(Laya.UIEvent.CLICK, this, () => {
 				// new view.dialog.MailGetDialog().setData(this.mailItem.dwMailID).popup(false);
-				DialogManage.popDialog<view.dialog.MailGetDialog>(view.dialog.MailGetDialog,[this.mailItem.dwMailID]);
+				DialogManage.popDialog<view.dialog.MailGetDialog>(view.dialog.MailGetDialog,false,[this.mailItem.dwMailID]);
 			})
 		}
 		public updateUI(): void {
