@@ -89,7 +89,7 @@ module view.compart {
 			}
 			//成就名
 			// this.lbl_taskName.x = 140;
-			this.lbl_taskName.text = data.desc;
+			this.lbl_taskName.text = data.desc.split('^')[0];
 			let keys = Object.keys(data.items)
 			this.hbox_reward.removeChildren();
 			for (let key of keys) {

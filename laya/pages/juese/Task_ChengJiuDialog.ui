@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":59,
+    "selectedBox":58,
+    "selecteID":56,
     "referenceLines":null,
     "props":{"width":530,"sceneColor":"#ffffff","height":770},
     "nodeParent":-1,
@@ -210,9 +210,9 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":106,"width":150,"stateNum":2,"skin":"image/common/button_qianwang_red.png","right":137,"labelStrokeColor":"#000000","labelSize":26,"labelFont":"FZXK","labelColors":"#2c5b64,#2c5b64","label":"查看声望","height":50},
+                    "props":{"y":106,"width":150,"var":"btn_shengwang","stateNum":2,"skin":"image/common/button_qianwang_red.png","right":137,"labelStrokeColor":"#000000","labelSize":26,"labelFont":"FZXK","labelColors":"#2c5b64,#2c5b64","label":"查看声望","height":50},
                     "nodeParent":36,
-                    "label":"Button",
+                    "label":"Button(btn_shengwang)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -236,7 +236,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":3,"var":"tab_showType","stateNum":2,"space":5,"skin":"image/common/yeqian_xiaotanchaung.png","selectedIndex":0,"left":0,"labels":"类型一,类型二,类型三,类型四,类型五,类型六,类型七,类型八,类型九","labelSize":26,"labelPadding":"-5","labelFont":"fzxk","labelColors":"#736663,#903f14,#903f14"},
+                    "props":{"y":3,"var":"tab_showType","stateNum":2,"space":5,"skin":"image/common/yeqian_xiaotanchaung.png","selectedIndex":0,"left":0,"labels":"角色,副本,PVP,生活,江湖","labelSize":26,"labelPadding":"-5","labelFont":"fzxk","labelColors":"#736663,#903f14,#903f14"},
                     "nodeParent":58,
                     "label":"Tab(tab_showType)",
                     "isOpen":true,

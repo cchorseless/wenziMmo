@@ -8,7 +8,6 @@ module view.compart {
 		}
 		public setData(data, index) {
 			this.itemID = index;
-			// this.btn_icon.skin = "image/common/daoju/quality_4.png"//"image/common/daoju/quality_5.png"选中
 			let id = data[3];
 			let name = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(id.toString());
 			let skin = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(id.toString());

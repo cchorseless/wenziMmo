@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":20,
+    "selectedBox":20,
+    "selecteID":21,
     "props":{"width":511,"sceneColor":"#ffffff","height":81},
     "nodeParent":-1,
     "label":"View",
@@ -18,13 +18,14 @@
             "props":{"width":511,"var":"box_friend","height":81},
             "nodeParent":1,
             "label":"Box(box_friend)",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":20,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"width":511,"skin":"image/common/img_hylb_02.png","height":81},
                     "nodeParent":20,
@@ -38,6 +39,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":1,"x":7,"skin":"image/common/frame_touxiang_04.png"},
                     "nodeParent":20,
@@ -64,8 +66,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":26,"x":83,"width":144,"var":"lbl_name","text":"玩家名称六字","strokeColor":"#2d1c05","stroke":4,"height":24,"fontSize":22,"font":"FZXK","color":"#ffffff","align":"center"},
+                    "props":{"y":11,"x":89,"width":144,"var":"lbl_name","text":"玩家名称六字","strokeColor":"#2d1c05","height":24,"fontSize":24,"font":"FZXK","color":"#000000","align":"center"},
                     "nodeParent":20,
                     "label":"Label(lbl_name)",
                     "isDirectory":false,
@@ -77,8 +80,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":27,"x":239,"width":70,"var":"lbl_lvl","text":"10转150","height":20,"fontSize":20,"font":"FZXK","color":"#623e24","align":"center"},
+                    "props":{"y":43,"x":89,"width":113,"var":"lbl_lvl","text":"10转150","height":22,"fontSize":22,"font":"FZXK","color":"#623e24","align":"left"},
                     "nodeParent":20,
                     "label":"Label(lbl_lvl)",
                     "isDirectory":false,
@@ -89,8 +93,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":27,"x":313,"width":91,"var":"lbl_Sects","text":"华山派","height":20,"fontSize":20,"font":"FZXK","color":"#000000","align":"center"},
+                    "props":{"y":12,"x":301,"width":91,"var":"lbl_Sects","text":"华山派","height":22,"fontSize":22,"font":"FZXK","color":"#000000","align":"left"},
                     "nodeParent":20,
                     "label":"Label(lbl_Sects)",
                     "isDirectory":false,
@@ -102,6 +107,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":16,"x":413,"width":85,"var":"btn_operation","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#ab6936","labelSize":26,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"操作","height":41},
                     "nodeParent":20,
@@ -110,6 +116,33 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":15,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":11,"x":274,"width":25,"var":"img_menpai","skin":"image/main/icon_1001.png","height":25},
+                    "nodeParent":20,
+                    "label":"Image(img_menpai)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":21,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":43,"x":301,"width":91,"var":"lab_roomName","text":"华山派","height":22,"fontSize":22,"font":"FZXK","color":"#000000","align":"left"},
+                    "nodeParent":20,
+                    "label":"Label(lab_roomName)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":22,
                     "child":[
                         ],
                     "$HIDDEN":false

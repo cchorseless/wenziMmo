@@ -296,8 +296,30 @@ public static getInstance(data): mydb_magic_tbl { let Class:any=this;if(!Class._
  *  返还碎片数量
  */
  public RETURN_DEBRIS(configID):number { if(this.data[configID]) {return this.data[configID][73]}else { throw new Error(configID+'cant find')}}
-/**
- *  技能名字特效
- */
- public MAGIC_NAMEID(configID):number { if(this.data[configID]) {return this.data[configID][74]}else { throw new Error(configID+'cant find')}}
+
+
+   /**
+        * 同品级中阶数数
+        * @param skillID 技能编号
+        */
+        public getNumOfSkillID(skillID) {
+            let num = 0;
+            for (let i in this.data) {
+                if (this.data[i][1] == skillID) {
+                    num++
+                }
+            }
+            return num;
+        }
+
+                public getAllData(skillID: number): any {
+            let base;
+            for (let i in this.data) {
+                if (this.data[i][1] == skillID) {
+                    base = this.data[i]
+                    break;
+                }
+            }
+            return base;
+        }
 }}

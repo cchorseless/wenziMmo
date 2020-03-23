@@ -122,7 +122,7 @@ module view.hero {
 		public getEquipBackground(): void {
 			for (let i = 0; i < 10; i++) {
 				this['ui_item' + i].img_bg.visible = true;
-				this['ui_item' + i].img_bg.skin = 'image/common/daoju/itemicon_bg_' + (i + 10) + '.png';
+				this['ui_item' + i].img_bg.skin = PathUtil.getItemIconBgPath(i + 10);
 			}
 		}
 		//切换弟子
@@ -192,7 +192,7 @@ module view.hero {
 				let index = '500' + this.job;
 				if (skillInfo[index]) {
 					let heji_icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillInfo[index].configID)
-					this.btn_wuxue.skin = "image/common/skill/skill_icon_" + heji_icon + ".png";
+					this.btn_wuxue.skin = PathUtil.getSkillIconPath(heji_icon);
 					this.lbl_wuxue.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(skillInfo[index].configID)
 				}
 				// 装备

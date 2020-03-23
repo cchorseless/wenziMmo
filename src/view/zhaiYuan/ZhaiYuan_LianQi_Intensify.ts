@@ -84,10 +84,10 @@ module view.zhaiYuan {
 				if (i == Touchindex) {
 					this["ui_equip" + i].lab_lv.text = '+ ' + this.msgData.lvl;
 				}
-				this["ui_equip" + i].img_icon.skin = "image/common/daoju/itemicon_bg_" + (i + 10) + ".png";
+				this["ui_equip" + i].img_icon.skin = PathUtil.getItemIconBgPath(i + 10);
 			}
 
-			this.panel_1_UI.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
+			this.panel_1_UI.img_icon.skin = PathUtil.getItemIconBgPath(this.TouchID + 10);
 			this.panel_1_UI.lab_name.text = this.equipNameArr[this.TouchID];
 			this.panel_1_UI.lab_lv.text = '+ ' + this.msgData.lvl + '';
 			this.panel_1_UI.img_circle.visible = false;

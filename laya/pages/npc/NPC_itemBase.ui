@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":6,
-    "props":{"width":80,"sceneColor":"#ffffff","height":100},
+    "selecteID":4,
+    "props":{"width":90,"sceneColor":"#ffffff","height":100},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":3,"x":3,"width":75,"var":"img_bg","skin":"image/common/daoju/quality_2.png","height":74},
+            "props":{"y":3,"x":7,"width":75,"var":"img_bg","skin":"image/common/daoju/quality_2.png","height":74},
             "nodeParent":1,
             "label":"Image(img_bg)",
             "isDirectory":false,
@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":7.5,"x":7.5,"width":67,"var":"img_icon","skin":"image/common/daoju/itemicon_135.png","height":67},
+            "props":{"y":7,"x":11,"width":67,"var":"img_icon","skin":"image/common/daoju/itemicon_135.png","height":67},
             "nodeParent":1,
             "label":"Image(img_icon)",
             "isDirectory":false,
@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":78,"x":3,"width":74,"var":"lab_num","text":"70%","height":20,"fontSize":20,"font":"FZXK","color":"#63491a","align":"center"},
+            "props":{"y":78,"x":0,"width":90,"var":"lab_num","text":"成功率:70%","height":20,"fontSize":18,"font":"FZXK","color":"#63491a","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_num)",
             "isDirectory":false,
@@ -56,7 +56,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":3,"x":3,"visible":false,"var":"img_light","skin":"image/common/light_wuji.png","scaleY":1,"scaleX":1},
+            "props":{"y":3,"x":7,"visible":false,"var":"img_light","skin":"image/common/light_wuji.png","scaleY":1,"scaleX":1},
             "nodeParent":1,
             "label":"Image(img_light)",
             "isDirectory":false,

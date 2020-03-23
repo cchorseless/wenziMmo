@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":633,"skin":"image/common/frame_big.png","height":981},
+            "props":{"y":0,"x":0,"width":633,"skin":"image/fuben/bottom_tanchuang_02.png","height":981},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -30,7 +30,21 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":32,"x":228,"skin":"image/common/zi_haoyouliebiao.png"},
+            "props":{"y":79,"x":35,"width":557,"skin":"image/fuben/img_common_zhuangshi01.png","height":82},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":91,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":32,"x":269,"skin":"image/common/font_shejiao.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -42,21 +56,8 @@
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":30,"x":572,"var":"btn_close","stateNum":"2","skin":"image/common/icon_denglongclose.png"},
-            "nodeParent":1,
-            "label":"Button(btn_close)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":6,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Panel",
-            "props":{"y":115,"x":44,"width":537,"var":"panel_all","height":723},
+            "props":{"y":115,"x":44,"width":537,"visible":false,"var":"panel_all","height":723},
             "nodeParent":1,
             "label":"Panel(panel_all)",
             "isOpen":true,
@@ -71,14 +72,13 @@
                     "props":{"y":0,"x":0,"width":537,"var":"btn_friend1","stateNum":"1","skin":"image/common/img_hylb_01.png","sizeGrid":"0,10,0,11","height":66},
                     "nodeParent":60,
                     "label":"Button(btn_friend1)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":52,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":21,"x":166,"width":105,"var":"lbl_num1","text":"(1/20)","height":24,"fontSize":24,"font":"FZXK","color":"#000000","align":"center"},
                             "nodeParent":52,
@@ -91,7 +91,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":18,"x":50,"text":"我的好友","strokeColor":"#000000","fontSize":30,"font":"hwxk","color":"#000000"},
                             "nodeParent":52,
@@ -104,7 +103,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":15,"x":17,"width":20,"var":"btn_arrow1","stateNum":"1","skin":"image/main/btn_common_02.png","rotation":0,"height":35},
                             "nodeParent":52,
@@ -133,9 +131,9 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":0,"x":13,"width":511,"var":"vbox_friend1","space":5,"scaleY":1},
+                            "props":{"y":0,"x":13,"width":511,"space":5,"scaleY":1},
                             "nodeParent":86,
-                            "label":"VBox(vbox_friend1)",
+                            "label":"VBox",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
@@ -152,14 +150,13 @@
                     "props":{"y":66,"x":0,"width":537,"var":"btn_friend2","stateNum":"1","skin":"image/common/img_hylb_01.png","sizeGrid":"0,10,0,11","height":66},
                     "nodeParent":60,
                     "label":"Button(btn_friend2)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":53,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":21,"x":137,"width":105,"var":"lbl_num2","text":"(1/20)","height":24,"fontSize":24,"font":"FZXK","color":"#000000","align":"center"},
                             "nodeParent":53,
@@ -172,7 +169,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":18,"x":50,"text":"黑名单","fontSize":30,"font":"HWXK","color":"#000000"},
                             "nodeParent":53,
@@ -185,7 +181,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":15,"x":17,"width":20,"var":"btn_arrow2","stateNum":"1","skin":"image/main/btn_common_02.png","rotation":0,"height":35},
                             "nodeParent":53,
@@ -214,9 +209,9 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":0,"x":13,"width":511,"var":"vbox_friend2","space":5,"scaleY":1},
+                            "props":{"y":0,"x":13,"width":511,"space":5,"scaleY":1},
                             "nodeParent":87,
-                            "label":"VBox(vbox_friend2)",
+                            "label":"VBox",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
@@ -233,14 +228,13 @@
                     "props":{"y":132,"x":0,"width":537,"var":"btn_friend3","stateNum":"1","skin":"image/common/img_hylb_01.png","sizeGrid":"0,10,0,11","height":66},
                     "nodeParent":60,
                     "label":"Button(btn_friend3)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":54,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":21,"x":166,"width":105,"var":"lbl_num3","text":"(1/20)","height":24,"fontSize":24,"font":"FZXK","color":"#000000","align":"center"},
                             "nodeParent":54,
@@ -253,7 +247,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":18,"x":50,"text":"我的仇人","fontSize":30,"font":"HWXK","color":"#000000"},
                             "nodeParent":54,
@@ -266,7 +259,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":15,"x":17,"width":20,"var":"btn_arrow3","stateNum":"1","skin":"image/main/btn_common_02.png","height":35},
                             "nodeParent":54,
@@ -295,9 +287,9 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":0,"x":13,"width":511,"var":"vbox_friend3","space":5,"scaleY":1},
+                            "props":{"y":0,"x":13,"width":511,"space":5,"scaleY":1},
                             "nodeParent":88,
-                            "label":"VBox(vbox_friend3)",
+                            "label":"VBox",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
@@ -312,44 +304,197 @@
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":847,"x":332,"width":156,"var":"btn_search","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#e55c5a","labelSize":28,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a","label":"搜 索","height":53},
+            "type":"Tab",
+            "props":{"y":89,"x":37,"var":"tab_show","stateNum":2,"space":-15,"skin":"image/fuben/img_yeqian.png","selectedIndex":0,"labels":"好友,黑名单,仇人,江湖","labelSize":26,"labelPadding":"5","labelFont":"FZXK","labelColors":"#52473d,#903f14,#903f14"},
             "nodeParent":1,
-            "label":"Button(btn_search)",
+            "label":"Tab(tab_show)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":9,
+            "compId":89,
             "child":[
                 ],
             "$HIDDEN":false
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":846,"x":112,"width":156,"var":"btn_myApply","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#ab6936","labelSize":28,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"我的申请","height":53},
+            "type":"Box",
+            "props":{"y":878,"x":123,"var":"box_button"},
             "nodeParent":1,
-            "label":"Button(btn_myApply)",
+            "label":"Box(box_button)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":10,
+            "compId":93,
             "child":[
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":-19,"x":114,"var":"img_tips","skin":"image/common/img_tipsPoint.png"},
-                    "nodeParent":10,
-                    "label":"Image(img_tips)",
+                    "type":"Button",
+                    "props":{"y":1,"x":220,"width":156,"var":"btn_search","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#95d9b8","labelStroke":2,"labelSize":32,"labelFont":"fzxk","labelColors":"#27665c,#27665c,#27665c,","label":"搜 索","height":53},
+                    "nodeParent":93,
+                    "label":"Button(btn_search)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":83,
+                    "compId":9,
                     "child":[
-                        ]
-                }],
-            "$HIDDEN":false
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"width":156,"var":"btn_myApply","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#ab6936","labelSize":32,"labelFont":"fzxk","labelColors":"#764a1a,#55310b","label":"我的申请","height":53},
+                    "nodeParent":93,
+                    "label":"Button(btn_myApply)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":10,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "props":{"y":-19,"x":114,"var":"img_tips","skin":"image/common/img_tipsPoint.png"},
+                            "nodeParent":10,
+                            "label":"Image(img_tips)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":83,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                }]
+        },
+        {
+            "x":15,
+            "type":"ViewStack",
+            "props":{"y":166,"x":40,"width":543,"var":"VS_show","height":703},
+            "nodeParent":1,
+            "label":"ViewStack(VS_show)",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":92,
+            "child":[
+                {
+                    "type":"Panel",
+                    "props":{"y":1,"x":16,"width":511,"var":"panel_friend1","name":"item0","height":700},
+                    "nodeParent":92,
+                    "label":"Panel(panel_friend1)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":94,
+                    "child":[
+                        {
+                            "type":"VBox",
+                            "props":{"var":"vbox_friend1","top":0,"space":5,"scaleY":1,"right":0,"left":0},
+                            "nodeParent":94,
+                            "label":"VBox(vbox_friend1)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":98,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "type":"Panel",
+                    "props":{"y":1,"x":16,"width":511,"var":"panel_friend2","name":"item1","height":700},
+                    "nodeParent":92,
+                    "label":"Panel(panel_friend2)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":95,
+                    "child":[
+                        {
+                            "type":"VBox",
+                            "props":{"y":-1,"x":-16,"var":"vbox_friend2","top":0,"space":5,"scaleY":1,"right":0,"left":0},
+                            "nodeParent":95,
+                            "label":"VBox(vbox_friend2)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":99,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "type":"Panel",
+                    "props":{"y":1,"x":16,"width":511,"var":"panel_friend3","name":"item2","height":700},
+                    "nodeParent":92,
+                    "label":"Panel(panel_friend3)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":96,
+                    "child":[
+                        {
+                            "type":"VBox",
+                            "props":{"y":-167,"x":-56,"var":"vbox_friend3","top":0,"space":5,"scaleY":1,"right":0,"left":0},
+                            "nodeParent":96,
+                            "label":"VBox(vbox_friend3)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":100,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "type":"Panel",
+                    "props":{"y":1,"x":16,"width":511,"var":"panel_friend4","name":"item3","height":700},
+                    "nodeParent":92,
+                    "label":"Panel(panel_friend4)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":97,
+                    "child":[
+                        {
+                            "type":"VBox",
+                            "props":{"y":-167,"x":-56,"var":"vbox_friend4","top":0,"space":5,"scaleY":1,"right":0,"left":0},
+                            "nodeParent":97,
+                            "label":"VBox(vbox_friend4)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":101,
+                            "child":[
+                                ]
+                        }]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":30,"x":572,"var":"btn_close","stateNum":"2","skin":"image/common/icon_denglongclose.png"},
+            "nodeParent":1,
+            "label":"Button(btn_close)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":6,
+            "child":[
+                ],
+            "$LOCKED":true
         }],
     "animations":[
         {

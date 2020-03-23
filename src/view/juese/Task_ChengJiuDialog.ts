@@ -52,18 +52,22 @@ module view.juese {
 			this.init_getReward();
 			this.init_taskInfo();
 			this.init_taskState();
-			
+
 			return this;
 		}
-		
+
 		public addEvent(): void {
 			// this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 			// 	this.close();
+			// // })
+			// this.tab_showType.selectHandler = Laya.Handler.create(this,function(index){
+
 			// })
-			this.tab_showType.selectHandler = Laya.Handler.create(this,function(index){
-				
+			this.btn_shengwang.on(Laya.UIEvent.CLICK, this, function () {
+				let o = new Person_shengwangMainDialog();
+				o.popup(true);
 			})
-			this.tab_showType.on(Laya.UIEvent.CLICK,this,function(){
+			this.tab_showType.on(Laya.UIEvent.CLICK, this, function () {
 				this.VS_show.selectedIndex = this.tab_showType.selectedIndex;
 				this.init_sort(this.VS_show.selectedIndex)
 			})
@@ -72,12 +76,12 @@ module view.juese {
 		 * 成就任务状态
 		 */
 		public init_taskState(): void {
-			
+
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.TASK_achievementPanel, [1], null, this, (jsonData) => {
 				this.stateData = jsonData;
 				if (this.taskdata != undefined) {
-					this.init_sort(this.VS_show.selectedIndex);
+					// this.init_sort(this.VS_show.selectedIndex);
 				}
 			})
 			lcp.send(pkt);
@@ -99,6 +103,12 @@ module view.juese {
 				// }
 				// this.taskdata = taskArray;
 				this.taskdata = jsonData;
+				// for (let i in data) {
+				// 	let keys = Object.keys(data[i])
+				// 	for (let key of keys) {
+				// 		this.taskdata.push(data[i][key])
+				// 	}
+				// }
 			})
 			lcp.send(pkt);
 		}
@@ -116,31 +126,39 @@ module view.juese {
 		// 		}
 		// 	}
 		// }
-		public init_sort(key): void {
+		public typeArr = [[1], [2, 4], [3], [5], [6]]
+		public init_sort(id): void {
 			let keys = Object.keys(this.taskdata);
-			this['vbox_achieve'+key].removeChildren();
-			// for (let key of keys) {
+			this['vbox_achieve' + id].removeChildren();
+			let curType = this.typeArr[id]
+			for (let key of keys) {
 				let achiveArray = [];
-				let data = this.taskdata[(key+1).toString()];
+				let data = this.taskdata[(key)];
 				let keys1 = Object.keys(data)
 				let taskArray = [];
 				for (let key1 of keys1) {
-					taskArray.push(data[key1]);
+					for (let g = 0; g < curType.length; g++) {
+						if (data[key1].type.spilt('-')[0] == curType[g]) {
+							taskArray.push(data[key1]);
+						}
+					}
+
+
 				}
 				//根据成就的类型和id排序
 				let array = taskArray.sort(function (a, b) {
 					return (a.type * 100 + a.id) - (b.type * 100 + b.id)
 				});
-				if (this.stateData[(key+1).toString()]) {
+				if (this.stateData[(key)]) {
 					//根据奖励领取的状态排序
 					for (let single of array) {
-						if (this.stateData[(key+1).toString()][single.id].s == 1) {
+						if (this.stateData[(key)][single.id].s == 1) {
 							achiveArray.push(single);
 						}
-						if (this.stateData[(key+1).toString()][single.id].s == 0) {
+						if (this.stateData[(key)][single.id].s == 0) {
 							achiveArray.push(single);
 						}
-						if (this.stateData[(key+1).toString()][single.id].s == 2) {
+						if (this.stateData[(key)][single.id].s == 2) {
 							achiveArray.push(single);
 						}
 					}
@@ -148,9 +166,9 @@ module view.juese {
 				//根据同类型的成就取第一个形成数组
 				let taskFinal = this.first(achiveArray);
 				for (let part of taskFinal) {
-					this['vbox_achieve'+key].addChild(new view.compart.TaskInfoV1Item().init_taskAchieve(key+1, part, this.stateData[(key+1).toString()][part.id]));
+					this['vbox_achieve' + id].addChild(new view.compart.TaskInfoV1Item().init_taskAchieve(key, part, this.stateData[(key).toString()][part.id]));
 				}
-			// }
+			}
 		}
 		/**
 		 * 

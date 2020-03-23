@@ -2,7 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "props":{"width":522,"sceneColor":"#ffffff","height":173},
+    "selecteID":17,
+    "props":{"width":522,"sceneColor":"#ffffff","height":180},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":522,"skin":"image/task/frame_guaka_liebiao.png","sizeGrid":"30,139,48,21","height":173},
+            "props":{"width":522,"skin":"image/task/frame_guaka_liebiao.png","sizeGrid":"30,139,48,21","height":180},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -97,7 +98,7 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"y":65,"x":51,"width":322,"var":"panel_reward","height":80},
+                    "props":{"y":59,"x":52,"width":322,"var":"panel_reward","height":80},
                     "nodeParent":2,
                     "label":"Panel(panel_reward)",
                     "isOpen":true,
@@ -123,28 +124,28 @@
                 },
                 {
                     "x":30,
-                    "type":"Button",
-                    "props":{"y":105,"x":450,"width":84,"var":"btn_go","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#977213","labelSize":26,"labelFont":"fzhl","labelColors":"#764a1a,#55310b","label":"前往","height":42,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":2,
-                    "label":"Button(btn_go)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":10,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":20,"x":288,"width":220,"var":"lbl_introduce","text":"任务名称六字","height":22,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
+                    "props":{"y":148,"x":41,"width":439,"var":"lbl_introduce","text":"任务名称六字","height":22,"fontSize":22,"font":"FZHL","color":"#63491a","align":"left"},
                     "nodeParent":2,
                     "label":"Label(lbl_introduce)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":11,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":98,"x":451,"width":84,"var":"btn_go","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#977213","labelSize":26,"labelFont":"fzhl","labelColors":"#764a1a,#55310b","label":"前往","height":42,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":2,
+                    "label":"Button(btn_go)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":10,
                     "child":[
                         ],
                     "$HIDDEN":false
@@ -219,6 +220,19 @@
                     "$HIDDEN":true
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":141,"x":2,"skin":"image/common/shadow_renwuxiangqing.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":17,
+            "child":[
+                ]
         }],
     "animations":[
         {

@@ -32,7 +32,7 @@ module view.fuBen {
 		public init_bossInfo(): void {
 			//boss造型
 			let imgItem = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + this.data.monsterid);
-			this.img_icon.skin = 'image/common/npc/npc_icon_' + imgItem + '.png';
+			this.img_icon.skin = PathUtil.getNpcIconPath(imgItem);
 			//boss[1]名称
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + this.data.monsterid).split("_");
 			this.lbl_name.text = '' + name[0];

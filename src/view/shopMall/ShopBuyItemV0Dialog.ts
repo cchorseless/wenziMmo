@@ -60,7 +60,7 @@ module view.shopMall {
 					this.hsbar_count.changeHandler = Laya.Handler.create(this, (value) => {
 						if (value == this.hsbar_count.max) {
 							this.lab_isMax.visible = true;
-						}else{
+						} else {
 							this.lab_isMax.visible = false;
 						}
 						this.lbl_countDes.text = value;
@@ -72,7 +72,13 @@ module view.shopMall {
 			if (!this.box_count.visible) {
 				this.height -= this.box_count.height
 			}
+			if (this.box_danJia.visible == false) {
+				this.box_cost.y = 10;
+				this.box_Buy.height = this.box_cost.y + this.box_cost.height + 30
+			}
 			this.addEvent();
+			this.img_ALLBG.height = this.box_Buy.y + this.box_Buy.height + 30;
+			this.height = this.img_ALLBG.height;
 			return this;
 		}
 

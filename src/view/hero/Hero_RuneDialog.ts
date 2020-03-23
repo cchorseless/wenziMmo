@@ -150,7 +150,7 @@ module view.hero {
 				console.log('======>效果id', suitID)
 				//符文碎片
 				for (let j = 1; j < 9; j++) {
-					this['img_part_' + j].skin = 'image/common/daoju/itemicon_' + itemID + '.png';
+					this['img_part_' + j].skin = PathUtil.getItemIconPath(itemID);
 					itemID = itemID + 1;
 				}
 				for (let g = 1; g < 11; g++) {

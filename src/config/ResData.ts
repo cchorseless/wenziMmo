@@ -77,6 +77,8 @@ module ResData {
         public static WaiGong = [{ url: "res/atlas/image/common/wuxue.atlas", type: Laya.Loader.ATLAS },];
         // 武学 秘籍
         public static MiJi = [{ url: "res/atlas/image/common/wuxue.atlas", type: Laya.Loader.ATLAS }];
+        // 武学 杂学
+        public static ZaXue = null;
         // 武学 内功
         public static NeiGong = null;
         // 武学 合道

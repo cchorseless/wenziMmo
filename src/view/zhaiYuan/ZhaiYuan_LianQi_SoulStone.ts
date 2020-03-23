@@ -87,10 +87,10 @@ module view.zhaiYuan {
 			let costCount;
 			let arr = ["强化", "激活", "精炼", "进阶", "获取"]
 			for (let i = 0; i < 10; i++) {
-				this["ui_equip" + i].img_icon.skin = "image/common/daoju/itemicon_bg_" + (i + 10) + ".png";
+				this["ui_equip" + i].img_icon.skin = PathUtil.getItemIconBgPath(i + 10);
 				this["ui_equip" + i].lab_name.text = this.equipNameArr[i];
 			}
-			this.ui_centerIcon.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
+			this.ui_centerIcon.img_icon.skin = PathUtil.getItemIconBgPath(this.TouchID + 10);
 			this.ui_centerIcon.img_circle.visible = false;
 
 			for (let i in this.allData.openlvl) {
@@ -124,7 +124,7 @@ module view.zhaiYuan {
 				this.lab_cost_need.visible = true;
 				this.box_cost_up.visible = false;
 				// let skinID = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(this.allData.openlvl[this.TouchID].item.index + '')
-				// this.img_icon.skin = 'image/common/daoju/itemicon_' + skinID + '.png';
+				// this.img_icon.skin = PathUtil.getItemIconPath(skinID);
 				let myItemNum = GameUtil.findItemInBag(this.allData.openlvl[this.TouchID].item.index, GameApp.GameEngine.bagItemDB);
 				// this.lab_cost_Text.text = this.allData.openlvl[this.TouchID].item.num + '/' + myItemNum;
 				let itembase = new ProtoCmd.ItemBase();

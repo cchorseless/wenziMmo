@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":3,
+    "selectedBox":3,
+    "selecteID":7,
     "props":{"y":0,"width":640,"sceneColor":"#ffffff","right":0,"left":0,"height":680},
     "nodeParent":-1,
     "label":"View",
@@ -32,7 +32,7 @@
             "props":{"y":10,"x":10,"centerY":0,"centerX":0},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -41,7 +41,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":103,"x":15,"width":500,"skin":"image/main/progressbar_touqie_1.png"},
+                    "props":{"y":103,"x":15,"width":500,"skin":"image/common/Progressbar_gang_bottom.png"},
                     "nodeParent":3,
                     "label":"Image",
                     "isOpen":true,
@@ -53,7 +53,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":1,"x":0,"width":200,"var":"img_jinDu","skin":"image/main/progressbar_touqie_2.png"},
+                            "props":{"y":0,"x":0,"width":500,"var":"img_jinDu","skin":"image/common/Progress bar_gang_top.png"},
                             "nodeParent":4,
                             "label":"Image(img_jinDu)",
                             "isOpen":true,
@@ -65,7 +65,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":-56,"skin":"image/main/progressbar_touqie_3.png","right":39},
+                                    "props":{"y":-56,"visible":false,"skin":"image/main/progressbar_touqie_3.png","right":39},
                                     "nodeParent":5,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -74,7 +74,7 @@
                                     "compId":6,
                                     "child":[
                                         ],
-                                    "$HIDDEN":false
+                                    "$HIDDEN":true
                                 }],
                             "$HIDDEN":false
                         }],
@@ -83,7 +83,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":12,"width":500,"var":"lbl_title","text":"偷窃中……","strokeColor":"#000000","stroke":6,"height":45,"fontSize":45,"font":"FZXK","color":"#ffffff","centerX":0,"align":"center"},
+                    "props":{"y":73,"width":500,"var":"lbl_title","text":"偷窃中……","strokeColor":"#000000","stroke":3,"height":45,"fontSize":45,"font":"FZXK","color":"#98f893","centerX":4,"align":"center"},
                     "nodeParent":3,
                     "label":"Label(lbl_title)",
                     "isDirectory":false,

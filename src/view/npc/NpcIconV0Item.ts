@@ -12,7 +12,7 @@ module view.npc {
 			this.lbl_lvl.text = 'LV.' + bossdata.level;
 			let bossid = bossdata.feature.dwCretTypeId;
 			//怪物头像
-			this.img_player.skin = 'image/common/npc/npc_icon_' + SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + bossid) + '.png';
+			this.img_player.skin = PathUtil.getNpcIconPath(SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + bossid));
 			//怪物名称
 			this.lbl_name.text = bossdata.objName;
 			return this;

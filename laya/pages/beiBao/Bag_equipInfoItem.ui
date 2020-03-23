@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":52,
-    "selecteID":51,
+    "selectedBox":60,
+    "selecteID":64,
     "props":{"width":490,"sceneColor":"#d7a3a2","height":450},
     "nodeParent":-1,
     "label":"View",
@@ -196,20 +196,6 @@
                             "child":[
                                 ],
                             "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":13,"x":21,"skin":"image/juese/font_zhanli.png"},
-                            "nodeParent":52,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":22,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 }]
@@ -257,9 +243,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":35,"x":100,"width":62,"text":"(1/10)","italic":false,"height":21,"fontSize":20,"font":"FZXK","color":"#51473D"},
+                    "props":{"y":35,"x":100,"width":62,"var":"lab_Level","text":"(1/8)","italic":false,"height":21,"fontSize":20,"font":"FZXK","color":"#51473D"},
                     "nodeParent":60,
-                    "label":"Label",
+                    "label":"Label(lab_Level)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,

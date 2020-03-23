@@ -97,7 +97,7 @@ module view.npc {
 			let configId = this.item.feature.dwCretTypeId;
 			let pathID = SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER('' + configId)
 			if (pathID > 0) {
-				this.img_avatarPic.skin = 'image/common/npc/npc_icon_' + pathID + '.png';
+				this.img_avatarPic.skin = PathUtil.getNpcIconPath(pathID);
 				this.img_bg.skin = "image/common/frame_npc.png"
 			} else {
 				this.img_bg.skin = "image/common/frame_npc.png"
@@ -109,7 +109,7 @@ module view.npc {
 		public newServer_AllBoss(id): NpcIconItem {
 			//boss头像
 			let img_allBoss = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + id);
-			this.img_avatarPic.skin = 'image/common/npc/npc_icon_' + img_allBoss + '.png';
+			this.img_avatarPic.skin = PathUtil.getNpcIconPath(img_allBoss);
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + id);
 			this.lbl_npcName.text = '' + name;
 			return this;

@@ -23,7 +23,7 @@ module view.fuBen {
 			}
 			//boss头像
 			let icon = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + item.data.monid)
-			this.img_boss.skin = 'image/common/npc/npc_icon_' + icon + '.png';
+			this.img_boss.skin = PathUtil.getNpcIconPath(icon);
 			//初始化发光
 			if (index == 0) {
 				this.btn_boss.selected = this.img_light.visible = true;

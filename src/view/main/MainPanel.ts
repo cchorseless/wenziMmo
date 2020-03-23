@@ -38,7 +38,7 @@ module view.main {
 					this.box_top.visible = false;
 					this.box_mainBottom.visible = true;
 					this.box_menu.visible = true;
-
+					
 					break;
 				// 探索界面
 				case 1:

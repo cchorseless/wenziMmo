@@ -20,14 +20,14 @@ module view.npc {
 			if (type == 0) {
 				//采集物頭像图
 				let head = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + data.feature.dwCretTypeId);
-				this.img_tu.skin = 'image/common/npc/npc_icon_' + head + '.png';
+				this.img_tu.skin = PathUtil.getNpcIconPath(head);
 
 			} else if (type == 1) {
 				this.img_battle.visible = true;
 				this.lbl_battle.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT('' + data.feature.dwCretTypeId)
 				//造型图
 				let half = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + data.feature.dwCretTypeId);
-				this.img_tu.skin = 'image/common/npc/npc_half_' + half + '.png';
+				this.img_tu.skin = PathUtil.getNpcHalfPath(half);
 			}
 			switch (type) {
 				//0采集物1怪物2无好感NPC（功能NPC）
@@ -53,7 +53,7 @@ module view.npc {
 					this.lbl_name.text = SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME('' + npcInfo.feature.dwCretTypeId);
 					//造型图
 					let half = SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER('' + data.feature.dwCretTypeId);
-					this.img_tu.skin = 'image/common/npc/npc_half_' + half + '.png';
+					this.img_tu.skin = PathUtil.getNpcHalfPath(half);
 					this.init_npcTalk();
 					break;
 			}

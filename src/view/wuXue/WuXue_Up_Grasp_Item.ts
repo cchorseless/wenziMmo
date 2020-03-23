@@ -60,9 +60,9 @@ module view.wuXue {
 				let costItemNum = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLS_QUALITY_NUMBER(configID);
 				let hasNum = GameUtil.findItemInBag(costItemID, GameApp.GameEngine.bagItemDB);
 				let itemname = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(costItemID);
-				this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(costItemID) + '.png';
+				this.img_bg.skin = PathUtil.getItemQualityFramePath(SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(costItemID));
 				let icon = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(costItemID);
-				this.img_icon.skin = 'image/common/daoju/itemicon_' + icon + '.png';
+				this.img_icon.skin = PathUtil.getItemIconPath(icon);
 				this.lab_cookieName.text = itemname;
 				this.html_cookie_Num.style.fontFamily = 'STKaiti';
 				this.html_cookie_Num.style.fontSize = 20;

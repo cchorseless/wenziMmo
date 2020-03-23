@@ -22,7 +22,7 @@ module view.compart {
 
 		public setData(i): void {
 			this.img_bg.visible = true;
-			this.img_bg.skin = 'image/common/daoju/itemicon_bg_' + (i + 10) + '.png';
+			this.img_bg.skin = PathUtil.getItemIconBgPath(i + 10);
 			if (GameApp.GameEngine.mainPlayer.playerEquipIntensify.playerjson[i] == 0) {
 				this.lbl_stronger.text = '';
 				this.img_stronger.visible = false;

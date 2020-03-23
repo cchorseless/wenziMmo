@@ -6,10 +6,9 @@ module view.wuXue {
 		}
 		public setData(id, skillConfigID) {
 			let icon = SheetConfig.mydb_magicbuff_tbl.getInstance(null).BUFFSMALLICON(id);
-			// "image/common/iconbuff/buff_2005.png"
-			this.img_BuffIcon.skin ='image/common/iconbuff/buff_'+icon+'.png';
+			this.img_BuffIcon.skin =PathUtil.getIconBuffPath(icon);
 			let quality = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLQUALITY(skillConfigID);
-			this.img_bg.skin = 'image/common/fight/frane_jineng_' + quality + '.png'
+			this.img_bg.skin = PathUtil.getSkillIconFramePath(quality);
 			
 
 

@@ -26,6 +26,10 @@ module view.friend {
 			this.img_head.skin = LangConfig.getPlayerIconSkin(item.sex, item.job);
 			//门派名称
 			this.lbl_Sects.text = item.guildName;
+			// let icon = SheetConfig.BaseMenPaiSheet.getInstance(null).ICON(menpaiID);
+			// this.img_menpai.skin = 'image/fuben/icon_' + icon + '.png'
+			this.img_menpai.visible = false;
+			this.lab_roomName.text = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME(item.mapname);
 			if (item.state == 0) {
 				this.box_friend.gray = true;
 			} else {

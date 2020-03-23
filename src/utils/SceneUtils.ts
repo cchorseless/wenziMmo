@@ -151,6 +151,7 @@ class SceneManager extends SingletonClass {
                 // view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
                 this.ui_smallMap.updateUI();
                 this.ui_scene.changeMode(0);
+                GameApp.LListener.event(view.main.Main_BattleExit_Dialog.CloseConfirm)
                 GameApp.LListener.event(view.scene.PlayerInSceneItem.ARGUE, '0');
                 break;
             // NPC辩论
