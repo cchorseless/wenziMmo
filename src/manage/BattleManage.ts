@@ -18,9 +18,9 @@ module BattletManage {
         let ani = new Laya.Animation();
         ani.pos(atkPoint.x, atkPoint.y)
         PanelManage.effectLayer.addChild(ani);
-        let aniPath = 'aniModel/PT_ANI.ani';
+        let aniPath = 'frameAni/PT_ANI.ani';
         if (nMagicId == 999) {
-            aniPath = 'aniModel/PT_ANI.ani';
+            aniPath = 'frameAni/PT_ANI.ani';
         }
         else {
             let skillConfigID = nMagicId * 100 + 1;
@@ -28,19 +28,19 @@ module BattletManage {
             switch (skillType) {
                 // 拳脚
                 case 0:
-                    aniPath = 'aniModel/QJ_ANI.ani';
+                    aniPath = 'frameAni/QJ_ANI.ani';
                     break
                 // 刀剑
                 case 1:
-                    aniPath = 'aniModel/DJ_ANI.ani';
+                    aniPath = 'frameAni/DJ_ANI.ani';
                     break
                 // 长枪
                 case 2:
-                    aniPath = 'aniModel/CQ_ANI.ani';
+                    aniPath = 'frameAni/CQ_ANI.ani';
                     break
                 // 奇门
                 case 3:
-                    aniPath = 'aniModel/QM_ANI.ani';
+                    aniPath = 'frameAni/QM_ANI.ani';
                     break
             }
         }
@@ -89,6 +89,7 @@ module BattletManage {
      * @param type 类型
      */
     export function showDamageEffect(dwTargeterUI, num, type) {
+        let posPoint = dwTargeterUI.localToGlobal(new Laya.Point(0, 0));
         let fc_Num = new Laya.FontClip();
         fc_Num.sheet = '0123456789';
         fc_Num.skin = 'image/common/number/shuzi_putong.png';
@@ -105,6 +106,8 @@ module BattletManage {
                 break;
         }
         fc_Num.value = num + '';
+        fc_Num.pos(posPoint.x - dwTargeterUI.width / 2, posPoint.y);
+        PanelManage.effectLayer.addChild(fc_Num);
         Laya.Tween.to(fc_Num, { alpha: 0.8 }, 500, null, Laya.Handler.create(this, () => {
             fc_Num.removeSelf();
         }));

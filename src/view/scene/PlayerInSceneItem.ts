@@ -118,26 +118,6 @@ module view.scene {
 		public changeHeartNum(num) {
 			this.lab_Argue.text = '心理值:' + num;
 		}
-		/**
-		 * 伤害数字
-		 * @param num 
-		 * @param type 
-		 */
-		public showPower(num, type) {
-			this.fc_Num.alpha = 1;
-			this.fc_Num.visible = true;
-			this.fc_Num.value = num + '';
-			// this.fc_Num.skin = 'image/common/number/shuzi_baoji.png';
-			if (type == 4) {
-				this.fc_Num.skin = 'image/common/number/shuzi_huixin.png';
-			} else if (type == 0) {
-				this.fc_Num.skin = 'image/common/number/shuzi_putong.png';
-			} else {
-				this.fc_Num.skin = 'image/common/number/shuzi_baoji.png';
-			}
-			Laya.Tween.to(this.fc_Num, { alpha: 0.8 }, 500, null, Laya.Handler.create(this, () => {
-				this.fc_Num.visible = false;
-			}));
-		}
+
 	}
 }
