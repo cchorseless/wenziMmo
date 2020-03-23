@@ -101,6 +101,9 @@ module PopUpManager {
                 panel.alpha = 1;
                 break;
         }
+        if(GameApp.GameEngine.IsDebug){
+            Log.trace("openPanel------" + panel.name);
+        }
     }
 
 

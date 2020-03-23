@@ -30,6 +30,9 @@ module DialogManage {
                     }
                 }
                 (dialogs[cls.name] as Dialog).popup(false,showEffect);
+                if(GameApp.GameEngine.IsDebug){
+                    Log.trace("openDialog------"+cls.name);
+                }
                 if(!resCount[cls.name]){
                     resCount[cls.name] = 0;
                 }
