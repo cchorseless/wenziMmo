@@ -9,7 +9,7 @@ module view.juese {
 		}
 		public setData(data) {
 			for (let i in data) {
-				let baseData = SheetConfig.zhuanban_Dress.getInstance(null).GETDATABYID(data[i].id + '')
+				let baseData = GameConfigFunc.GETDATABYID(data[i].id + '')
 				let o = new Person_Dress_VS_FashionDress_info()
 				let p = parseInt(i) - 1;
 				let status = data[i].status;

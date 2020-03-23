@@ -40,16 +40,5 @@ public static getInstance(data): Thread_sweep_tbl { let Class:any=this;if(!Class
  *  关卡关数
  */
  public NUMBER_CHECKPOINTS(configID):string { return this.data[configID][9]}
- /**
-  * 获取篇章扫荡信息
-  */
- public GetPZMsg(pzid){
-     let baseData = [];
-     for(let i in this.data){
-         if(this.data[i][1] == pzid){
-             baseData.push(this.data[i])
-         }
-     }
-     return baseData;
- }
+ 
 }}

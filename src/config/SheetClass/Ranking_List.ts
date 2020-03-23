@@ -16,17 +16,5 @@ public static getInstance(data): Ranking_List { let Class:any=this;if(!Class._in
  *  奖励1数量
  */
  public REWARDNUM(configID:string):string { return this.data[configID][3]}
- /**
-  * 全部数据
-  */
-  public GETALLDATA(type:number):any{
-      let allData=[];
-      for(let single in this.data){
-          let data=this.data[single];
-          if(type==data[0]){
-              allData.push(data);
-          }
-      }
-      return allData;
-  }
+
 }}

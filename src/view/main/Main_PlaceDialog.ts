@@ -26,7 +26,7 @@ module view.main {
 			});
 			//传送
 			EventManage.onWithEffect(this.btn_chuansong, Laya.UIEvent.CLICK, this, () => {
-				let roomid = SheetConfig.mapRoomSheet.getInstance(null).GETBEGINROOMIDBYMAPID(this.mapid);
+				let roomid = GameConfigFunc.GETBEGINROOMIDBYMAPID(this.mapid);
 				if (this.mapid == GameApp.MainPlayer.location.mapid) {
 					TipsManage.showTips('已在该地点')
 				} else {

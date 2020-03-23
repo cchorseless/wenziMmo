@@ -18,7 +18,7 @@ module view.zhiNan {
 			});
 		}
 		public setData() {
-			this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(2);
+			this.data = GameConfigFunc.GETDATALIST(2);
 			this.list_menpai.vScrollBarSkin = "";
 			this.list_menpai.itemRender = view.zhiNan.ZhiNan_listmenpaiItem;
 			this.list_menpai.array = this.data;

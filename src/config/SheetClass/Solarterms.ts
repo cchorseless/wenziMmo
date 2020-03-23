@@ -18,15 +18,6 @@ module SheetConfig {
          *  具体介绍
          */
         public INTRODUCE(configID: string): string { return this.data[configID][3] }
-        public GETDATALIST(type: number): any {
-            let time = [];
-            for (let i in this.data) {
-                if (this.data[i][1] == type) {
-                    let info = this.data[i]
-                    time.push(info)
-                }
-            }
-            return time;
-        }
+
     }
 }

@@ -22,23 +22,6 @@ module SheetConfig {
          *  升级所需要的金币
          */
         public NEED_GOLD(configID): number { return this.data[configID][4] }
-        /**
-          * 根据分类和等级找到对应材料数据
-          */
-        public GETDATABYTYPEANDLVL(type: number, lvl: number) {
-            let final;
-            let lvlArray = [];
-            for (let index in this.data) {
-                if (this.data[index][1] == lvl) {
-                    lvlArray.push(this.data[index]);
-                }
-            }
-            for (let part of lvlArray) {
-                if (part[2] == type) {
-                    final = part;
-                }
-            }
-            return final;
-        }
+
     }
 }

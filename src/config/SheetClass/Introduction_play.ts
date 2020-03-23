@@ -50,19 +50,6 @@ module SheetConfig {
          *  养成途径
          */
         public GROWUPDES(configID): string { return this.data[configID][11] }
-        /**
-             * 全部数据
-             */
-        public GETDATALIST(typeKey): any {
-            this.data;
-            let tempDate = [];
-            for (let i in this.data) {
-                if (this.data[i][1] == typeKey) {
-                    let base = this.data[i]
-                    tempDate.push(base)
-                }
-            }
-            return tempDate;
-        }
+
     }
 }

@@ -21,7 +21,7 @@ module view.zhiNan {
 
 		}
 		public setData(): void {
-			this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(1);
+			this.data = GameConfigFunc.GETDATALIST(1);
 			this.list_wanfa.vScrollBarSkin = "";
 			this.list_wanfa.itemRender = view.zhiNan.ZhiNan_listwanfaItem;
 			this.list_wanfa.array = this.data;

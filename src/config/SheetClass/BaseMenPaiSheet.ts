@@ -83,18 +83,6 @@ module SheetConfig {
          *  开放的轮次
          */
         public OPEN_ROUND(configID): number { return this.data[configID][18] }
-        /**
-        *  根据门派名字获取门派ID
-        */
-        public GetIDByName(configName: string): number {
-            let id = -1;
-            for (let i in this.data) {
-                if (this.data[i][1] == configName) {
-                    id = parseInt(i);
-                }
-            }
-            return id;
 
-        }
     }
 }

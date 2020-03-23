@@ -50,13 +50,13 @@ module view.dialog {
 					this.btn_60lv.selected = false;
 					this.btn_70lv.selected = true;
 				}
-				this.data = SheetConfig.Synthesis.getInstance(null).BLvEquipAlldata(type + 1, this.lvTabID, null)
+				this.data = GameConfigFunc.BLvEquipAlldata(type + 1, this.lvTabID, null)
 			} else if (this.curType == 1) {
-				this.data = SheetConfig.Synthesis.getInstance(null).BLvEquipAlldata(type + 1, this.godTabID + 3, this.godTouchID + 1)
+				this.data = GameConfigFunc.BLvEquipAlldata(type + 1, this.godTabID + 3, this.godTouchID + 1)
 				this.godEquipBtnState()
 			}
 			else if (type == 2) {
-				this.data = SheetConfig.Synthesis.getInstance(null).BLvEquipAlldata(type + 1, this.fireTabID + 6, null)
+				this.data = GameConfigFunc.BLvEquipAlldata(type + 1, this.fireTabID + 6, null)
 				this.changeBtnState();
 			}
 
@@ -249,8 +249,8 @@ module view.dialog {
 				effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID(data[3].toString())
 				effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID(data[4].toString())
 			}
-			let effData0 = GameUtil.parseEffectidToObj([''+effid0]);
-			let effData1 = GameUtil.parseEffectidToObj([''+effid1]);
+			let effData0 = GameUtil.parseEffectidToObj(['' + effid0]);
+			let effData1 = GameUtil.parseEffectidToObj(['' + effid1]);
 			this.vbox_equip0.removeChildren();
 			this.vbox_equip1.removeChildren();
 			for (let i = 0; i < effData0.des.length; i++) {

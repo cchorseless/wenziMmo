@@ -21,7 +21,7 @@ module view.wuXue {
 			let skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configID);
 			this.skillID = skillID;
 			//当前品质下有几个阶段
-			let curLvNum = SheetConfig.mydb_magic_tbl.getInstance(null).getNumOfSkillID(skillID);
+			let curLvNum = GameConfigFunc.getNumOfSkillID(skillID);
 			//阶数
 			let stage = SheetConfig.mydb_magic_tbl.getInstance(null).LEVEL(configID)
 			//战力

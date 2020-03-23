@@ -24,19 +24,5 @@ public static getInstance(data): reputation { let Class:any=this;if(!Class._inst
  *  当前可加入的门派
  */
  public ACCESSTOMENPAI(configID):any { return this.data[configID][5]}
- /**
-  * 根据名誉值获取对应名字
-  */
-  public getNameByNum(num:number):string{
-      let str = '';
-      for(let i in this.data){
-          let min = this.data[i][3];
-          let max = this.data[i][4];
-          if(num >= min &&num<max){
-              str = this.data[i][2];
-              return str;
-          }
-      }
-    //   return str;
-  }
+
 }}

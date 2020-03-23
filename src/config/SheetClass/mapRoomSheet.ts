@@ -82,22 +82,7 @@ module SheetConfig {
          *  进入房间的描述
          */
         public ROOMDES(configID): string { return this.data[configID][19] }
-        /**
-                    *  通过地图id得到该地图的开始房间id
-                    */
-        public GETBEGINROOMIDBYMAPID(mapid = GameApp.MainPlayer.location.mapid): number {
-            let roomid;
-            for (let room in this.data) {
-                if (this.data[room][2] == mapid) {
-                    if (!roomid) {
-                        roomid = room;
-                    } else if (room < roomid) {
-                        roomid = room;
-                    }
-                }
-            }
-            return roomid;
-        }
+
 
     }
 }

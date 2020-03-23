@@ -95,7 +95,7 @@ module view.juese {
 			for (let part in attribute.des) {
 				this.vbox_shuxing.addChild(new view.compart.SinglePropsItem().setData(attribute.des[part], nextDes[part]))
 			}
-			let info = SheetConfig.sifa_consume.getInstance(null).GETDATABYTYPEANDLVL(index, BaseData.dwLevel);
+			let info = GameConfigFunc.GETDATABYTYPEANDLVL(index, BaseData.dwLevel);
 			let cailiao = info[3].split('`');
 			let cailiaoInfo = new ProtoCmd.ItemBase();
 			cailiaoInfo.dwBaseID = cailiao[0];
