@@ -118,7 +118,7 @@ module ProtoCmd {
             this.addProperty('dwTmpId', PacketBase.TYPE_INT);//受击ID
             this.addProperty('dwAcTmpID', PacketBase.TYPE_INT);//攻击者ID
             this.addProperty('npower', PacketBase.TYPE_INT);//掉了多少血
-            this.addProperty('nDamageType', PacketBase.TYPE_INT);//1：暴击，2：MISS，3：抵挡，4：龙魂暴击
+            this.addProperty('nDamageType', PacketBase.TYPE_INT);//1：暴击，2：MISS 0伤害，3：抵挡 1点伤害，4：暴击
             this.addProperty('nHp', PacketBase.TYPE_INT);//当前血量
             this.addProperty('nMaxHp', PacketBase.TYPE_INT);//最大血量
             this.addProperty('wdMagicID', PacketBase.TYPE_INT);//技能ID
@@ -139,7 +139,7 @@ module ProtoCmd {
             this.addProperty('btDir', PacketBase.TYPE_BYTE);
             this.addProperty('nX', PacketBase.TYPE_INT);
             this.addProperty('nY', PacketBase.TYPE_INT);
-            this.addProperty('nMagicId', PacketBase.TYPE_INT);
+            this.addProperty('nMagicId', PacketBase.TYPE_INT);//
             this.addProperty('dwActionTick', PacketBase.TYPE_INT);//花费时间
             this.read(data);
         }

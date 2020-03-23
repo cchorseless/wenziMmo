@@ -37,11 +37,14 @@ class GameMain {
         // 界面层
         let euiLayer = this.createPanel();
         Laya.stage.addChild(euiLayer);
+        // 特效层
+        let effectLayer = this.createPanel();
+        Laya.stage.addChild(effectLayer);
         // tips层
         let tipsLayer = this.createPanel();
         Laya.stage.addChild(tipsLayer);
-
         PanelManage.euiLayer = euiLayer;
+        PanelManage.effectLayer = effectLayer;
         PanelManage.tipsLayer = tipsLayer;
         PanelManage.tipsLayer.mouseThrough = false;
     }

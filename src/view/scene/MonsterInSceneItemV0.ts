@@ -19,8 +19,6 @@ module view.scene {
 			}else{
 				this.img_Argue.visible = false;
 			}
-
-
 			if (name.length > 4) {
 				this.lbl_name.fontSize = 15
 			} else {
@@ -39,7 +37,6 @@ module view.scene {
 			this.img_icon.skin = PathUtil.getNpcIconPath(skePath);
 			GameApp.MainPlayer.fubenMonsterPower += SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT(configID)
 			this.addEvent();
-
 			this.updateUI();
 		}
 		public collectHander: Laya.Handler;// 采集物Hander
@@ -59,7 +56,7 @@ module view.scene {
 				} else if (this.place == 1) {
 					//攻击
 					// player["startHandAtk" + job](this.item);
-					player.startHandAtk0(this.item);
+					// player.startHandAtk(this.item);
 				} else if (this.place == 2) {
 					// new view.npc.Main_TanSuoV1Dialog().setData(this.item).popup();
 				}
@@ -83,6 +80,8 @@ module view.scene {
 					break;
 			}
 		}
+
+		
 		public updateUI(): void {
 			this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
 		}

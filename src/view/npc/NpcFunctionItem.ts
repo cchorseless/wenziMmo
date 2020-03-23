@@ -8,7 +8,7 @@ module view.npc {
         * 
         * @param data 功能NPC
         */
-		public item: GameObject.Monster;
+		public item: GameObject.Npc;
 		public setData(data: GameObject.Npc): void {
 			this.item = data;
 			this.img_icon.skin = 'image/common/img_danLu.png';
@@ -20,6 +20,11 @@ module view.npc {
 				//無好感度NPC（功能NPC）弹窗
 				new view.npc.Main_TanSuoV0Dialog().setData(this.item, 2).popup();
 			})
+		}
+
+
+		public startAttack(skillid){
+
 		}
 	}
 }

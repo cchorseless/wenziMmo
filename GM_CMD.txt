@@ -3,7 +3,7 @@ GM CMD
 @shutdown time=停机时间 || after=多长时间后停机 dis=描述 		//停机
 !@shutdown time="2014-06-07 11:00:00" dis=""临时维护""
 @wd			//无敌
-@ms			//秒杀
+@ms	rate=1		//秒杀
 @dolua		//刷新脚本
 @makeitem baseid=物品ID || name=物品名字 count=数量
 @gold name=角色名 || gold=数量 || type=0金币 1积分 2元宝 3礼金 4绑定金币

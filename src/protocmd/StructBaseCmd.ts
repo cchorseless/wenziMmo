@@ -3434,9 +3434,6 @@ module ProtoCmd {
          * 技能配置表ID
          */
         public get configID(): string {
-            // if(this.subLevel == 0){
-            //     this.subLevel = 1;
-            // }
             return '' + (this.skillid * 100 + this.level)
         }
 

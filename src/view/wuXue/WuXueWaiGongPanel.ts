@@ -11,15 +11,6 @@ module view.wuXue {
 		public listData2;
 		public setData(): void {
 			this.btn_waigong.selected = true;
-			let tab = 0;
-			// key=400是默认武学套路的标记
-			let key = 400;
-			if (GameApp.MainPlayer.skillShotButton[key]) {
-				tab = GameApp.MainPlayer.skillShotButton[key].i64Id.int64ToNumber();
-			} else {
-				tab = 0;
-			}
-			GameApp.MainPlayer.defaultTaoLuID = tab;
 			this.initTab();
 			this.addEvent();
 			for (let i = 0; i < 4; i++) {
@@ -27,6 +18,7 @@ module view.wuXue {
 				box.top = box.bottom = box.right = box.left = 0;
 				this.VS_show.addItem(box);
 			}
+			let tab = GameApp.MainPlayer.defaultTaoLuID
 			this.VS_show.selectedIndex = this.tab_wuxue.selectedIndex = tab;
 			// GameApp.MainPlayer.taoluPageID = this.tab_wuxue.selectedIndex;
 			this.setInitView(tab)
@@ -62,7 +54,6 @@ module view.wuXue {
 			} else {
 				tabStr.push('奇门套路\nlv.0')
 			}
-			// tabStr += '拳脚套路\nlv.' + data1.dwLevel + ',' + '刀剑套路\nlv.' + data2.dwLevel + ',' + '长兵套路\nlv.' + data3.dwLevel + '奇门套路\nlv.' + data4.dwLevel;
 			let str = tabStr.join(",");
 			this.tab_wuxue.labels = str;
 		}
@@ -116,9 +107,7 @@ module view.wuXue {
 			});
 			// 排序
 			// this.btn_skill_sort.on(Laya.UIEvent.CLICK, this, () => {
-
 			// });
-
 		}
 
 		public initUI(): void {

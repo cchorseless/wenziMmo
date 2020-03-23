@@ -42,6 +42,7 @@ module ProtoCmd {
         }
     }
 
+
     // 0x0299
     // 服务器推送改变技能状态
     export class AvatarSkillAddDecoderRet extends Packet {

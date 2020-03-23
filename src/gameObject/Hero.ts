@@ -9,7 +9,7 @@ module GameObject {
 		public static zslevel = 0;
 		public static level = 0;
 		public feature: ProtoCmd.AnimalFeature;
-		public ui_item: view.scene.HeroInSceneItem;
+		public ui_item;
 		constructor() {
 			super();
 			this.feature = new ProtoCmd.AnimalFeature();

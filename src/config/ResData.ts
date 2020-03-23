@@ -40,6 +40,7 @@ module ResData {
         { url: "res/atlas/image/common/skill.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/skillName.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/common/skillTween.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/map/smallMap.atlas", type: Laya.Loader.ATLAS },
         { url: "music/bg.mp3", type: Laya.Loader.SOUND },
         { url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS },
@@ -58,6 +59,7 @@ module ResData {
         { url: "res/atlas/image/map/northland.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/create.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/juese/jingmai.atlas", type: Laya.Loader.ATLAS },
+
         { url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }
         ];
         // 主界面 主界面资源通过同步加载
@@ -199,6 +201,7 @@ module ResData {
         public static Promotion = [{ url: "res/atlas/image/promotion.atlas", type: Laya.Loader.ATLAS }];
 
     };
+
     /**
      * 游戏Dialog资源(一个功能模块一个文件夹,在DialogRes类中可能多个对应FileRes.Res中的一个)
      */
@@ -238,6 +241,7 @@ module ResData {
         // public static boom = 'sound/boom.mp3';
 
     }
+
     /**
      * 游戏配置表资源
      */
@@ -328,15 +332,16 @@ module ResData {
             { url: 'json/NPC_specialtalkInfoSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.NPC_specialtalkInfoSheet },
             //名誉
             { url: 'json/reputation.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.reputation },
-             //npc出售
+            //npc出售
             { url: 'json/mydb_npcsell_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_npcsell_tbl },
             //装备品质概率
-             { url: 'json/Equipment_probability.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Equipment_probability }
-            
+            { url: 'json/Equipment_probability.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Equipment_probability }
+
 
 
         ];
     }
+
 
     /**
      * 游戏字体文件
@@ -351,4 +356,168 @@ module ResData {
     }
 
 
+    /**
+     * 缓动动画资源
+     */
+    export class AnimationRes {
+
+        public static numToString(num) {
+            if (num < 10) {
+                return '0' + num
+            }
+            return '' + num
+        }
+        public static getAniImageList(data): Array<string> {
+            let result = [];
+            for (let i = data.start; i <= data.end; i++) {
+                result.push(data.res + i + '.png')
+            }
+            return result
+        }
+
+        /**
+         * 获取技能资源
+         * @param skillid 
+         * @param skillLevel 
+         * @param effectType 
+         */
+        public static getSkillImgInfo(skillid, skillLevel, effectType): any {
+            let dataInfo = effectType;
+            let skillConfigID = skillid * 100 + skillLevel;
+            let imgInfo;
+            let aniModelName;
+            let skillType;
+            switch (effectType) {
+                // 攻击
+                case 0:
+                    imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.PT_ATK);
+                    aniModelName = ResData.AnimationRes.allAniRes.PT_ATK.name;
+                    // 普工
+                    if (skillid == 999) {
+                        return [imgInfo, aniModelName];
+                    }
+                    // 技能类型
+                    skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(skillConfigID);
+                    switch (skillType) {
+                        // 拳脚
+                        case 0:
+                            imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.QJ_ATK);
+                            aniModelName = ResData.AnimationRes.allAniRes.QJ_ATK.name
+                            break
+                        // 刀剑
+                        case 1:
+                            imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.DJ_ATK);
+                            aniModelName = ResData.AnimationRes.allAniRes.DJ_ATK.name
+                            break
+                        // 长枪
+                        case 2:
+                            imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.CQ_ATK);
+                            aniModelName = ResData.AnimationRes.allAniRes.CQ_ATK.name
+                            break
+                        // 奇门
+                        case 3:
+                            imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.QM_ATK);
+                            aniModelName = ResData.AnimationRes.allAniRes.QM_ATK.name
+                            break
+                    }
+                    break;
+                // 飞行
+                case 1:
+                    imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.PT_FLY);
+                    aniModelName = ResData.AnimationRes.allAniRes.PT_FLY.name;
+                    // 普工
+                    if (skillid == 999) {
+                        return [imgInfo, aniModelName];
+                    }
+                    // 技能类型
+                    skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(skillConfigID);
+                    switch (skillType) {
+                        // 拳脚
+                        case 0:
+                            imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.QJ_FLY);
+                            aniModelName = ResData.AnimationRes.allAniRes.QJ_FLY.name
+                            break
+                        // 刀剑
+                        case 1:
+                            imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.DJ_FLY);
+                            aniModelName = ResData.AnimationRes.allAniRes.DJ_FLY.name
+                            break
+                        // 长枪
+                        case 2:
+                            imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.CQ_FLY);
+                            aniModelName = ResData.AnimationRes.allAniRes.CQ_FLY.name
+                            break
+                        // 奇门
+                        case 3:
+                            imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.QM_FLY);
+                            aniModelName = ResData.AnimationRes.allAniRes.QM_FLY.name
+                            break
+                    }
+                    break
+                // 爆炸
+                case 2:
+                    imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.PT_BOOM);
+                    aniModelName = ResData.AnimationRes.allAniRes.PT_BOOM.name;
+                    // 普工
+                    if (skillid == 999) {
+                        return [imgInfo, aniModelName];
+                    }
+                    // 技能类型
+                    skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(skillConfigID);
+                    switch (skillType) {
+                        // 拳脚
+                        case 0:
+                            imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.QJ_BOOM);
+                            aniModelName = ResData.AnimationRes.allAniRes.QJ_BOOM.name
+                            break
+                        // 刀剑
+                        case 1:
+                            imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.DJ_BOOM);
+                            aniModelName = ResData.AnimationRes.allAniRes.DJ_BOOM.name
+                            break
+                        // 长枪
+                        case 2:
+                            imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.CQ_BOOM);
+                            aniModelName = ResData.AnimationRes.allAniRes.CQ_BOOM.name
+                            break
+                        // 奇门
+                        case 3:
+                            imgInfo = ResData.AnimationRes.getAniImageList(ResData.AnimationRes.allAniRes.QM_BOOM);
+                            aniModelName = ResData.AnimationRes.allAniRes.QM_BOOM.name
+                            break
+                    }
+                    break
+
+            }
+
+            return [imgInfo, aniModelName]
+        }
+
+
+
+        public static allAniRes = {
+            // 回血
+            huiXue: { name: 'huiXue', start: 1, end: 11, res: 'image/common/skillTween/CL_sj_0', },
+            // 普通攻击
+            PT_FLY: { name: 'PT_FLY', start: 1, end: 1, res: 'image/common/skillTween/PT_dd_00', },
+            PT_ATK: { name: 'PT_ATK', start: 1, end: 6, res: 'image/common/skillTween/PT_sf_00', },
+            PT_BOOM: { name: 'PT_BOOM', start: 1, end: 4, res: 'image/common/skillTween/PT_sj_00', },
+            // 拳脚
+            QJ_FLY: { name: 'QJ_FLY', start: 1, end: 1, res: 'image/common/skillTween/QJ_dd_00', },
+            QJ_ATK: { name: 'QJ_ATK', start: 1, end: 7, res: 'image/common/skillTween/QJ_sf_00', },
+            QJ_BOOM: { name: 'QJ_BOOM', start: 1, end: 6, res: 'image/common/skillTween/QJ_sj_00', },
+            // 刀剑
+            DJ_FLY: { name: 'DJ_FLY', start: 1, end: 1, res: 'image/common/skillTween/DJ_dd_00', },
+            DJ_ATK: { name: 'DJ_ATK', start: 1, end: 7, res: 'image/common/skillTween/DJ_sf_00', },
+            DJ_BOOM: { name: 'DJ_BOOM', start: 1, end: 6, res: 'image/common/skillTween/DJ_sj_00', },
+            // 长枪
+            CQ_FLY: { name: 'CQ_FLY', start: 1, end: 1, res: 'image/common/skillTween/CQ_dd_00', },
+            CQ_ATK: { name: 'CQ_ATK', start: 1, end: 7, res: 'image/common/skillTween/CQ_sf_00', },
+            CQ_BOOM: { name: 'CQ_BOOM', start: 1, end: 6, res: 'image/common/skillTween/CQ_sj_00', },
+            // 奇门
+            QM_FLY: { name: 'QM_FLY', start: 1, end: 1, res: 'image/common/skillTween/QM_dd_00', },
+            QM_ATK: { name: 'QM_ATK', start: 1, end: 7, res: 'image/common/skillTween/QM_sf_00', },
+            QM_BOOM: { name: 'QM_BOOM', start: 1, end: 6, res: 'image/common/skillTween/QM_sj_00', },
+        }
+    }
 }

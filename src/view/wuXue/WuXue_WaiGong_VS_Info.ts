@@ -17,11 +17,6 @@ module view.wuXue {
 		}
 
 		public setData(skillType) {
-			if (skillType == GameApp.MainPlayer.defaultTaoLuID) {
-				this.btn_setTaolu.label = '默认出战套路'
-			} else {
-				this.btn_setTaolu.label = '设置出战套路'
-			}
 			let textArr = ['拳脚', '刀剑', '长兵', '奇门']
 			let str = '';
 			if (skillType == 0) {
@@ -33,7 +28,19 @@ module view.wuXue {
 			this.skillType = skillType;
 			this.dealSkillData();
 			this.showSkillPage(skillType, 1);
+			this.updateDefaultTaoLuID();
 			this.updateSkillShot(skillType);
+		}
+
+		/**
+		 * 刷新默认武学
+		 */
+		public updateDefaultTaoLuID() {
+			if (this.skillType == GameApp.MainPlayer.defaultTaoLuID) {
+				this.btn_setTaolu.label = '默认出战套路'
+			} else {
+				this.btn_setTaolu.label = '设置出战套路'
+			}
 		}
 
 		/**
@@ -141,7 +148,9 @@ module view.wuXue {
 			})
 			// 设置默认武学套路
 			this.btn_setTaolu.on(Laya.UIEvent.CLICK, this, () => {
-				// let skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this.skillItem.configID)
+				if (this.skillType == GameApp.MainPlayer.defaultTaoLuID) {
+					return
+				}
 				let pkt1 = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder();
 				// 第四行第一个标记
 				pkt1.setValue('oldcol', 0);
@@ -171,8 +180,19 @@ module view.wuXue {
 				}
 				this.showSkillPage(this.skillType, this.pageID);
 			})
-
+			// 监听切换套路
+			GameApp.LListener.on(view.wuXue.WuXue_Skill_Circle.skillAdd + '40', this, () => {
+				if (GameApp.MainPlayer.skillShotButton[400]) {
+					this.updateDefaultTaoLuID()
+				}
+			})
 		}
+
+		public destroy(isbool = true) {
+			GameApp.LListener.offCaller(view.wuXue.WuXue_Skill_Circle.skillAdd + '40', this)
+			super.destroy(true);
+		}
+
 
 
 		/**

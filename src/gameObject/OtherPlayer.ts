@@ -30,7 +30,7 @@ module GameObject {
 			return this.zslevel * 1000 + this.level
 		}
 		public viplvl: number = 0;//Vip等级
-		public ui_item: view.scene.PlayerAndHeroInSceneV0Item;
+		public ui_item: view.scene.PlayerInSceneItem;
 		public curHero: GameObject.Hero;// 当前的弟子
 
 	}

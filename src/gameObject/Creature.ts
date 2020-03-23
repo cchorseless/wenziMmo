@@ -304,8 +304,13 @@ module GameObject {
                 this.ui_item.updateHp();
             }
         }
-        public showPower(power: number,tartmpType:number) {
-            this.ui_item.showPower(power,tartmpType);
+        /**
+         * 伤害特效
+         * @param power 
+         * @param tartmpType 
+         */
+        public showDamageEffect(power: number, tartmpType: number) {
+            this.ui_item.showDamageEffect(power, tartmpType);
         }
 
 
@@ -416,42 +421,12 @@ module GameObject {
          * 尝试攻击，检查释放能攻击
          */
         public tryAttack(target: Creature, skillID: number = 1000): void {
+
         }
 
-        /**
-         * 攻击开始
-         */
-        public startAttack(): void {
-        }
 
-        /**
-         * 播放技能
-         * @param dwTargetId 受击人
-         * @param nMagicId 技能ID
-         * @param dwActionTick 花费时间
-         */
-        public showSkill(dwTargetId, nMagicId, dwActionTick): void {
-            let targeter = GameApp.MainPlayer.findViewObj(dwTargetId);
-            if (targeter) {
-                // let selfPoint = (this.ui_item as Laya.Box).localToGlobal(new Laya.Point(0, 0), false);
-                // let targetPoint = (targeter.ui_item as Laya.Box).localToGlobal(new Laya.Point(0, 0), false);
-                // let _skeGroup: SkeletonUtil.SkeletonGroup = new SkeletonUtil.SkeletonGroup();
-                // _skeGroup.rotation = -90;
-                // _skeGroup.loadRes(['sk/skill/huoqu/B_fire_02_ske.sk', 'sk/skill/huoqu/S_fire_02_ske.sk'], () => {
-                //     _skeGroup.pos(selfPoint.x + 100, selfPoint.y)
-                //     PanelManage.Main.addChild(_skeGroup);
-                //     Laya.Tween.to(_skeGroup, { x: targetPoint.x + 50, y: targetPoint.y + 50 }, 500, null, Laya.Handler.create(this, () => {
-                //         _skeGroup.showChild(1);
-                //         _skeGroup.play(0, false, true, Laya.Handler.create(this, () => {
-                //             _skeGroup.removeSelf()
-                //         }))
-                //     }))
-                // })
-            }
-            else {
-                TipsManage.showTips('技能没有找到目标对象');
-            }
-        }
+        public playFlyAni(dwTargetId, nMagicId, dwActionTick){}
+
         /**
          * 受击
          */

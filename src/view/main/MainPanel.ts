@@ -157,6 +157,7 @@ module view.main {
 			// }
 			this.clip_power.value = '' + LangConfig.getBigNumberDes(fight);
 		}
+
 		public upDataFlyChatSetting() {
 			let data = laya.net.LocalStorage.getJSON("chat_Set")
 			if (data == null || data == undefined) {
@@ -196,7 +197,6 @@ module view.main {
 			this.font_vipLevel.value = '' + _player.viplvl;
 		}
 		public addEvent(): void {
-
 			// 物品
 			EventManage.onWithEffect(this.btn_wuPin, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openBeiBaoPanel();
@@ -598,7 +598,7 @@ module view.main {
 			this.getShengWangInfo();
 			//活动状态
 			this.getHuoDongStatus();
-
+			
 			this.getActiveInfoData();
 			//月卡剩余时间
 			this.getMoonCardData();

@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":55,
-    "selecteID":77,
-    "props":{"y":0,"x":0,"width":145,"sceneColor":"#ffffff","height":156},
+    "selectedBox":1,
+    "selecteID":84,
+    "props":{"y":0,"x":0,"width":145,"sceneColor":"#ffffff","height":145},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":41,"x":20,"width":100,"skin":"image/common/frame_wanjia.png","height":100},
+                    "props":{"y":27,"x":22,"width":100,"skin":"image/common/frame_wanjia.png","height":100},
                     "nodeParent":55,
                     "label":"Image",
                     "isOpen":false,
@@ -50,25 +50,13 @@
                                 ],
                             "$LOCKED":false,
                             "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":17,"x":5,"width":92,"visible":false,"var":"img_mask","skin":"image/common/fight/mask.png","height":82,"alpha":0.6},
-                            "nodeParent":78,
-                            "label":"Image(img_mask)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":80,
-                            "child":[
-                                ]
                         }],
                     "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":28,"x":17,"width":109,"visible":false,"var":"lbl_guildName","text":"天下第一公会","strokeColor":"#000000","stroke":3,"height":20,"fontSize":18,"font":"fzhl","color":"#ffffff","align":"center"},
+                    "props":{"y":27,"x":18,"width":109,"var":"lbl_guildName","text":"天下第一公会","strokeColor":"#000000","stroke":3,"height":20,"fontSize":18,"font":"fzhl","color":"#ffffff","align":"center"},
                     "nodeParent":55,
                     "label":"Label(lbl_guildName)",
                     "isDirectory":false,
@@ -81,7 +69,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":92,"x":72,"width":147,"visible":false,"var":"img_isfight","skin":"image/common/skillName/1053.png","scaleY":0.2,"scaleX":0.2,"height":44,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":82,"x":75,"width":147,"visible":false,"var":"img_isfight","skin":"image/common/skillName/1053.png","scaleY":0.2,"scaleX":0.2,"height":44,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":55,
                     "label":"Image(img_isfight)",
                     "isDirectory":false,
@@ -95,17 +83,16 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":122,"x":35,"width":84,"var":"img_hpBg","skin":"image/common/battle/img_hpBg.png","height":8},
+                    "props":{"y":110,"x":30,"width":84,"var":"img_hpBg","skin":"image/common/battle/img_hpBg.png","height":8},
                     "nodeParent":55,
                     "label":"Image(img_hpBg)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":62,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"width":85,"var":"img_hp","top":0,"skin":"image/common/battle/img_xuetiao.png","left":0,"height":8},
                             "nodeParent":62,
@@ -121,7 +108,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":130,"x":16,"width":126,"skin":"image/main/main_tansuo/frame_mingzi.png","height":24},
+                    "props":{"y":116,"x":16,"width":115,"skin":"image/main/main_tansuo/frame_mingzi.png","height":24},
                     "nodeParent":55,
                     "label":"Image",
                     "isOpen":false,
@@ -171,7 +158,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":29,"x":12,"var":"img_chenghao","skin":"image/juese/chenghao/chenghao001.png","scaleY":0.35,"scaleX":0.35},
+                    "props":{"y":0,"x":2,"width":140,"var":"img_chenghao","skin":"image/juese/chenghao/chenghao001.png","height":30},
                     "nodeParent":55,
                     "label":"Image(img_chenghao)",
                     "isDirectory":false,
@@ -185,31 +172,17 @@
         },
         {
             "x":15,
-            "type":"FontClip",
-            "props":{"y":2,"x":21,"width":100,"visible":false,"var":"fc_Num","value":"9","skin":"image/common/number/shuzi_baoji.png","sheet":"0123456789","align":"center"},
-            "nodeParent":1,
-            "label":"FontClip(fc_Num)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":81,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Image",
             "props":{"y":107,"x":7,"visible":false,"var":"img_Argue","skin":"image/npc_jiaohu/frame_xinlizhi.png"},
             "nodeParent":1,
             "label":"Image(img_Argue)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":82,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":3,"x":6,"width":120,"var":"lab_Argue","text":"心理值:100","strokeColor":"#000000","height":18,"fontSize":20,"font":"FZXK","color":"#4f230f","align":"center"},
                     "nodeParent":82,
@@ -222,7 +195,21 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "props":{"y":76,"x":66,"var":"spr_ani"},
+            "nodeParent":1,
+            "label":"Sprite(spr_ani)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":84,
+            "child":[
+                ]
         }],
     "animations":[
         {

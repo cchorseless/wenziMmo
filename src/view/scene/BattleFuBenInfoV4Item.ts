@@ -13,37 +13,37 @@ module view.scene {
 				this['ui_skill' + i].setData(i);
 				// this.ui_skill1.setData
 			}
-			GameApp.LListener.event(view.scene.PlayerInSceneItem.HP, 100);
+			// GameApp.LListener.event(view.scene.PlayerInSceneItem.HP, 100);
 			this.myhp = 100;
 			GameApp.LListener.event(view.npc.NpcIconItem.HP, 100);
 			this.npchp = 100;
 		}
 		public addEvent() {
 			//出牌监听
-			GameApp.LListener.on(ProtoCmd.argueAttack, this, function (res) {
-				console.log(res)
-				//myhp   myidx我出牌的ID   npchp  npcidx  NPC出牌的ID
-				res;
-				if (GameApp.MainPlayer.curFuBenID == 400) {
-					view.main.Main_tanSuoItem.self.ui_showPai.visible = true;
-				} else {
-					view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
-				}
+			// GameApp.LListener.on(ProtoCmd.argueAttack, this, function (res) {
+			// 	console.log(res)
+			// 	//myhp   myidx我出牌的ID   npchp  npcidx  NPC出牌的ID
+			// 	res;
+			// 	if (GameApp.MainPlayer.curFuBenID == 400) {
+			// 		view.main.Main_tanSuoItem.self.ui_showPai.visible = true;
+			// 	} else {
+			// 		view.main.Main_tanSuoItem.self.ui_showPai.visible = false;
+			// 	}
 
-				let mySpan = this.myhp - res.myhp;
-				let npcSpan = this.npchp - res.npchp;
-				this.myhp = res.myhp;
-				this.npchp = res.npchp;
-				let sendData: string = [res.myidx, res.npcidx, mySpan, npcSpan].join(',')
+			// 	let mySpan = this.myhp - res.myhp;
+			// 	let npcSpan = this.npchp - res.npchp;
+			// 	this.myhp = res.myhp;
+			// 	this.npchp = res.npchp;
+			// 	let sendData: string = [res.myidx, res.npcidx, mySpan, npcSpan].join(',')
 
-				GameApp.LListener.event(view.main.Main_tanSuoItem.UpDateDes, sendData);
+			// 	GameApp.LListener.event(view.main.Main_tanSuoItem.UpDateDes, sendData);
 
-				view.main.Main_tanSuoItem.self.ui_showPai.setData(res.myidx, res.npcidx)
-				GameApp.LListener.event(view.scene.PlayerInSceneItem.HP, res.myhp);
-				GameApp.LListener.event(view.npc.NpcIconItem.HP, res.npchp);
+			// 	view.main.Main_tanSuoItem.self.ui_showPai.setData(res.myidx, res.npcidx)
+			// 	GameApp.LListener.event(view.scene.PlayerInSceneItem.HP, res.myhp);
+			// 	GameApp.LListener.event(view.npc.NpcIconItem.HP, res.npchp);
 
 
-			})
+			// })
 			for (let i = 1; i < 4; i++) {
 				this.ui_skill1.btn_choose
 				this['ui_skill' + i].btn_choose.on(Laya.UIEvent.CLICK, this, function () {

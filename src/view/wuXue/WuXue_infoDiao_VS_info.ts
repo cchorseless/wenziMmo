@@ -120,7 +120,8 @@ module view.wuXue {
 		public showCombo(configID) {
 			// this.panel_combo.height = 0;
 			// this.img_combo.height = 0;
-			// let curPageComboType = GameApp.MainPlayer.comboTypeByPage[GameApp.MainPlayer.taoluPageID];
+			let skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID);
+			let curPageComboType = GameApp.MainPlayer.comboTypeByPage[skillType];
 			let comboID = SheetConfig.mydb_magic_tbl.getInstance(null).COMBINATION_SKILLSID(configID);
 			if (comboID != '0' && comboID) {
 				let comboIdArr = comboID.split('`')
@@ -133,13 +134,14 @@ module view.wuXue {
 						let comboEff = SheetConfig.Skill_combination.getInstance(null).DESCRIBE(key);
 						let comboEffArr = comboEff.split('`');
 						let isActive = false;
-						// for (let o in curPageComboType) {
-						// 	if (parseInt(o) == comboSkillID) {
-						// 		if (curPageComboType[o] >= comboSkillIDNum) {
-						// 			isActive = true;
-						// 		}
-						// 	}
-						// }
+						for (let o in curPageComboType) {
+							if (parseInt(o) == comboSkillID) {
+								if (curPageComboType[o] >= comboSkillIDNum) {
+									isActive = true;
+								}
+							}
+						}
+						// let p = new laya.html.dom.HTMLDivElement()
 						let p = new Laya.HTMLDivElement()
 						p.width = this.panel_combo.width - 30;
 						p.style.fontSize = 22;

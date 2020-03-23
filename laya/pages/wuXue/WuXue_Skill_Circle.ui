@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":15,
+    "selecteID":9,
     "props":{"width":135,"sceneColor":"#ffffff","height":125},
     "nodeParent":-1,
     "label":"View",
@@ -25,7 +25,7 @@
             "compId":6,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -40,6 +40,7 @@
             "compId":9,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":24,"x":18,"var":"img_num","skin":"image/common/wuxue/font_1.png"},
                     "nodeParent":9,
